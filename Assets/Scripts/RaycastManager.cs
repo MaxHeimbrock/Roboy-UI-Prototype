@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class RaycastManager : MonoBehaviour
 {
+    public LayerMask UI_Mask;
+
     Camera cam;
     int width;
     int height;
 
-    List<IRaycastSubscriber> subscribers;
+    List<IRaycastSubscriber> subscribers = new List<IRaycastSubscriber>();
 
     void Start()
     {
         cam = Camera.main;
-
-        subscribers = new List<IRaycastSubscriber>();
     }
 
     // Gets pointer position in 
@@ -22,7 +22,7 @@ public class RaycastManager : MonoBehaviour
     {
         Ray ray = cam.ScreenPointToRay(new Vector3(indicatorPos.x, indicatorPos.y, 0));
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, 1000f, UI_Mask))
         {
             //print("I'm looking at " + hit.transform.name);
             //hit.collider.GetComponent<MeshRenderer>().material.color = Color.red;

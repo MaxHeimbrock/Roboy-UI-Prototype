@@ -10,6 +10,7 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 
+# Ignore the big OpenCV dll files - have to be copied in /Assets/Plugins manually after cloning
 /[Aa]ssets/Plugins/opencv_world346.dll
 /[Aa]ssets/Plugins/opencv_world346d.dll
 

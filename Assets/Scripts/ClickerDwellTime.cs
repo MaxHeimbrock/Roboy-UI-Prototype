@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClickerDwellTime : Clicker, IRaycastSubscriber
 {
     private double dwellTime;
+    private Image timerImage;
 
     private RaycastHit lastHit;
 
-    private int timer = 0;
+    private float timer = 0;
+    private float startTimer = 0;
 
     public void SetDwellTime(double dwellTime)
     {
@@ -16,31 +19,48 @@ public class ClickerDwellTime : Clicker, IRaycastSubscriber
         Debug.Log("Set dwell time to " + dwellTime);
     }
 
+    public void SetDwellImage(Image timerImage)
+    {
+        this.timerImage = timerImage;
+    }
+
     public void ReceivePushNotification(RaycastHit hit, bool isHit)
     {
         if (isHit == true)
         {
+            // Same target as last frame 
             if (!lastHit.Equals(new RaycastHit()) && hit.collider.name == lastHit.collider.name)
             {
-                print("ClickerDwellTime is looking at " + hit.transform.name);
+                //print("ClickerDwellTime is looking at " + hit.transform.name);
 
-                timer++;
-                //Debug.Log(timer);
+                timer = Time.time;
+
+                timerImage.fillAmount = (timer - startTimer)/(float)dwellTime;
+
+                // is time difference bigger than dwell time?
+                if (timer - startTimer > dwellTime)
+                {
+                    UI_Manager.Click(1);
+                    startTimer = Time.time;
+                }
             }
+            // Target changed - start new startTimer
             else
             {
                 lastHit = hit;
+                startTimer = Time.time;
 
-                Debug.Log("Raycast target changed to " + lastHit.collider.name);
-                timer = 0;
+                //Debug.Log("Raycast target changed to " + lastHit.collider.name);
+                // Debug.Log("Target changed at " + startTimer);
             }
         }
+        // Raycast hit no UI target - start new startTimer 
         else
         {
             lastHit = hit;
-            
-            Debug.Log("Raycast target lost.");
-            timer = 0;
+            startTimer = Time.time;
+
+            //Debug.Log("Raycast target lost.");
         }
     }
 
