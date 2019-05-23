@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ClickerDwellTime : Clicker, IRaycastSubscriber
 {
     private double dwellTime;
-    private Image timerImage;
 
     private RaycastHit lastHit;
 
@@ -19,11 +18,6 @@ public class ClickerDwellTime : Clicker, IRaycastSubscriber
         Debug.Log("Set dwell time to " + dwellTime);
     }
 
-    public void SetDwellImage(Image timerImage)
-    {
-        this.timerImage = timerImage;
-    }
-
     public void ReceivePushNotification(RaycastHit hit, bool isHit)
     {
         if (isHit == true)
@@ -34,9 +28,7 @@ public class ClickerDwellTime : Clicker, IRaycastSubscriber
                 //print("ClickerDwellTime is looking at " + hit.transform.name);
 
                 timer = Time.time;
-
-                timerImage.fillAmount = (timer - startTimer)/(float)dwellTime;
-
+                
                 // is time difference bigger than dwell time?
                 if (timer - startTimer > dwellTime)
                 {

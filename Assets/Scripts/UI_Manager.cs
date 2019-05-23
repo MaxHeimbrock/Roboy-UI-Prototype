@@ -14,7 +14,6 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
     [Header("Dwell Time Settings")]
     [Tooltip("Change the time till selection.")]
     public double dwellTime = 2;
-    public Image dwellTimeImage;
 
     [Header("Debugging Settings")]
     [Tooltip("Shows the pointers position.")]
@@ -95,7 +94,6 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
             case ClickerTechnique.ClickerDwellTime:
                 clicker = this.gameObject.AddComponent<ClickerDwellTime>();
                 ((ClickerDwellTime)clicker).SetDwellTime(dwellTime);
-                ((ClickerDwellTime)clicker).SetDwellImage(dwellTimeImage);
                 return;
 
             case ClickerTechnique.ClickerWink:
