@@ -63,7 +63,7 @@ public class UI_Manager : MonoBehaviour
     private void CreatePointer()
     {
         if (pointer != null)
-            DestroyImmediate(pointer);
+            Destroy(GetComponent<Pointer>());
 
         switch (pointerTechnique)
         {
@@ -84,7 +84,7 @@ public class UI_Manager : MonoBehaviour
     private void CreateClicker()
     {
         if (clicker != null)
-            DestroyImmediate(clicker);
+            Destroy(GetComponent<Clicker>());
 
         switch (clickerTechnique)
         {

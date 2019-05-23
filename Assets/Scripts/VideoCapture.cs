@@ -2,38 +2,89 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using System.Runtime.InteropServices;
+using System;
+
 public class VideoCapture : MonoBehaviour
 {
-    WebCamTexture webcamTexture;
-    Color32[] frame;
+    internal static class OpenCV_Dll
+    {
+        [DllImport("OpenCV-Roboy-Prototype")]
+        internal unsafe static extern int Operate(ref int code, ref int x, ref int y);
+
+        [DllImport("OpenCV-Roboy-Prototype")]
+        internal unsafe static extern int Init(ref int outCameraWidth, ref int outCameraHeight);
+
+        [DllImport("OpenCV-Roboy-Prototype")]
+        internal unsafe static extern int Close();
+    }
+
+    List<IVideoSubscriber> subscribers;
+
+    int width;
+    int height;
+
+    bool OpenCV_ready = false;
+
+    int code = 0;
+    int x = -1;
+    int y = -1;
 
     void Start()
     {
-        // Start web cam feed
-        webcamTexture = new WebCamTexture();
-        webcamTexture.Play();
-        frame = new Color32[webcamTexture.width * webcamTexture.height];
+        int result = OpenCV_Dll.Init(ref width, ref height);
+
+        if (result == -2)
+            Debug.Log("Failed to open camera stream.");
+        else
+        {
+            OpenCV_ready = true;
+            Debug.Log("width: " + width + " - height: " + height);
+        }
+
+        subscribers = new List<IVideoSubscriber>();
     }
 
     void Update()
     {
-        webcamTexture.GetPixels32(frame);
+        //Debug.Log("Before: code = " + code + " - x = " + x + " - y = " + y);
 
-        Debug.Log("VideoCapture active");
-        unsafe
+        OpenCV_Dll.Operate(ref code, ref x, ref y);
+
+        //Debug.Log("After: code = " + code + " - x = " + x + " - y = " + y);
+
+        if (x == 2)
         {
-            fixed (Color32* fframe = frame)
-            {
-                // Accessing colors works here, but the Colors come from pointers, they are not saved consecutive in the RAM
-                Debug.Log(*fframe);
-            }
+            SendPushNotification(1);
         }
-
-        // Do processing of data here.
     }
 
-    public Color32[] GetCameraFrame()
+    public void Subscribe(IVideoSubscriber subscriber)
     {
-        return frame;
+        subscribers.Add(subscriber);
+    }
+
+    private void SendPushNotification(int code)
+    {
+        foreach (IVideoSubscriber subscriber in subscribers)
+        {
+            subscriber.ReceivePushNotification(code);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (OpenCV_ready == true)
+        {
+            OpenCV_Dll.Close();
+        }
+    }
+
+    void OnApplicationQuit()
+    {
+        if (OpenCV_ready == true)
+        {
+            OpenCV_Dll.Close();
+        }
     }
 }
