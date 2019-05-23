@@ -50,6 +50,15 @@ public class ClickerWink : Clicker
         Debug.Log("After: code = " + code + " - x = " + x + " - y = " + y);
 
     }
+
+    private void OnDestroy()
+    {
+        if (OpenCV_ready == true)
+        {
+            OpenCV_Dll.Close();
+        }
+    }
+
     void OnApplicationQuit()
     {
         if (OpenCV_ready == true)

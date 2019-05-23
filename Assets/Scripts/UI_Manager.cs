@@ -26,13 +26,13 @@ public class UI_Manager : MonoBehaviour
 
     private Vector2 pos;
 
-    public enum PointerTechnique {PointerMouse, PointerEye};
-    public enum ClickerTechnique {ClickerMouse, ClickerDwellTime, ClickerWink, ClickerBlink, ClickerSound};
+    public enum PointerTechnique { PointerMouse, PointerEye };
+    public enum ClickerTechnique { ClickerMouse, ClickerDwellTime, ClickerWink, ClickerBlink, ClickerSound };
 
     #region Setup
 
     public void Start()
-    {        
+    {
         CreatePointer();
         CreateClicker();
         cam = Camera.main;
@@ -62,6 +62,9 @@ public class UI_Manager : MonoBehaviour
     // Creates Pointer script for the pointer technique selected.
     private void CreatePointer()
     {
+        if (pointer != null)
+            DestroyImmediate(pointer);
+
         switch (pointerTechnique)
         {
             case PointerTechnique.PointerMouse:
@@ -80,6 +83,9 @@ public class UI_Manager : MonoBehaviour
     // Creates Clicker script for the clicker technique selected.
     private void CreateClicker()
     {
+        if (clicker != null)
+            DestroyImmediate(clicker);
+
         switch (clickerTechnique)
         {
             case ClickerTechnique.ClickerMouse:
@@ -105,5 +111,11 @@ public class UI_Manager : MonoBehaviour
         }
 
         throw new System.Exception("Not implemented yet.");
+    }
+
+    private void OnValidate()
+    {
+        CreatePointer();
+        CreateClicker();
     }
 }
