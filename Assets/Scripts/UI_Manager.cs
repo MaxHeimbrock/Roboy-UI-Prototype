@@ -20,6 +20,7 @@ public class UI_Manager : MonoBehaviour
 
     private Camera cam;
     private AudioSource clickSound;
+    private RaycastManager raycastManager;
 
     private Pointer pointer;
     private Clicker clicker;
@@ -36,7 +37,8 @@ public class UI_Manager : MonoBehaviour
         CreatePointer();
         CreateClicker();
         cam = Camera.main;
-        clickSound = gameObject.GetComponent<AudioSource>();
+        clickSound = this.GetComponent<AudioSource>();
+        raycastManager = this.GetComponent<RaycastManager>();
     }
 
     #endregion
@@ -51,6 +53,8 @@ public class UI_Manager : MonoBehaviour
         Vector3 point = cam.ScreenToWorldPoint(new Vector3(pos.x, pos.y, 1));
 
         indicator.transform.position = point;
+
+        raycastManager.GetRaycastHit(pos);
     }
 
     public void Click(int code)
