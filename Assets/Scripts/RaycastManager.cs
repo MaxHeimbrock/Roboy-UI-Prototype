@@ -8,9 +8,13 @@ public class RaycastManager : MonoBehaviour
     int width;
     int height;
 
+    List<IRaycastSubscriber> subscribers;
+
     void Start()
     {
-        cam = Camera.main;        
+        cam = Camera.main;
+
+        subscribers = new List<IRaycastSubscriber>();
     }
 
     // Gets pointer position in 
@@ -20,15 +24,33 @@ public class RaycastManager : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            print("I'm looking at " + hit.transform.name);
+            //print("I'm looking at " + hit.transform.name);
             //hit.collider.GetComponent<MeshRenderer>().material.color = Color.red;
+            SendPushNotification(hit, true);
         }
         else
-            print("I'm looking at nothing!");
+        {
+            SendPushNotification(new RaycastHit(), false);
+            //print("I'm looking at nothing!");
+        }
     }
 
     void Update()
     {
         
+    }
+
+    public void Subscribe(IRaycastSubscriber subscriber)
+    {
+        subscribers.Add(subscriber);
+        Debug.Log(subscriber.ToString() + " has subscribed to RaycastManager");
+    }
+
+    private void SendPushNotification(RaycastHit hit, bool isHit)
+    {
+        foreach (IRaycastSubscriber subscriber in subscribers)
+        {
+            subscriber.ReceivePushNotification(hit, isHit);
+        }
     }
 }

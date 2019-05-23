@@ -6,7 +6,7 @@ public class ClickerWink : Clicker, IVideoSubscriber
 {
     protected override void SubclassStart()
     {
-        GameObject.FindGameObjectWithTag("VideoCapture").GetComponent<VideoCapture>().Subscribe(this);
+        SubscribeToVideoCapture();
     }
 
     public void Update()
@@ -16,6 +16,11 @@ public class ClickerWink : Clicker, IVideoSubscriber
 
     public void ReceivePushNotification(int code)
     {
-        Debug.Log("Code = " + code);
+        Debug.Log("Code = " + code + " in ClickerWink");
+    }
+
+    public void SubscribeToVideoCapture()
+    {
+        GameObject.FindGameObjectWithTag("VideoCapture").GetComponent<VideoCapture>().Subscribe(this);
     }
 }

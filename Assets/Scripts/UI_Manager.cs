@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_Manager : MonoBehaviour
+public class UI_Manager : MonoBehaviour, IRaycastSubscriber
 {
     [Header("Select Interaction Techniques")]
     [Tooltip("Technique for pointing.")]
@@ -12,11 +12,12 @@ public class UI_Manager : MonoBehaviour
 
     [Header("Dwell Time Settings")]
     [Tooltip("Change the time till selection.")]
-    public double dwellTime;
+    public double dwellTime = 2;
 
     [Header("Debugging Settings")]
     [Tooltip("Shows the pointers position.")]
-    public GameObject indicator;
+    public Texture indicatorTexture;
+    public int indicatorSize = 10;
 
     private Camera cam;
     private AudioSource clickSound;
@@ -25,7 +26,7 @@ public class UI_Manager : MonoBehaviour
     private Pointer pointer;
     private Clicker clicker;
 
-    private Vector2 pos;
+    private Vector2 pointerPos;
 
     public enum PointerTechnique { PointerMouse, PointerEye };
     public enum ClickerTechnique { ClickerMouse, ClickerDwellTime, ClickerWink, ClickerBlink, ClickerSound };
@@ -39,6 +40,7 @@ public class UI_Manager : MonoBehaviour
         cam = Camera.main;
         clickSound = this.GetComponent<AudioSource>();
         raycastManager = this.GetComponent<RaycastManager>();
+        SubscribeToRaycastManager();
     }
 
     #endregion
@@ -50,10 +52,8 @@ public class UI_Manager : MonoBehaviour
 
     public void Point(Vector2 pos)
     {
-        Vector3 point = cam.ScreenToWorldPoint(new Vector3(pos.x, pos.y, 1));
-
-        indicator.transform.position = point;
-
+        pointerPos = pos;
+        
         raycastManager.GetRaycastHit(pos);
     }
 
@@ -66,9 +66,6 @@ public class UI_Manager : MonoBehaviour
     // Creates Pointer script for the pointer technique selected.
     private void CreatePointer()
     {
-        if (pointer != null)
-            Destroy(GetComponent<Pointer>());
-
         switch (pointerTechnique)
         {
             case PointerTechnique.PointerMouse:
@@ -87,9 +84,6 @@ public class UI_Manager : MonoBehaviour
     // Creates Clicker script for the clicker technique selected.
     private void CreateClicker()
     {
-        if (clicker != null)
-            Destroy(GetComponent<Clicker>());
-
         switch (clickerTechnique)
         {
             case ClickerTechnique.ClickerMouse:
@@ -98,6 +92,7 @@ public class UI_Manager : MonoBehaviour
 
             case ClickerTechnique.ClickerDwellTime:
                 clicker = this.gameObject.AddComponent<ClickerDwellTime>();
+                ((ClickerDwellTime)clicker).SetDwellTime(dwellTime);
                 return;
 
             case ClickerTechnique.ClickerWink:
@@ -117,9 +112,22 @@ public class UI_Manager : MonoBehaviour
         throw new System.Exception("Not implemented yet.");
     }
 
-    private void OnValidate()
+    public void ReceivePushNotification(RaycastHit hit, bool isHit)
     {
-        CreatePointer();
-        CreateClicker();
+        if (isHit == true)
+        {
+            //print("UI_Manager is looking at " + hit.transform.name);
+        }
+    }
+
+    public void SubscribeToRaycastManager()
+    {
+        gameObject.GetComponent<RaycastManager>().Subscribe(this);
+    }
+
+    public void OnGUI()
+    {
+        GUI.DrawTexture(new Rect(pointerPos.x, (cam.pixelHeight - pointerPos.y), 10, 10), indicatorTexture);
+        //GUI.DrawTexture(new Rect(pointerPos.x - (indicatorSize / 2.0f), (cam.pixelHeight - (pointerPos.y - (indicatorSize / 2.0f))), 10, 10), indicatorTexture);
     }
 }

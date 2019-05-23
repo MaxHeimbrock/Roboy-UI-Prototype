@@ -5,4 +5,6 @@ using UnityEngine;
 public interface IVideoSubscriber 
 {
     void ReceivePushNotification(int code);
+
+    void SubscribeToVideoCapture();
 }
