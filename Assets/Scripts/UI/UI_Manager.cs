@@ -13,7 +13,8 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
 
     [Header("Dwell Time Settings")]
     [Tooltip("Change the time till selection.")]
-    public double dwellTime = 2;
+    public float dwellTime = 1.5f;
+    public Image dwellTimeIndicator;
 
     [Header("Debugging Settings")]
     [Tooltip("Shows the pointers position.")]
@@ -58,6 +59,8 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
         pointerPos = pos;
         
         raycastManager.GetRaycastHit(pos);
+
+        dwellTimeIndicator.rectTransform.position = new Vector2(pos.x + 50, pos.y + 50);
     }
 
     public void Click(int code)
@@ -140,9 +143,15 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
         raycastManager.Subscribe(this);
     }
 
+    
     public void OnGUI()
     {
-        GUI.DrawTexture(new Rect(pointerPos.x, (cam.pixelHeight - pointerPos.y), 10, 10), indicatorTexture);
-        //GUI.DrawTexture(new Rect(pointerPos.x - (indicatorSize / 2.0f), (cam.pixelHeight - (pointerPos.y - (indicatorSize / 2.0f))), 10, 10), indicatorTexture);
+        // Draw pointer indicator
+        GUI.DrawTexture(new Rect(pointerPos.x, (cam.pixelHeight - pointerPos.y), 10, 10), indicatorTexture);        
+    }
+
+    public Image GetDwellTimeIndicator()
+    {
+        return dwellTimeIndicator;
     }
 }

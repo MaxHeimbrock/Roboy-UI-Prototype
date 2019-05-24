@@ -5,14 +5,16 @@ using UnityEngine.UI;
 
 public class ClickerDwellTime : Clicker, IRaycastSubscriber
 {
-    private double dwellTime;
+    private float dwellTime;
 
     private RaycastHit lastHit;
+
+    private Image dwellTimeIndicator;
 
     private float timer = 0;
     private float startTimer = 0;
 
-    public void SetDwellTime(double dwellTime)
+    public void SetDwellTime(float dwellTime)
     {
         this.dwellTime = dwellTime;
         Debug.Log("Set dwell time to " + dwellTime);
@@ -28,12 +30,14 @@ public class ClickerDwellTime : Clicker, IRaycastSubscriber
                 //print("ClickerDwellTime is looking at " + hit.transform.name);
 
                 timer = Time.time;
-                
+                dwellTimeIndicator.fillAmount = (timer - startTimer) / dwellTime;
+
                 // is time difference bigger than dwell time?
                 if (timer - startTimer > dwellTime)
                 {
                     UI_Manager.Click(1);
                     startTimer = Time.time;
+                    dwellTimeIndicator.fillAmount = 0;
                 }                
             }
             // Target changed - start new startTimer
@@ -41,6 +45,7 @@ public class ClickerDwellTime : Clicker, IRaycastSubscriber
             {
                 lastHit = hit;
                 startTimer = Time.time;
+                dwellTimeIndicator.fillAmount = 0;
 
                 //Debug.Log("Raycast target changed to " + lastHit.collider.name);
                 // Debug.Log("Target changed at " + startTimer);
@@ -51,6 +56,7 @@ public class ClickerDwellTime : Clicker, IRaycastSubscriber
         {
             lastHit = hit;
             startTimer = Time.time;
+            dwellTimeIndicator.fillAmount = 0;
 
             //Debug.Log("Raycast target lost.");
         }
@@ -65,5 +71,6 @@ public class ClickerDwellTime : Clicker, IRaycastSubscriber
     protected override void SubclassStart()
     {
         SubscribeToRaycastManager();
+        dwellTimeIndicator = UI_Manager.GetDwellTimeIndicator();
     }
 }
