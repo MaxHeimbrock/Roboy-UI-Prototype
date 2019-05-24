@@ -49,7 +49,7 @@ public class VideoCapture : MonoBehaviour
     {
         //Debug.Log("Before: code = " + code + " - x = " + x + " - y = " + y);
 
-        OpenCV_Dll.Operate(ref code, ref x, ref y);
+        //OpenCV_Dll.Operate(ref code, ref x, ref y);
 
         //Debug.Log("After: code = " + code + " - x = " + x + " - y = " + y);
 

@@ -26,6 +26,8 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
 
     private Pointer pointer;
     private Clicker clicker;
+    private UI_Element elementLookingAt;
+    private bool isLookingAt = false;
 
     private Vector2 pointerPos;
 
@@ -62,6 +64,11 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
     {
         Debug.Log("Click");
         clickSound.Play();
+
+        if (isLookingAt == true)
+        {
+            Debug.Log("Clicked at " + elementLookingAt.name);
+        }
     }
 
     // Creates Pointer script for the pointer technique selected.
@@ -117,7 +124,14 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
     {
         if (isHit == true)
         {
+            isLookingAt = true;
             //print("UI_Manager is looking at " + hit.transform.name);
+
+            elementLookingAt = hit.transform.gameObject.GetComponent<UI_Element>();
+        }
+        else
+        {
+            isLookingAt = false;
         }
     }
 

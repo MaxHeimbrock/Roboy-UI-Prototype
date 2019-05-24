@@ -27,6 +27,8 @@ public class RaycastManager : MonoBehaviour
             //print("I'm looking at " + hit.transform.name);
             //hit.collider.GetComponent<MeshRenderer>().material.color = Color.red;
             SendPushNotification(hit, true);
+
+            hit.transform.gameObject.GetComponent<Button>().Highlight();
         }
         else
         {

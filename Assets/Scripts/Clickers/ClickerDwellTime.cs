@@ -34,7 +34,7 @@ public class ClickerDwellTime : Clicker, IRaycastSubscriber
                 {
                     UI_Manager.Click(1);
                     startTimer = Time.time;
-                }
+                }                
             }
             // Target changed - start new startTimer
             else
