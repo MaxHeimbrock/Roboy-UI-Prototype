@@ -34,8 +34,12 @@ public class VideoCapture : MonoBehaviour
     {
         int result = OpenCV_Dll.Init(ref width, ref height);
 
-        if (result == -2)
+        if (result == -1)
             Debug.Log("Failed to open camera stream.");
+        else if (result == -2)
+        {
+            Debug.Log("Could not find CascadeClassifier.");
+        }
         else
         {
             OpenCV_ready = true;
@@ -49,14 +53,16 @@ public class VideoCapture : MonoBehaviour
     {
         //Debug.Log("Before: code = " + code + " - x = " + x + " - y = " + y);
 
-        //OpenCV_Dll.Operate(ref code, ref x, ref y);
+        OpenCV_Dll.Operate(ref code, ref x, ref y);
 
-        //Debug.Log("After: code = " + code + " - x = " + x + " - y = " + y);
+        Debug.Log("After: code = " + code + " - x = " + x + " - y = " + y);
 
+        /*
         if (x == 2)
         {
             SendPushNotification(1);
         }
+        */
     }
 
     public void Subscribe(IVideoSubscriber subscriber)
