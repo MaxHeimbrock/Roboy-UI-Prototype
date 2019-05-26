@@ -689,7 +689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointerTechnique: 0
-  clickerTechnique: 1
+  clickerTechnique: 2
   dwellTime: 2
   dwellTimeIndicator: {fileID: 218414296}
   indicatorTexture: {fileID: 2800000, guid: 0d7e42872d7c5484ca3fa86187c0ab8c, type: 3}

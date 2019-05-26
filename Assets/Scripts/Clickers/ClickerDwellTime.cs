@@ -35,7 +35,7 @@ public class ClickerDwellTime : Clicker, IRaycastSubscriber
                 // is time difference bigger than dwell time?
                 if (timer - startTimer > dwellTime)
                 {
-                    UI_Manager.Click(1);
+                    PushClick(1);
                     startTimer = Time.time;
                     dwellTimeIndicator.fillAmount = 0;
                 }                

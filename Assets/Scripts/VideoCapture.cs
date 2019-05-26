@@ -55,14 +55,10 @@ public class VideoCapture : MonoBehaviour
 
         OpenCV_Dll.Operate(ref code, ref x, ref y);
 
-        Debug.Log("After: code = " + code + " - x = " + x + " - y = " + y);
-
-        /*
-        if (x == 2)
-        {
-            SendPushNotification(1);
-        }
-        */
+        //Debug.Log("After: code = " + code + " - x = " + x + " - y = " + y);
+        
+        SendPushNotification(code);
+        
     }
 
     public void Subscribe(IVideoSubscriber subscriber)
