@@ -367,6 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f3df893c3ac4a40a32beba8885df63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useOperate: 0
 --- !u!4 &465315953
 Transform:
   m_ObjectHideFlags: 0
@@ -689,7 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointerTechnique: 0
-  clickerTechnique: 2
+  clickerTechnique: 1
   dwellTime: 2
   dwellTimeIndicator: {fileID: 218414296}
   indicatorTexture: {fileID: 2800000, guid: 0d7e42872d7c5484ca3fa86187c0ab8c, type: 3}

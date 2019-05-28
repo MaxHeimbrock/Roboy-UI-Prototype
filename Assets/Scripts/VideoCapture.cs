@@ -7,6 +7,8 @@ using System;
 
 public class VideoCapture : MonoBehaviour
 {
+    public bool useOperate = true;
+
     internal static class OpenCV_Dll
     {
         [DllImport("OpenCV-Roboy-Prototype")]
@@ -53,7 +55,8 @@ public class VideoCapture : MonoBehaviour
     {
         //Debug.Log("Before: code = " + code + " - x = " + x + " - y = " + y);
 
-        OpenCV_Dll.Operate(ref code, ref x, ref y);
+        if (useOperate)
+            OpenCV_Dll.Operate(ref code, ref x, ref y);
 
         //Debug.Log("After: code = " + code + " - x = " + x + " - y = " + y);
         
