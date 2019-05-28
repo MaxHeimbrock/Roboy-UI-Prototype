@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Button : UI_Element, IClickable
+public class Button : UI_Element , IClickable
 {
     // For Highlighting
     Light highlight;
 
     public void Click()
     {
-        throw new System.NotImplementedException();
+        Debug.Log(this.name + " was clicked.");
     }
 
     public override void Highlight()

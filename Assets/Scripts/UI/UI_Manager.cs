@@ -68,8 +68,10 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
         Debug.Log("Click");
         clickSound.Play();
 
-        if (isLookingAt == true)
+        // Check if UI_Element looked at is clickable
+        if (isLookingAt == true && elementLookingAt is IClickable)
         {
+            ((IClickable)elementLookingAt).Click();
             Debug.Log("Clicked at " + elementLookingAt.name);
         }
     }

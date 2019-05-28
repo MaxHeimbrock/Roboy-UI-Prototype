@@ -12,7 +12,7 @@ public class VideoCapture : MonoBehaviour
     internal static class OpenCV_Dll
     {
         [DllImport("OpenCV-Roboy-Prototype")]
-        internal unsafe static extern int Operate(ref int code, ref int x, ref int y);
+        internal unsafe static extern int Operate(ref int code, ref int mode);
 
         [DllImport("OpenCV-Roboy-Prototype")]
         internal unsafe static extern int Init(ref int outCameraWidth, ref int outCameraHeight);
@@ -29,8 +29,7 @@ public class VideoCapture : MonoBehaviour
     bool OpenCV_ready = false;
 
     int code = 0;
-    int x = -1;
-    int y = -1;
+    public int mode = -1;
 
     void Start()
     {
@@ -56,12 +55,11 @@ public class VideoCapture : MonoBehaviour
         //Debug.Log("Before: code = " + code + " - x = " + x + " - y = " + y);
 
         if (useOperate)
-            OpenCV_Dll.Operate(ref code, ref x, ref y);
+            OpenCV_Dll.Operate(ref code, ref mode);
 
         //Debug.Log("After: code = " + code + " - x = " + x + " - y = " + y);
         
-        SendPushNotification(code);
-        
+        SendPushNotification(code);        
     }
 
     public void Subscribe(IVideoSubscriber subscriber)
