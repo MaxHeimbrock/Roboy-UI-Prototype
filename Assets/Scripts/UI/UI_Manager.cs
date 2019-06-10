@@ -32,7 +32,7 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
 
     private Vector2 pointerPos;
 
-    public enum PointerTechnique { PointerMouse, PointerEye };
+    public enum PointerTechnique { PointerMouse, PointerEye, PointerViveController};
     public enum ClickerTechnique { ClickerMouse, ClickerDwellTime, ClickerWink, ClickerBlink, ClickerSound };
 
     #region Setup
@@ -54,13 +54,9 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
 
     }
 
-    public void Point(Vector2 pos)
-    {
-        pointerPos = pos;
-        
-        raycastManager.GetRaycastHit(pos);
-
-        dwellTimeIndicator.rectTransform.position = new Vector2(pos.x + 50, pos.y + 50);
+    public void Point(Vector3 position, Vector3 rotation)
+    {   
+        raycastManager.GetRaycastHit(position, rotation);
     }
 
     public void Click(int code)
@@ -85,6 +81,10 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
 
             case PointerTechnique.PointerEye:
                 pointer = this.gameObject.AddComponent<PointerEye>();
+                return;
+
+            case PointerTechnique.PointerViveController:
+                pointer = this.gameObject.AddComponent<PointerViveController>();
                 return;
 
             default:

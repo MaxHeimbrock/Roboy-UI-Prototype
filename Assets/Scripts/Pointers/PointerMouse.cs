@@ -5,13 +5,18 @@ using UnityEngine;
 public class PointerMouse : Pointer
 {
     // Finds the mouse position in 2D screen coordinates
-    public override Vector2 GetPointerPosition()
+    public override void GetPointerPosition()
     {
-        return Input.mousePosition;
+        PushPointerPosition(new Vector3(Input.mousePosition.x/100, Input.mousePosition.y/100, 1), Vector3.forward);
+    }
+
+    public override void SubclassStart()
+    {
+        
     }
 
     public void Update()
     {
-        PushPointerPosition(GetPointerPosition());
+        GetPointerPosition();        
     }
 }
