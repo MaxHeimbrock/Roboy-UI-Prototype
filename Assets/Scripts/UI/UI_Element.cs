@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class UI_Element : MonoBehaviour
 {
+    List<UI_Element> children;
+
     // Start is called before the first frame update
     void Start()
     {

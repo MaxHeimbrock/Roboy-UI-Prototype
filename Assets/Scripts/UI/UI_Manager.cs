@@ -19,7 +19,7 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
     [Header("Debugging Settings")]
     [Tooltip("Shows the pointers position.")]
     public Texture indicatorTexture;
-    public int indicatorSize = 10;
+    private RectTransform canvasTransform;
 
     private Camera cam;
     private AudioSource clickSound;
@@ -45,6 +45,7 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
         clickSound = this.GetComponent<AudioSource>();
         raycastManager = this.GetComponent<RaycastManager>();
         SubscribeToRaycastManager();
+        canvasTransform = GameObject.Find("DwellTimeIndicatorCanvas").GetComponent<RectTransform>();
     }
 
     #endregion
@@ -131,6 +132,9 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
             //print("UI_Manager is looking at " + hit.transform.name);
 
             elementLookingAt = hit.transform.gameObject.GetComponent<UI_Element>();
+            
+            canvasTransform.position = new Vector3(hit.point.x - 0.1f, hit.point.y + 0.1f, 0.8f);
+
         }
         else
         {
