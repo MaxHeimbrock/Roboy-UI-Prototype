@@ -136,6 +136,7 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
 
             // Moves indicator canvas to hitpoint for dwell time indicator
             canvasTransform.position = hit.point;
+            canvasTransform.rotation = hit.transform.rotation;
             // Moves it to the front a little bit to be seen better
             canvasTransform.localPosition += new Vector3(0, 0, -0.1f);
         }

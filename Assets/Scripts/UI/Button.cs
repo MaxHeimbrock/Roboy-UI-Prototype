@@ -23,6 +23,7 @@ public class Button : UI_Element, IClickable
         foreach (UI_Element child in children)
         {
             child.gameObject.SetActive(true);
+            child.Activate();
         }
     }
 
@@ -40,6 +41,11 @@ public class Button : UI_Element, IClickable
     {
         highlight = this.GetComponentInChildren<Light>();
         startTime = Time.time;
+
+        foreach (UI_Element child in children)
+        {
+            child.SetIsChild();
+        }
     }
 
     protected override void SubclassUpdate()

@@ -5,7 +5,9 @@ using UnityEngine;
 public abstract class UI_Element : MonoBehaviour
 {
     public UI_Element[] children;
-    public MagicCorner magicCorner;
+    // is overwritten by parent at Start(), if element is child
+    protected bool isChild = false;
+    protected MagicCorner magicCorner;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,32 @@ public abstract class UI_Element : MonoBehaviour
     void Update()
     {
         SubclassUpdate();   
+    }
+
+    public void Activate()
+    {
+
+    }
+
+    public void Deactivate()
+    {        
+        this.gameObject.SetActive(false);
+    }
+
+    public void SetMagicCorner(MagicCorner magicCorner)
+    {
+        this.magicCorner = magicCorner;
+    }
+
+    public void SetIsChild()
+    {
+        isChild = true;        
+        Deactivate();
+    }
+
+    public bool GetIsChild()
+    {
+        return isChild;
     }
 
     protected abstract void SubclassStart();

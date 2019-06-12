@@ -24,14 +24,39 @@ public class MagicCorner : UI_Element
 
     int highlighted = 0;
 
+    UI_Element[] attatched_ui_elements;
+
     public override void Highlight()
     {
         highlighted = 1;
     }
 
+    private void FindAttatchedElements()
+    {
+        GameObject attatchedMenu = this.transform.parent.parent.gameObject;
+        attatched_ui_elements = attatchedMenu.GetComponentsInChildren<UI_Element>();
+
+        foreach (UI_Element ui_element in attatched_ui_elements)
+        {
+            ui_element.SetMagicCorner(this);
+        }
+    }
+
+    // Deactivates all children, if magic corner is moved down again
+    private void DeactivateAttatchedElements()
+    {
+        foreach (UI_Element ui_element in attatched_ui_elements)
+        {
+            if (ui_element.GetIsChild() == true)
+            {
+                ui_element.Deactivate();
+            }
+        }
+    }
+
     protected override void SubclassStart()
     {
-
+        FindAttatchedElements();
     }
 
     protected override void SubclassUpdate()
@@ -86,6 +111,7 @@ public class MagicCorner : UI_Element
                         startTime = Time.time;
                         this.transform.localPosition = front;
                         //Debug.Log("Down");
+                        DeactivateAttatchedElements();
                     }
                     break;
             }
@@ -135,6 +161,7 @@ public class MagicCorner : UI_Element
                     // Rotation done - go to next state
                     else
                     {
+                        DeactivateAttatchedElements();
                         currentState = state.bottom;
                         startTime = Time.time;
                         this.transform.localPosition = front;
