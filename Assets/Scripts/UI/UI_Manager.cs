@@ -65,9 +65,10 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
         Debug.Log("Click");
         clickSound.Play();
 
-        if (isLookingAt == true)
+        if (isLookingAt == true && elementLookingAt is IClickable)
         {
             Debug.Log("Clicked at " + elementLookingAt.name);
+            ((IClickable)elementLookingAt).Click();
         }
     }
 
@@ -132,9 +133,11 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
             //print("UI_Manager is looking at " + hit.transform.name);
 
             elementLookingAt = hit.transform.gameObject.GetComponent<UI_Element>();
-            
-            canvasTransform.position = new Vector3(hit.point.x - 0.1f, hit.point.y + 0.1f, 0.8f);
 
+            // Moves indicator canvas to hitpoint for dwell time indicator
+            canvasTransform.position = hit.point;
+            // Moves it to the front a little bit to be seen better
+            canvasTransform.localPosition += new Vector3(0, 0, -0.1f);
         }
         else
         {

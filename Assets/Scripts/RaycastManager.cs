@@ -56,12 +56,14 @@ public class RaycastManager : MonoBehaviour
         Ray raycast = new Ray(transform.position, transform.forward);
 
         RaycastHit hitObject;
-        bool rayHit = Physics.Raycast(raycast, out hitObject, UI_Mask);
+        bool rayHit = Physics.Raycast(raycast, out hitObject, length, UI_Mask);
+        //Debug.Log(rayHit);
 
         float beamLength = GetBeamLength(rayHit, hitObject);
 
         // This draws the line of the raycast
         SetPointerTransform(beamLength, thickness);
+
     }
 
     void Update()
@@ -120,14 +122,14 @@ public class RaycastManager : MonoBehaviour
              * New Code
              * */
 
-            hit.transform.gameObject.GetComponent<Button>().Highlight();
-            print("I'm looking at " + hit.transform.name);
+            hit.transform.gameObject.GetComponent<UI_Element>().Highlight();
+            //print("I'm looking at " + hit.transform.name);
             SendPushNotification(hit, true);
         }
         else
         {
             SendPushNotification(new RaycastHit(), false);
-            print("I'm looking at nothing!");
+            //print("I'm looking at nothing!");
         }
 
         //adjust beam length if something is blocking it

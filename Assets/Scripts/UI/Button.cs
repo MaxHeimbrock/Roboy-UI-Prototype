@@ -18,13 +18,22 @@ public class Button : UI_Element, IClickable
 
     public void Click()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Clicked at " + this.name + " inside Button class");
+
+        foreach (UI_Element child in children)
+        {
+            child.gameObject.SetActive(true);
+        }
     }
 
     public override void Highlight()
     {
-        Debug.Log("Highlight " + this.name);
+        //Debug.Log("Highlight " + this.name);
         startTime = Time.time;
+
+        // If the button is part of a magic corner, keep the magic corner highlighted as well
+        if (magicCorner != null)
+            magicCorner.Highlight();
     }
 
     protected override void SubclassStart()
@@ -35,6 +44,7 @@ public class Button : UI_Element, IClickable
 
     protected override void SubclassUpdate()
     {
+        // Sets the highlight as a smooth transition of intensity
         float t = (Time.time - startTime) / duration;
         highlight.intensity = Mathf.SmoothStep(minimum, maximum, t);
     }
