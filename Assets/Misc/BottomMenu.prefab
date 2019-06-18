@@ -137,7 +137,6 @@ GameObject:
   - component: {fileID: 1317778457183801294}
   - component: {fileID: 1317778457183801289}
   - component: {fileID: 1317778457183801288}
-  - component: {fileID: 1317778457183801295}
   m_Layer: 5
   m_Name: MagicCornerBottom
   m_TagString: Untagged
@@ -217,23 +216,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1317778457183801295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317778457183801290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0afceba6f2da4b48a9afbc9a9f1120b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magicCorner: {fileID: 0}
-  bottomMenuTransform: {fileID: 1317778456414076451}
-  highlightTime: 0.5
-  rotationTime: 0.5
-  topTime: 3
 --- !u!1 &1317778457617077836
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +324,7 @@ PrefabInstance:
         type: 3}
       propertyPath: magicCorner
       value: 
-      objectReference: {fileID: 1317778457183801295}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1356ad84793ddc040912e1f3aaa8c1b8, type: 3}
 --- !u!4 &910004769408388481 stripped
@@ -427,7 +409,7 @@ PrefabInstance:
         type: 3}
       propertyPath: magicCorner
       value: 
-      objectReference: {fileID: 1317778457183801295}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1356ad84793ddc040912e1f3aaa8c1b8, type: 3}
 --- !u!4 &910004769177475777 stripped
@@ -507,7 +489,7 @@ PrefabInstance:
         type: 3}
       propertyPath: magicCorner
       value: 
-      objectReference: {fileID: 1317778457183801295}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1356ad84793ddc040912e1f3aaa8c1b8, type: 3}
 --- !u!4 &910004770706142591 stripped

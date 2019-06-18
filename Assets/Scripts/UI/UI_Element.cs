@@ -7,7 +7,7 @@ public abstract class UI_Element : MonoBehaviour
     public UI_Element[] children;
     // is overwritten by parent at Start(), if element is child
     protected bool isChild = false;
-    protected MagicCorner magicCorner;
+    protected MenuManager menuManager;
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +31,9 @@ public abstract class UI_Element : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    public void SetMagicCorner(MagicCorner magicCorner)
+    public void SetMenuManager(MenuManager menuManager)
     {
-        this.magicCorner = magicCorner;
+        this.menuManager = menuManager;
     }
 
     public void SetIsChild()

@@ -38,7 +38,7 @@ public class MagicCorner : UI_Element
 
         foreach (UI_Element ui_element in attatched_ui_elements)
         {
-            ui_element.SetMagicCorner(this);
+            //ui_element.SetMenuManager(this);
         }
     }
 

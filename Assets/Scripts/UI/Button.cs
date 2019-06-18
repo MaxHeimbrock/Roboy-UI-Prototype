@@ -33,8 +33,8 @@ public class Button : UI_Element, IClickable
         startTime = Time.time;
 
         // If the button is part of a magic corner, keep the magic corner highlighted as well
-        if (magicCorner != null)
-            magicCorner.Highlight();
+        if (menuManager != null)
+            menuManager.Highlight();
     }
 
     protected override void SubclassStart()

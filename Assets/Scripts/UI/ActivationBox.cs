@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InfoPanel : UI_Element
+// Just a script for a hitbox, that sends a highlight to the corresponding menu manager
+public class ActivationBox : UI_Element
 {
     public override void Highlight()
     {
-        // If the infopanel is part of a magic corner, keep the magic corner highlighted as well
-        if (menuManager != null)
-            menuManager.Highlight();
+        menuManager.Highlight();
     }
 
     protected override void SubclassStart()
