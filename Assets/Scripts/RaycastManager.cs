@@ -74,7 +74,7 @@ public class RaycastManager : MonoBehaviour
     public void Subscribe(IRaycastSubscriber subscriber)
     {
         subscribers.Add(subscriber);
-        Debug.Log(subscriber.ToString() + " has subscribed to RaycastManager");
+        //Debug.Log(subscriber.ToString() + " has subscribed to RaycastManager");
     }
 
     private void SendPushNotification(RaycastHit hit, bool isHit)

@@ -17,7 +17,6 @@ public class ClickerDwellTime : Clicker, IRaycastSubscriber
     public void SetDwellTime(float dwellTime)
     {
         this.dwellTime = dwellTime;
-        Debug.Log("Set dwell time to " + dwellTime);
     }
 
     public void ReceivePushNotification(RaycastHit hit, bool isHit)
