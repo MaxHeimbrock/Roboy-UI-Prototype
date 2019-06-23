@@ -122,8 +122,8 @@ public class RaycastManager : MonoBehaviour
              * New Code
              * */
 
+            print("I'm looking at " + hit.transform.name);
             hit.transform.gameObject.GetComponent<UI_Element>().Highlight();
-            //print("I'm looking at " + hit.transform.name);
             SendPushNotification(hit, true);
         }
         else

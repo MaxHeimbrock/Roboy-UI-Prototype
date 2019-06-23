@@ -24,7 +24,5 @@ public class InfoPanel : UI_Element
     protected override void SubclassUpdate()
     {
         text.text = "" + Time.time;
-        Logger logger = new Logger();
-        logger.ToString
     }
 }
