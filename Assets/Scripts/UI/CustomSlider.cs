@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slider : MonoBehaviour
+public class CustomSlider : MonoBehaviour
 {
 
     private GameObject IntersectingObject;

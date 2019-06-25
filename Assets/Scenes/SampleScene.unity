@@ -1,4 +1,4 @@
-f%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
 OcclusionCullingSettings:
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.28502658, g: 0.37139305, b: 0.49600944, a: 1}
+  m_IndirectSpecularColor: {r: 0.2850269, g: 0.3713935, b: 0.49601045, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3172,4 +3172,4 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 585047275}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 484c81cf60a3f9c41999b239a4036e05, type: 3}
+m_SourcePrefab: {fileID: 100100000, guid: 484c81cf60a3f9c41999b239a4036e05, type: 3}
