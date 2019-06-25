@@ -17,12 +17,12 @@ public class ClickerDwellTime : Clicker, IRaycastSubscriber
     public void SetDwellTime(float dwellTime)
     {
         this.dwellTime = dwellTime;
-        Debug.Log("Set dwell time to " + dwellTime);
     }
 
     public void ReceivePushNotification(RaycastHit hit, bool isHit)
     {
-        if (isHit == true)
+        // Check if something is hit and if it is clickable
+        if (isHit == true && hit.transform.gameObject.GetComponent<UI_Element>() is IClickable)
         {
             // Same target as last frame 
             if (!lastHit.Equals(new RaycastHit()) && hit.collider.name == lastHit.collider.name)

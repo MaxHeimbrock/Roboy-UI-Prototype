@@ -9,14 +9,17 @@ public abstract class Pointer : MonoBehaviour
     public void Start()
     {
         UI_Manager = GetComponent<UI_Manager>();
+        SubclassStart();
     }
 
+    public abstract void SubclassStart();
+
     // Returns the pointers position in 2D screen coordinates (pixels)
-    public abstract Vector2 GetPointerPosition();
+    public abstract void GetPointerPosition();
 
     // Pushes pointer position to UI_Manager every Update() call
-    public void PushPointerPosition(Vector2 pos)
+    public void PushPointerPosition(Vector3 position, Vector3 rotation)
     {
-        UI_Manager.Point(pos);
+        UI_Manager.Point(position, rotation);
     }
 }

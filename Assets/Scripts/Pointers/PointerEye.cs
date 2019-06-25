@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class PointerEye : Pointer
 {
-    public override Vector2 GetPointerPosition()
+    public override void GetPointerPosition()
     {
         throw new System.NotImplementedException();
     }
 
+    public override void SubclassStart()
+    {
+        
+    }
 }

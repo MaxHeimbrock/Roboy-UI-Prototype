@@ -19,7 +19,7 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
     [Header("Debugging Settings")]
     [Tooltip("Shows the pointers position.")]
     public Texture indicatorTexture;
-    public int indicatorSize = 10;
+    private RectTransform canvasTransform;
 
     private Camera cam;
     private AudioSource clickSound;
@@ -32,7 +32,7 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
 
     private Vector2 pointerPos;
 
-    public enum PointerTechnique { PointerMouse, PointerEye };
+    public enum PointerTechnique { PointerMouse, PointerEye, PointerViveController};
     public enum ClickerTechnique { ClickerMouse, ClickerDwellTime, ClickerWink, ClickerBlink, ClickerSound };
 
     #region Setup
@@ -45,6 +45,7 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
         clickSound = this.GetComponent<AudioSource>();
         raycastManager = this.GetComponent<RaycastManager>();
         SubscribeToRaycastManager();
+        canvasTransform = GameObject.Find("DwellTimeIndicatorCanvas").GetComponent<RectTransform>();
     }
 
     #endregion
@@ -54,25 +55,20 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
 
     }
 
-    public void Point(Vector2 pos)
-    {
-        pointerPos = pos;
-        
-        raycastManager.GetRaycastHit(pos);
-
-        dwellTimeIndicator.rectTransform.position = new Vector2(pos.x + 50, pos.y + 50);
+    public void Point(Vector3 position, Vector3 rotation)
+    {   
+        raycastManager.GetRaycastHit(position, rotation);
     }
 
     public void Click(int code)
     {
-        Debug.Log("Click");
+        //Debug.Log("Click");
         clickSound.Play();
 
-        // Check if UI_Element looked at is clickable
         if (isLookingAt == true && elementLookingAt is IClickable)
         {
+            //Debug.Log("Clicked at " + elementLookingAt.name);
             ((IClickable)elementLookingAt).Click();
-            Debug.Log("Clicked at " + elementLookingAt.name);
         }
     }
 
@@ -87,6 +83,10 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
 
             case PointerTechnique.PointerEye:
                 pointer = this.gameObject.AddComponent<PointerEye>();
+                return;
+
+            case PointerTechnique.PointerViveController:
+                pointer = this.gameObject.AddComponent<PointerViveController>();
                 return;
 
             default:
@@ -133,6 +133,12 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
             //print("UI_Manager is looking at " + hit.transform.name);
 
             elementLookingAt = hit.transform.gameObject.GetComponent<UI_Element>();
+
+            // Moves indicator canvas to hitpoint for dwell time indicator
+            canvasTransform.position = hit.point;
+            canvasTransform.rotation = hit.transform.rotation;
+            // Moves it to the front a little bit to be seen better
+            canvasTransform.localPosition += new Vector3(0, 0, -0.1f);
         }
         else
         {
