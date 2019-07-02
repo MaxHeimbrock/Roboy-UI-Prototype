@@ -80,16 +80,19 @@ public class CustomSlider : MonoBehaviour
         float fillPercentage = (closestPoint.x - worldLeftBorderPoint.x) / totalLength;
         Transform fillTransform = transform.GetChild(0);
         fillTransform.localScale = new Vector3(fillTransform.localScale.x, fillPercentage, fillTransform.localScale.z);
-        fillTransform.position = new Vector3(transform.position.x - (totalLength - (totalLength * fillPercentage))/2f, fillTransform.position.y, fillTransform.position.z);
+        fillTransform.position = new Vector3((transform.position.x - (totalLength - (totalLength * fillPercentage))/2f)-0.0001f, fillTransform.position.y, fillTransform.position.z);
     }
 
+    /*
+     * Only for Debug purposes
+     */
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(v1, 0.1f);
+        Gizmos.DrawSphere(v1, 0.001f);
         Gizmos.color = new Color(255,0,0);
-        Gizmos.DrawSphere(v2, 0.12f);
+        Gizmos.DrawSphere(v2, 0.0012f);
         Gizmos.color = new Color(0, 255, 0);
-        Gizmos.DrawSphere(v3, 0.14f);
+        Gizmos.DrawSphere(v3, 0.0014f);
         Gizmos.color = new Color(0, 0, 255);
         Gizmos.DrawSphere(v4, 0.16f);
     }
