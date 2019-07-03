@@ -52,6 +52,7 @@ public class Button : UI_Element , IClickable
     {
         // Sets the highlight as a smooth transition of intensity
         float t = (Time.time - startTime) / duration;
+        Debug.Log(this.name + " is highlighted");
         highlight.intensity = Mathf.SmoothStep(minimum, maximum, t);
     }
 }
