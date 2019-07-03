@@ -17,7 +17,7 @@ public class FrameClickDetection : MonoBehaviour
         wait = false;
         pressurePlateTransform = transform.parent.GetChild(0);
         pressurePlateCollider = pressurePlateTransform.GetComponent<Collider>();
-        defaultColor = transform.GetChild(0).GetComponent<MeshRenderer>().material.GetColor("_BaseColor");
+        defaultColor = transform.GetChild(0).GetComponent<MeshRenderer>().material.GetColor("_Color");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -51,15 +51,13 @@ public class FrameClickDetection : MonoBehaviour
     void Click()
     {
         clickcount++;
-        Debug.Log("Clicks: " + clickcount);
     }
 
     void highlightOn()
     {
-        Debug.Log("Start Highlight");
         foreach(MeshRenderer childMeshRenderer in transform.GetComponentsInChildren<MeshRenderer>())
         {
-            childMeshRenderer.material.SetColor("_BaseColor", Color.red);
+            childMeshRenderer.material.SetColor("_Color", Color.red);
         }
     }
 
@@ -67,7 +65,7 @@ public class FrameClickDetection : MonoBehaviour
     {
         foreach(MeshRenderer childMeshRenderer in transform.GetComponentsInChildren<MeshRenderer>())
         {
-            childMeshRenderer.material.SetColor("_BaseColor", defaultColor);
+            childMeshRenderer.material.SetColor("_Color", defaultColor);
         }
     }
 }

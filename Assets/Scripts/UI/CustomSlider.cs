@@ -46,28 +46,20 @@ public class CustomSlider : MonoBehaviour
     {
         float minX = 1000000000000000000;
         Vector3 closestPoint = new Vector3(0,0,0);
-        Debug.Log(collision.contactCount);
         foreach (ContactPoint contact in collision.contacts)
         {
-            Debug.Log(minX + " --- " + contact.point.x);
             if (contact.point.x < minX)
             {
                 minX = contact.point.x;
                 closestPoint = contact.point;
             }
         }
-        Debug.Log(closestPoint);
-        v3 = closestPoint;
         Vector3 localLeftBorderPoint = transform.localPosition;
         localLeftBorderPoint.y += 1f * transform.localScale.y;
         Vector3 worldLeftBorderPoint = transform.TransformPoint(localLeftBorderPoint);
-        Debug.Log("worldLeftBorder; " + worldLeftBorderPoint);
-        v1 = worldLeftBorderPoint;
         Vector3 localRightBorderPoint = transform.localPosition;
         localRightBorderPoint.y += -1f * transform.localScale.y;
         Vector3 worldRightBorderPoint = transform.TransformPoint(localRightBorderPoint);
-        Debug.Log("worldRightBorder: " + worldRightBorderPoint);
-        v2 = worldRightBorderPoint;
         if(closestPoint.x < worldLeftBorderPoint.x)
         {
             closestPoint.x = worldLeftBorderPoint.x;
@@ -86,7 +78,7 @@ public class CustomSlider : MonoBehaviour
     /*
      * Only for Debug purposes
      */
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(v1, 0.001f);
         Gizmos.color = new Color(255,0,0);
@@ -95,5 +87,5 @@ public class CustomSlider : MonoBehaviour
         Gizmos.DrawSphere(v3, 0.0014f);
         Gizmos.color = new Color(0, 0, 255);
         Gizmos.DrawSphere(v4, 0.16f);
-    }
+    }*/
 }

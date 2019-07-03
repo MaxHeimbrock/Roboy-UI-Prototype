@@ -11,6 +11,7 @@ public class PressurePlate : MonoBehaviour
     void Start()
     {
         localStartPos = transform.localPosition;
+        Debug.Log("start pos: " + localStartPos);
         activeCollisions = 0;
     }
 
@@ -20,7 +21,7 @@ public class PressurePlate : MonoBehaviour
         if (activeCollisions == 0)
         {
             transform.localPosition = Vector3.Lerp(transform.localPosition, localStartPos, Time.deltaTime * 1.5f);
-            if (Mathf.Abs(transform.localPosition.z - localStartPos.z) < 0.05)
+            if (Mathf.Abs(transform.localPosition.z - localStartPos.z) < 0.005)
             {
                 transform.localPosition = localStartPos;
             }
@@ -30,11 +31,14 @@ public class PressurePlate : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("I was hit by " + collision.gameObject.name);
+        Debug.Log(collision.relativeVelocity);
         activeCollisions++;
     }
 
     private void OnCollisionExit(Collision collision)
     {
+        Debug.Log(collision.gameObject.name + " stopped hitting me");
         activeCollisions--;
     }
 }
