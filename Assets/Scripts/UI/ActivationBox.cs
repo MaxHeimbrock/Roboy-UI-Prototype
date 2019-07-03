@@ -5,9 +5,23 @@ using UnityEngine;
 // Just a script for a hitbox, that sends a highlight to the corresponding menu manager
 public class ActivationBox : UI_Element
 {
-    public override void Highlight()
+    private bool pointedAt;
+
+    public void PointerEnter()
     {
-        menuManager.Highlight();
+        Debug.Log("Enter");
+        pointedAt = true;
+    }
+
+    public void PointerExit()
+    {
+        Debug.Log("Exit");
+        pointedAt = false;
+    }
+
+    public void Click()
+    {
+
     }
 
     protected override void SubclassStart()
@@ -17,6 +31,15 @@ public class ActivationBox : UI_Element
 
     protected override void SubclassUpdate()
     {
-        
+        if (pointedAt)
+        {
+            
+            menuManager.Highlight();
+        }
+    }
+
+    public override void Highlight()
+    {
+        throw new System.NotImplementedException();
     }
 }

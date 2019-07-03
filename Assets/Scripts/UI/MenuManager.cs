@@ -91,7 +91,9 @@ public class MenuManager : MonoBehaviour
             if (timer >= 1)
             {
                 currentState = state.active;
-                animator.SetBool("Active", true);                
+                animator.SetBool("Active", true);
+
+
             }
         }
     }

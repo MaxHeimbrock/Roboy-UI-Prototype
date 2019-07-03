@@ -54,19 +54,23 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
     {
         //CurvedUIInputModule.CustomControllerRay = new Ray(yourRemoteTransform.position, yourRemoteTransform.forward);
 
-        //CurvedUIInputModule.CustomControllerButtonState = isButtonOnYourRemotePressed;
-        CurvedUIInputModule.CustomControllerButtonState = true;
+        CurvedUIInputModule.CustomControllerButtonState = false;
     }
 
     public void Point(Vector3 position, Vector3 rotation)
     {
-        CurvedUIInputModule.CustomControllerRay = new Ray(position, rotation);
+        this.transform.position = position;
+        this.transform.rotation = Quaternion.Euler(rotation);
+
+        CurvedUIInputModule.CustomControllerRay = new Ray(this.transform.position, this.transform.forward);
 
         raycastManager.GetRaycastHit(position, rotation);
     }
 
     public void Click(int code)
     {
+        CurvedUIInputModule.CustomControllerButtonState = true;
+
         //Debug.Log("Click");
         clickSound.Play();
 
