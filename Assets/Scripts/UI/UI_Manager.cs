@@ -52,11 +52,16 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
 
     public void Update()
     {
+        //CurvedUIInputModule.CustomControllerRay = new Ray(yourRemoteTransform.position, yourRemoteTransform.forward);
 
+        //CurvedUIInputModule.CustomControllerButtonState = isButtonOnYourRemotePressed;
+        CurvedUIInputModule.CustomControllerButtonState = true;
     }
 
     public void Point(Vector3 position, Vector3 rotation)
-    {   
+    {
+        CurvedUIInputModule.CustomControllerRay = new Ray(position, rotation);
+
         raycastManager.GetRaycastHit(position, rotation);
     }
 

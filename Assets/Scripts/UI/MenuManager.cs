@@ -63,7 +63,7 @@ public class MenuManager : MonoBehaviour
         Debug.Log("Attatched " + attatched_ui_elements.Length + " children to " + this.name);
     }
 
-    // Deactivates all children, if magic corner is moved down again
+    // Deactivates all children, if menu is deactivated
     private void DeactivateAttatchedElements()
     {
         foreach (UI_Element ui_element in attatched_ui_elements)

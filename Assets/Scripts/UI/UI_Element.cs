@@ -8,6 +8,7 @@ public abstract class UI_Element : MonoBehaviour
     public UI_Element[] children;
     // is overwritten by parent at Start(), if element is child
     protected bool isChild = false;
+    // Every UI_Element has a parent menuManager, except for the top menu
     protected MenuManager menuManager;
     Animator animator;
 
