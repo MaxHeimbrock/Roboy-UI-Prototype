@@ -32,8 +32,7 @@ public class ActivationBox : UI_Element
     protected override void SubclassUpdate()
     {
         if (pointedAt)
-        {
-            
+        {            
             menuManager.Highlight();
         }
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuManager : MonoBehaviour
+public class MenuManager : UI_Element
 {
     UI_Element[] attatched_ui_elements;    
     Animator animator;
@@ -16,38 +16,7 @@ public class MenuManager : MonoBehaviour
     public float activeTime = 3.0f;
     public float activationTime = 2f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        FindAttatchedElements();
-        animator = GetComponent<Animator>();
-        startTimer = Time.time;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (currentState == state.active)
-        {
-            // Check how long ago last highlight was
-            timer = (Time.time - startTimer) / activeTime;
-
-            // If longer than activeTime, deactivate
-            if (timer >= 1)
-            {
-                currentState = state.passive;
-                animator.SetBool("Active", false);
-                DeactivateAttatchedElements();
-            }
-        }
-
-        else if (currentState == state.passive)
-        {
-            // If last highlight was more than 0.1 seconds in the past, reset timer for continuous activation
-            if (Time.time - currentTime > 0.1f)
-                startTimer = Time.time;
-        }
-    }
+    private bool pointed = false;
 
     private void FindAttatchedElements()
     {
@@ -75,8 +44,10 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void Highlight()
+    public override void Highlight()
     {
+        Debug.Log("Highlighed");
+
         // When active, just reset start timer of last highlight to now, so it doesn't deactivate 
         if (currentState == state.active)
             startTimer = Time.time;
@@ -92,9 +63,59 @@ public class MenuManager : MonoBehaviour
             {
                 currentState = state.active;
                 animator.SetBool("Active", true);
-
-
             }
+        }
+    }
+
+    public void PointerEnter()
+    {
+        if (pointed == false)
+        {
+            pointed = true;
+            Debug.Log("Enter");
+        }
+    }
+
+    public void PointerExit()
+    {
+        if (pointed == true)
+        {
+            pointed = false;
+            Debug.Log("Exit");
+        }
+    }
+
+    protected override void SubclassStart()
+    {
+        FindAttatchedElements();
+        animator = GetComponent<Animator>();
+        startTimer = Time.time;
+    }
+
+    protected override void SubclassUpdate()
+    {
+        if (pointed)
+            Highlight();
+
+        if (currentState == state.active)
+        {
+            // Check how long ago last highlight was
+            timer = (Time.time - startTimer) / activeTime;
+
+            // If longer than activeTime, deactivate
+            if (timer >= 1)
+            {
+                currentState = state.passive;
+                animator.SetBool("Active", false);
+                DeactivateAttatchedElements();
+            }
+        }
+
+        else if (currentState == state.passive)
+        {
+            // If last highlight was more than 0.1 seconds in the past, reset timer for continuous activation
+            if (Time.time - currentTime > 0.1f)
+                startTimer = Time.time;
         }
     }
 }

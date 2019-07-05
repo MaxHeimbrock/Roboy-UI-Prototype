@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Button : UI_Element , IClickable
 {
-    // For Highlighting
-    Light highlight;
+    public float dwellTime = 2.0f;
 
     // Minimum and maximum values for the transition.
     float minimum = 1f;
@@ -15,6 +15,11 @@ public class Button : UI_Element , IClickable
     float duration = 0.5f;
 
     float startTime;
+    float currentTimer;
+
+    bool pointed = false;
+
+    Image dwellTimeImage;
 
     public void Click()
     {
@@ -29,9 +34,6 @@ public class Button : UI_Element , IClickable
 
     public override void Highlight()
     {
-        //Debug.Log("Highlight " + this.name);
-        startTime = Time.time;
-
         // If the button is part of a magic corner, keep the magic corner highlighted as well
         if (menuManager != null)
             menuManager.Highlight();
@@ -39,7 +41,8 @@ public class Button : UI_Element , IClickable
 
     protected override void SubclassStart()
     {
-        highlight = this.GetComponentInChildren<Light>();
+        dwellTimeImage = this.GetComponent<Image>();
+
         startTime = Time.time;
 
         foreach (UI_Element child in children)
@@ -50,9 +53,35 @@ public class Button : UI_Element , IClickable
 
     protected override void SubclassUpdate()
     {
-        // Sets the highlight as a smooth transition of intensity
-        float t = (Time.time - startTime) / duration;
-        Debug.Log(this.name + " is highlighted");
-        highlight.intensity = Mathf.SmoothStep(minimum, maximum, t);
+        float f;
+
+        if (pointed)
+        {
+            currentTimer = Time.time;
+            f = (currentTimer - startTime) / dwellTime;
+            dwellTimeImage.fillAmount = f;
+            Debug.Log(f);
+            if (f >= 1.0f)
+                Click();
+            Highlight();
+        }
+    }
+
+    public void PointerEnter()
+    {
+        if (pointed == false)
+        {
+            startTime = Time.time;
+            pointed = true;
+        }
+    }
+
+    public void PointerExit()
+    {
+        if (pointed == true)
+        {
+            pointed = false;
+            dwellTimeImage.fillAmount = 0;
+        }
     }
 }
