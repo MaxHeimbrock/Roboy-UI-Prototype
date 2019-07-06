@@ -46,6 +46,9 @@ public class MenuManager : UI_Element
 
     public override void Highlight()
     {
+        //if (menuManager != null && menuManager.Equals(this) == false)
+        //    menuManager.Highlight();
+
         Debug.Log("Highlighed");
 
         // When active, just reset start timer of last highlight to now, so it doesn't deactivate 
@@ -96,6 +99,10 @@ public class MenuManager : UI_Element
     {
         if (pointed)
             Highlight();
+
+        // As long as a submenu is active, the parent menu stays active
+        if (GetActive() == true && GetIsChild() == true && menuManager.Equals(this) == false)
+            menuManager.Highlight();
 
         if (currentState == state.active)
         {

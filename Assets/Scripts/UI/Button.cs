@@ -60,7 +60,7 @@ public class Button : UI_Element , IClickable
             currentTimer = Time.time;
             f = (currentTimer - startTime) / dwellTime;
             dwellTimeImage.fillAmount = f;
-            Debug.Log(f);
+
             if (f >= 1.0f)
                 Click();
             Highlight();

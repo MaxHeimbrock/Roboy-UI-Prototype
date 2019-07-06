@@ -5,6 +5,7 @@ using UnityEngine;
 
 public abstract class UI_Element : MonoBehaviour
 {
+    protected bool active = true;
     public UI_Element[] children;
     // is overwritten by parent at Start(), if element is child
     protected bool isChild = false;
@@ -28,12 +29,14 @@ public abstract class UI_Element : MonoBehaviour
     {
         Debug.Log("Activated");
         animator.SetBool("Active", true);
+        active = true;
     }
 
     public void Deactivate()
     {
         Debug.Log("Deactivated");
         animator.SetBool("Active", false);
+        active = false;
     }
 
     public void SetMenuManager(MenuManager menuManager)
@@ -58,6 +61,11 @@ public abstract class UI_Element : MonoBehaviour
     public bool GetIsChild()
     {
         return isChild;
+    }
+
+    public bool GetActive()
+    {
+        return active;
     }
 
     protected abstract void SubclassStart();
