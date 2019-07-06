@@ -34,13 +34,16 @@ public class Button : UI_Element , IClickable
 
     public override void Highlight()
     {
-        // If the button is part of a magic corner, keep the magic corner highlighted as well
+        // TODO: Highlight the button
+
+        // If the button is part of a menu, highlight the menu as well
         if (menuManager != null)
             menuManager.Highlight();
     }
 
     protected override void SubclassStart()
     {
+        // The script is attatched to the dwell time indicator
         dwellTimeImage = this.GetComponent<Image>();
 
         startTime = Time.time;
@@ -53,8 +56,8 @@ public class Button : UI_Element , IClickable
 
     protected override void SubclassUpdate()
     {
+        // Draw dwell time indicator
         float f;
-
         if (pointed)
         {
             currentTimer = Time.time;
@@ -62,11 +65,16 @@ public class Button : UI_Element , IClickable
             dwellTimeImage.fillAmount = f;
 
             if (f >= 1.0f)
+            {
+                //startTime = Time.time;
                 Click();
+            }
+
             Highlight();
         }
     }
 
+    // For UI Event Trigger
     public void PointerEnter()
     {
         if (pointed == false)
@@ -76,6 +84,7 @@ public class Button : UI_Element , IClickable
         }
     }
 
+    // For UI Event Trigger
     public void PointerExit()
     {
         if (pointed == true)

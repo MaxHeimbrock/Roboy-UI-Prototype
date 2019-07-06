@@ -11,7 +11,7 @@ public abstract class UI_Element : MonoBehaviour
     protected bool isChild = false;
     // Every UI_Element has a parent menuManager, except for the top menu
     protected MenuManager menuManager;
-    Animator animator;
+    protected Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -27,14 +27,14 @@ public abstract class UI_Element : MonoBehaviour
 
     public void Activate()
     {
-        Debug.Log("Activated");
+        //Debug.Log("Activated");
         animator.SetBool("Active", true);
         active = true;
     }
 
     public void Deactivate()
     {
-        Debug.Log("Deactivated");
+        //Debug.Log("Deactivated from " + this.name);
         animator.SetBool("Active", false);
         active = false;
     }
