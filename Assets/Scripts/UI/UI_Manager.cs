@@ -52,11 +52,10 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
 
     public void Update()
     {
-        //CurvedUIInputModule.CustomControllerRay = new Ray(yourRemoteTransform.position, yourRemoteTransform.forward);
-
         CurvedUIInputModule.CustomControllerButtonState = false;
     }
 
+    // Gets the position and rotation of the pointer and passes it to the curved UI input module
     public void Point(Vector3 position, Vector3 rotation)
     {
         this.transform.position = position;
@@ -64,6 +63,7 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
 
         CurvedUIInputModule.CustomControllerRay = new Ray(this.transform.position, this.transform.forward);
 
+        // this draws the ray
         raycastManager.GetRaycastHit(position, rotation);
     }
 
