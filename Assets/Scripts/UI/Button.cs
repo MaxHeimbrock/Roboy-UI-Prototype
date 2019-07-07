@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Button : UI_Element , IClickable
 {
-    // For Highlighting
-    Light highlight;
+    public float dwellTime = 2.0f;
 
     // Minimum and maximum values for the transition.
     float minimum = 1f;
@@ -15,6 +15,11 @@ public class Button : UI_Element , IClickable
     float duration = 0.5f;
 
     float startTime;
+    float currentTimer;
+
+    bool pointed = false;
+
+    Image dwellTimeImage;
 
     public void Click()
     {
@@ -29,17 +34,18 @@ public class Button : UI_Element , IClickable
 
     public override void Highlight()
     {
-        //Debug.Log("Highlight " + this.name);
-        startTime = Time.time;
+        // TODO: Highlight the button
 
-        // If the button is part of a magic corner, keep the magic corner highlighted as well
+        // If the button is part of a menu, highlight the menu as well
         if (menuManager != null)
             menuManager.Highlight();
     }
 
     protected override void SubclassStart()
     {
-        highlight = this.GetComponentInChildren<Light>();
+        // The script is attatched to the dwell time indicator
+        dwellTimeImage = this.GetComponent<Image>();
+
         startTime = Time.time;
 
         foreach (UI_Element child in children)
@@ -50,8 +56,41 @@ public class Button : UI_Element , IClickable
 
     protected override void SubclassUpdate()
     {
-        // Sets the highlight as a smooth transition of intensity
-        float t = (Time.time - startTime) / duration;
-        highlight.intensity = Mathf.SmoothStep(minimum, maximum, t);
+        // Draw dwell time indicator
+        float f;
+        if (pointed)
+        {
+            currentTimer = Time.time;
+            f = (currentTimer - startTime) / dwellTime;
+            dwellTimeImage.fillAmount = f;
+
+            if (f >= 1.0f)
+            {
+                //startTime = Time.time;
+                Click();
+            }
+
+            Highlight();
+        }
+    }
+
+    // For UI Event Trigger
+    public void PointerEnter()
+    {
+        if (pointed == false)
+        {
+            startTime = Time.time;
+            pointed = true;
+        }
+    }
+
+    // For UI Event Trigger
+    public void PointerExit()
+    {
+        if (pointed == true)
+        {
+            pointed = false;
+            dwellTimeImage.fillAmount = 0;
+        }
     }
 }
