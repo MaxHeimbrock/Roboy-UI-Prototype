@@ -10,7 +10,7 @@ public class TransitionHelper_AutoExposure : MonoBehaviour
     [SerializeField]
     private float exposureCompensation = 1.0f;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         PostProcessVolume postProcessVolume = gameObject.GetComponent<PostProcessVolume>();
