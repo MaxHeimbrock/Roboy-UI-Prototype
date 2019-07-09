@@ -1073,7 +1073,7 @@ namespace Leap.Unity.Interaction {
         if (!_softContactEnabled && errorDistance >= softContactDislocationDistance
           && speed < 1.5F
        /* && boneArrayIndex != NUM_FINGERS * BONES_PER_FINGER */) {
-          EnableSoftContact();
+          //EnableSoftContact();
         }
       }
 

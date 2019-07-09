@@ -1,16 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Leap.Unity.Interaction;
 using UnityEngine;
 
+[RequireComponent(typeof(InteractionBehaviour))]
 public class CustomSlider : MonoBehaviour
 {
 
+    private InteractionBehaviour _initObject;
     private GameObject IntersectingObject;
 
     public Vector3 v1 = new Vector3(0,0,0);
     public Vector3 v2 = new Vector3(0, 0, 0);
     public Vector3 v3 = new Vector3(0, 0, 0);
     public Vector3 v4 = new Vector3(0, 0, 0);
+
+    public void Start()
+    {
+        _initObject = this.GetComponent<InteractionBehaviour>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
