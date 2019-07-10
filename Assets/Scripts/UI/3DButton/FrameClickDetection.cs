@@ -5,12 +5,15 @@ using UnityEngine;
 public class FrameClickDetection : MonoBehaviour
 {
     public int clickcount;
-    public bool wait;
+    private bool wait;
     private Collider pressurePlateCollider;
     private Transform pressurePlateTransform;
     private MeshRenderer meshRenderer;
-    public Color defaultColor;
+    private Color defaultColor;
 
+    /*
+     * Initialize variables
+     */
     private void Start()
     {
         clickcount = 0;
@@ -20,6 +23,11 @@ public class FrameClickDetection : MonoBehaviour
         defaultColor = transform.GetChild(0).GetComponent<MeshRenderer>().material.GetColor("_Color");
     }
 
+    /*
+     * Checks if the PressurePlate goes through the frame.
+     * If "wait" is set to true, then the button is already pressed.
+     * Otherwise the button gets activated.
+     */
     private void OnTriggerEnter(Collider other)
     {
         if (pressurePlateCollider.Equals(other))
@@ -32,6 +40,11 @@ public class FrameClickDetection : MonoBehaviour
         }
     }
 
+    /*
+     * When the PressurePlate exits the frame collider, its direction is checked.
+     * It is either pushed further in, the button remains pressed
+     * or it is on its way back to its default position, so the button gets released
+     */
     private void OnTriggerExit(Collider other)
     {
         if (pressurePlateCollider.Equals(other))
@@ -48,11 +61,18 @@ public class FrameClickDetection : MonoBehaviour
         }
     }
 
+    /*
+     * Implement all functionality when the button is pressed here.
+     */
     void Click()
     {
         clickcount++;
     }
 
+    /*
+     * Highlights the Button when pressed as feedback for the user.
+     * Default: The frame changes its color to red.
+     */
     void highlightOn()
     {
         foreach(MeshRenderer childMeshRenderer in transform.GetComponentsInChildren<MeshRenderer>())
@@ -61,6 +81,9 @@ public class FrameClickDetection : MonoBehaviour
         }
     }
 
+    /*
+     * Turn off highlight for the button when it is released.
+     */
     void highlightOff()
     {
         foreach(MeshRenderer childMeshRenderer in transform.GetComponentsInChildren<MeshRenderer>())
