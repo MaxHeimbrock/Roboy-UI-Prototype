@@ -8,6 +8,7 @@ public class CustomSlider : MonoBehaviour
 {
 
     private InteractionBehaviour _initObject;
+    private Animator animator;
     private GameObject IntersectingObject;
 
     public Vector3 v1 = new Vector3(0,0,0);
@@ -18,12 +19,14 @@ public class CustomSlider : MonoBehaviour
     public void Start()
     {
         _initObject = this.GetComponent<InteractionBehaviour>();
+        animator = this.transform.parent.GetChild(1).GetComponent<Animator>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(IntersectingObject == null)
         {
+            animator.SetBool("Collision", true);
             IntersectingObject = collision.gameObject;
             updateValue(collision);
         }
@@ -33,6 +36,7 @@ public class CustomSlider : MonoBehaviour
     {
         if (IntersectingObject == null)
         {
+            animator.SetBool("Collision", true);
             IntersectingObject = collision.gameObject;
             updateValue(collision);
         }
@@ -47,6 +51,7 @@ public class CustomSlider : MonoBehaviour
         if (IntersectingObject != null && IntersectingObject.Equals(collision.gameObject))
         {
             IntersectingObject = null;
+            animator.SetBool("Collision", false);
         }
     }
 
