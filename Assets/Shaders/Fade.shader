@@ -38,5 +38,5 @@
 	}
 	ENDCG
 	}
-		FallBack "Standard"
+		FallBack "GUI/3D Text Shader"
 }

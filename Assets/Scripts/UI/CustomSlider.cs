@@ -8,7 +8,8 @@ public class CustomSlider : MonoBehaviour
 {
 
     private InteractionBehaviour _initObject;
-    private Animator animator;
+    private Animator titleAnimator;
+    private Animator valueAnimator;
     private GameObject IntersectingObject;
 
     public Vector3 v1 = new Vector3(0,0,0);
@@ -19,14 +20,16 @@ public class CustomSlider : MonoBehaviour
     public void Start()
     {
         _initObject = this.GetComponent<InteractionBehaviour>();
-        animator = this.transform.parent.GetChild(1).GetComponent<Animator>();
+        titleAnimator = this.transform.parent.GetChild(1).GetComponent<Animator>();
+        valueAnimator = this.transform.GetChild(1).GetComponent<Animator>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(IntersectingObject == null)
         {
-            animator.SetBool("Collision", true);
+            titleAnimator.SetBool("Collision", true);
+            valueAnimator.SetBool("VisibleIntersect", true);
             IntersectingObject = collision.gameObject;
             updateValue(collision);
         }
@@ -36,7 +39,8 @@ public class CustomSlider : MonoBehaviour
     {
         if (IntersectingObject == null)
         {
-            animator.SetBool("Collision", true);
+            titleAnimator.SetBool("Collision", true);
+            valueAnimator.SetBool("VisibleIntersect", true);
             IntersectingObject = collision.gameObject;
             updateValue(collision);
         }
@@ -51,7 +55,8 @@ public class CustomSlider : MonoBehaviour
         if (IntersectingObject != null && IntersectingObject.Equals(collision.gameObject))
         {
             IntersectingObject = null;
-            animator.SetBool("Collision", false);
+            titleAnimator.SetBool("Collision", false);
+            valueAnimator.SetBool("VisibleIntersect", false);
         }
     }
 
@@ -101,4 +106,10 @@ public class CustomSlider : MonoBehaviour
         Gizmos.color = new Color(0, 0, 255);
         Gizmos.DrawSphere(v4, 0.16f);
     }*/
+
+    public void SetVisiblePointer(bool visiblePointing)
+    {
+        Debug.Log("Set Variable to: " + visiblePointing);
+        valueAnimator.SetBool("VisiblePointing", visiblePointing);
+    }
 }

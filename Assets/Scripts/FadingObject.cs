@@ -9,6 +9,9 @@ public class FadingObject : MonoBehaviour
     public float speed = 1;
 
     private bool appear;
+    private bool disappear;
+
+    public float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -17,25 +20,36 @@ public class FadingObject : MonoBehaviour
         t = 0;
         renderer.material.SetFloat("_Visibility", 0);
         appear = true;
+        timer = 0.0f;
+        Debug.Log("Running");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (appear)
+        if(timer < 3)
         {
-            if (FadeIn())
-            {
-                t = 0;
-                appear = false;
-            }
+            timer += Time.deltaTime;
         }
         else
         {
-            if (FadeOut())
+            if (appear)
             {
-                t = 0;
-                appear = true;
+                if (FadeIn())
+                {
+                    t = 0;
+                    appear = false;
+                    timer = 0;
+                }
+            }
+            else
+            {
+                if (FadeOut())
+                {
+                    t = 0;
+                    appear = true;
+                    timer = 0;
+                }
             }
         }
     }
@@ -45,14 +59,16 @@ public class FadingObject : MonoBehaviour
         float val = Mathf.Lerp(0, 1, t);
         t += speed * Time.deltaTime;
         renderer.material.SetFloat("_Visibility", val);
+        Debug.Log("Executing FadeIn");
         return t > 1;
     }
 
     bool FadeOut()
     {
-        float val = Mathf.Lerp(1, 0, t);
+        float val = Mathf.Lerp(0, 1, t);
         t += speed * Time.deltaTime;
-        renderer.material.SetFloat("_Visibility", val);
+        renderer.material.SetFloat("_Visibility", 1.0f - val);
+        Debug.Log("Executing FadeOutNew");
         return t > 1;
     }
 }
