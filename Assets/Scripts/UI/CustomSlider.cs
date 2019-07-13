@@ -10,18 +10,20 @@ public class CustomSlider : MonoBehaviour
     private InteractionBehaviour _initObject;
     private Animator titleAnimator;
     private Animator valueAnimator;
+    private TextMesh valueText;
     private GameObject IntersectingObject;
 
-    public Vector3 v1 = new Vector3(0,0,0);
+    /*public Vector3 v1 = new Vector3(0,0,0);
     public Vector3 v2 = new Vector3(0, 0, 0);
     public Vector3 v3 = new Vector3(0, 0, 0);
-    public Vector3 v4 = new Vector3(0, 0, 0);
+    public Vector3 v4 = new Vector3(0, 0, 0);*/
 
     public void Start()
     {
         _initObject = this.GetComponent<InteractionBehaviour>();
         titleAnimator = this.transform.parent.GetChild(1).GetComponent<Animator>();
         valueAnimator = this.transform.GetChild(1).GetComponent<Animator>();
+        valueText = this.transform.GetChild(1).GetComponent<TextMesh>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -88,6 +90,7 @@ public class CustomSlider : MonoBehaviour
         }
         float totalLength = worldRightBorderPoint.x - worldLeftBorderPoint.x;
         float fillPercentage = (closestPoint.x - worldLeftBorderPoint.x) / totalLength;
+        valueText.text = Mathf.Round(fillPercentage * 100f).ToString() + "%";
         Transform fillTransform = transform.GetChild(0);
         fillTransform.localScale = new Vector3(fillTransform.localScale.x, fillPercentage, fillTransform.localScale.z);
         fillTransform.position = new Vector3((transform.position.x - (totalLength - (totalLength * fillPercentage))/2f)-0.0001f, fillTransform.position.y, fillTransform.position.z);
