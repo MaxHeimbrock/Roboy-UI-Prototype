@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class DummyHand : MonoBehaviour
 {
-    public int speed;
+    public float speed;
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Successfully attached to " + this.gameObject.name);
-        speed = 10;
+        speed = 0.1f;
     }
 
     // Update is called once per frame
