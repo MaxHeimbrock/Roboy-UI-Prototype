@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
+
+/**
+ * Unity PostProcessing settings cannot be animated.
+ * This scripts provides neede values for the depth of field effect to be animated by an animator.
+ */
 public class TransitionHelper_DepthOfField : MonoBehaviour
 {
     private DepthOfField depthOfField;
@@ -20,6 +25,9 @@ public class TransitionHelper_DepthOfField : MonoBehaviour
         postProcessVolume.profile.TryGetSettings(out depthOfField);
     }
 
+    /**
+     * Animator updates values, so post processing volume can be updated in LateUpdate
+     */
     private void LateUpdate()
     {
         depthOfField.focusDistance.value = focusDistance;

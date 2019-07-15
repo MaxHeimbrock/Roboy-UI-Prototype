@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
+/**
+ * Unity PostProcessing settings cannot be animated.
+ * This scripts provides neede values for the bloom effect to be animated by an animator.
+ */
 public class TransitionHelper_Bloom : MonoBehaviour
 {
     private Bloom bloom;
@@ -10,14 +14,15 @@ public class TransitionHelper_Bloom : MonoBehaviour
     [SerializeField]
     private float intensity;
 
-    // Start is called before the first frame update
     void Start()
     {
         PostProcessVolume postProcessVolume = gameObject.GetComponent<PostProcessVolume>();
         postProcessVolume.profile.TryGetSettings(out bloom);
     }
 
-    // Update is called once per frame
+    /**
+     * Animator updates values, so post processing volume can be updated in LateUpdate
+     */
     void LateUpdate()
     {
         bloom.intensity.value = intensity;
