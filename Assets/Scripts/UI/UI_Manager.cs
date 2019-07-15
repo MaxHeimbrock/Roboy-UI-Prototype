@@ -52,16 +52,25 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
 
     public void Update()
     {
-
+        CurvedUIInputModule.CustomControllerButtonState = false;
     }
 
+    // Gets the position and rotation of the pointer and passes it to the curved UI input module
     public void Point(Vector3 position, Vector3 rotation)
-    {   
+    {
+        this.transform.position = position;
+        this.transform.rotation = Quaternion.Euler(rotation);
+
+        CurvedUIInputModule.CustomControllerRay = new Ray(this.transform.position, this.transform.forward);
+
+        // this draws the ray
         raycastManager.GetRaycastHit(position, rotation);
     }
 
     public void Click(int code)
     {
+        CurvedUIInputModule.CustomControllerButtonState = true;
+
         //Debug.Log("Click");
         clickSound.Play();
 

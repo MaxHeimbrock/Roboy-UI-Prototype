@@ -5,7 +5,6 @@
       "app_key": "application.generated.unity.roboyprototype.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\Max\\Documents\\GitHub\\Roboy-UI-Prototype\\actions.json",
       "action_manifest_path": "D:\\Unity Projects\\ws1819\\Roboy-UI-Prototype\\actions.json",
       "strings": {
         "en_us": {
