@@ -71,6 +71,6 @@ public class ClickerDwellTime : Clicker, IRaycastSubscriber
     protected override void SubclassStart()
     {
         SubscribeToRaycastManager();
-        dwellTimeIndicator = UI_Manager.GetDwellTimeIndicator();
+        //dwellTimeIndicator = UI_Manager.GetDwellTimeIndicator();
     }
 }
