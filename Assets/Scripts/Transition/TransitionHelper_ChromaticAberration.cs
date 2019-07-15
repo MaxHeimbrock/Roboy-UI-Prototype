@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
+/**
+ * Unity PostProcessing settings cannot be animated.
+ * This scripts provides neede values for the chromatic aberration effect to be animated by an animator.
+ */
 public class TransitionHelper_ChromaticAberration : MonoBehaviour
 {
     private ChromaticAberration chromaticAberration;
@@ -10,14 +14,15 @@ public class TransitionHelper_ChromaticAberration : MonoBehaviour
     [SerializeField]
     private float intensity;
 
-    // Start is called before the first frame update
     void Start()
     {
         PostProcessVolume postProcessVolume = gameObject.GetComponent<PostProcessVolume>();
         postProcessVolume.profile.TryGetSettings(out chromaticAberration);
     }
 
-    // Update is called once per frame
+    /**
+     * Animator updates values, so post processing volume can be updated in LateUpdate
+     */
     void LateUpdate()
     {
         chromaticAberration.intensity.value = intensity;

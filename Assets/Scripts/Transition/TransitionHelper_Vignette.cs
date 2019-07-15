@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
+/**
+ * Unity PostProcessing settings cannot be animated.
+ * This scripts provides neede values for the vignette effect to be animated by an animator.
+ */
 public class TransitionHelper_Vignette : MonoBehaviour
 {
     private Vignette vignette;
@@ -12,14 +16,15 @@ public class TransitionHelper_Vignette : MonoBehaviour
     [SerializeField]
     private float smoothness = 0.3f;
 
-    // Start is called before the first frame update
     void Start()
     {
         PostProcessVolume postProcessVolume = gameObject.GetComponent<PostProcessVolume>();
         postProcessVolume.profile.TryGetSettings(out vignette);
     }
 
-    // Update is called once per frame
+    /**
+     * Animator updates values, so post processing volume can be updated in LateUpdate
+     */
     void LateUpdate()
     {
         vignette.intensity.value = intensity;
