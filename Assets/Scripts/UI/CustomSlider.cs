@@ -18,6 +18,9 @@ public class CustomSlider : MonoBehaviour
     public Vector3 v3 = new Vector3(0, 0, 0);
     public Vector3 v4 = new Vector3(0, 0, 0);*/
 
+    /**
+     * Initialize variables, important to remain prefab hierarchy
+     */
     public void Start()
     {
         _initObject = this.GetComponent<InteractionBehaviour>();
@@ -26,6 +29,10 @@ public class CustomSlider : MonoBehaviour
         valueText = this.transform.GetChild(1).GetComponent<TextMesh>();
     }
 
+    /**
+     * Checks if there already is an object controlling the slider at the moment
+     * If not, the newly intersecting object gets the control over the slider
+     */
     private void OnCollisionEnter(Collision collision)
     {
         if(IntersectingObject == null)
@@ -37,6 +44,13 @@ public class CustomSlider : MonoBehaviour
         }
     }
 
+    /**
+     * If there is no object controlling the slider at the moment,
+     * the still intersecting/colliding object gets the control over the slider.
+     * 
+     * If the collision is caused by the object having the control over the slider,
+     * then the slider value is updated.
+     */
     private void OnCollisionStay(Collision collision)
     {
         if (IntersectingObject == null)
@@ -52,6 +66,10 @@ public class CustomSlider : MonoBehaviour
         }
     }
 
+    /**
+     * If the object with the control of the slider exits the slider,
+     * the control access is removed from this object and becomes available for other intersecting objects.
+     */
     void OnCollisionExit(Collision collision)
     {
         if (IntersectingObject != null && IntersectingObject.Equals(collision.gameObject))
@@ -62,6 +80,10 @@ public class CustomSlider : MonoBehaviour
         }
     }
 
+    /**
+     * The value for the slider gets updated according to the position of the collision.
+     * The slider fill object and the value text are updated.
+     */
     private void updateValue(Collision collision)
     {
         float minX = 1000000000000000000;
@@ -96,6 +118,18 @@ public class CustomSlider : MonoBehaviour
         fillTransform.position = new Vector3((transform.position.x - (totalLength - (totalLength * fillPercentage))/2f)-0.0001f, fillTransform.position.y, fillTransform.position.z);
     }
 
+    /**
+     * Sets the boolean variable VisiblePointing for the slider text animator.
+     * This variable indicates if the user points with a hand to the slider.
+     * In this case the slider value becomes visible.
+     * This method is called by the FingerDirectionDetection script attached to the hand models (e.g. RiggedHands)
+     */
+    public void SetVisiblePointer(bool visiblePointing)
+    {
+        Debug.Log("Set Variable to: " + visiblePointing);
+        valueAnimator.SetBool("VisiblePointing", visiblePointing);
+    }
+
     /*
      * Only for Debug purposes
      */
@@ -109,10 +143,4 @@ public class CustomSlider : MonoBehaviour
         Gizmos.color = new Color(0, 0, 255);
         Gizmos.DrawSphere(v4, 0.16f);
     }*/
-
-    public void SetVisiblePointer(bool visiblePointing)
-    {
-        Debug.Log("Set Variable to: " + visiblePointing);
-        valueAnimator.SetBool("VisiblePointing", visiblePointing);
-    }
 }
