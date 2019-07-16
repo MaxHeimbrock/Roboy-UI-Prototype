@@ -58,7 +58,7 @@ public class UI_Manager : MonoBehaviour
     {
         /*
         CurvedUIInputModule.CustomControllerButtonState = false;
-        */
+        */                
     }
 
     // Gets the position and rotation of the pointer and passes it to the curved UI input module

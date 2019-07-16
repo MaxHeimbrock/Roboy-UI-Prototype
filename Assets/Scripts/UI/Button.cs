@@ -25,6 +25,8 @@ public class Button : UI_Element , IClickable
     {
         //Debug.Log("Clicked at " + this.name + " inside Button class");
 
+        LogText.Instance.addToLogText("Clicked at " + this.name + " inside Button class");
+
         foreach (UI_Element child in children)
         {
             child.gameObject.SetActive(true);
