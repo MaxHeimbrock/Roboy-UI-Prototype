@@ -86,36 +86,58 @@ public class CustomSlider : MonoBehaviour
      */
     private void updateValue(Collision collision)
     {
-        float minX = 1000000000000000000;
+        Transform fillTransform = transform.GetChild(0);
+        if(!fillTransform.gameObject.activeSelf)
+        {
+            fillTransform.gameObject.SetActive(true);
+        }
+
+        float maxY = -1000000000000000000;
         Vector3 closestPoint = new Vector3(0,0,0);
+        Vector3 contactPointLocal;
         foreach (ContactPoint contact in collision.contacts)
         {
-            if (contact.point.x < minX)
+            contactPointLocal = transform.InverseTransformPoint(contact.point);
+            if (contactPointLocal.y > maxY)
             {
-                minX = contact.point.x;
-                closestPoint = contact.point;
+                maxY = contactPointLocal.y;
+                closestPoint = contactPointLocal;
             }
         }
         Vector3 localLeftBorderPoint = transform.localPosition;
         localLeftBorderPoint.y += 1f * transform.localScale.y;
-        Vector3 worldLeftBorderPoint = transform.TransformPoint(localLeftBorderPoint);
+        //Vector3 worldLeftBorderPoint = transform.TransformPoint(localLeftBorderPoint);
         Vector3 localRightBorderPoint = transform.localPosition;
         localRightBorderPoint.y += -1f * transform.localScale.y;
-        Vector3 worldRightBorderPoint = transform.TransformPoint(localRightBorderPoint);
-        if(closestPoint.x < worldLeftBorderPoint.x)
+        //Vector3 worldRightBorderPoint = transform.TransformPoint(localRightBorderPoint);
+        if (closestPoint.y > localLeftBorderPoint.y)
         {
-            closestPoint.x = worldLeftBorderPoint.x;
+            closestPoint.y = localLeftBorderPoint.y;
         }
-        else if (closestPoint.x > worldRightBorderPoint.x)
+        else if (closestPoint.y < localRightBorderPoint.y)
         {
-            closestPoint.x = worldRightBorderPoint.x;
+            closestPoint.y = localRightBorderPoint.y;
         }
-        float totalLength = worldRightBorderPoint.x - worldLeftBorderPoint.x;
-        float fillPercentage = (closestPoint.x - worldLeftBorderPoint.x) / totalLength;
+        float totalLength = localLeftBorderPoint.y - localRightBorderPoint.y;
+        float fillPercentage = (localLeftBorderPoint.y - closestPoint.y) / totalLength;
         valueText.text = Mathf.Round(fillPercentage * 100f).ToString() + "%";
-        Transform fillTransform = transform.GetChild(0);
-        fillTransform.localScale = new Vector3(fillTransform.localScale.x, fillPercentage, fillTransform.localScale.z);
-        fillTransform.position = new Vector3((transform.position.x - (totalLength - (totalLength * fillPercentage))/2f)-0.0001f, fillTransform.position.y, fillTransform.position.z);
+        
+        if(fillPercentage < 1f)
+        {
+            if(fillPercentage > 0f)
+            {
+                fillTransform.localScale = new Vector3(fillTransform.localScale.x, fillPercentage, fillTransform.localScale.z);
+            }
+            else
+            {
+                fillTransform.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            fillTransform.localScale = new Vector3(fillTransform.localScale.x, fillPercentage + 0.0002f, fillTransform.localScale.z);
+        }
+        fillTransform.localPosition = new Vector3(fillTransform.localPosition.x, (transform.localPosition.y + (totalLength - (totalLength * fillPercentage))/2f)+0.0001f, fillTransform.localPosition.z);
     }
 
     /**
@@ -126,11 +148,10 @@ public class CustomSlider : MonoBehaviour
      */
     public void SetVisiblePointer(bool visiblePointing)
     {
-        Debug.Log("Set Variable to: " + visiblePointing);
         valueAnimator.SetBool("VisiblePointing", visiblePointing);
     }
 
-    /*
+    /**
      * Only for Debug purposes
      */
     /*private void OnDrawGizmos()
