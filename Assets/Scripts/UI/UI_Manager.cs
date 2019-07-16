@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Manager : MonoBehaviour, IRaycastSubscriber
+public class UI_Manager : MonoBehaviour
 {
     [Header("Select Interaction Techniques")]
     [Tooltip("Technique for pointing.")]
     public PointerTechnique pointerTechnique;
+    /*
     [Tooltip("Technique for Clicking.")]
     public ClickerTechnique clickerTechnique;
 
@@ -20,15 +21,18 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
     [Tooltip("Shows the pointers position.")]
     public Texture indicatorTexture;
     private RectTransform canvasTransform;
+    */
 
     private Camera cam;
     private AudioSource clickSound;
     private RaycastManager raycastManager;
 
     private Pointer pointer;
+    /*
     private Clicker clicker;
     private UI_Element elementLookingAt;
     private bool isLookingAt = false;
+    */
 
     private Vector2 pointerPos;
 
@@ -40,19 +44,21 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
     public void Start()
     {
         CreatePointer();
-        CreateClicker();
+        //CreateClicker();
         cam = Camera.main;
         clickSound = this.GetComponent<AudioSource>();
         raycastManager = this.GetComponent<RaycastManager>();
-        SubscribeToRaycastManager();
-        canvasTransform = GameObject.Find("DwellTimeIndicatorCanvas").GetComponent<RectTransform>();
+        //SubscribeToRaycastManager();
+        //canvasTransform = GameObject.Find("DwellTimeIndicatorCanvas").GetComponent<RectTransform>();
     }
 
     #endregion
 
     public void Update()
     {
+        /*
         CurvedUIInputModule.CustomControllerButtonState = false;
+        */
     }
 
     // Gets the position and rotation of the pointer and passes it to the curved UI input module
@@ -61,14 +67,16 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
         this.transform.position = position;
         this.transform.rotation = Quaternion.Euler(rotation);
 
+        // Send pointer information to Curved UI Input Module to use event system
         CurvedUIInputModule.CustomControllerRay = new Ray(this.transform.position, this.transform.forward);
 
-        // this draws the ray
+        // this draws the ray - the rest of the raycast Manager is not being used
         raycastManager.GetRaycastHit(position, rotation);
     }
 
     public void Click(int code)
     {
+        /*
         CurvedUIInputModule.CustomControllerButtonState = true;
 
         //Debug.Log("Click");
@@ -79,8 +87,10 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
             //Debug.Log("Clicked at " + elementLookingAt.name);
             ((IClickable)elementLookingAt).Click();
         }
+        */
     }
 
+    
     // Creates Pointer script for the pointer technique selected.
     private void CreatePointer()
     {
@@ -102,6 +112,8 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
                 throw new System.Exception("No pointer technique specified.");
         }
     }
+
+    /*
 
     // Creates Clicker script for the clicker technique selected.
     private void CreateClicker()
@@ -171,4 +183,5 @@ public class UI_Manager : MonoBehaviour, IRaycastSubscriber
     {
         return dwellTimeIndicator;
     }
+    */
 }
