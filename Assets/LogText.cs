@@ -1,26 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class LogText : Singleton<LogText>
 {
-    private string text = "No Log";
+    private string text = "Start Log";
 
-    private int lines = 0;
-
-    private TextMesh textMesh;
+    public TextMeshProUGUI textMesh;
 
     public void Start()
     {
-        textMesh = this.gameObject.GetComponent<TextMesh>();
-        textMesh.text = text;
+        textMesh.SetText(text);
     }
 
     public void addToLogText(string message)
     {
-        text += message;
-        text += "\n";
-
-        lines++;
+        text = message + "\n" + text;
+        textMesh.SetText(text);
     }
 }
