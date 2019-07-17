@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Button : UI_Element , IClickable
@@ -19,19 +21,36 @@ public class Button : UI_Element , IClickable
 
     bool pointed = false;
 
+    bool clicked = false;
+
     Image dwellTimeImage;
+
+    //my event
+    [Serializable]
+    public class ButtonIsClicked : UnityEvent { }
+
+    [SerializeField]
+    private ButtonIsClicked buttonIsClickedEvent = new ButtonIsClicked();
+    public ButtonIsClicked TriggeredEvent { get { return buttonIsClickedEvent; } set { buttonIsClickedEvent = value; } }
 
     public void Click()
     {
-        //Debug.Log("Clicked at " + this.name + " inside Button class");
-
-        LogText.Instance.addToLogText("Clicked at " + this.name + " inside Button class");
-
-        foreach (UI_Element child in children)
+        if (clicked == false)
         {
-            child.gameObject.SetActive(true);
-            child.Activate();
+            //Debug.Log("Clicked at " + this.name + " inside Button class");
+
+            LogText.Instance.addToLogText("Clicked at " + this.name + " inside Button class");
+
+            foreach (UI_Element child in children)
+            {
+                child.gameObject.SetActive(true);
+                child.Activate();
+            }
+
+            TriggeredEvent.Invoke();
         }
+
+        clicked = true;
     }
 
     public override void Highlight()
@@ -94,5 +113,7 @@ public class Button : UI_Element , IClickable
             pointed = false;
             dwellTimeImage.fillAmount = 0;
         }
+
+        clicked = false;
     }
 }
