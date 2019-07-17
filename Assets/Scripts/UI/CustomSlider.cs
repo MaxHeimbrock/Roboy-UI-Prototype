@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Leap.Unity.Interaction;
 using UnityEngine;
+using Leap.Unity;
+using UnityEditor.Events;
 
 [RequireComponent(typeof(InteractionBehaviour))]
 public class CustomSlider : MonoBehaviour
@@ -12,11 +14,24 @@ public class CustomSlider : MonoBehaviour
     private Animator valueAnimator;
     private TextMesh valueText;
     private GameObject IntersectingObject;
+    private float value;
 
     /*public Vector3 v1 = new Vector3(0,0,0);
     public Vector3 v2 = new Vector3(0, 0, 0);
     public Vector3 v3 = new Vector3(0, 0, 0);
     public Vector3 v4 = new Vector3(0, 0, 0);*/
+
+    private void Reset()
+    {
+        Debug.Log("Successful Reset");
+        GameObject[] handModels = GameObject.FindGameObjectsWithTag("HandModel");
+        foreach(GameObject hand in handModels)
+        {
+            FingerDirectionDetector detector = hand.AddComponent<FingerDirectionDetector>();
+            UnityEventTools.AddPersistentListener(detector.OnActivate, SetIsVisibleByPointing);
+            UnityEventTools.AddPersistentListener(detector.OnDeactivate, SetNotVisibleByPointing);
+        }
+    }
 
     /**
      * Initialize variables, important to remain prefab hierarchy
@@ -27,6 +42,7 @@ public class CustomSlider : MonoBehaviour
         titleAnimator = this.transform.parent.GetChild(1).GetComponent<Animator>();
         valueAnimator = this.transform.GetChild(1).GetComponent<Animator>();
         valueText = this.transform.GetChild(1).GetComponent<TextMesh>();
+        value = 1f;
     }
 
     /**
@@ -106,10 +122,8 @@ public class CustomSlider : MonoBehaviour
         }
         Vector3 localLeftBorderPoint = transform.localPosition;
         localLeftBorderPoint.y += 1f * transform.localScale.y;
-        //Vector3 worldLeftBorderPoint = transform.TransformPoint(localLeftBorderPoint);
         Vector3 localRightBorderPoint = transform.localPosition;
         localRightBorderPoint.y += -1f * transform.localScale.y;
-        //Vector3 worldRightBorderPoint = transform.TransformPoint(localRightBorderPoint);
         if (closestPoint.y > localLeftBorderPoint.y)
         {
             closestPoint.y = localLeftBorderPoint.y;
@@ -119,14 +133,14 @@ public class CustomSlider : MonoBehaviour
             closestPoint.y = localRightBorderPoint.y;
         }
         float totalLength = localLeftBorderPoint.y - localRightBorderPoint.y;
-        float fillPercentage = (localLeftBorderPoint.y - closestPoint.y) / totalLength;
-        valueText.text = Mathf.Round(fillPercentage * 100f).ToString() + "%";
+        value = (localLeftBorderPoint.y - closestPoint.y) / totalLength;
+        valueText.text = Mathf.Round(value * 100f).ToString() + "%";
         
-        if(fillPercentage < 1f)
+        if(value < 1f)
         {
-            if(fillPercentage > 0f)
+            if(value > 0f)
             {
-                fillTransform.localScale = new Vector3(fillTransform.localScale.x, fillPercentage, fillTransform.localScale.z);
+                fillTransform.localScale = new Vector3(fillTransform.localScale.x, value, fillTransform.localScale.z);
             }
             else
             {
@@ -135,9 +149,17 @@ public class CustomSlider : MonoBehaviour
         }
         else
         {
-            fillTransform.localScale = new Vector3(fillTransform.localScale.x, fillPercentage + 0.0002f, fillTransform.localScale.z);
+            fillTransform.localScale = new Vector3(fillTransform.localScale.x, value + 0.0002f, fillTransform.localScale.z);
         }
-        fillTransform.localPosition = new Vector3(fillTransform.localPosition.x, (transform.localPosition.y + (totalLength - (totalLength * fillPercentage))/2f)+0.0001f, fillTransform.localPosition.z);
+        fillTransform.localPosition = new Vector3(fillTransform.localPosition.x, (transform.localPosition.y + (totalLength - (totalLength * value))/2f)+0.0001f, fillTransform.localPosition.z);
+    }
+
+    /**
+     * Returns the current value for the slider.
+     */
+     public float GetValue()
+    {
+        return value;
     }
 
     /**
@@ -149,6 +171,16 @@ public class CustomSlider : MonoBehaviour
     public void SetVisiblePointer(bool visiblePointing)
     {
         valueAnimator.SetBool("VisiblePointing", visiblePointing);
+    }
+
+    public void SetIsVisibleByPointing()
+    {
+        valueAnimator.SetBool("VisiblePointing", true);
+    }
+
+    public void SetNotVisibleByPointing()
+    {
+        valueAnimator.SetBool("VisiblePointing", false);
     }
 
     /**

@@ -17,11 +17,11 @@ public class ResetCamera : MonoBehaviour
         Valve.VR.OpenVR.System.ResetSeatedZeroPose();
 
 
-        Valve.VR.OpenVR.Compositor.SetTrackingSpace(Valve.VR.ETrackingUniverseOrigin.TrackingUniverseSeated);
+        //Valve.VR.OpenVR.Compositor.SetTrackingSpace(Valve.VR.ETrackingUniverseOrigin.TrackingUniverseSeated);
     }
 
     void Update()
     {
-        InputTracking.disablePositionalTracking = true;
+        //InputTracking.disablePositionalTracking = true;
     }
 }

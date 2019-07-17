@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FrameClickDetection : MonoBehaviour
 {
-    public int clickcount;
+    public UnityEvent[] onPress;
+    public UnityEvent[] onUnpress;
+    private int onPressIndex;
+    private int onUnpressIndex;
     private bool wait;
     private Collider pressurePlateCollider;
     private Transform pressurePlateTransform;
@@ -16,8 +20,9 @@ public class FrameClickDetection : MonoBehaviour
      */
     private void Start()
     {
-        clickcount = 0;
         wait = false;
+        onPressIndex = 0;
+        onUnpressIndex = 0;
         pressurePlateTransform = transform.parent.GetChild(0);
         pressurePlateCollider = pressurePlateTransform.GetComponent<Collider>();
         defaultColor = transform.GetChild(0).GetComponent<MeshRenderer>().material.GetColor("_Color");
@@ -34,7 +39,7 @@ public class FrameClickDetection : MonoBehaviour
         {
             if (!wait)
             { 
-                Click();
+                press();
                 highlightOn();
             }
         }
@@ -52,6 +57,7 @@ public class FrameClickDetection : MonoBehaviour
             if (pressurePlateTransform.position.z < transform.position.z)
             {
                 wait = false;
+                unpress();
                 highlightOff();
             }
             else
@@ -64,9 +70,33 @@ public class FrameClickDetection : MonoBehaviour
     /**
      * Implement all functionality when the button is pressed here.
      */
-    void Click()
+    void press()
     {
-        clickcount++;
+        if(onPress.Length > 0)
+        {
+            onPress[onPressIndex].Invoke();
+            onPressIndex++;
+            if (onPressIndex.Equals(onPress.Length))
+            {
+                onPressIndex = 0;
+            }
+        }
+    }
+
+    /**
+     * Implement all functionality when the button is unpressed here.
+     */
+     void unpress()
+    {
+        if (onUnpress.Length > 0)
+        {
+            onUnpress[onUnpressIndex].Invoke();
+            onUnpressIndex++;
+            if (onUnpressIndex.Equals(onUnpress.Length))
+            {
+                onUnpressIndex = 0;
+            }
+        }
     }
 
     /**
