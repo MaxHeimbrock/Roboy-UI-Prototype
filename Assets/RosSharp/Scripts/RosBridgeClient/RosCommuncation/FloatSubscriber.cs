@@ -15,7 +15,8 @@ namespace RosSharp.RosBridgeClient
 
         protected override void ReceiveMessage(Messages.Standard.Float32 message)
         {
-            messageData = message.data;
+            //messageData = message.data;
+            messageData = 0.0f;
         }
     }
 }
