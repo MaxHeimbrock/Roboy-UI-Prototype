@@ -55,8 +55,6 @@ public class Button : UI_Element , IClickable
 
     public override void Highlight()
     {
-        // TODO: Highlight the button
-
         // If the button is part of a menu, highlight the menu as well
         if (menuManager != null)
             menuManager.Highlight();

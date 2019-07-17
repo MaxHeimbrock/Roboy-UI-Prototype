@@ -25,6 +25,7 @@ public class StateManager: Singleton<StateManager>
             case MenuState.HUD:
                 HUD.SetActive(false);
                 Transition.SetActive(true);
+                TransitionChangeState.Instance.StartTransitionToAdvancedMenu();
                 break;
             // From Transition to Advanced Menu
             case MenuState.transitionToAdvancedMenu:
@@ -35,6 +36,7 @@ public class StateManager: Singleton<StateManager>
             case MenuState.advancedMenu:
                 AdvancedMenu.SetActive(false);
                 Transition.SetActive(true);
+                TransitionChangeState.Instance.StartTransitionToHUD();
                 break;
             // From Transition to HUD
             case MenuState.transitionToHUD:
@@ -50,5 +52,13 @@ public class StateManager: Singleton<StateManager>
             currentMenuState = MenuState.HUD;
 
         Debug.Log("Changed state to " + currentMenuState);
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StateManager.Instance.GoToNextState();
+        }
     }
 }

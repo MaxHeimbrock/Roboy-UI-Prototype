@@ -27,7 +27,7 @@ public abstract class UI_Element : MonoBehaviour
 
     public void Activate()
     {
-        //Debug.Log("Activated");
+        Debug.Log("Activated");
         animator.SetBool("Active", true);
         active = true;
     }
