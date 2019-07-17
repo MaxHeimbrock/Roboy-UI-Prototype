@@ -29,6 +29,8 @@ public class TransitionChangeState : Singleton<TransitionChangeState>
 
     public void StartTransitionToAdvancedMenu()
     {
+        if (animator == null)
+            animator = GetComponent<Animator>();
         animator.SetBool("ToHUD", false);
         animator.SetTrigger("StartTransitionAnimation");
     }
