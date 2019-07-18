@@ -44,6 +44,7 @@ public class MenuManager : UI_Element
             if (timer >= 1)
             {
                 Activate();
+                startTimer = Time.time;
             }
         }
 

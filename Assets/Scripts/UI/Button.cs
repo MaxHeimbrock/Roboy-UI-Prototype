@@ -25,6 +25,8 @@ public class Button : UI_Element , IClickable
 
     Image dwellTimeImage;
 
+    TransitionButtonAnimation transitionButtonAnimation;
+
     //my event
     [Serializable]
     public class ButtonIsClicked : UnityEvent { }
@@ -34,23 +36,19 @@ public class Button : UI_Element , IClickable
     public ButtonIsClicked TriggeredEvent { get { return buttonIsClickedEvent; } set { buttonIsClickedEvent = value; } }
 
     public void Click()
-    {
-        if (clicked == false)
+    {        
+        Debug.Log("Clicked at " + this.name + " inside Button class");
+
+        LogText.Instance.addToLogText("Clicked at " + this.name + " inside Button class");
+
+        foreach (UI_Element child in children)
         {
-            //Debug.Log("Clicked at " + this.name + " inside Button class");
-
-            LogText.Instance.addToLogText("Clicked at " + this.name + " inside Button class");
-
-            foreach (UI_Element child in children)
-            {
-                child.gameObject.SetActive(true);
-                child.Activate();
-            }
-
-            TriggeredEvent.Invoke();
+            child.gameObject.SetActive(true);
+            child.Activate();
         }
 
-        clicked = true;
+        TriggeredEvent.Invoke();
+        
     }
 
     public override void Highlight()
@@ -71,6 +69,8 @@ public class Button : UI_Element , IClickable
         {
             child.SetIsChild();
         }
+
+        transitionButtonAnimation = TransitionButtonAnimation.Instance;
     }
 
     protected override void SubclassUpdate()
@@ -85,7 +85,7 @@ public class Button : UI_Element , IClickable
 
             if (f >= 1.0f)
             {
-                //startTime = Time.time;
+                startTime = Time.time;
                 Click();
             }
 
@@ -112,6 +112,11 @@ public class Button : UI_Element , IClickable
             dwellTimeImage.fillAmount = 0;
         }
 
+        clicked = false;
+    }
+
+    public void SetClickedFalse()
+    {
         clicked = false;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class FrameClickDetection : MonoBehaviour
 {
+    public bool isToggle;
     public UnityEvent[] onPress;
     public UnityEvent[] onUnpress;
     private int onPressIndex;
@@ -125,22 +126,31 @@ public class FrameClickDetection : MonoBehaviour
      */
     void highlightOff()
     {
-        if (toggle)
+        if (isToggle)
         {
-            foreach (MeshRenderer childMeshRenderer in transform.GetComponentsInChildren<MeshRenderer>())
+            if (toggle)
             {
-                childMeshRenderer.material.SetColor("_Color", defaultColor);
+                foreach (MeshRenderer childMeshRenderer in transform.GetComponentsInChildren<MeshRenderer>())
+                {
+                    childMeshRenderer.material.SetColor("_Color", defaultColor);
+                }
+                toggle = false;
             }
-            toggle = false;
+            else
+            {
+                foreach (MeshRenderer childMeshRenderer in transform.GetComponentsInChildren<MeshRenderer>())
+                {
+                    childMeshRenderer.material.SetColor("_Color", Color.red);
+                }
+                toggle = true;
+            }
         }
         else
         {
             foreach (MeshRenderer childMeshRenderer in transform.GetComponentsInChildren<MeshRenderer>())
             {
-                childMeshRenderer.material.SetColor("_Color", Color.red);
+                childMeshRenderer.material.SetColor("_Color", defaultColor);
             }
-            toggle = true;
         }
-        
     }
 }

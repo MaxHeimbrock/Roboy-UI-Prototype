@@ -34,7 +34,7 @@ public abstract class UI_Element : MonoBehaviour
 
     public void Deactivate()
     {
-        //Debug.Log("Deactivated from " + this.name);
+        Debug.Log("Deactivated from " + this.name);
         animator.SetBool("Active", false);
         active = false;
     }

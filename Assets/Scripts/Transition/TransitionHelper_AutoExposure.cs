@@ -13,7 +13,10 @@ public class TransitionHelper_AutoExposure : MonoBehaviour
 
     [SerializeField]
     private float exposureCompensation = 1.0f;
-
+    [SerializeField]
+    private float minimum_ev = 0.0f;
+    [SerializeField]
+    private float maximum_ev = 0.0f;
     
     void Start()
     {
@@ -27,5 +30,7 @@ public class TransitionHelper_AutoExposure : MonoBehaviour
     private void LateUpdate()
     {
         autoExposure.keyValue.value = exposureCompensation;
+        autoExposure.minLuminance.value = minimum_ev;
+        autoExposure.maxLuminance.value = maximum_ev;
     }
 }

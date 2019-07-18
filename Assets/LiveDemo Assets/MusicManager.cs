@@ -5,6 +5,7 @@ using UnityEngine;
 public class MusicManager : Singleton<MusicManager>
 {
     AudioSource[] audioSources;
+    float[] resumeTimer;
 
     CustomSlider sliderAG;
     CustomSlider sliderBass;
@@ -19,6 +20,7 @@ public class MusicManager : Singleton<MusicManager>
     void Start()
     {
         audioSources = GetComponents<AudioSource>();
+        resumeTimer = new float[audioSources.Length];
         stopMusic();
 
         sliderAG = GameObject.FindGameObjectWithTag("AG").GetComponent<CustomSlider>();
@@ -46,17 +48,19 @@ public class MusicManager : Singleton<MusicManager>
 
     public void startMusic()
     {
-        foreach (AudioSource audio in audioSources)
+        for(int i = 0; i < audioSources.Length; i++)
         {
-            audio.UnPause();
+            audioSources[i].UnPause();
+            audioSources[i].time = resumeTimer[i];
         }
     }
 
     public void stopMusic()
     {
-        foreach (AudioSource audio in audioSources)
+        for (int i = 0; i < audioSources.Length; i++)
         {
-            audio.Pause();
+            resumeTimer[i] = audioSources[i].time;
+            audioSources[i].Pause();
         }
     }
 
