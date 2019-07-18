@@ -1902,6 +1902,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e20942829769a41a2ee661d1c5e6d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSources:
+  - {fileID: 348620427}
+  - {fileID: 348620426}
+  - {fileID: 348620425}
+  - {fileID: 348620424}
+  - {fileID: 348620423}
+  - {fileID: 348620422}
+  - {fileID: 348620421}
+  - {fileID: 348620420}
+  sliderAG: {fileID: 1551066421}
+  sliderBass: {fileID: 394740613}
+  sliderBCV: {fileID: 1851820435}
+  sliderEG: {fileID: 440804921}
+  sliderDrums: {fileID: 203179407}
+  sliderLV: {fileID: 859176072}
+  sliderPiano: {fileID: 1697134190}
+  sliderStringsRodes: {fileID: 2108675371}
 --- !u!82 &348620420
 AudioSource:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MusicManager : Singleton<MusicManager>
 {
-    AudioSource[] audioSources;
+    public AudioSource[] audioSources;
     float[] resumeTimer;
 
     public CustomSlider sliderAG;
@@ -15,12 +15,13 @@ public class MusicManager : Singleton<MusicManager>
     public CustomSlider sliderLV;
     public CustomSlider sliderPiano;
     public CustomSlider sliderStringsRodes;
+
     
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSources = GetComponents<AudioSource>();
+        //audioSources = GetComponents<AudioSource>();
         resumeTimer = new float[audioSources.Length];
         stopMusic();
 
