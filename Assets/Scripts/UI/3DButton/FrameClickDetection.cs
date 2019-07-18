@@ -14,6 +14,8 @@ public class FrameClickDetection : MonoBehaviour
     private Transform pressurePlateTransform;
     private MeshRenderer meshRenderer;
     private Color defaultColor;
+    private Color lightBlue;
+    private bool toggle;
 
     /**
      * Initialize variables
@@ -21,11 +23,18 @@ public class FrameClickDetection : MonoBehaviour
     private void Start()
     {
         wait = false;
+        toggle = false;
         onPressIndex = 0;
         onUnpressIndex = 0;
         pressurePlateTransform = transform.parent.GetChild(0);
         pressurePlateCollider = pressurePlateTransform.GetComponent<Collider>();
         defaultColor = transform.GetChild(0).GetComponent<MeshRenderer>().material.GetColor("_Color");
+
+        lightBlue = new Color();
+        lightBlue.a = 1.0f;
+        lightBlue.b = 1.0f;
+        lightBlue.g = 0.968f;
+        lightBlue.r = 0.0f;
     }
 
     /**
@@ -107,11 +116,6 @@ public class FrameClickDetection : MonoBehaviour
     {
         foreach(MeshRenderer childMeshRenderer in transform.GetComponentsInChildren<MeshRenderer>())
         {
-            Color lightBlue = new Color();
-            lightBlue.a = 1.0f;
-            lightBlue.b = 1.0f;
-            lightBlue.g = 0.968f;
-            lightBlue.r = 0.0f;
             childMeshRenderer.material.SetColor("_Color", lightBlue);
         }
     }
@@ -121,9 +125,22 @@ public class FrameClickDetection : MonoBehaviour
      */
     void highlightOff()
     {
-        foreach(MeshRenderer childMeshRenderer in transform.GetComponentsInChildren<MeshRenderer>())
+        if (toggle)
         {
-            childMeshRenderer.material.SetColor("_Color", defaultColor);
+            foreach (MeshRenderer childMeshRenderer in transform.GetComponentsInChildren<MeshRenderer>())
+            {
+                childMeshRenderer.material.SetColor("_Color", defaultColor);
+            }
+            toggle = false;
         }
+        else
+        {
+            foreach (MeshRenderer childMeshRenderer in transform.GetComponentsInChildren<MeshRenderer>())
+            {
+                childMeshRenderer.material.SetColor("_Color", Color.red);
+            }
+            toggle = true;
+        }
+        
     }
 }
