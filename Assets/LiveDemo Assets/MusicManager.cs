@@ -7,14 +7,15 @@ public class MusicManager : Singleton<MusicManager>
     AudioSource[] audioSources;
     float[] resumeTimer;
 
-    CustomSlider sliderAG;
-    CustomSlider sliderBass;
-    CustomSlider sliderBCV;
-    CustomSlider sliderEG;
-    CustomSlider sliderDrums;
-    CustomSlider sliderLV;
-    CustomSlider sliderPiano;
-    CustomSlider sliderStringsRodes;
+    public CustomSlider sliderAG;
+    public CustomSlider sliderBass;
+    public CustomSlider sliderBCV;
+    public CustomSlider sliderEG;
+    public CustomSlider sliderDrums;
+    public CustomSlider sliderLV;
+    public CustomSlider sliderPiano;
+    public CustomSlider sliderStringsRodes;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -23,14 +24,14 @@ public class MusicManager : Singleton<MusicManager>
         resumeTimer = new float[audioSources.Length];
         stopMusic();
 
-        sliderAG = GameObject.FindGameObjectWithTag("AG").GetComponent<CustomSlider>();
+        /*sliderAG = GameObject.FindGameObjectWithTag("AG").GetComponent<CustomSlider>();
         sliderBass = GameObject.FindGameObjectWithTag("Bass").GetComponent<CustomSlider>();
         sliderBCV = GameObject.FindGameObjectWithTag("BCV").GetComponent<CustomSlider>();
         sliderDrums = GameObject.FindGameObjectWithTag("Drums").GetComponent<CustomSlider>();
         sliderEG = GameObject.FindGameObjectWithTag("EG").GetComponent<CustomSlider>();
         sliderLV = GameObject.FindGameObjectWithTag("LV").GetComponent<CustomSlider>();
         sliderPiano = GameObject.FindGameObjectWithTag("Piano").GetComponent<CustomSlider>();
-        sliderStringsRodes = GameObject.FindGameObjectWithTag("StringsRodes").GetComponent<CustomSlider>();
+        sliderStringsRodes = GameObject.FindGameObjectWithTag("StringsRodes").GetComponent<CustomSlider>();*/
     }
 
     // Update is called once per frame

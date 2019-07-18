@@ -25,7 +25,7 @@ public class MenuManager : UI_Element
             ui_element.SetMenuManager(this);
         }
 
-        Debug.Log("Attatched " + attatched_ui_elements.Length + " children to " + this.name);
+//        Debug.Log("Attatched " + attatched_ui_elements.Length + " children to " + this.name);
     }
     
     public override void Highlight()

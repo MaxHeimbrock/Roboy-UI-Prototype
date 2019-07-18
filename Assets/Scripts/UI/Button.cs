@@ -37,7 +37,7 @@ public class Button : UI_Element , IClickable
 
     public void Click()
     {        
-        Debug.Log("Clicked at " + this.name + " inside Button class");
+//        Debug.Log("Clicked at " + this.name + " inside Button class");
 
         LogText.Instance.addToLogText("Clicked at " + this.name + " inside Button class");
 
