@@ -9,8 +9,15 @@ public class StateManager: Singleton<StateManager>
     public GameObject HUD;
     public GameObject Transition;
     public GameObject AdvancedMenu;
+    public GameObject Roboy;
+    private MusicManager music;
 
     private MenuState currentMenuState = MenuState.HUD;
+
+    private void Start()
+    {
+        music = MusicManager.Instance;
+    }
 
     public void GoToState(MenuState menuState)
     {
@@ -25,15 +32,18 @@ public class StateManager: Singleton<StateManager>
             case MenuState.HUD:
                 HUD.SetActive(false);
                 Transition.SetActive(true);
+                Roboy.SetActive(true);
                 TransitionChangeState.Instance.StartTransitionToAdvancedMenu();
                 break;
             // From Transition to Advanced Menu
             case MenuState.transitionToAdvancedMenu:
                 Transition.SetActive(false);
                 AdvancedMenu.SetActive(true);
+                music.startMusic();
                 break;
             // From Advanced Menu to Transition
             case MenuState.advancedMenu:
+                music.stopMusic();
                 AdvancedMenu.SetActive(false);
                 Transition.SetActive(true);
                 TransitionChangeState.Instance.StartTransitionToHUD();
@@ -41,6 +51,7 @@ public class StateManager: Singleton<StateManager>
             // From Transition to HUD
             case MenuState.transitionToHUD:
                 Transition.SetActive(false);
+                Roboy.SetActive(false);
                 HUD.SetActive(true);
                 break;
         }
