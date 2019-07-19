@@ -292,7 +292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b77553c1a3ba8436c88d73420c490c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickcount: 0
+  isToggle: 0
+  onPress: []
+  onUnpress: []
 --- !u!1 &1279483405178290827
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,7 +383,7 @@ GameObject:
   - component: {fileID: 1279483405590386808}
   m_Layer: 0
   m_Name: 3DButton
-  m_TagString: Untagged
+  m_TagString: Button3D
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -4,35 +4,42 @@ using UnityEngine;
 
 public class MusicManager : Singleton<MusicManager>
 {
-    public AudioSource[] audioSources;
+    AudioSource[] audioSources;
     float[] resumeTimer;
+    bool allQuiet;
 
-    public CustomSlider sliderAG;
-    public CustomSlider sliderBass;
-    public CustomSlider sliderBCV;
-    public CustomSlider sliderEG;
-    public CustomSlider sliderDrums;
-    public CustomSlider sliderLV;
-    public CustomSlider sliderPiano;
-    public CustomSlider sliderStringsRodes;
+    CustomSlider sliderAG;
+    CustomSlider sliderBass;
+    CustomSlider sliderBCV;
+    CustomSlider sliderEG;
+    CustomSlider sliderDrums;
+    CustomSlider sliderLV;
+    CustomSlider sliderPiano;
+    CustomSlider sliderStringsRodes;
 
-    
+
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        //audioSources = GetComponents<AudioSource>();
+        Setup();
+    }
+    public void Setup()
+    {
+        audioSources = GetComponents<AudioSource>();
         resumeTimer = new float[audioSources.Length];
-        stopMusic();
+        allQuiet = true;
 
-        /*sliderAG = GameObject.FindGameObjectWithTag("AG").GetComponent<CustomSlider>();
+        sliderAG = GameObject.FindGameObjectWithTag("AG").GetComponent<CustomSlider>();
         sliderBass = GameObject.FindGameObjectWithTag("Bass").GetComponent<CustomSlider>();
         sliderBCV = GameObject.FindGameObjectWithTag("BCV").GetComponent<CustomSlider>();
         sliderDrums = GameObject.FindGameObjectWithTag("Drums").GetComponent<CustomSlider>();
         sliderEG = GameObject.FindGameObjectWithTag("EG").GetComponent<CustomSlider>();
         sliderLV = GameObject.FindGameObjectWithTag("LV").GetComponent<CustomSlider>();
         sliderPiano = GameObject.FindGameObjectWithTag("Piano").GetComponent<CustomSlider>();
-        sliderStringsRodes = GameObject.FindGameObjectWithTag("StringsRodes").GetComponent<CustomSlider>();*/
+        sliderStringsRodes = GameObject.FindGameObjectWithTag("StringsRodes").GetComponent<CustomSlider>();
+
+        activateMusic();
     }
 
     // Update is called once per frame
@@ -46,23 +53,47 @@ public class MusicManager : Singleton<MusicManager>
         audioSources[5].volume = sliderLV.GetValue();
         audioSources[6].volume = sliderPiano.GetValue();
         audioSources[7].volume = sliderStringsRodes.GetValue();
+
+        foreach(AudioSource audio in audioSources)
+        {
+            if (audio.isPlaying)
+            {
+                allQuiet = false;
+                break;
+            }
+        }
+        if (allQuiet)
+        {
+            activateMusic();
+        }
+        allQuiet = true;
     }
 
     public void startMusic()
     {
-        for(int i = 0; i < audioSources.Length; i++)
+        /*for(int i = 0; i < audioSources.Length; i++)
         {
             audioSources[i].UnPause();
-            audioSources[i].time = resumeTimer[i];
+            //audioSources[i].time = resumeTimer[i];
+        }*/
+
+        foreach (AudioSource audio in audioSources)
+        {
+            audio.UnPause();
         }
     }
 
     public void stopMusic()
     {
-        for (int i = 0; i < audioSources.Length; i++)
+        /*for (int i = 0; i < audioSources.Length; i++)
         {
-            resumeTimer[i] = audioSources[i].time;
+            //resumeTimer[i] = audioSources[i].time;
             audioSources[i].Pause();
+        }*/
+
+        foreach(AudioSource audio in audioSources)
+        {
+            audio.Pause();
         }
     }
 
@@ -74,5 +105,13 @@ public class MusicManager : Singleton<MusicManager>
     public void muteOff(int track)
     {
         audioSources[track].mute = false;
+    }
+
+    private void activateMusic()
+    {
+        foreach(AudioSource audio in audioSources)
+        {
+            audio.Play();
+        }
     }
 }

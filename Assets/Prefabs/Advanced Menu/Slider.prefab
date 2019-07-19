@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 8402433253024601644}
   m_Layer: 0
   m_Name: Slider
-  m_TagString: Untagged
+  m_TagString: Slider3D
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

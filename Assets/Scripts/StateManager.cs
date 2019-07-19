@@ -14,9 +14,12 @@ public class StateManager: Singleton<StateManager>
 
     private MenuState currentMenuState = MenuState.HUD;
 
+    private bool setupAMdone;
+
     private void Start()
     {
         music = MusicManager.Instance;
+        setupAMdone = false;
     }
 
     public void GoToState(MenuState menuState)
@@ -39,7 +42,15 @@ public class StateManager: Singleton<StateManager>
             case MenuState.transitionToAdvancedMenu:
                 Transition.SetActive(false);
                 AdvancedMenu.SetActive(true);
-                music.startMusic();
+                if (setupAMdone)
+                {
+                    music.startMusic();
+                }
+                else
+                {
+                    music.Setup();
+                    setupAMdone = true;
+                }
                 break;
             // From Advanced Menu to Transition
             case MenuState.advancedMenu:
