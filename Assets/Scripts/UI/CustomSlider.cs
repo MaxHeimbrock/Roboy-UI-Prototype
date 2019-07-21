@@ -8,6 +8,8 @@ using UnityEditor.Events;
 [RequireComponent(typeof(InteractionBehaviour))]
 public class CustomSlider : MonoBehaviour
 {
+    private Vector3 defaultPosFull;
+    private Vector3 defaultPosFill;
 
     private InteractionBehaviour _initObject;
     private Animator titleAnimator;
@@ -43,6 +45,9 @@ public class CustomSlider : MonoBehaviour
         valueAnimator = this.transform.GetChild(1).GetComponent<Animator>();
         valueText = this.transform.GetChild(1).GetComponent<TextMesh>();
         value = 1f;
+
+        defaultPosFull = transform.localPosition;
+        defaultPosFill = transform.GetChild(0).localPosition;
     }
 
     /**
@@ -181,6 +186,18 @@ public class CustomSlider : MonoBehaviour
     public void SetNotVisibleByPointing()
     {
         valueAnimator.SetBool("VisiblePointing", false);
+    }
+
+    public void ReturnToDefaultPos()
+    {
+        if (CompareTag("AG"))
+        {
+            Debug.Log("Position Full current: " + transform.localPosition + " - original: " + defaultPosFull);
+        }
+        //Debug.Log("Position Fill current: " + transform.GetChild(0).localPosition + " - original: " + defaultPosFill);
+
+        transform.localPosition = defaultPosFull;
+        //transform.GetChild(0).localPosition = defaultPosFill;
     }
 
     /**

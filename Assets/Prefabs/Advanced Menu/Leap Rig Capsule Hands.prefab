@@ -1303,7 +1303,7 @@ GameObject:
   - component: {fileID: 4036800441989099785}
   m_Layer: 0
   m_Name: Hand Models
-  m_TagString: Untagged
+  m_TagString: HandModel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3106,7 +3106,7 @@ GameObject:
   - component: {fileID: 4036800442893944760}
   m_Layer: 0
   m_Name: Capsule Hand Left
-  m_TagString: HandModel
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3426,7 +3426,7 @@ GameObject:
   - component: {fileID: 4036800443076158764}
   m_Layer: 0
   m_Name: Capsule Hand Right
-  m_TagString: HandModel
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

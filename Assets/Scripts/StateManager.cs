@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StateManager: Singleton<StateManager>
 {
+    private bool fadein;
+
     public enum MenuState {HUD, transitionToAdvancedMenu, advancedMenu, transitionToHUD};
 
     public GameObject HUD;
@@ -18,8 +20,9 @@ public class StateManager: Singleton<StateManager>
 
     private void Start()
     {
-        music = MusicManager.Instance;
-        setupAMdone = false;
+        fadein = true;
+        //music = MusicManager.Instance;
+        //setupAMdone = false;
     }
 
     public void GoToState(MenuState menuState)
@@ -80,7 +83,26 @@ public class StateManager: Singleton<StateManager>
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StateManager.Instance.GoToNextState();
+            //StateManager.Instance.GoToNextState();
+
+            if (fadein)
+            {
+                foreach (SubMenuAnimationHandler script in AdvancedMenu.GetComponentsInChildren<SubMenuAnimationHandler>(true))
+                {
+                    script.FadeIn();
+                }
+
+                fadein = false;
+            }
+            else
+            {
+                foreach (SubMenuAnimationHandler script in AdvancedMenu.GetComponentsInChildren<SubMenuAnimationHandler>(true))
+                {
+                    script.FadeOut();
+                }
+
+                fadein = true;
+            }
         }
     }
 }

@@ -1409,7 +1409,7 @@ GameObject:
   - component: {fileID: 4036800441989099785}
   m_Layer: 0
   m_Name: Hand Models
-  m_TagString: Untagged
+  m_TagString: HandModel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3745,7 +3745,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1137685427885016, guid: 2aa010a1e75292e49a24f3f71bb9cddb, type: 3}
       propertyPath: m_TagString
-      value: HandModel
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4542260197562760, guid: 2aa010a1e75292e49a24f3f71bb9cddb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4805,7 +4805,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1404367628755344, guid: 2276723046d707c4f94d431ceb80ab92, type: 3}
       propertyPath: m_TagString
-      value: HandModel
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4430945870454064, guid: 2276723046d707c4f94d431ceb80ab92, type: 3}
       propertyPath: m_RootOrder
