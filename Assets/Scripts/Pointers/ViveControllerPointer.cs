@@ -108,7 +108,7 @@ public class ViveControllerPointer : MonoBehaviour
              * New Code
              * */
 
-            hit.transform.gameObject.GetComponent<Button>().Highlight();
+//            hit.transform.gameObject.GetComponent<Button>().Highlight();
 
         }
 

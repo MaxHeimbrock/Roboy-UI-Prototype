@@ -8,7 +8,7 @@ public class Menu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public Menu parentMenu;
     //public Menu[] submenus;
 
-    public Button_new[] menuButtons;
+    public Button[] menuButtons;
 
     private bool pointed = false;
 
@@ -28,7 +28,7 @@ public class Menu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         animator = GetComponent<Animator>();
         startTimer = Time.time;
 
-        foreach (Button_new menuButton in menuButtons)
+        foreach (Button menuButton in menuButtons)
         {
             menuButton.SetMenu(this);
         }

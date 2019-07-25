@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Button_new : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private bool pointed;
     private bool clicked = false;
