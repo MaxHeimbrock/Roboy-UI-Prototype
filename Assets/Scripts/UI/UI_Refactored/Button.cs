@@ -23,6 +23,14 @@ public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     Image dwellTimeImage;
 
+    // Event to trigger something additional, if button is clicked
+    [Serializable]
+    public class ButtonClicked : UnityEvent { }
+
+    [SerializeField]
+    private ButtonClicked buttonClickedTriggered = new ButtonClicked();
+    public ButtonClicked buttonClickedEvent { get { return buttonClickedTriggered; } set { buttonClickedTriggered = value; } }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (pointed == false)
@@ -50,7 +58,10 @@ public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             LogText.Instance.addToLogText("Clicked at " + this.name + " inside Button class");
 
-            submenuActivateWithClick.Activate();
+            if (submenuActivateWithClick != null)
+                submenuActivateWithClick.Activate();
+
+            buttonClickedEvent.Invoke();
         }
 
         clicked = true;

@@ -7,11 +7,10 @@ public class StateManager: Singleton<StateManager>
     public enum MenuState {HUD, transitionToAdvancedMenu, advancedMenu, transitionToHUD};
 
     public GameObject HUD;
-    public GameObject Transition;
     public GameObject AdvancedMenu;
     public GameObject Roboy;
     
-    private MenuState currentMenuState = MenuState.HUD;
+    public MenuState currentMenuState = MenuState.HUD;
     
     public void GoToState(MenuState menuState)
     {
@@ -25,24 +24,22 @@ public class StateManager: Singleton<StateManager>
             // From HUD to Transition
             case MenuState.HUD:
                 HUD.SetActive(false);
-                Transition.SetActive(true);
-                Roboy.SetActive(true);
-                TransitionChangeState.Instance.StartTransitionToAdvancedMenu();
+                Roboy.SetActive(true);                
+                CameraAnimatorScript.Instance.StartTransitionToAdvancedMenu();
                 break;
             // From Transition to Advanced Menu
             case MenuState.transitionToAdvancedMenu:
-                Transition.SetActive(false);
+                // Set Button not pointed here for safety
+                CameraAnimatorScript.Instance.SetButtonNotPointed();
                 AdvancedMenu.SetActive(true);
                 break;
             // From Advanced Menu to Transition
             case MenuState.advancedMenu:
                 AdvancedMenu.SetActive(false);
-                Transition.SetActive(true);
-                TransitionChangeState.Instance.StartTransitionToHUD();
+                CameraAnimatorScript.Instance.StartTransitionToHUD();
                 break;
             // From Transition to HUD
             case MenuState.transitionToHUD:
-                Transition.SetActive(false);
                 Roboy.SetActive(false);
                 HUD.SetActive(true);
                 break;
@@ -63,5 +60,10 @@ public class StateManager: Singleton<StateManager>
         {
             StateManager.Instance.GoToNextState();
         }
+    }
+
+    public MenuState GetCurrentState()
+    {
+        return currentMenuState;
     }
 }

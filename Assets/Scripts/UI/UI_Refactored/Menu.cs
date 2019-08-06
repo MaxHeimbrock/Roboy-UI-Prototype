@@ -24,7 +24,7 @@ public class Menu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private Animator animator;
     
-    //my event
+    // Event to trigger something, if menu is activated
     [Serializable]
     public class MenuActivated : UnityEvent { }
 
