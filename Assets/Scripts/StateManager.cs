@@ -10,18 +10,9 @@ public class StateManager: Singleton<StateManager>
     public GameObject Transition;
     public GameObject AdvancedMenu;
     public GameObject Roboy;
-    private MusicManager music;
-
+    
     private MenuState currentMenuState = MenuState.HUD;
-
-    private bool setupAMdone;
-
-    private void Start()
-    {
-        music = MusicManager.Instance;
-        setupAMdone = false;
-    }
-
+    
     public void GoToState(MenuState menuState)
     {
         currentMenuState = menuState;
@@ -42,21 +33,9 @@ public class StateManager: Singleton<StateManager>
             case MenuState.transitionToAdvancedMenu:
                 Transition.SetActive(false);
                 AdvancedMenu.SetActive(true);
-                menuFade(true);
-                if (setupAMdone)
-                {
-                    music.startMusic();
-                }
-                else
-                {
-                    music.Setup();
-                    setupAMdone = true;
-                }
                 break;
             // From Advanced Menu to Transition
             case MenuState.advancedMenu:
-                music.stopMusic();
-                menuFade(false);
                 AdvancedMenu.SetActive(false);
                 Transition.SetActive(true);
                 TransitionChangeState.Instance.StartTransitionToHUD();
@@ -83,36 +62,6 @@ public class StateManager: Singleton<StateManager>
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StateManager.Instance.GoToNextState();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            menuFade(true);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            menuFade(false);
-        }
-    }
-
-    private void menuFade(bool fadein)
-    {
-        if (fadein)
-        {
-            foreach (SubMenuAnimationHandler script in AdvancedMenu.GetComponentsInChildren<SubMenuAnimationHandler>(true))
-            {
-                script.FadeIn();
-            }
-
-            fadein = false;
-        }
-        else
-        {
-            foreach (SubMenuAnimationHandler script in AdvancedMenu.GetComponentsInChildren<SubMenuAnimationHandler>(true))
-            {
-                script.FadeOut();
-            }
-
-            fadein = true;
         }
     }
 }

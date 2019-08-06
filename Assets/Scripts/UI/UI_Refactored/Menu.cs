@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class Menu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -21,6 +23,14 @@ public class Menu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private bool active = false;
 
     private Animator animator;
+    
+    //my event
+    [Serializable]
+    public class MenuActivated : UnityEvent { }
+
+    [SerializeField]
+    private MenuActivated menuActivatedTriggered = new MenuActivated();
+    public MenuActivated menuActivatedEvent { get { return menuActivatedTriggered; } set { menuActivatedTriggered = value; } }
 
     // Start is called before the first frame update
     void Start()
@@ -95,11 +105,13 @@ public class Menu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
 
     #region Helper
-
+    
     public void Activate()
     {
         animator.SetBool("Active", true);
-        active = true;        
+        active = true;
+
+        menuActivatedEvent.Invoke();
     }
 
     public void Deactivate()
