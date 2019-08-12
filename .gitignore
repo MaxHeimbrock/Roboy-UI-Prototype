@@ -64,3 +64,8 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+
+# Exclude XTAL SDK
+Assets/vrgineers/
+Assets/vrgineers.meta
