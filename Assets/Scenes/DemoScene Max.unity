@@ -120,6 +120,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &49036500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 49036502}
+  - component: {fileID: 49036501}
+  m_Layer: 0
+  m_Name: LeftHandTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &49036501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49036500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d37c2cf88f7c59f4c8cf5d3812568143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 1
+  origin: {fileID: 0}
+--- !u!4 &49036502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49036500}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1168787064}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &52780469 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1342992581342600762, guid: 017819cfb27744411bb35938b57bfbfb,
@@ -3287,6 +3333,63 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1705636735}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1125544736
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1908857782}
+    m_Modifications:
+    - target: {fileID: 1000726318476868, guid: d78455765115d9340b5b8465eddca9f7, type: 3}
+      propertyPath: m_Name
+      value: SenseGloveHand - Right VR
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835466476096230, guid: d78455765115d9340b5b8465eddca9f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835466476096230, guid: d78455765115d9340b5b8465eddca9f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835466476096230, guid: d78455765115d9340b5b8465eddca9f7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835466476096230, guid: d78455765115d9340b5b8465eddca9f7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835466476096230, guid: d78455765115d9340b5b8465eddca9f7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835466476096230, guid: d78455765115d9340b5b8465eddca9f7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835466476096230, guid: d78455765115d9340b5b8465eddca9f7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835466476096230, guid: d78455765115d9340b5b8465eddca9f7, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835466476096230, guid: d78455765115d9340b5b8465eddca9f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835466476096230, guid: d78455765115d9340b5b8465eddca9f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835466476096230, guid: d78455765115d9340b5b8465eddca9f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d78455765115d9340b5b8465eddca9f7, type: 3}
 --- !u!1001 &1127282978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3629,6 +3732,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e0ed5922e911b343b8400997c95409c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1168787064 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4755218548737626, guid: fdf857c49d30cb74493ec759f4052810,
+    type: 3}
+  m_PrefabInstance: {fileID: 2059338319}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1193363757
 GameObject:
   m_ObjectHideFlags: 0
@@ -5272,6 +5381,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 367c6e84ed72912409da43fd8e05b56b, type: 3}
+--- !u!1 &1908857780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1908857782}
+  - component: {fileID: 1908857781}
+  m_Layer: 0
+  m_Name: RightHandTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1908857781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908857780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d37c2cf88f7c59f4c8cf5d3812568143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 2
+  origin: {fileID: 0}
+--- !u!4 &1908857782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908857780}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2005560267}
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1979763595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5543,6 +5698,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 8402433252933744356, guid: 81c77af481c91844a968659ac33bae29, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 81c77af481c91844a968659ac33bae29, type: 3}
+--- !u!4 &2005560267 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4835466476096230, guid: d78455765115d9340b5b8465eddca9f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1125544736}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2040798100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5720,6 +5881,68 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1766613973}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2059338319
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 49036502}
+    m_Modifications:
+    - target: {fileID: 1510197648175950, guid: fdf857c49d30cb74493ec759f4052810, type: 3}
+      propertyPath: m_Name
+      value: SenseGloveHand - Left VR
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755218548737626, guid: fdf857c49d30cb74493ec759f4052810, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755218548737626, guid: fdf857c49d30cb74493ec759f4052810, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755218548737626, guid: fdf857c49d30cb74493ec759f4052810, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755218548737626, guid: fdf857c49d30cb74493ec759f4052810, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755218548737626, guid: fdf857c49d30cb74493ec759f4052810, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755218548737626, guid: fdf857c49d30cb74493ec759f4052810, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755218548737626, guid: fdf857c49d30cb74493ec759f4052810, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755218548737626, guid: fdf857c49d30cb74493ec759f4052810, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755218548737626, guid: fdf857c49d30cb74493ec759f4052810, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755218548737626, guid: fdf857c49d30cb74493ec759f4052810, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755218548737626, guid: fdf857c49d30cb74493ec759f4052810, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114652621073152480, guid: fdf857c49d30cb74493ec759f4052810,
+        type: 3}
+      propertyPath: updateWrist
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fdf857c49d30cb74493ec759f4052810, type: 3}
 --- !u!114 &2062290223 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8302783923889070236, guid: d80c5822fe381994486fddc6d3ef7430,
@@ -7061,6 +7284,16 @@ PrefabInstance:
     - target: {fileID: 8302783924536603255, guid: d80c5822fe381994486fddc6d3ef7430,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302783924536603256, guid: d80c5822fe381994486fddc6d3ef7430,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302783924536603256, guid: d80c5822fe381994486fddc6d3ef7430,
+        type: 3}
+      propertyPath: m_TrackingType
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
