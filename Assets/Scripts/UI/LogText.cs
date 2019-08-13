@@ -34,6 +34,7 @@ public class LogText : Singleton<LogText>
         if (time.Hour < 10)
             text = "0" + text;
 
-        textMesh.SetText(text);
+        // Hier ist noch ein Bug
+        // textMesh.SetText(text);
     }
 }
