@@ -14,7 +14,7 @@ public class ResetCamera : MonoBehaviour
     void Start()
     {
         // Sets the zero pose for the seated tracker coordinate system to the current position and yaw of the HMD.
-        Valve.VR.OpenVR.System.ResetSeatedZeroPose();
+        // Valve.VR.OpenVR.System.ResetSeatedZeroPose();
 
 
         //Valve.VR.OpenVR.Compositor.SetTrackingSpace(Valve.VR.ETrackingUniverseOrigin.TrackingUniverseSeated);

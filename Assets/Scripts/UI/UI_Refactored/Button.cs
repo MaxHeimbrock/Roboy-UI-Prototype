@@ -23,7 +23,7 @@ public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     Image dwellTimeImage;
 
-    // Event to trigger something additional, if button is clicked
+    // Event to trigger something additional, if button is clicked, like change the state of the state manager for the transition button
     [Serializable]
     public class ButtonClicked : UnityEvent { }
 
@@ -49,6 +49,12 @@ public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             //Debug.Log("Exit");
         }
 
+        clicked = false;
+    }
+
+    // This is just a helper to reset clicked when middle button starts transition but mouse never gets moved.
+    public void SetClickedFalse()
+    {
         clicked = false;
     }
 
@@ -86,7 +92,7 @@ public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         else if (submenuActivateWithClick != null && submenuActivateWithClick.GetActive() == false && pointed == false)
             dwellTimeImage.fillAmount = 0;
 
-        // if submenu is null and button  is not pointed, reset button fill to 0
+        // if submenu is null and button is not pointed, reset button fill to 0
         else if (submenuActivateWithClick == null && pointed == false)
             dwellTimeImage.fillAmount = 0;
 

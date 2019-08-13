@@ -194,7 +194,7 @@ public class SubMenuAnimationHandler : MonoBehaviour
         {
              obj.transform.GetChild(0).GetComponent<Collider>().enabled = false;
              obj.transform.GetChild(0).GetComponent<CustomSlider>().enabled = false;
-             Debug.Log("Turned off CustomSlider at: " + obj.transform.GetChild(0).name);
+             // Debug.Log("Turned off CustomSlider at: " + obj.transform.GetChild(0).name);
 
             
             foreach(GameObject hand in GameObject.FindGameObjectsWithTag("HandModel"))

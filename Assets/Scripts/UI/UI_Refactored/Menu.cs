@@ -83,7 +83,7 @@ public class Menu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void Highlight()
     {
-        Debug.Log("Highlight");
+        // Debug.Log("Highlight");
 
         // When active, just reset start timer of last highlight to now, so it doesn't deactivate 
         if (active == true)

@@ -9,6 +9,10 @@ public class StateManager: Singleton<StateManager>
     public GameObject HUD;
     public GameObject AdvancedMenu;
     public GameObject Roboy;
+
+    [Header("Just a helper if pointing with mouse")]
+    [Tooltip("When the mouse is not moved after transition, the transition button is still in clicked state. Reference for resetting the state to not clicked.")]
+    public Button TransitionButton;
     
     public MenuState currentMenuState = MenuState.HUD;
     
@@ -31,6 +35,8 @@ public class StateManager: Singleton<StateManager>
             case MenuState.transitionToAdvancedMenu:
                 // Set Button not pointed here for safety
                 CameraAnimatorScript.Instance.SetButtonNotPointed();
+                // Set TransitionButton to not clicked to fix bug with mouse not moved. This will not be needed with eye tracking.
+                TransitionButton.OnPointerExit(null);
                 AdvancedMenu.SetActive(true);
                 break;
             // From Advanced Menu to Transition
