@@ -6,6 +6,20 @@ TagManager:
   tags:
   - VideoCapture
   - ViveController
+  - Roboy
+  - RoboyPart
+  - AG
+  - Bass
+  - BCV
+  - Drums
+  - EG
+  - LV
+  - Piano
+  - StringsRodes
+  - HandModel
+  - Slider3D
+  - Button3D
+  - SubMenu3D
   layers:
   - Default
   - TransparentFX

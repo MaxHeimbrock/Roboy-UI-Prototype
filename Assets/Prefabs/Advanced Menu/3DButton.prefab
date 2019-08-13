@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1279483404240385474}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.7459998, y: 0.75, z: 0}
-  m_LocalScale: {x: 0.1, y: 1.6, z: 0.1}
+  m_LocalScale: {x: 0.10000001, y: 1.6000001, z: 0.10000001}
   m_Children: []
   m_Father: {fileID: 1279483405066123016}
   m_RootOrder: 0
@@ -292,7 +292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b77553c1a3ba8436c88d73420c490c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickcount: 0
+  isToggle: 0
+  onPress: []
+  onUnpress: []
 --- !u!1 &1279483405178290827
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,7 +383,7 @@ GameObject:
   - component: {fileID: 1279483405590386808}
   m_Layer: 0
   m_Name: 3DButton
-  m_TagString: Untagged
+  m_TagString: Button3D
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -587,22 +589,22 @@ PrefabInstance:
     - target: {fileID: 2738010764499199075, guid: a694dcf55f2c6b54aa35ca3399f6d156,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2738010764499199075, guid: a694dcf55f2c6b54aa35ca3399f6d156,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.019578101
+      value: 0.008901071
       objectReference: {fileID: 0}
     - target: {fileID: 2738010764499199075, guid: a694dcf55f2c6b54aa35ca3399f6d156,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2738010764499199075, guid: a694dcf55f2c6b54aa35ca3399f6d156,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9998083
+      value: 0.99996036
       objectReference: {fileID: 0}
     - target: {fileID: 2738010764499199075, guid: a694dcf55f2c6b54aa35ca3399f6d156,
         type: 3}
@@ -617,12 +619,22 @@ PrefabInstance:
     - target: {fileID: 2738010764499199075, guid: a694dcf55f2c6b54aa35ca3399f6d156,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -2.2440002
+      value: 1.02
       objectReference: {fileID: 0}
     - target: {fileID: 2738010764499199075, guid: a694dcf55f2c6b54aa35ca3399f6d156,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738010764499199076, guid: a694dcf55f2c6b54aa35ca3399f6d156,
+        type: 3}
+      propertyPath: m_Text
+      value: Mute
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738010764499199076, guid: a694dcf55f2c6b54aa35ca3399f6d156,
+        type: 3}
+      propertyPath: m_CharacterSize
+      value: 0.027
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a694dcf55f2c6b54aa35ca3399f6d156, type: 3}

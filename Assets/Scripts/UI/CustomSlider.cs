@@ -2,21 +2,38 @@
 using System.Collections.Generic;
 using Leap.Unity.Interaction;
 using UnityEngine;
+using Leap.Unity;
+using UnityEditor.Events;
 
 [RequireComponent(typeof(InteractionBehaviour))]
 public class CustomSlider : MonoBehaviour
 {
+    private Vector3 defaultPosFull;
+    private Vector3 defaultPosFill;
 
     private InteractionBehaviour _initObject;
     private Animator titleAnimator;
     private Animator valueAnimator;
     private TextMesh valueText;
     private GameObject IntersectingObject;
+    private float value;
 
     /*public Vector3 v1 = new Vector3(0,0,0);
     public Vector3 v2 = new Vector3(0, 0, 0);
     public Vector3 v3 = new Vector3(0, 0, 0);
     public Vector3 v4 = new Vector3(0, 0, 0);*/
+
+    private void Reset()
+    {
+        Debug.Log("Successful Reset");
+        GameObject[] handModels = GameObject.FindGameObjectsWithTag("HandModel");
+        foreach(GameObject hand in handModels)
+        {
+            FingerDirectionDetector detector = hand.AddComponent<FingerDirectionDetector>();
+            UnityEventTools.AddPersistentListener(detector.OnActivate, SetIsVisibleByPointing);
+            UnityEventTools.AddPersistentListener(detector.OnDeactivate, SetNotVisibleByPointing);
+        }
+    }
 
     /**
      * Initialize variables, important to remain prefab hierarchy
@@ -27,6 +44,10 @@ public class CustomSlider : MonoBehaviour
         titleAnimator = this.transform.parent.GetChild(1).GetComponent<Animator>();
         valueAnimator = this.transform.GetChild(1).GetComponent<Animator>();
         valueText = this.transform.GetChild(1).GetComponent<TextMesh>();
+        value = 1f;
+
+        defaultPosFull = transform.localPosition;
+        defaultPosFill = transform.GetChild(0).localPosition;
     }
 
     /**
@@ -86,36 +107,64 @@ public class CustomSlider : MonoBehaviour
      */
     private void updateValue(Collision collision)
     {
-        float minX = 1000000000000000000;
+        Transform fillTransform = transform.GetChild(0);
+        if(!fillTransform.gameObject.activeSelf)
+        {
+            fillTransform.gameObject.SetActive(true);
+        }
+
+        float maxY = -1000000000000000000;
         Vector3 closestPoint = new Vector3(0,0,0);
+        Vector3 contactPointLocal;
         foreach (ContactPoint contact in collision.contacts)
         {
-            if (contact.point.x < minX)
+            contactPointLocal = transform.InverseTransformPoint(contact.point);
+            if (contactPointLocal.y > maxY)
             {
-                minX = contact.point.x;
-                closestPoint = contact.point;
+                maxY = contactPointLocal.y;
+                closestPoint = contactPointLocal;
             }
         }
         Vector3 localLeftBorderPoint = transform.localPosition;
         localLeftBorderPoint.y += 1f * transform.localScale.y;
-        Vector3 worldLeftBorderPoint = transform.TransformPoint(localLeftBorderPoint);
         Vector3 localRightBorderPoint = transform.localPosition;
         localRightBorderPoint.y += -1f * transform.localScale.y;
-        Vector3 worldRightBorderPoint = transform.TransformPoint(localRightBorderPoint);
-        if(closestPoint.x < worldLeftBorderPoint.x)
+        if (closestPoint.y > localLeftBorderPoint.y)
         {
-            closestPoint.x = worldLeftBorderPoint.x;
+            closestPoint.y = localLeftBorderPoint.y;
         }
-        else if (closestPoint.x > worldRightBorderPoint.x)
+        else if (closestPoint.y < localRightBorderPoint.y)
         {
-            closestPoint.x = worldRightBorderPoint.x;
+            closestPoint.y = localRightBorderPoint.y;
         }
-        float totalLength = worldRightBorderPoint.x - worldLeftBorderPoint.x;
-        float fillPercentage = (closestPoint.x - worldLeftBorderPoint.x) / totalLength;
-        valueText.text = Mathf.Round(fillPercentage * 100f).ToString() + "%";
-        Transform fillTransform = transform.GetChild(0);
-        fillTransform.localScale = new Vector3(fillTransform.localScale.x, fillPercentage, fillTransform.localScale.z);
-        fillTransform.position = new Vector3((transform.position.x - (totalLength - (totalLength * fillPercentage))/2f)-0.0001f, fillTransform.position.y, fillTransform.position.z);
+        float totalLength = localLeftBorderPoint.y - localRightBorderPoint.y;
+        value = (localLeftBorderPoint.y - closestPoint.y) / totalLength;
+        valueText.text = Mathf.Round(value * 100f).ToString() + "%";
+        
+        if(value < 1f)
+        {
+            if(value > 0f)
+            {
+                fillTransform.localScale = new Vector3(fillTransform.localScale.x, value, fillTransform.localScale.z);
+            }
+            else
+            {
+                fillTransform.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            fillTransform.localScale = new Vector3(fillTransform.localScale.x, value + 0.0002f, fillTransform.localScale.z);
+        }
+        fillTransform.localPosition = new Vector3(fillTransform.localPosition.x, (transform.localPosition.y + (totalLength - (totalLength * value))/2f)+0.0001f, fillTransform.localPosition.z);
+    }
+
+    /**
+     * Returns the current value for the slider.
+     */
+     public float GetValue()
+    {
+        return value;
     }
 
     /**
@@ -126,11 +175,32 @@ public class CustomSlider : MonoBehaviour
      */
     public void SetVisiblePointer(bool visiblePointing)
     {
-        Debug.Log("Set Variable to: " + visiblePointing);
         valueAnimator.SetBool("VisiblePointing", visiblePointing);
     }
 
-    /*
+    public void SetIsVisibleByPointing()
+    {
+        valueAnimator.SetBool("VisiblePointing", true);
+    }
+
+    public void SetNotVisibleByPointing()
+    {
+        valueAnimator.SetBool("VisiblePointing", false);
+    }
+
+    public void ReturnToDefaultPos()
+    {
+        if (CompareTag("AG"))
+        {
+            Debug.Log("Position Full current: " + transform.localPosition + " - original: " + defaultPosFull);
+        }
+        //Debug.Log("Position Fill current: " + transform.GetChild(0).localPosition + " - original: " + defaultPosFill);
+
+        transform.localPosition = defaultPosFull;
+        //transform.GetChild(0).localPosition = defaultPosFill;
+    }
+
+    /**
      * Only for Debug purposes
      */
     /*private void OnDrawGizmos()
