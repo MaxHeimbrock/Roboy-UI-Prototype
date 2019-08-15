@@ -16,10 +16,11 @@ public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     float startTime;
     float currentTimer;
 
+    [Header("Dwell time to click button (in seconds)")]
     public float dwellTime = 2.0f;
 
-    // This submenu will be activated if the button is clicked
-    public Menu submenuActivateWithClick;
+    [Header("The submenu, which will be activated when button is clicked")]
+    public Menu submenu;
 
     Image dwellTimeImage;
 
@@ -64,8 +65,8 @@ public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             LogText.Instance.addToLogText("Clicked at " + this.name + " inside Button class");
 
-            if (submenuActivateWithClick != null)
-                submenuActivateWithClick.Activate();
+            if (submenu != null)
+                submenu.Activate();
 
             buttonClickedEvent.Invoke();
         }
@@ -85,15 +86,15 @@ public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     void Update()
     {
         // If submenu is active, keep the button filled
-        if (submenuActivateWithClick != null && submenuActivateWithClick.GetActive())
+        if (submenu != null && submenu.GetActive())
             dwellTimeImage.fillAmount = 1;
 
         // If submenu is inactive and button is not pointed, reset button fill to 0
-        else if (submenuActivateWithClick != null && submenuActivateWithClick.GetActive() == false && pointed == false)
+        else if (submenu != null && submenu.GetActive() == false && pointed == false)
             dwellTimeImage.fillAmount = 0;
 
         // if submenu is null and button is not pointed, reset button fill to 0
-        else if (submenuActivateWithClick == null && pointed == false)
+        else if (submenu == null && pointed == false)
             dwellTimeImage.fillAmount = 0;
 
         // Draw dwell time indicator
