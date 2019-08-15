@@ -35,6 +35,6 @@ public class LogText : Singleton<LogText>
             text = "0" + text;
 
         // Hier ist noch ein Bug
-        // textMesh.SetText(text);
+        textMesh.SetText(text);
     }
 }

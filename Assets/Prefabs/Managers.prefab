@@ -185,7 +185,6 @@ GameObject:
   - component: {fileID: 6259498246839047759}
   - component: {fileID: 6259498246839047758}
   - component: {fileID: 6259498246839047757}
-  - component: {fileID: 6259498246839047756}
   m_Layer: 0
   m_Name: UI-Manager
   m_TagString: Untagged
@@ -339,19 +338,6 @@ MonoBehaviour:
   color: {r: 0.031372547, g: 1, b: 0.24531862, a: 0}
   thickness: 0.002
   length: 100
---- !u!114 &6259498246839047756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6259498246839047754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f0477e75f847584582dca7007b8feab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textMesh: {fileID: 0}
 --- !u!1 &6259498246935189058
 GameObject:
   m_ObjectHideFlags: 0
