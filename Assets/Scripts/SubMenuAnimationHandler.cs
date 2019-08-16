@@ -22,6 +22,7 @@ public class SubMenuAnimationHandler : MonoBehaviour
         }
     }
 
+    public bool MButtonTransition;
     public bool IsNested = false;
     private int currentState;
     private bool newRequest;
@@ -105,6 +106,18 @@ public class SubMenuAnimationHandler : MonoBehaviour
                 safeModeOn();
                 animator.SetBool("FadeOut", true);
             } 
+        }
+
+        if(MButtonTransition && Input.GetKeyDown(KeyCode.M))
+        {
+            if (fadeIn)
+            {
+                FadeOut();
+            }
+            else
+            {
+                FadeIn();
+            }
         }
     }
 

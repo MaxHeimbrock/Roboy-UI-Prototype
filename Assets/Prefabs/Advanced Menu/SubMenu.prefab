@@ -1386,6 +1386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0b3387b6e020943af405c162fa4583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MButtonTransition: 1
   IsNested: 0
 --- !u!1 &7148319237941970677
 GameObject:
