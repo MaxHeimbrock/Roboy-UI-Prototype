@@ -5,13 +5,11 @@ using UnityEngine;
 using Leap.Unity;
 using UnityEditor.Events;
 
-[RequireComponent(typeof(InteractionBehaviour))]
 public class CustomSlider : MonoBehaviour
 {
     private Vector3 defaultPosFull;
     private Vector3 defaultPosFill;
-
-    private InteractionBehaviour _initObject;
+    
     private Animator titleAnimator;
     private Animator valueAnimator;
     private TextMesh valueText;
@@ -23,24 +21,11 @@ public class CustomSlider : MonoBehaviour
     public Vector3 v3 = new Vector3(0, 0, 0);
     public Vector3 v4 = new Vector3(0, 0, 0);*/
 
-    private void Reset()
-    {
-        Debug.Log("Successful Reset");
-        GameObject[] handModels = GameObject.FindGameObjectsWithTag("HandModel");
-        foreach(GameObject hand in handModels)
-        {
-            FingerDirectionDetector detector = hand.AddComponent<FingerDirectionDetector>();
-            UnityEventTools.AddPersistentListener(detector.OnActivate, SetIsVisibleByPointing);
-            UnityEventTools.AddPersistentListener(detector.OnDeactivate, SetNotVisibleByPointing);
-        }
-    }
-
     /**
      * Initialize variables, important to remain prefab hierarchy
      */
     public void Start()
     {
-        _initObject = this.GetComponent<InteractionBehaviour>();
         titleAnimator = this.transform.parent.GetChild(1).GetComponent<Animator>();
         valueAnimator = this.transform.GetChild(1).GetComponent<Animator>();
         valueText = this.transform.GetChild(1).GetComponent<TextMesh>();
@@ -190,14 +175,7 @@ public class CustomSlider : MonoBehaviour
 
     public void ReturnToDefaultPos()
     {
-        if (CompareTag("AG"))
-        {
-            Debug.Log("Position Full current: " + transform.localPosition + " - original: " + defaultPosFull);
-        }
-        //Debug.Log("Position Fill current: " + transform.GetChild(0).localPosition + " - original: " + defaultPosFill);
-
         transform.localPosition = defaultPosFull;
-        //transform.GetChild(0).localPosition = defaultPosFill;
     }
 
     /**
