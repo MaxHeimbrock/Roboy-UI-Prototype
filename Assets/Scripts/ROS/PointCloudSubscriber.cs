@@ -4,6 +4,8 @@ using UnityEngine;
 using RosSharp.RosBridgeClient;
 using RosSharp.RosBridgeClient.Messages.Roboy;
 using RosSharp.RosBridgeClient.Messages.Sensor;
+using System.IO;
+using System;
 
 public class PointCloudSubscriber : Subscriber<RosSharp.RosBridgeClient.Messages.Sensor.PointCloud2>
 {
@@ -31,6 +33,7 @@ public class PointCloudSubscriber : Subscriber<RosSharp.RosBridgeClient.Messages
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
+            print("Starting Listener");
             base.Start();
             break;
         }
@@ -42,22 +45,51 @@ public class PointCloudSubscriber : Subscriber<RosSharp.RosBridgeClient.Messages
     /// <param name="message"> is the received message.</param>
     protected override void ReceiveMessage(PointCloud2 message)
     {
-        Get3DPoint(message, 1, 1);
+        //print("Message Received");
+        for (int i = 1; i < message.width; i += 16)
+        {
+            Get3DPoint(message, i, 0);
+        }
+        print("==");
+        gameObjects.Clear();
     }
+
+    private List<GameObject> gameObjects = new List<GameObject>();
 
     void Get3DPoint(PointCloud2 pointCloud, int u, int v)
     {
+        //print("INIT: Get3DPoint, ValueTest=" + pointCloud.width);
         int width = pointCloud.width;
         int height = pointCloud.height;
+        
 
         int arrayPos = v * pointCloud.row_step + u * pointCloud.point_step;
+
+      
 
         int arrayPosX = arrayPos + pointCloud.fields[0].offset; // X has an offset of 0
         int arrayPosY = arrayPos + pointCloud.fields[1].offset; // Y has an offset of 4
         int arrayPosZ = arrayPos + pointCloud.fields[2].offset; // Z has an offset of 8
+        
+     
 
-        float x = pointCloud.data[arrayPosX];
+        MemoryStream stream = new MemoryStream(pointCloud.data);
+        BinaryReader reader = new BinaryReader(stream);
 
-        Debug.Log("PointCloud Conversion: " + x);
+        stream.Position = arrayPosX;
+        float x = reader.ReadSingle();
+        stream.Position = arrayPosY;
+        float y = reader.ReadSingle();
+        stream.Position = arrayPosY;
+        float z = reader.ReadSingle();
+
+        print("Coordinate: X=" + x + ", Y=" + y + ", Z=" + z);
+
+        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        sphere.transform.position = new Vector3(x, y, z);
+        sphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        Instantiate(sphere);
+        gameObjects.Add(sphere);
+
     }
 }

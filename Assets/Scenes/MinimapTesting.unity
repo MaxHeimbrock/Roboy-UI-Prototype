@@ -236,12 +236,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1691703899}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 876282bb734506440834891b67b9999a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: 
+  Topic: /points2
   TimeStep: 0
 --- !u!114 &1691703901
 MonoBehaviour:
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Timeout: 10
   Protocol: 0
-  RosBridgeServerUrl: ws://192.168.0.124:9090
+  RosBridgeServerUrl: ws://192.168.0.119:9090
 --- !u!4 &1691703902
 Transform:
   m_ObjectHideFlags: 0
