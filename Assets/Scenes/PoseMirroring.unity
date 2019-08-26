@@ -531,6 +531,61 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Roboy
       objectReference: {fileID: 0}
+    - target: {fileID: 864836813163281623, guid: 5b75e30d16d05491da8808c9dfdb5354,
+        type: 3}
+      propertyPath: m_TagString
+      value: RoboyPart
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764523731768278428, guid: 5b75e30d16d05491da8808c9dfdb5354,
+        type: 3}
+      propertyPath: m_TagString
+      value: RoboyPart
+      objectReference: {fileID: 0}
+    - target: {fileID: 2998710109280188078, guid: 5b75e30d16d05491da8808c9dfdb5354,
+        type: 3}
+      propertyPath: m_TagString
+      value: RoboyPart
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342249739043664158, guid: 5b75e30d16d05491da8808c9dfdb5354,
+        type: 3}
+      propertyPath: m_TagString
+      value: RoboyPart
+      objectReference: {fileID: 0}
+    - target: {fileID: 5546000165303516544, guid: 5b75e30d16d05491da8808c9dfdb5354,
+        type: 3}
+      propertyPath: m_TagString
+      value: RoboyPart
+      objectReference: {fileID: 0}
+    - target: {fileID: 4870868445551528512, guid: 5b75e30d16d05491da8808c9dfdb5354,
+        type: 3}
+      propertyPath: m_TagString
+      value: RoboyPart
+      objectReference: {fileID: 0}
+    - target: {fileID: 3667671148236383539, guid: 5b75e30d16d05491da8808c9dfdb5354,
+        type: 3}
+      propertyPath: m_TagString
+      value: RoboyPart
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107322469963133379, guid: 5b75e30d16d05491da8808c9dfdb5354,
+        type: 3}
+      propertyPath: m_TagString
+      value: RoboyPart
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804548848078232309, guid: 5b75e30d16d05491da8808c9dfdb5354,
+        type: 3}
+      propertyPath: m_TagString
+      value: RoboyPart
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792225512082608396, guid: 5b75e30d16d05491da8808c9dfdb5354,
+        type: 3}
+      propertyPath: m_TagString
+      value: RoboyPart
+      objectReference: {fileID: 0}
+    - target: {fileID: 4463574746967325292, guid: 5b75e30d16d05491da8808c9dfdb5354,
+        type: 3}
+      propertyPath: m_TagString
+      value: RoboyPart
+      objectReference: {fileID: 0}
     - target: {fileID: 4405582849594332741, guid: 5b75e30d16d05491da8808c9dfdb5354,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -676,42 +731,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -179.99998
       objectReference: {fileID: 0}
-    - target: {fileID: 3667671148236383539, guid: 5b75e30d16d05491da8808c9dfdb5354,
-        type: 3}
-      propertyPath: m_TagString
-      value: RoboyPart
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342249739043664158, guid: 5b75e30d16d05491da8808c9dfdb5354,
-        type: 3}
-      propertyPath: m_TagString
-      value: RoboyPart
-      objectReference: {fileID: 0}
     - target: {fileID: 793975234919401227, guid: 5b75e30d16d05491da8808c9dfdb5354,
-        type: 3}
-      propertyPath: m_TagString
-      value: RoboyPart
-      objectReference: {fileID: 0}
-    - target: {fileID: 4870868445551528512, guid: 5b75e30d16d05491da8808c9dfdb5354,
-        type: 3}
-      propertyPath: m_TagString
-      value: RoboyPart
-      objectReference: {fileID: 0}
-    - target: {fileID: 5546000165303516544, guid: 5b75e30d16d05491da8808c9dfdb5354,
-        type: 3}
-      propertyPath: m_TagString
-      value: RoboyPart
-      objectReference: {fileID: 0}
-    - target: {fileID: 2804548848078232309, guid: 5b75e30d16d05491da8808c9dfdb5354,
-        type: 3}
-      propertyPath: m_TagString
-      value: RoboyPart
-      objectReference: {fileID: 0}
-    - target: {fileID: 7107322469963133379, guid: 5b75e30d16d05491da8808c9dfdb5354,
-        type: 3}
-      propertyPath: m_TagString
-      value: RoboyPart
-      objectReference: {fileID: 0}
-    - target: {fileID: 864836813163281623, guid: 5b75e30d16d05491da8808c9dfdb5354,
         type: 3}
       propertyPath: m_TagString
       value: RoboyPart
@@ -731,32 +751,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: RoboyPart
       objectReference: {fileID: 0}
-    - target: {fileID: 7792225512082608396, guid: 5b75e30d16d05491da8808c9dfdb5354,
-        type: 3}
-      propertyPath: m_TagString
-      value: RoboyPart
-      objectReference: {fileID: 0}
-    - target: {fileID: 4463574746967325292, guid: 5b75e30d16d05491da8808c9dfdb5354,
-        type: 3}
-      propertyPath: m_TagString
-      value: RoboyPart
-      objectReference: {fileID: 0}
     - target: {fileID: 2368620147465634740, guid: 5b75e30d16d05491da8808c9dfdb5354,
         type: 3}
       propertyPath: m_TagString
       value: RoboyPart
       objectReference: {fileID: 0}
     - target: {fileID: 8732871482216680535, guid: 5b75e30d16d05491da8808c9dfdb5354,
-        type: 3}
-      propertyPath: m_TagString
-      value: RoboyPart
-      objectReference: {fileID: 0}
-    - target: {fileID: 2998710109280188078, guid: 5b75e30d16d05491da8808c9dfdb5354,
-        type: 3}
-      propertyPath: m_TagString
-      value: RoboyPart
-      objectReference: {fileID: 0}
-    - target: {fileID: 2764523731768278428, guid: 5b75e30d16d05491da8808c9dfdb5354,
         type: 3}
       propertyPath: m_TagString
       value: RoboyPart
@@ -868,6 +868,96 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Position: {x: 0, y: 0, z: 0}
   Rotation: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1907255468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1907255472}
+  - component: {fileID: 1907255471}
+  - component: {fileID: 1907255470}
+  - component: {fileID: 1907255469}
+  - component: {fileID: 1907255473}
+  m_Layer: 0
+  m_Name: ROSManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1907255469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907255468}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23aa71bb3374e49bf92fb395af86c244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Topic: /roboy/oui/testPublish
+--- !u!114 &1907255470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907255468}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9773cfdd4ef45443c823f9f4d4351d67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Topic: /roboy/middleware/MotorStatus
+  TimeStep: 0
+--- !u!114 &1907255471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907255468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff98778ae051cfd40a6e4effdf851ebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Timeout: 10
+  Protocol: 0
+  RosBridgeServerUrl: ws://192.168.0.121:9090
+--- !u!4 &1907255472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907255468}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.21565656, y: 1.4778686, z: -0.5201726}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1907255473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907255468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41880d1d286e84d5fa42ed6d87c60ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Topic: roboy/shoulder
+  TimeStep: 0
 --- !u!1 &1928028077 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 793975234919401227, guid: 5b75e30d16d05491da8808c9dfdb5354,

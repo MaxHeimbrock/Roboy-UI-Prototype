@@ -6,8 +6,9 @@ using System.Collections;
 public class RoboyPoseManager : Singleton<RoboyPoseManager>
 {
     public Transform Roboy;
+    // Key: Name of part, Value: Roboy Part. Key encoded as String for readability. 
     public Dictionary<string, RoboyPart> RoboyParts = new Dictionary<string, RoboyPart>();
-    public RoboyPose pose = new MockRoboyPose();
+    private bool mockMode = false;
 
     void Start()
     {
@@ -18,12 +19,35 @@ public class RoboyPoseManager : Singleton<RoboyPoseManager>
                 RoboyParts.Add(t.name, t.GetComponent<RoboyPart>());
             }
         }
-        StartCoroutine(ExecuteAfterTime(3));
-    }
+        if (mockMode) 
+        { 
+            StartCoroutine(ExecuteAfterTime(3));
+        }
+}
 
-    void Update()
+    public void UpdatePose(RosSharp.RosBridgeClient.Messages.Roboy.Pose message)
     {
-
+        RoboyPart part = null;
+        switch (message.id)
+        {
+           case 0:
+                RoboyParts.TryGetValue("upper_arm_right", out part);               
+                break;
+            case 1:
+                RoboyParts.TryGetValue("forarm_right", out part);
+                break;
+            case 2:
+                RoboyParts.TryGetValue("hand_right", out part);
+                break;
+            //TODO: add mapping to all other Roboy parts
+            default:
+                Debug.Log("Part not recognized");
+                break;
+        }
+        if (part != null) { 
+            part.transform.localPosition = new Vector3(message.position.x, message.position.y, message.position.z);
+            part.transform.localRotation = new Quaternion(message.orientation.x, message.orientation.y, message.orientation.z, message.orientation.w);
+        }
     }
 
     IEnumerator ExecuteAfterTime(float time)
@@ -31,6 +55,7 @@ public class RoboyPoseManager : Singleton<RoboyPoseManager>
         yield return new WaitForSeconds(time);
 
         // Code to execute after the delay
+        MockRoboyPose pose = new MockRoboyPose();
         foreach (KeyValuePair<string, RoboyPart> roboyPart in RoboyParts)
         {
             string index = roboyPart.Key;
@@ -39,21 +64,8 @@ public class RoboyPoseManager : Singleton<RoboyPoseManager>
             {
                 Debug.Log(index);
                 Debug.Log(roboyPart.Value);
-                /*//Vector3 originPosition = new Vector3(xPositionsDictionary[index], yPositionsDictionary[index], zPositionsDictionary[index]);
-                 //Quaternion originRotation = new Quaternion(roboyPart.Value.Rotation.x, roboyPart.Value.Rotation.y, roboyPart.Value.Rotation.z, roboyPart.Value.Rotation.w);
-                 Vector3 originPosition = new Vector3((float)-0.389, (float)-1.51182e-05, (float)-0.4624269);
-                 Quaternion originRotation = Quaternion.Euler((float)-20.893, (float)-159.952, 0);
-
-                 roboyPart.Value.transform.localPosition = (originPosition);
-                 roboyPart.Value.transform.localRotation = (originRotation);
-                 Debug.Log(originPosition);
-                 Debug.Log(roboyPart.Value.transform.localPosition);
-                 Debug.Log(originRotation);
-                 Debug.Log(roboyPart.Value.transform.localRotation);*/
                 roboyPart.Value.transform.localPosition = pose.GetPoseForPart("forarm_right").Position;
                 roboyPart.Value.transform.localRotation = pose.GetPoseForPart("forarm_right").Rotation;
-
-
             }
             if (index == "hand_right")
             {

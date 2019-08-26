@@ -12,9 +12,4 @@ public class RoboyPart : MonoBehaviour
         this.Position = pos;
         this.Rotation = rot;
     }
-
-    void Start()
-    {
-    }
-
 }
