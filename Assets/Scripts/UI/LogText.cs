@@ -10,7 +10,7 @@ public class LogText : Singleton<LogText>
     private string operatorText = "Start Log";
 
     private int unreadRoboyLog = 0;
-    private int unreadOperatorLog = 0;
+    public int unreadOperatorLog = 0;
 
     public TextMeshProUGUI roboyLogTextMesh;
     public TextMeshProUGUI operatorLogTextMesh;
@@ -38,8 +38,6 @@ public class LogText : Singleton<LogText>
         if (operatorLogTextMesh.IsActive() == true)
             unreadOperatorLog = 0;
     }
-
-    public void 
 
     public void addToRoboyText(string message)
     {

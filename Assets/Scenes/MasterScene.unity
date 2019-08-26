@@ -1088,11 +1088,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6401867355272649184, guid: f4f63f7da7729aa4096bed418de44f85,
-        type: 3}
-      propertyPath: m_Text
-      value: Lead Vocals
-      objectReference: {fileID: 0}
     - target: {fileID: 4213698131472757532, guid: f4f63f7da7729aa4096bed418de44f85,
         type: 3}
       propertyPath: m_Mesh
@@ -1122,6 +1117,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401867355272649184, guid: f4f63f7da7729aa4096bed418de44f85,
+        type: 3}
+      propertyPath: m_Text
+      value: Lead Vocals
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4f63f7da7729aa4096bed418de44f85, type: 3}
@@ -2182,11 +2182,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6401867355272649184, guid: f4f63f7da7729aa4096bed418de44f85,
-        type: 3}
-      propertyPath: m_Text
-      value: FX
-      objectReference: {fileID: 0}
     - target: {fileID: 4213698131472757532, guid: f4f63f7da7729aa4096bed418de44f85,
         type: 3}
       propertyPath: m_Mesh
@@ -2216,6 +2211,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401867355272649184, guid: f4f63f7da7729aa4096bed418de44f85,
+        type: 3}
+      propertyPath: m_Text
+      value: FX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4f63f7da7729aa4096bed418de44f85, type: 3}
@@ -2388,11 +2388,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6401867355272649184, guid: f4f63f7da7729aa4096bed418de44f85,
-        type: 3}
-      propertyPath: m_Text
-      value: Drums
-      objectReference: {fileID: 0}
     - target: {fileID: 4213698131472757532, guid: f4f63f7da7729aa4096bed418de44f85,
         type: 3}
       propertyPath: m_Mesh
@@ -2422,6 +2417,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401867355272649184, guid: f4f63f7da7729aa4096bed418de44f85,
+        type: 3}
+      propertyPath: m_Text
+      value: Drums
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4f63f7da7729aa4096bed418de44f85, type: 3}
@@ -3521,11 +3521,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6401867355272649184, guid: f4f63f7da7729aa4096bed418de44f85,
-        type: 3}
-      propertyPath: m_Text
-      value: Backing Vocals
-      objectReference: {fileID: 0}
     - target: {fileID: 4213698131472757532, guid: f4f63f7da7729aa4096bed418de44f85,
         type: 3}
       propertyPath: m_Mesh
@@ -3555,6 +3550,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401867355272649184, guid: f4f63f7da7729aa4096bed418de44f85,
+        type: 3}
+      propertyPath: m_Text
+      value: Backing Vocals
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4f63f7da7729aa4096bed418de44f85, type: 3}
@@ -3874,11 +3874,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6401867355272649184, guid: f4f63f7da7729aa4096bed418de44f85,
-        type: 3}
-      propertyPath: m_Text
-      value: Strings
-      objectReference: {fileID: 0}
     - target: {fileID: 4213698131472757532, guid: f4f63f7da7729aa4096bed418de44f85,
         type: 3}
       propertyPath: m_Mesh
@@ -3908,6 +3903,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401867355272649184, guid: f4f63f7da7729aa4096bed418de44f85,
+        type: 3}
+      propertyPath: m_Text
+      value: Strings
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4f63f7da7729aa4096bed418de44f85, type: 3}
@@ -4280,11 +4280,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6401867355272649184, guid: f4f63f7da7729aa4096bed418de44f85,
-        type: 3}
-      propertyPath: m_Text
-      value: Synth
-      objectReference: {fileID: 0}
     - target: {fileID: 4213698131472757532, guid: f4f63f7da7729aa4096bed418de44f85,
         type: 3}
       propertyPath: m_Mesh
@@ -4314,6 +4309,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401867355272649184, guid: f4f63f7da7729aa4096bed418de44f85,
+        type: 3}
+      propertyPath: m_Text
+      value: Synth
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4f63f7da7729aa4096bed418de44f85, type: 3}
@@ -4689,11 +4689,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6401867355272649184, guid: f4f63f7da7729aa4096bed418de44f85,
-        type: 3}
-      propertyPath: m_Text
-      value: Electric Guitar
-      objectReference: {fileID: 0}
     - target: {fileID: 4213698131472757532, guid: f4f63f7da7729aa4096bed418de44f85,
         type: 3}
       propertyPath: m_Mesh
@@ -4723,6 +4718,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401867355272649184, guid: f4f63f7da7729aa4096bed418de44f85,
+        type: 3}
+      propertyPath: m_Text
+      value: Electric Guitar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4f63f7da7729aa4096bed418de44f85, type: 3}
@@ -5054,21 +5054,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.049999993
       objectReference: {fileID: 0}
-    - target: {fileID: 1279483404577851936, guid: 367c6e84ed72912409da43fd8e05b56b,
-        type: 3}
-      propertyPath: m_Text
-      value: Return
-      objectReference: {fileID: 0}
-    - target: {fileID: 1279483404577851936, guid: 367c6e84ed72912409da43fd8e05b56b,
-        type: 3}
-      propertyPath: m_CharacterSize
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 1279483404577851943, guid: 367c6e84ed72912409da43fd8e05b56b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.02
-      objectReference: {fileID: 0}
     - target: {fileID: 1279483405066123018, guid: 367c6e84ed72912409da43fd8e05b56b,
         type: 3}
       propertyPath: onPress.Array.size
@@ -5150,6 +5135,21 @@ PrefabInstance:
         type: 3}
       propertyPath: onUnpress.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279483404577851936, guid: 367c6e84ed72912409da43fd8e05b56b,
+        type: 3}
+      propertyPath: m_Text
+      value: Return
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279483404577851936, guid: 367c6e84ed72912409da43fd8e05b56b,
+        type: 3}
+      propertyPath: m_CharacterSize
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279483404577851943, guid: 367c6e84ed72912409da43fd8e05b56b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 367c6e84ed72912409da43fd8e05b56b, type: 3}
@@ -5794,11 +5794,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1279483405066123023, guid: 367c6e84ed72912409da43fd8e05b56b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 1279483405066123018, guid: 367c6e84ed72912409da43fd8e05b56b,
         type: 3}
       propertyPath: onPress.m_PersistentCalls.m_Calls.Array.size
@@ -6015,6 +6010,11 @@ PrefabInstance:
         type: 3}
       propertyPath: isToggle
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279483405066123023, guid: 367c6e84ed72912409da43fd8e05b56b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 367c6e84ed72912409da43fd8e05b56b, type: 3}
