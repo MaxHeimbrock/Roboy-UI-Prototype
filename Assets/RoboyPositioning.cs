@@ -18,8 +18,10 @@ public class RoboyPositioning : MonoBehaviour
     void Update()
     {
         if (followCamera)
+        {
             position = Camera.main.transform.position;
 
-        this.transform.position = position + new Vector3(0,0,-1);
+            this.transform.position = position + new Vector3(-0.2199998f, 0.9949999f, -0.144f);
+        }
     }
 }
