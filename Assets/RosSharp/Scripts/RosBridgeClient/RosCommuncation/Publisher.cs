@@ -30,7 +30,7 @@ namespace RosSharp.RosBridgeClient
 
         protected void Publish(T message)
         {
-            GetComponent<RosConnector>().RosSocket.Publish(publicationId, message);
+            GetComponent<RosConnector>().RosSocket.Publish(publicationId, message);           
         }
     }
 }

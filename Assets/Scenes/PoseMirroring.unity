@@ -881,6 +881,7 @@ GameObject:
   - component: {fileID: 1907255470}
   - component: {fileID: 1907255469}
   - component: {fileID: 1907255473}
+  - component: {fileID: 1907255474}
   m_Layer: 0
   m_Name: ROSManager
   m_TagString: Untagged
@@ -951,13 +952,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907255468}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41880d1d286e84d5fa42ed6d87c60ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: roboy/shoulder
+  Topic: /roboy_middleware_msgs/Pose
   TimeStep: 0
+--- !u!114 &1907255474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907255468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a0e67f12ddb40738e482d5d35f3a5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Topic: /roboy_middleware_msgs/Pose
 --- !u!1 &1928028077 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 793975234919401227, guid: 5b75e30d16d05491da8808c9dfdb5354,

@@ -44,12 +44,14 @@ public class RoboyPoseManager : Singleton<RoboyPoseManager>
                 Debug.Log("Part not recognized");
                 break;
         }
+        // Only update position if a valid part has been recognized.
         if (part != null) { 
             part.transform.localPosition = new Vector3(message.position.x, message.position.y, message.position.z);
             part.transform.localRotation = new Quaternion(message.orientation.x, message.orientation.y, message.orientation.z, message.orientation.w);
         }
     }
 
+    // Mock method for simulating Roboy Pose Mirroring
     IEnumerator ExecuteAfterTime(float time)
     {
         yield return new WaitForSeconds(time);
@@ -60,18 +62,10 @@ public class RoboyPoseManager : Singleton<RoboyPoseManager>
         {
             string index = roboyPart.Key;
 
-            if (index == "forearm_right")
-            {
-                Debug.Log(index);
-                Debug.Log(roboyPart.Value);
-                roboyPart.Value.transform.localPosition = pose.GetPoseForPart("forarm_right").Position;
-                roboyPart.Value.transform.localRotation = pose.GetPoseForPart("forarm_right").Rotation;
-            }
-            if (index == "hand_right")
-            {
-                roboyPart.Value.transform.localPosition = pose.GetPoseForPart("hand_right").Position;
-                roboyPart.Value.transform.localRotation = pose.GetPoseForPart("hand_right").Rotation;
-            }
+            Debug.Log(index);
+            Debug.Log(roboyPart.Value);
+            roboyPart.Value.transform.localPosition = pose.GetPoseForPart(index).Position;
+            roboyPart.Value.transform.localRotation = pose.GetPoseForPart(index).Rotation;           
         }
     }
 }
