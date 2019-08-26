@@ -1213,7 +1213,7 @@ PrefabInstance:
     - target: {fileID: 8334650023854772038, guid: 5b75e30d16d05491da8808c9dfdb5354,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4405582849594332741, guid: 5b75e30d16d05491da8808c9dfdb5354,
         type: 3}
@@ -4432,6 +4432,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8302783925073702323}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &1766357605 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 8302783923610392534, guid: d80c5822fe381994486fddc6d3ef7430,
+    type: 3}
+  m_PrefabInstance: {fileID: 8302783925073702323}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1766613973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6993,6 +6999,17 @@ PrefabInstance:
       propertyPath: operatorLogTextMesh
       value: 
       objectReference: {fileID: 1754762313}
+    - target: {fileID: 6259498246386221898, guid: 62ffd7f09665886449ec349c4167dc61,
+        type: 3}
+      propertyPath: toastrPrefab
+      value: 
+      objectReference: {fileID: 4364443251321246559, guid: a1ec72cbc70a21347aa36887cc16d9bb,
+        type: 3}
+    - target: {fileID: 6259498246386221898, guid: 62ffd7f09665886449ec349c4167dc61,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1766357605}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62ffd7f09665886449ec349c4167dc61, type: 3}
 --- !u!1001 &8302783925073702323

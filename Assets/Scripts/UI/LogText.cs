@@ -8,15 +8,38 @@ public class LogText : Singleton<LogText>
 {
     private string roboyText = "Start Log";
     private string operatorText = "Start Log";
-    DateTime time;
+
+    private int unreadRoboyLog = 0;
+    private int unreadOperatorLog = 0;
 
     public TextMeshProUGUI roboyLogTextMesh;
     public TextMeshProUGUI operatorLogTextMesh;
 
+    public GameObject toastrPrefab;
+    public Canvas canvas;
+
+    DateTime time;
+
     public void Start()
     {
-        
+        Instantiate(toastrPrefab, canvas.transform);
     }
+
+    // Check if logs have been read
+    public void Update()
+    {
+        /*
+         * Not yet implemented
+         * 
+        if (roboyLogTextMesh.IsActive() == true)
+            unreadRoboyLog = 0;
+        */
+
+        if (operatorLogTextMesh.IsActive() == true)
+            unreadOperatorLog = 0;
+    }
+
+    public void 
 
     public void addToRoboyText(string message)
     {
@@ -36,8 +59,10 @@ public class LogText : Singleton<LogText>
         if (time.Hour < 10)
             roboyText = "0" + roboyText;
 
-        // Hier ist noch ein Bug
         roboyLogTextMesh.SetText(roboyText);
+
+        if (roboyLogTextMesh.IsActive() == false)
+            unreadRoboyLog++;
     }
 
     public void addToOperatorText(string message)
@@ -58,7 +83,9 @@ public class LogText : Singleton<LogText>
         if (time.Hour < 10)
             operatorText = "0" + operatorText;
 
-        // Hier ist noch ein Bug
         operatorLogTextMesh.SetText(operatorText);
+
+        if (operatorLogTextMesh.IsActive() == false)
+            unreadOperatorLog++;
     }
 }

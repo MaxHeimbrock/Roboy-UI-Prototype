@@ -63,12 +63,12 @@ public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (clicked == false)
         {
-            LogText.Instance.addToOperatorText("Clicked at " + this.name + " inside Button class");
-
             if (submenu != null)
                 submenu.Activate();
 
             buttonClickedEvent.Invoke();
+
+            LogText.Instance.addToOperatorText("Clicked at " + this.name + " inside Button class");
         }
 
         clicked = true;
