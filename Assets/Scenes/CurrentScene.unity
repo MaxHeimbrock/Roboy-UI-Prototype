@@ -6983,6 +6983,16 @@ PrefabInstance:
       propertyPath: textObject
       value: 
       objectReference: {fileID: 772361325}
+    - target: {fileID: 6259498246386221898, guid: 62ffd7f09665886449ec349c4167dc61,
+        type: 3}
+      propertyPath: roboyLogTextMesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259498246386221898, guid: 62ffd7f09665886449ec349c4167dc61,
+        type: 3}
+      propertyPath: operatorLogTextMesh
+      value: 
+      objectReference: {fileID: 1754762313}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62ffd7f09665886449ec349c4167dc61, type: 3}
 --- !u!1001 &8302783925073702323
@@ -6996,6 +7006,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera MAIN
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302783925082909150, guid: d80c5822fe381994486fddc6d3ef7430,
+        type: 3}
+      propertyPath: m_Name
+      value: OperatorLogTextMesh
       objectReference: {fileID: 0}
     - target: {fileID: 8302783923889070236, guid: d80c5822fe381994486fddc6d3ef7430,
         type: 3}

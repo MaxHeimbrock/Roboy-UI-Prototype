@@ -6,35 +6,59 @@ using UnityEngine;
 
 public class LogText : Singleton<LogText>
 {
-    private string text = "Start Log";
+    private string roboyText = "Start Log";
+    private string operatorText = "Start Log";
     DateTime time;
 
-    public TextMeshProUGUI textMesh;
+    public TextMeshProUGUI roboyLogTextMesh;
+    public TextMeshProUGUI operatorLogTextMesh;
 
     public void Start()
     {
         
     }
 
-    public void addToLogText(string message)
+    public void addToRoboyText(string message)
     {
         time = DateTime.Now;
 
-        text = " - " + message + "\n" + text;
+        roboyText = " - " + message + "\n" + roboyText;
 
-        text = time.Second + text;
+        roboyText = time.Second + roboyText;
         if (time.Second < 10)
-            text = "0" + text;
+            roboyText = "0" + roboyText;
 
-        text = time.Minute + ":" + text;
+        roboyText = time.Minute + ":" + roboyText;
         if (time.Minute < 10)
-            text = "0" + text;
+            roboyText = "0" + roboyText;
 
-        text = time.Hour + ":" + text;
+        roboyText = time.Hour + ":" + roboyText;
         if (time.Hour < 10)
-            text = "0" + text;
+            roboyText = "0" + roboyText;
 
         // Hier ist noch ein Bug
-        textMesh.SetText(text);
+        roboyLogTextMesh.SetText(roboyText);
+    }
+
+    public void addToOperatorText(string message)
+    {
+        time = DateTime.Now;
+
+        operatorText = " - " + message + "\n" + operatorText;
+
+        operatorText = time.Second + operatorText;
+        if (time.Second < 10)
+            operatorText = "0" + operatorText;
+
+        operatorText = time.Minute + ":" + operatorText;
+        if (time.Minute < 10)
+            operatorText = "0" + operatorText;
+
+        operatorText = time.Hour + ":" + operatorText;
+        if (time.Hour < 10)
+            operatorText = "0" + operatorText;
+
+        // Hier ist noch ein Bug
+        operatorLogTextMesh.SetText(operatorText);
     }
 }
