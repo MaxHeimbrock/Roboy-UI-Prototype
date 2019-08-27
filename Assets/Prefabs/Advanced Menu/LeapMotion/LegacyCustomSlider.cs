@@ -5,7 +5,7 @@ using UnityEngine;
 using Leap.Unity;
 using UnityEditor.Events;
 
-public class CustomSlider : MonoBehaviour
+public class LegacyCustomSlider : MonoBehaviour
 {
     private Vector3 defaultPosFull;
     private Vector3 defaultPosFill;
@@ -13,15 +13,15 @@ public class CustomSlider : MonoBehaviour
     private Animator titleAnimator;
     private Animator valueAnimator;
     private TextMesh valueText;
-    public GameObject IntersectingObject;
+    private GameObject IntersectingObject;
     private float value;
 
-    public Vector3 v1 = new Vector3(0,0,0);
+    private SenseGlove_Touch touch;
+
+    /*public Vector3 v1 = new Vector3(0,0,0);
     public Vector3 v2 = new Vector3(0, 0, 0);
     public Vector3 v3 = new Vector3(0, 0, 0);
-    public Vector3 v4 = new Vector3(0, 0, 0);
-
-    public List<string> colliders;
+    public Vector3 v4 = new Vector3(0, 0, 0);*/
 
     /**
      * Initialize variables, important to remain prefab hierarchy
@@ -35,35 +35,26 @@ public class CustomSlider : MonoBehaviour
 
         defaultPosFull = transform.localPosition;
         defaultPosFill = transform.GetChild(0).localPosition;
-        
-        colliders.Add("thumbPickupCollider");
-        colliders.Add("indexPickupCollider");
-        colliders.Add("middlePickupCollider");
-        colliders.Add("ringPickupCollider");
-        colliders.Add("pinkyPickupCollider");
-        colliders.Add("palmCollider");
+
+        touch = gameObject.GetComponent<SenseGlove_Touch>();
     }
 
-    /*
     private void Update()
     {
-        Debug.Log("Slider Update");
         if (touch.IsTouching())
         {
-            Debug.Log("Touching");
-            GameObject collisionObject = touch.TouchObject();
-            updateValue(collisionObject.transform.TransformPoint(collisionObject.transform.localPosition + collisionObject.GetComponent<Collider>().bounds.center));
+
         }
-    }*/
-    
+    }
+
     /**
      * Checks if there already is an object controlling the slider at the moment
      * If not, the newly intersecting object gets the control over the slider
      */
-    private void OnTriggerEnter(Collider collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.name);
-        if (IntersectingObject == null && colliders.Contains(collision.name))
+        Debug.Log("Collision detected with " + collision.transform.name);
+        if(IntersectingObject == null)
         {
             titleAnimator.SetBool("Collision", true);
             valueAnimator.SetBool("VisibleIntersect", true);
@@ -79,10 +70,9 @@ public class CustomSlider : MonoBehaviour
      * If the collision is caused by the object having the control over the slider,
      * then the slider value is updated.
      */
-    private void OnTriggerStay(Collider collision)
+    private void OnCollisionStay(Collision collision)
     {
-        Debug.Log(collision.name);
-        if (IntersectingObject == null && colliders.Contains(collision.name))
+        if (IntersectingObject == null)
         {
             titleAnimator.SetBool("Collision", true);
             valueAnimator.SetBool("VisibleIntersect", true);
@@ -99,7 +89,7 @@ public class CustomSlider : MonoBehaviour
      * If the object with the control of the slider exits the slider,
      * the control access is removed from this object and becomes available for other intersecting objects.
      */
-    void OnTriggerExit(Collider collision)
+    void OnCollisionExit(Collision collision)
     {
         if (IntersectingObject != null && IntersectingObject.Equals(collision.gameObject))
         {
@@ -113,21 +103,14 @@ public class CustomSlider : MonoBehaviour
      * The value for the slider gets updated according to the position of the collision.
      * The slider fill object and the value text are updated.
      */
-    private void updateValue(Collider collider)//Collision collision)
+    private void updateValue(Collision collision)
     {
-        Vector3 localRightBorderPoint = transform.localPosition;
-        localRightBorderPoint.y += -1f * transform.localScale.y;
-        Vector3 worldPoint = collider.transform.TransformPoint(collider.transform.localPosition + collider.bounds.center);// collider.ClosestPoint(localRightBorderPoint));
-        Debug.Log("Updating Slider Value - Collision with " + collider.name + ": " + worldPoint.ToString());
-        v1 = worldPoint;
         Transform fillTransform = transform.GetChild(0);
         if(!fillTransform.gameObject.activeSelf)
         {
             fillTransform.gameObject.SetActive(true);
         }
 
-        Vector3 closestPoint = transform.InverseTransformPoint(worldPoint);
-        /*
         float maxY = -1000000000000000000;
         Vector3 closestPoint = new Vector3(0,0,0);
         Vector3 contactPointLocal;
@@ -139,9 +122,11 @@ public class CustomSlider : MonoBehaviour
                 maxY = contactPointLocal.y;
                 closestPoint = contactPointLocal;
             }
-        }*/
+        }
         Vector3 localLeftBorderPoint = transform.localPosition;
         localLeftBorderPoint.y += 1f * transform.localScale.y;
+        Vector3 localRightBorderPoint = transform.localPosition;
+        localRightBorderPoint.y += -1f * transform.localScale.y;
         if (closestPoint.y > localLeftBorderPoint.y)
         {
             closestPoint.y = localLeftBorderPoint.y;
@@ -209,14 +194,14 @@ public class CustomSlider : MonoBehaviour
     /**
      * Only for Debug purposes
      */
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(v1, 0.01f);
+        Gizmos.DrawSphere(v1, 0.001f);
         Gizmos.color = new Color(255,0,0);
-        Gizmos.DrawSphere(v2, 0.012f);
+        Gizmos.DrawSphere(v2, 0.0012f);
         Gizmos.color = new Color(0, 255, 0);
-        Gizmos.DrawSphere(v3, 0.014f);
+        Gizmos.DrawSphere(v3, 0.0014f);
         Gizmos.color = new Color(0, 0, 255);
-        Gizmos.DrawSphere(v4, 0.016f);
-    }
+        Gizmos.DrawSphere(v4, 0.16f);
+    }*/
 }
