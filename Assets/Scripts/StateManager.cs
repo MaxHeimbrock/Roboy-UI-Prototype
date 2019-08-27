@@ -28,7 +28,7 @@ public class StateManager: Singleton<StateManager>
             // From HUD to Transition
             case MenuState.HUD:
                 HUD.SetActive(false);
-                Roboy.SetActive(true);
+                //Roboy.SetActive(true);
                 Roboy.GetComponent<RoboyPositioning>().followCamera = false;
                 CameraAnimatorScript.Instance.StartTransitionToAdvancedMenu();
                 break;
@@ -47,7 +47,7 @@ public class StateManager: Singleton<StateManager>
                 break;
             // From Transition to HUD
             case MenuState.transitionToHUD:
-                Roboy.SetActive(false);
+                //Roboy.SetActive(false);
                 Roboy.GetComponent<RoboyPositioning>().followCamera = true;
                 HUD.SetActive(true);
                 break;
