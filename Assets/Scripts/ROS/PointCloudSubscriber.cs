@@ -5,10 +5,14 @@ using RosSharp.RosBridgeClient;
 using RosSharp.RosBridgeClient.Messages.Roboy;
 using RosSharp.RosBridgeClient.Messages.Sensor;
 using System.IO;
+using RosSharp.RosBridgeClient;
 using System;
 
 public class PointCloudSubscriber : Subscriber<RosSharp.RosBridgeClient.Messages.Sensor.PointCloud2>
 {
+    public GameObject spherePrefab;
+    SphereInstantiate s;
+
     /// <summary>
     /// Holds the currently received data for other objects to read
     /// </summary>
@@ -20,6 +24,10 @@ public class PointCloudSubscriber : Subscriber<RosSharp.RosBridgeClient.Messages
     /// </summary>
     protected override void Start()
     {
+
+        GameObject g = GameObject.Find("ROS Connection");
+        s = g.GetComponent<SphereInstantiate>();
+
         StartCoroutine(startSubscriber(1.0f));
     }
 
@@ -45,51 +53,23 @@ public class PointCloudSubscriber : Subscriber<RosSharp.RosBridgeClient.Messages
     /// <param name="message"> is the received message.</param>
     protected override void ReceiveMessage(PointCloud2 message)
     {
-        //print("Message Received");
-        for (int i = 1; i < message.width; i += 16)
-        {
-            Get3DPoint(message, i, 0);
-        }
-        print("==");
+        processPointCloud(message);
         gameObjects.Clear();
     }
 
     private List<GameObject> gameObjects = new List<GameObject>();
+    public Vector3[] allSpheres = new Vector3[5000];
 
-    void Get3DPoint(PointCloud2 pointCloud, int u, int v)
-    {
-        //print("INIT: Get3DPoint, ValueTest=" + pointCloud.width);
-        int width = pointCloud.width;
-        int height = pointCloud.height;
-        
+    void processPointCloud(PointCloud2 pointCloud2) {
+        PointCloud pointCloud = new PointCloud(pointCloud2);
 
-        int arrayPos = v * pointCloud.row_step + u * pointCloud.point_step;
+        for(int i = 0; i < pointCloud.Points.Length; i++) {
+            //Debug.Log("Coordinate: X=" + pointCloud.Points[i].x + ", Y=" + pointCloud.Points[i].y + ", Z=" + pointCloud.Points[i].z);
+            allSpheres[i] = new Vector3(-pointCloud.Points[i].y, pointCloud.Points[i].z, pointCloud.Points[i].x);
 
-      
-
-        int arrayPosX = arrayPos + pointCloud.fields[0].offset; // X has an offset of 0
-        int arrayPosY = arrayPos + pointCloud.fields[1].offset; // Y has an offset of 4
-        int arrayPosZ = arrayPos + pointCloud.fields[2].offset; // Z has an offset of 8
-        
-     
-
-        MemoryStream stream = new MemoryStream(pointCloud.data);
-        BinaryReader reader = new BinaryReader(stream);
-
-        stream.Position = arrayPosX;
-        float x = reader.ReadSingle();
-        stream.Position = arrayPosY;
-        float y = reader.ReadSingle();
-        stream.Position = arrayPosY;
-        float z = reader.ReadSingle();
-
-        print("Coordinate: X=" + x + ", Y=" + y + ", Z=" + z);
-
-        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        sphere.transform.position = new Vector3(x, y, z);
-        sphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-        Instantiate(sphere);
-        gameObjects.Add(sphere);
-
+            if(i % 10 == 0) {
+                s.doInstantiate(allSpheres[i]);
+            }
+        }
     }
 }

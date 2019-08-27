@@ -20,6 +20,7 @@ TagManager:
   - Slider3D
   - Button3D
   - SubMenu3D
+  - Sphere
   layers:
   - Default
   - TransparentFX
