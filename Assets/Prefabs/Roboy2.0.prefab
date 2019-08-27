@@ -669,7 +669,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7771421767714548075}
   m_Layer: 0
-  m_Name: Roboy (2)
+  m_Name: Roboy2.0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

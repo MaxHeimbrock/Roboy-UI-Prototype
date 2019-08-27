@@ -23,14 +23,6 @@ public class Menu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private bool active = false;
 
     private Animator animator;
-    
-    // Event to trigger something, if menu is activated
-    [Serializable]
-    public class MenuActivated : UnityEvent { }
-
-    [SerializeField]
-    private MenuActivated menuActivatedTriggered = new MenuActivated();
-    public MenuActivated menuActivatedEvent { get { return menuActivatedTriggered; } set { menuActivatedTriggered = value; } }
 
     // Start is called before the first frame update
     void Start()
@@ -110,8 +102,6 @@ public class Menu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         animator.SetBool("Active", true);
         active = true;
-
-        menuActivatedEvent.Invoke();
     }
 
     public void Deactivate()
