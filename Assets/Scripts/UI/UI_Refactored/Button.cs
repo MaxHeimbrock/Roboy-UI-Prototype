@@ -68,7 +68,7 @@ public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
             buttonClickedEvent.Invoke();
 
-            LogText.Instance.addToOperatorText("Clicked at " + this.name + " inside Button class");
+            LogText.Instance.SendOperatorLogMessage("Clicked at " + this.name + " inside Button class", LogText.LogLevel.info);
         }
 
         clicked = true;

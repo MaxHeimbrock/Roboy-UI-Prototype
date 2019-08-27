@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class LogText : Singleton<LogText>
 {
+    public enum LogLevel {info, warning, error};
+
     // Roboy Log variables
     private string roboyText = "Start Log";
     private int roboyUnreadCount = 0;
@@ -26,13 +28,9 @@ public class LogText : Singleton<LogText>
 
     [Header("Misc")]
     public Canvas canvas;
+    public float toastrTimer = 2;
 
     DateTime time;
-
-    public void Start()
-    {
-        //OperatorToastr("testtest123");
-    }
 
     // Check if logs have been read
     public void Update()
@@ -52,10 +50,13 @@ public class LogText : Singleton<LogText>
             operatorUnreadCount = 0;
             UpdateOperatorUnreadCounter();
         }
+
+        if (Input.GetKeyDown(KeyCode.O))
+            OperatorToastr("Omnimill selfdestruct");
     }
 
     public void UpdateOperatorUnreadCounter()
-    {
+    {       
         if (operatorUnreadCount == 0)
             operatorUnreadCountTextMesh.SetText("");
 
@@ -68,6 +69,7 @@ public class LogText : Singleton<LogText>
 
     public void UpdateRoboyUnreadCounter()
     {
+
         if (roboyUnreadCount == 0)
             roboyUnreadCountTextMesh.SetText("");
 
@@ -80,8 +82,33 @@ public class LogText : Singleton<LogText>
 
     public void OperatorToastr(String message)
     {
+        addToOperatorText(message, LogLevel.error);
+
+        if (operatorLogTextMesh.IsActive() == true)
+            return;
         GameObject toastr = Instantiate(operatorToastrPrefab, canvas.transform);
         toastr.GetComponentInChildren<TextMeshProUGUI>().SetText(message);
+
+        StartCoroutine(OperatorToastrAnimationCoroutine(toastr));
+    }
+
+    // This coroutine uses a timer for the toaster till it gets put in pocket, the unread counter gets updated and it ultimately gets destroyed
+    IEnumerator OperatorToastrAnimationCoroutine(GameObject toastr)
+    {
+        yield return new WaitForSeconds(toastrTimer);
+        toastr.GetComponent<Animator>().SetTrigger("PutInPocket");
+        yield return new WaitForSeconds(0.7f);
+        
+        // Update unread counter
+        if (operatorLogTextMesh.IsActive() == false)
+            operatorUnreadCount++;
+
+        // Display new unread counter
+        UpdateOperatorUnreadCounter();
+
+        yield return new WaitForSeconds(5f);
+
+        Destroy(toastr);
     }
 
     public void RoboyToastr(String message)
@@ -110,14 +137,27 @@ public class LogText : Singleton<LogText>
 
         roboyLogTextMesh.SetText(roboyText);
 
+        // Update unread counter
         if (roboyLogTextMesh.IsActive() == false)
             roboyUnreadCount++;
 
         UpdateRoboyUnreadCounter();
     }
 
-    public void addToOperatorText(string message)
+    public void addToOperatorText(string message, LogLevel logLevel)
     {
+        switch (logLevel)
+        {
+            case LogLevel.warning:
+                operatorText = "</color>" + operatorText;
+                break;
+            case LogLevel.info:
+                break;
+            case LogLevel.error:
+                operatorText = "</color>" + operatorText;
+                break;
+        }
+
         // Add new message to existing string with timestamp
         time = DateTime.Now;
 
@@ -135,14 +175,38 @@ public class LogText : Singleton<LogText>
         if (time.Hour < 10)
             operatorText = "0" + operatorText;
 
+        switch (logLevel)
+        {
+            case LogLevel.warning:
+                operatorText = "<color=\"orange\">" + operatorText;
+                break;
+            case LogLevel.info:
+                break;
+            case LogLevel.error:
+                operatorText = "<color=\"red\">" + operatorText;
+                break;
+        }
+
         // Send new string to text mesh
         operatorLogTextMesh.SetText(operatorText);
+    }
 
-        // Update unread counter
-        if (operatorLogTextMesh.IsActive() == false)
-            operatorUnreadCount++;
+    public void SendOperatorLogMessage(string message, LogLevel logLevel)
+    {
+        if (logLevel == LogLevel.error)
+            OperatorToastr(message);
 
-        // Display new unread counter
-        UpdateOperatorUnreadCounter();
+        else if (logLevel == LogLevel.info || logLevel == LogLevel.warning)
+        {
+            addToOperatorText(message, logLevel);
+
+            // Update unread counter
+            if (operatorLogTextMesh.IsActive() == false)
+                operatorUnreadCount++;
+
+            // Display new unread counter
+            UpdateOperatorUnreadCounter();
+        }
+
     }
 }
