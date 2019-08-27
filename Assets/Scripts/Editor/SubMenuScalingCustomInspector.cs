@@ -57,5 +57,7 @@ public class SubMenuScalingCustomInspector : Editor
         }
         EditorGUI.indentLevel--;
         EditorGUI.indentLevel--;
+
+        serializedObject.ApplyModifiedProperties();
     }
 }
