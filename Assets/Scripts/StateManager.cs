@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SpatialTracking;
 
 public class StateManager: Singleton<StateManager>
 {
@@ -29,6 +30,7 @@ public class StateManager: Singleton<StateManager>
             case MenuState.HUD:
                 HUD.SetActive(false);
                 //Roboy.SetActive(true);
+                Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationOnly;
                 Roboy.GetComponent<RoboyPositioning>().followCamera = false;
                 CameraAnimatorScript.Instance.StartTransitionToAdvancedMenu();
                 break;
@@ -48,6 +50,7 @@ public class StateManager: Singleton<StateManager>
             // From Transition to HUD
             case MenuState.transitionToHUD:
                 //Roboy.SetActive(false);
+                Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationAndPosition;
                 Roboy.GetComponent<RoboyPositioning>().followCamera = true;
                 HUD.SetActive(true);
                 break;

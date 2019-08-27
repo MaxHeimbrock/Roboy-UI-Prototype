@@ -161,7 +161,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1420257257}
   - component: {fileID: 1420257256}
-  - component: {fileID: 1420257255}
   m_Layer: 0
   m_Name: MiniMap-Camera
   m_TagString: Untagged
@@ -169,14 +168,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1420257255
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1420257254}
-  m_Enabled: 1
 --- !u!20 &1420257256
 Camera:
   m_ObjectHideFlags: 0
@@ -283,22 +274,22 @@ PrefabInstance:
     - target: {fileID: 6687102282549943099, guid: fc57d6d040f511d41b2ebbeb92a297ee,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.70710677
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6687102282549943099, guid: fc57d6d040f511d41b2ebbeb92a297ee,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: 6687102282549943099, guid: fc57d6d040f511d41b2ebbeb92a297ee,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: 6687102282549943099, guid: fc57d6d040f511d41b2ebbeb92a297ee,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70710677
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6687102282549943099, guid: fc57d6d040f511d41b2ebbeb92a297ee,
         type: 3}
@@ -313,7 +304,7 @@ PrefabInstance:
     - target: {fileID: 6687102282549943099, guid: fc57d6d040f511d41b2ebbeb92a297ee,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 6687102282549943099, guid: fc57d6d040f511d41b2ebbeb92a297ee,
         type: 3}
@@ -415,6 +406,21 @@ PrefabInstance:
       propertyPath: Roboy
       value: 
       objectReference: {fileID: 2688865199853147834}
+    - target: {fileID: 3072487094423429336, guid: 2df4a8e9e99d5c342bf55117cbf91f96,
+        type: 3}
+      propertyPath: m_TrackingType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072487093117922037, guid: 2df4a8e9e99d5c342bf55117cbf91f96,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072487095003934226, guid: 2df4a8e9e99d5c342bf55117cbf91f96,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2df4a8e9e99d5c342bf55117cbf91f96, type: 3}
 --- !u!1001 &6976075056512734927
