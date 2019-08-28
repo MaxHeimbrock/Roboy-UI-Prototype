@@ -13,7 +13,7 @@ public class SphereInstantiate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        // Find ROS Connection in order to access point data
         GameObject g = GameObject.Find("ROS Connection");
         p = g.GetComponent<PointCloudSubscriber>();
 
@@ -26,14 +26,8 @@ public class SphereInstantiate : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return)) {
-            //runInstantiate();
             createMesh();
         }
-    }
-
-    public void doInstantiate(Vector3 position) {
-        Instantiate(spherePrefab, position, Quaternion.identity);
-        Debug.Log("D2");
     }
 
     public void createMesh() {
@@ -49,21 +43,5 @@ public class SphereInstantiate : MonoBehaviour
         mesh.vertices = points;
         mesh.colors = colors;
         mesh.SetIndices(indecies, MeshTopology.Points, 0);
-
-    }
-
-    void runInstantiate() {
-        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Sphere");
-
-        for (var i = 0; i < gameObjects.Length; i++) {
-            Destroy(gameObjects[i]);
-        }
-
-
-        //print(p.allSpheres.Length);
-
-        for(int i = 0; i < p.allSpheres.Count; i++) {
-            Instantiate(spherePrefab, p.allSpheres[i], Quaternion.identity);
-        }
     }
 }

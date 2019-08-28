@@ -57,16 +57,16 @@ public class PointCloudSubscriber : Subscriber<RosSharp.RosBridgeClient.Messages
 
     public List<Vector3> allSpheres = new List<Vector3>();
 
+    public PC_CircularBuffer<Vector3> allPoints = new PC_CircularBuffer<Vector3>(160000);
+
     void processPointCloud(PointCloud2 pointCloud2) {
         PointCloud pointCloud = new PointCloud(pointCloud2);
 
         for(int i = 0; i < pointCloud.Points.Length; i++) {
-            //Debug.Log("Coordinate: X=" + pointCloud.Points[i].x + ", Y=" + pointCloud.Points[i].y + ", Z=" + pointCloud.Points[i].z);
-            
-
-            if(i % 100 == 0) {
-                //s.doInstantiate(allSpheres[i]);
-                allSpheres.Add(new Vector3(-pointCloud.Points[i].y, pointCloud.Points[i].z, pointCloud.Points[i].x));
+            // ToDo: Improve with multiple meshes
+            if (i % 10 == 0) {
+                //allSpheres.Add(new Vector3(-pointCloud.Points[i].y, pointCloud.Points[i].z, pointCloud.Points[i].x));
+                allPoints.Add(new Vector3(-pointCloud.Points[i].y, pointCloud.Points[i].z, pointCloud.Points[i].x));
             }
         }
     }
