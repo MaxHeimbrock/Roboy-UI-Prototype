@@ -7,12 +7,10 @@ using RosSharp.RosBridgeClient.Messages.Sensor;
 using System.IO;
 using RosSharp.RosBridgeClient;
 using System;
+using System.Linq;
 
 public class PointCloudSubscriber : Subscriber<RosSharp.RosBridgeClient.Messages.Sensor.PointCloud2>
 {
-    public GameObject spherePrefab;
-    SphereInstantiate s;
-
     /// <summary>
     /// Holds the currently received data for other objects to read
     /// </summary>
@@ -24,9 +22,6 @@ public class PointCloudSubscriber : Subscriber<RosSharp.RosBridgeClient.Messages
     /// </summary>
     protected override void Start()
     {
-        GameObject g = GameObject.Find("ROS Connection");
-        s = g.GetComponent<SphereInstantiate>();
-
         StartCoroutine(startSubscriber(1.0f));
     }
 
@@ -55,17 +50,18 @@ public class PointCloudSubscriber : Subscriber<RosSharp.RosBridgeClient.Messages
         processPointCloud(message);
     }
 
-    public List<Vector3> allSpheres = new List<Vector3>();
-
     public PC_CircularBuffer<Vector3> allPoints = new PC_CircularBuffer<Vector3>(160000);
-
+    /// <summary>
+    /// Extracts the 3D coordinates of the point cloud and converts them to the Unity coordinate system.
+    /// For further processing, all points are added to a circular buffer.
+    /// </summary>
+    /// <param name="pointCloud2">the ros pointcloud message</param>
     void processPointCloud(PointCloud2 pointCloud2) {
         PointCloud pointCloud = new PointCloud(pointCloud2);
 
         for(int i = 0; i < pointCloud.Points.Length; i++) {
-            // ToDo: Improve with multiple meshes
+            // To increase performance, just take every 10th point. This works, because the point cloud is very dense anyways.
             if (i % 10 == 0) {
-                //allSpheres.Add(new Vector3(-pointCloud.Points[i].y, pointCloud.Points[i].z, pointCloud.Points[i].x));
                 allPoints.Add(new Vector3(-pointCloud.Points[i].y, pointCloud.Points[i].z, pointCloud.Points[i].x));
             }
         }

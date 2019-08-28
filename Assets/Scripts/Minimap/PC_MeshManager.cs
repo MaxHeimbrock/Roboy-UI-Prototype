@@ -10,7 +10,11 @@ public class PC_MeshManager : MonoBehaviour
     private List<PC_Mesh> allMeshes = new List<PC_Mesh>();
     private PointCloudSubscriber p;
 
-    // Start is called before the first frame update
+    
+    /// <summary>
+    /// Called before first frame.
+    /// Sets up variables in order to communicate with PointCloudSubscriber
+    /// </summary>
     void Start()
     {
         // Find ROS Connection in order to access point data
@@ -19,22 +23,19 @@ public class PC_MeshManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            removeMeshes();
-            processPointCloudData();
-        }
-    }
-
+    /// <summary>
+    /// Updates the displayed point cloud at a fixed interval
+    /// </summary>
     private void FixedUpdate()
     {
         removeMeshes();
         processPointCloudData();
     }
 
+    /// <summary>
+    /// Splits the pointcloud points into chunks of 40000 for performance reasons and because a mesh can only display 65535 points.
+    /// Gives them to a specific mesh object for further processing.
+    /// </summary>
     void processPointCloudData() {
         //int numberOfMeshes = (p.allSpheres.Count / 40000) + 1; // ToDo: Rounding
         List<List<Vector3>> chunkedSpheres = splitList<Vector3>(p.allPoints.ToList(), 40000);
@@ -46,6 +47,9 @@ public class PC_MeshManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Removes all displayed meshes (identified by tag)
+    /// </summary>
     void removeMeshes()
     {
         GameObject[] toRemove = GameObject.FindGameObjectsWithTag("PointCloud_Mesh");
@@ -55,6 +59,13 @@ public class PC_MeshManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Splits a list into chunks of nSize
+    /// </summary>
+    /// <param name="locations">initial list</param>
+    /// <param name="nSize">size of chunks</param>
+    /// <typeparam name="T">chunked list (list of lists)</typeparam>
+    /// <returns></returns>
     List<List<T>> splitList<T>(List<T> locations, int nSize = 30) {
         var list = new List<List<T>>();
 

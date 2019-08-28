@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// PC_CircularBuffer is a circular buffer structure, which uses a queue internally.
+/// When the buffer is full, the first object will be discarded in order to make room for a new one.
+/// </summary>
+/// <typeparam name="T">type of the circular buffer</typeparam>
 public class PC_CircularBuffer<T>
 {
     Queue<T> _queue;
