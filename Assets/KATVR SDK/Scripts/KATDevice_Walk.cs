@@ -102,6 +102,11 @@ namespace KATVR
             if (Launched)
             {
                 GetWalkerData(0, ref bodyYaw, ref WalkPower, ref moveDirection, ref isMoving, ref meter);
+
+                int tmp = bodyYaw;
+                bodyYaw = (int)WalkPower;
+                WalkPower = tmp;
+
                 bodyYaw = (int)Math.Floor((float)bodyYaw / 1024 * 360);
                 //bodyRotation = newCameraYaw;
                 bodyRotation = (float)bodyYaw - newBodyYaw + newCameraYaw;           
