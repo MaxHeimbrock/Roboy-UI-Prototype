@@ -6,74 +6,72 @@ public class FixPositionOnCanvas : MonoBehaviour
 {
     private Menu menu;
 
-    public GameObject fixedRotationParent;
+    private bool fixRotation = false;
 
-    public GameObject followingRotationParent;
+    private Transform myTransform;
 
-    private bool fixRotation = true;
+    public GameObject dummy;
 
-    private bool checkForChange = true;
+    public GameObject dummyCanvas;
+
+    private GameObject instDummy;
 
     // Start is called before the first frame update
     void Start()
     {
         menu = this.GetComponent<Menu>();
+        myTransform = this.GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
         Debug.Log("Pointed " + menu.GetPointed());
+        //Debug.Log("Fixed " + fixRotation);
 
-        if (menu.GetPointed() != fixRotation)// && checkForChange == true)
+        
+        if (menu.GetPointed() != fixRotation)
         {
             fixRotation = !fixRotation;
 
-            checkForChange = false;
-
-            //Debug.Log("Changed follow rotation to " + fixRotation);
-
-            /*
+            Debug.Log("Changed follow rotation to " + fixRotation);
+            
             if (fixRotation == true)
-                StartCoroutine(FixRotation());
+                FreezeRotation();
 
             else if (fixRotation == false)
-                StartCoroutine(FollowRotation());
-            */
+                UnfreezeRotation();            
         }
 
+        if (fixRotation)
+        {
+            Debug.Log("Copy Transform");
+            myTransform.position = instDummy.transform.position;
+            myTransform.rotation = instDummy.transform.rotation;
+        }
+        
+        // freeze rotation
         if (Input.GetKeyDown(KeyCode.M))
         {
-            this.transform.SetParent(followingRotationParent.transform);
-            fixRotation = !fixRotation;
+            FreezeRotation();            
         }
+
+        // unfreeze rotation
         if (Input.GetKeyDown(KeyCode.N))
         {
-            this.transform.SetParent(fixedRotationParent.transform);
-            fixRotation = !fixRotation;
-        }
+            UnfreezeRotation();
+        }        
     }
 
-    IEnumerator FixRotation()
+    private void FreezeRotation()
     {
-        this.transform.SetParent(fixedRotationParent.transform);
-
-        yield return new WaitForSeconds(1f);
-
-        checkForChange = true;
-
-        //Debug.Log("GO");
+        fixRotation = true;
+        instDummy = Instantiate(dummy, myTransform.position, myTransform.rotation, dummyCanvas.transform);
     }
 
-
-    IEnumerator FollowRotation()
+    private void UnfreezeRotation()
     {
-        this.transform.SetParent(followingRotationParent.transform);
-
-        yield return new WaitForSeconds(1f);
-
-        checkForChange = true;
-
-        //Debug.Log("GO");
+        fixRotation = false;
+        Destroy(instDummy);
     }
 }

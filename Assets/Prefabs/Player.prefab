@@ -949,7 +949,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: Button+ButtonClicked, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: OUI_Button+ButtonClicked, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &3072487093264200227
 MonoBehaviour:
@@ -1299,7 +1299,7 @@ MonoBehaviour:
   buttonClickedTriggered:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Button+ButtonClicked, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: OUI_Button+ButtonClicked, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!1 &3072487093342910265
 GameObject:
@@ -2993,7 +2993,7 @@ MonoBehaviour:
   buttonClickedTriggered:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Button+ButtonClicked, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: OUI_Button+ButtonClicked, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!1 &3072487094371454928
 GameObject:
