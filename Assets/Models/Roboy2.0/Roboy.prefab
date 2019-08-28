@@ -147,9 +147,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6514511431957380511}
   - component: {fileID: 1803147675920805415}
+  - component: {fileID: 1809930230}
   m_Layer: 0
   m_Name: shin_right
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,6 +185,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: 75acc361c4ed7436ab9784f4f9c7c5cd, type: 3}
+--- !u!114 &1809930230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786221790193656145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4a103804fa240f58e23e1d4f8d8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &793975234919401227
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,9 +209,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2201042493528310187}
   - component: {fileID: 5089705436748696094}
+  - component: {fileID: 1928028080}
   m_Layer: 0
   m_Name: elbow_right
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,6 +247,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: 75acc361c4ed7436ab9784f4f9c7c5cd, type: 3}
+--- !u!114 &1928028080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793975234919401227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4a103804fa240f58e23e1d4f8d8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &864836813163281623
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,9 +271,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5676068176340654530}
   - component: {fileID: 8243368350126136695}
+  - component: {fileID: 63331525}
   m_Layer: 0
   m_Name: upper_arm_right
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,6 +309,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: 75acc361c4ed7436ab9784f4f9c7c5cd, type: 3}
+--- !u!114 &63331525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864836813163281623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4a103804fa240f58e23e1d4f8d8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1256155825529079418
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,9 +603,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7552052913860129867}
   - component: {fileID: 2182008783187460301}
+  - component: {fileID: 1862935309}
   m_Layer: 0
   m_Name: hand_right
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -595,6 +641,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: 75acc361c4ed7436ab9784f4f9c7c5cd, type: 3}
+--- !u!114 &1862935309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2368620147465634740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4a103804fa240f58e23e1d4f8d8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2430259640930163974
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,9 +956,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8092107606992047560}
   - component: {fileID: 9076871102227472940}
+  - component: {fileID: 149927011}
   m_Layer: 0
   m_Name: foot_right
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -933,6 +994,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: 75acc361c4ed7436ab9784f4f9c7c5cd, type: 3}
+--- !u!114 &149927011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2764523731768278428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4a103804fa240f58e23e1d4f8d8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2804548848078232309
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,9 +1018,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3971786409799498044}
   - component: {fileID: 6210751679450685568}
+  - component: {fileID: 1237119407}
   m_Layer: 0
   m_Name: hand_left
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -957,7 +1033,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2804548848078232309}
-  m_LocalRotation: {x: -0.00000004371139, y: 1, z: -0.00000004371139, w: 1.9106855e-15}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0.00000028088027}
   m_LocalPosition: {x: 0.27451125, y: 0.013285199, z: -0.6355917}
   m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
   m_Children:
@@ -966,7 +1042,7 @@ Transform:
   - {fileID: 8664928126499984452}
   m_Father: {fileID: 4405582849594332741}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
 --- !u!114 &6210751679450685568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,6 +1056,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: 75acc361c4ed7436ab9784f4f9c7c5cd, type: 3}
+--- !u!114 &1237119407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2804548848078232309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4a103804fa240f58e23e1d4f8d8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2917222812439475086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,9 +1234,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7675179298149532515}
   - component: {fileID: 8209863587834824580}
+  - component: {fileID: 230670865}
   m_Layer: 0
   m_Name: thigh_right
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1181,6 +1272,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: 75acc361c4ed7436ab9784f4f9c7c5cd, type: 3}
+--- !u!114 &230670865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2998710109280188078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4a103804fa240f58e23e1d4f8d8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3114388256424968448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,9 +1386,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1164096013326135726}
   - component: {fileID: 2070770246487370806}
+  - component: {fileID: 998503122}
   m_Layer: 0
   m_Name: forearm_left
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1295,7 +1401,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3667671148236383539}
-  m_LocalRotation: {x: -0.00000004371139, y: 1, z: -0.00000004371139, w: 1.9106855e-15}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 0.27951124, y: 0.0016882927, z: -0.46758568}
   m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
   m_Children:
@@ -1304,7 +1410,7 @@ Transform:
   - {fileID: 2156948266169157400}
   m_Father: {fileID: 4405582849594332741}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!114 &2070770246487370806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1318,6 +1424,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: 75acc361c4ed7436ab9784f4f9c7c5cd, type: 3}
+--- !u!114 &998503122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3667671148236383539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4a103804fa240f58e23e1d4f8d8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3898782658756785682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,9 +1692,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1479581350066071077}
   - component: {fileID: 2979283936645777790}
+  - component: {fileID: 241035026}
   m_Layer: 0
   m_Name: thigh_left
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1609,6 +1730,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: 75acc361c4ed7436ab9784f4f9c7c5cd, type: 3}
+--- !u!114 &241035026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4342249739043664158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4a103804fa240f58e23e1d4f8d8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4463574746967325292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,9 +1754,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7436849493476853141}
   - component: {fileID: 8140185205167122886}
+  - component: {fileID: 1501481011}
   m_Layer: 0
   m_Name: elbow_left
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1656,6 +1792,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: 75acc361c4ed7436ab9784f4f9c7c5cd, type: 3}
+--- !u!114 &1501481011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4463574746967325292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4a103804fa240f58e23e1d4f8d8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4634849325203540139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,9 +1846,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2342683875075392675}
   - component: {fileID: 1653094854826148905}
+  - component: {fileID: 770374082}
   m_Layer: 0
   m_Name: forearm_right
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1710,7 +1861,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4870868445551528512}
-  m_LocalRotation: {x: -0.00000004371139, y: 1, z: -0.00000004371139, w: 1.9106855e-15}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: -0.2913, y: -0.000015118203, z: -0.46242693}
   m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
   m_Children:
@@ -1719,7 +1870,7 @@ Transform:
   - {fileID: 2746804325902677892}
   m_Father: {fileID: 4405582849594332741}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!114 &1653094854826148905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1733,6 +1884,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: 75acc361c4ed7436ab9784f4f9c7c5cd, type: 3}
+--- !u!114 &770374082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4870868445551528512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4a103804fa240f58e23e1d4f8d8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4878533721479979574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,9 +1968,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3546998889415172059}
   - component: {fileID: 1253858652018705314}
+  - component: {fileID: 438079571}
   m_Layer: 0
   m_Name: shin_left
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1840,6 +2006,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: 75acc361c4ed7436ab9784f4f9c7c5cd, type: 3}
+--- !u!114 &438079571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5546000165303516544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4a103804fa240f58e23e1d4f8d8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5818739928923492120
 GameObject:
   m_ObjectHideFlags: 0
@@ -2248,9 +2428,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4208167524985560904}
   - component: {fileID: 1398642600478959601}
+  - component: {fileID: 1219990433}
   m_Layer: 0
   m_Name: torso
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2285,6 +2466,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: 75acc361c4ed7436ab9784f4f9c7c5cd, type: 3}
+--- !u!114 &1219990433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7107322469963133379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4a103804fa240f58e23e1d4f8d8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7323594774369273792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,9 +2657,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7435802515657175270}
   - component: {fileID: 3196675989938564392}
+  - component: {fileID: 1373338011}
   m_Layer: 0
   m_Name: upper_arm_left
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2499,6 +2695,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: 75acc361c4ed7436ab9784f4f9c7c5cd, type: 3}
+--- !u!114 &1373338011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7792225512082608396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4a103804fa240f58e23e1d4f8d8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7812106912523689088
 GameObject:
   m_ObjectHideFlags: 0
@@ -2629,8 +2839,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4405582849594332741}
   m_Layer: 0
-  m_Name: Roboy (1)
-  m_TagString: Untagged
+  m_Name: Roboy
+  m_TagString: Roboy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2783,9 +2993,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7612417217868695449}
   - component: {fileID: 8800644054636850490}
+  - component: {fileID: 1877173327}
   m_Layer: 0
   m_Name: pelvis
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2820,6 +3031,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: 75acc361c4ed7436ab9784f4f9c7c5cd, type: 3}
+--- !u!114 &1877173327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8732871482216680535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4a103804fa240f58e23e1d4f8d8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8781421477751390956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2860,9 +3085,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5977174904765524267}
   - component: {fileID: 3595119056809562776}
+  - component: {fileID: 1834796494}
   m_Layer: 0
   m_Name: head
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2897,6 +3123,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: 75acc361c4ed7436ab9784f4f9c7c5cd, type: 3}
+--- !u!114 &1834796494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8791731158434999269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4a103804fa240f58e23e1d4f8d8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8812459562628050180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2907,9 +3147,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7240152298583249243}
   - component: {fileID: 6834001934919904160}
+  - component: {fileID: 2047794971}
   m_Layer: 0
   m_Name: foot_left
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2944,6 +3185,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: 75acc361c4ed7436ab9784f4f9c7c5cd, type: 3}
+--- !u!114 &2047794971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8812459562628050180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4a103804fa240f58e23e1d4f8d8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8879617973717973335
 GameObject:
   m_ObjectHideFlags: 0
