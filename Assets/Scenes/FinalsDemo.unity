@@ -121,6 +121,113 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &391569864 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3297211210590374650, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
+    type: 3}
+  m_PrefabInstance: {fileID: 668998204}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &668998204
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 828448444}
+    m_Modifications:
+    - target: {fileID: 7975745674283704984, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
+        type: 3}
+      propertyPath: m_Name
+      value: KAT_Body
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297211210590374650, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297211210590374650, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297211210590374650, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297211210590374650, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297211210590374650, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297211210590374650, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297211210590374650, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297211210590374650, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297211210590374650, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297211210590374650, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297211210590374650, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9134076279248019865, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
+        type: 3}
+      propertyPath: targetMoveObject
+      value: 
+      objectReference: {fileID: 828448444}
+    - target: {fileID: 9134076279248019865, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
+        type: 3}
+      propertyPath: targetRotateObject
+      value: 
+      objectReference: {fileID: 391569864}
+    - target: {fileID: 9134076279248019865, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
+        type: 3}
+      propertyPath: vrCameraRig
+      value: 
+      objectReference: {fileID: 746122294}
+    - target: {fileID: 9134076279248019865, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
+        type: 3}
+      propertyPath: vrHandset
+      value: 
+      objectReference: {fileID: 746122294}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4c7ada5078fb92d42a9dbbb22ce08915, type: 3}
+--- !u!4 &746122294 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3072487094423429335, guid: 2df4a8e9e99d5c342bf55117cbf91f96,
+    type: 3}
+  m_PrefabInstance: {fileID: 6456687724689410638}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &828448444 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6456687723973449933, guid: 2df4a8e9e99d5c342bf55117cbf91f96,
+    type: 3}
+  m_PrefabInstance: {fileID: 6456687724689410638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1048456376
 GameObject:
   m_ObjectHideFlags: 0
