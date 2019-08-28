@@ -42,7 +42,7 @@ public class MockOperatorLogSubscriber : Subscriber<RosSharp.RosBridgeClient.Mes
     /// <param name="message"> is the received message.</param>
     protected override void ReceiveMessage(ErrorNotification message)
     {
-        Debug.Log("Received Mock Operator Toastr");
-        LogText.Instance.OperatorToastr(message.msg);
+        Debug.Log(message.msg);
+        //LogText.Instance.OperatorToastr(message.msg);
     }
 }
