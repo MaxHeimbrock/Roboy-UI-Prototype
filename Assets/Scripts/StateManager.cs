@@ -13,7 +13,7 @@ public class StateManager: Singleton<StateManager>
 
     [Header("Just a helper if pointing with mouse")]
     [Tooltip("When the mouse is not moved after transition, the transition button is still in clicked state. Reference for resetting the state to not clicked.")]
-    public Button TransitionButton;
+    public OUI_Button TransitionButton;
     
     public MenuState currentMenuState = MenuState.HUD;
     
