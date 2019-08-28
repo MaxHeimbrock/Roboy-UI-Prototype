@@ -31,7 +31,7 @@ public class StateManager: Singleton<StateManager>
                 HUD.SetActive(false);
                 //Roboy.SetActive(true);
                 Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationOnly;
-                Roboy.GetComponent<RoboyPositioning>().followCamera = false;
+                Roboy.GetComponent<FollowTransform>().follow = false;
                 CameraAnimatorScript.Instance.StartTransitionToAdvancedMenu();
                 
                 // Vest
@@ -54,7 +54,7 @@ public class StateManager: Singleton<StateManager>
             case MenuState.transitionToHUD:
                 //Roboy.SetActive(false);
                 Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationAndPosition;
-                Roboy.GetComponent<RoboyPositioning>().followCamera = true;
+                Roboy.GetComponent<FollowTransform>().follow = true;
                 HUD.SetActive(true);
                 break;
         }

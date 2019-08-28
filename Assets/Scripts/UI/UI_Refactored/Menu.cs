@@ -8,7 +8,6 @@ using UnityEngine.EventSystems;
 public class Menu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Menu parentMenu;
-    //public Menu[] submenus;
 
     public OUI_Button[] menuButtons;
 
@@ -115,7 +114,7 @@ public class Menu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (pointed == false)
         {
             pointed = true;
-            //Debug.Log("Enter");
+            Debug.Log("Enter");
         }
     }
 
@@ -124,13 +123,18 @@ public class Menu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (pointed == true)
         {
             pointed = false;
-            //Debug.Log("Exit");
+            Debug.Log("Exit");
         }
     }
 
     public bool GetActive()
     {
         return active;
+    }
+
+    public bool GetPointed()
+    {
+        return pointed;
     }
 
     #endregion
