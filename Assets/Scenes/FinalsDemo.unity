@@ -221,12 +221,6 @@ PrefabInstance:
       objectReference: {fileID: 746122294}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c7ada5078fb92d42a9dbbb22ce08915, type: 3}
---- !u!1 &737559260 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3072487093505115507, guid: 2df4a8e9e99d5c342bf55117cbf91f96,
-    type: 3}
-  m_PrefabInstance: {fileID: 6456687724689410638}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &737559265 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3072487093505115506, guid: 2df4a8e9e99d5c342bf55117cbf91f96,
@@ -546,7 +540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1935209221
 RectTransform:
   m_ObjectHideFlags: 0
@@ -578,8 +572,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee3b3bac9da41494789c910974f8d223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixedRotationParent: {fileID: 1786935713}
-  followingRotationParent: {fileID: 737559260}
+  dummy: {fileID: 410211400645721538, guid: b1dc56caa14d5eb4db8f93f85d0de7fa, type: 3}
+  dummyCanvas: {fileID: 1786935713}
 --- !u!114 &1935209223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,17 +822,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3072487094423429334, guid: 2df4a8e9e99d5c342bf55117cbf91f96,
+        type: 3}
+      propertyPath: m_Depth
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3942668063500607204, guid: 2df4a8e9e99d5c342bf55117cbf91f96,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 19f22aaeb53a918469e311020d113f26,
         type: 3}
-    - target: {fileID: 3072487094423429334, guid: 2df4a8e9e99d5c342bf55117cbf91f96,
-        type: 3}
-      propertyPath: m_Depth
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 6456687723559596879, guid: 2df4a8e9e99d5c342bf55117cbf91f96,
         type: 3}
       propertyPath: m_IsActive
