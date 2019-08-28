@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SpatialTracking;
 
 public class StateManager: Singleton<StateManager>
 {
@@ -12,7 +13,7 @@ public class StateManager: Singleton<StateManager>
 
     [Header("Just a helper if pointing with mouse")]
     [Tooltip("When the mouse is not moved after transition, the transition button is still in clicked state. Reference for resetting the state to not clicked.")]
-    public Button TransitionButton;
+    public OUI_Button TransitionButton;
     
     public MenuState currentMenuState = MenuState.HUD;
     
@@ -28,7 +29,9 @@ public class StateManager: Singleton<StateManager>
             // From HUD to Transition
             case MenuState.HUD:
                 HUD.SetActive(false);
-                Roboy.SetActive(true);                
+                //Roboy.SetActive(true);
+                Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationOnly;
+                Roboy.GetComponent<RoboyPositioning>().followCamera = false;
                 CameraAnimatorScript.Instance.StartTransitionToAdvancedMenu();
                 break;
             // From Transition to Advanced Menu
@@ -46,7 +49,9 @@ public class StateManager: Singleton<StateManager>
                 break;
             // From Transition to HUD
             case MenuState.transitionToHUD:
-                Roboy.SetActive(false);
+                //Roboy.SetActive(false);
+                Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationAndPosition;
+                Roboy.GetComponent<RoboyPositioning>().followCamera = true;
                 HUD.SetActive(true);
                 break;
         }
