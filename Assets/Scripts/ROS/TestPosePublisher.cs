@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using RosSharp.RosBridgeClient;
 
-public class PosePublisher : Publisher<RosSharp.RosBridgeClient.Messages.Roboy.Pose>
+public class TestPosePublisher : Publisher<RosSharp.RosBridgeClient.Messages.Roboy.Pose>
 {
 
     protected override void Start()
     {
-        StartCoroutine(StartPublisher(2.0f));
+        StartCoroutine(StartPublisher(1.0f));
     }
 
     private IEnumerator StartPublisher(float waitTime)
@@ -38,14 +38,12 @@ public class PosePublisher : Publisher<RosSharp.RosBridgeClient.Messages.Roboy.P
             // Update position after a couple of seconds
             yield return new WaitForSeconds(waitTime);
             PublishMessage(message);
-            yield return new WaitForSeconds(waitTime);
-            PublishMessage(message);
             break;
         }
     }
 
     private void PublishMessage(RosSharp.RosBridgeClient.Messages.Roboy.Pose message)
     {
-       Publish(message);
+        Publish(message);
     }
 }
