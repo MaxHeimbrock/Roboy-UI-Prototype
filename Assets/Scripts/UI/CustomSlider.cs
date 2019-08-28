@@ -108,7 +108,6 @@ public class CustomSlider : MonoBehaviour
         Vector3 localRightBorderPoint = transform.localPosition;
         localRightBorderPoint.y += -1f * transform.localScale.y;
         Vector3 worldPoint = collider.transform.position;
-        v1 = worldPoint;
         Transform fillTransform = transform.GetChild(0);
         if(!fillTransform.gameObject.activeSelf)
         {
