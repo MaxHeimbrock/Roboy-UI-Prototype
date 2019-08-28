@@ -6,6 +6,8 @@ using UnityEngine;
 public class SubMenuScaling : MonoBehaviour
 {
 #if UNITY_EDITOR
+
+    #region properties
     public float width;
     public float height;
     private float oldWidth;
@@ -29,6 +31,7 @@ public class SubMenuScaling : MonoBehaviour
     private Transform topSide;
     private Transform bottomSide;
     private Transform nameTag;
+    #endregion
 
     private void Reset()
     {
@@ -56,14 +59,10 @@ public class SubMenuScaling : MonoBehaviour
 
         nameTag.localPosition = new Vector3(0.2285f, 0.1233001f, 0);
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        this.runInEditMode = true;
-        findChildren();
-    }
-
+    
+    /// <summary>
+    /// Setting references to all frame components for quick access.
+    /// </summary>
     private void findChildren()
     {
         topCorners = this.transform.GetChild(0);
@@ -92,7 +91,12 @@ public class SubMenuScaling : MonoBehaviour
         verticalAlignmentText = "top";
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called once per frame during playmode.
+    /// Update is called on every scene change during editmode.
+    /// 
+    /// Managing the scaling of the Menu during editmode.
+    /// </summary>
     void Update()
     {
         if (Application.isPlaying)
@@ -120,7 +124,6 @@ public class SubMenuScaling : MonoBehaviour
 
                 horizontalSides.localScale = new Vector3(width, horizontalSides.localScale.y, horizontalSides.localScale.z);
                 oldWidth = width;
-                Debug.Log("Change Width");
             }
 
 
@@ -140,11 +143,11 @@ public class SubMenuScaling : MonoBehaviour
 
                 verticalSides.localScale = new Vector3(verticalSides.localScale.x, height, verticalSides.localScale.z);
                 oldHeight = height;
-                Debug.Log("Change Height");
             }
         }
     }
 
+    #region button logic: nameTag alignment
     public void setHorizontalCenter()
     {
         horizontalAlignmentText = "center";
@@ -180,7 +183,7 @@ public class SubMenuScaling : MonoBehaviour
         verticalAlignmentText = "bottom";
         verticalAlignment = -1;
     }
-
+    #endregion
 
 #endif
 }
