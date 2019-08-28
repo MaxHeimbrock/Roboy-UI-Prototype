@@ -8,12 +8,17 @@ public class SlerpToCamera : MonoBehaviour
 
     private bool slerp = false;
 
-    public float slerpSpeed = 1f;
+    public float slerpSpeed = 10f;
+
+    public float startSlerpAngle = 15f;
+    public float stopSlerpAngle = 15f;
 
     // Update is called once per frame
     void Update()
     {
         //Debug.Log("");
+
+        this.transform.position = Camera.main.transform.position;
 
         CorrectRotation();
 
@@ -21,7 +26,7 @@ public class SlerpToCamera : MonoBehaviour
         {
             float slerpProgress = (Time.time - startTime) / slerpSpeed;
 
-            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Camera.main.transform.rotation, slerpProgress);
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Camera.main.transform.rotation, slerpProgress);            
         }
     }
 
@@ -31,13 +36,13 @@ public class SlerpToCamera : MonoBehaviour
 
         //Debug.Log(rotationalDistance);
 
-        if (rotationalDistance >= 20f && slerp == false)
+        if (rotationalDistance >= startSlerpAngle && slerp == false)
         {
             slerp = true;
             startTime = Time.time;
             Debug.Log("Start Slerp");
         }
-        else if (rotationalDistance <= 15f && slerp == true)
+        else if (rotationalDistance <= stopSlerpAngle && slerp == true)
         {
             slerp = false;
             Debug.Log("Stop Slerp");
