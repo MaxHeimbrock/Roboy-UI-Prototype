@@ -16,12 +16,11 @@ public class CustomSlider : MonoBehaviour
     public GameObject IntersectingObject;
     private float value;
 
-    public Vector3 v1 = new Vector3(0,0,0);
+    //For debugging
+    /*public Vector3 v1 = new Vector3(0,0,0);
     public Vector3 v2 = new Vector3(0, 0, 0);
     public Vector3 v3 = new Vector3(0, 0, 0);
-    public Vector3 v4 = new Vector3(0, 0, 0);
-
-    public List<string> colliders;
+    public Vector3 v4 = new Vector3(0, 0, 0);*/
 
     /**
      * Initialize variables, important to remain prefab hierarchy
@@ -35,13 +34,6 @@ public class CustomSlider : MonoBehaviour
 
         defaultPosFull = transform.localPosition;
         defaultPosFill = transform.GetChild(0).localPosition;
-        
-        colliders.Add("thumbPickupCollider");
-        colliders.Add("indexPickupCollider");
-        colliders.Add("middlePickupCollider");
-        colliders.Add("ringPickupCollider");
-        colliders.Add("pinkyPickupCollider");
-        colliders.Add("palmCollider");
     }
 
     /*
@@ -62,8 +54,7 @@ public class CustomSlider : MonoBehaviour
      */
     private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log(collision.name);
-        if (IntersectingObject == null && colliders.Contains(collision.name))
+        if (IntersectingObject == null && collision.gameObject.CompareTag("HandMatchingCollider"))//colliders.Contains(collision.name))
         {
             titleAnimator.SetBool("Collision", true);
             valueAnimator.SetBool("VisibleIntersect", true);
@@ -81,8 +72,7 @@ public class CustomSlider : MonoBehaviour
      */
     private void OnTriggerStay(Collider collision)
     {
-        Debug.Log(collision.name);
-        if (IntersectingObject == null && colliders.Contains(collision.name))
+        if (IntersectingObject == null && collision.gameObject.CompareTag("HandMatchingCollider"))
         {
             titleAnimator.SetBool("Collision", true);
             valueAnimator.SetBool("VisibleIntersect", true);
@@ -117,8 +107,7 @@ public class CustomSlider : MonoBehaviour
     {
         Vector3 localRightBorderPoint = transform.localPosition;
         localRightBorderPoint.y += -1f * transform.localScale.y;
-        Vector3 worldPoint = collider.transform.TransformPoint(collider.transform.localPosition + collider.bounds.center);// collider.ClosestPoint(localRightBorderPoint));
-        Debug.Log("Updating Slider Value - Collision with " + collider.name + ": " + worldPoint.ToString());
+        Vector3 worldPoint = collider.transform.position;
         v1 = worldPoint;
         Transform fillTransform = transform.GetChild(0);
         if(!fillTransform.gameObject.activeSelf)
@@ -209,7 +198,7 @@ public class CustomSlider : MonoBehaviour
     /**
      * Only for Debug purposes
      */
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(v1, 0.01f);
         Gizmos.color = new Color(255,0,0);
@@ -218,5 +207,5 @@ public class CustomSlider : MonoBehaviour
         Gizmos.DrawSphere(v3, 0.014f);
         Gizmos.color = new Color(0, 0, 255);
         Gizmos.DrawSphere(v4, 0.016f);
-    }
+    }*/
 }
