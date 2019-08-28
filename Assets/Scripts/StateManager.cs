@@ -33,6 +33,9 @@ public class StateManager: Singleton<StateManager>
                 Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationOnly;
                 Roboy.GetComponent<FollowTransform>().follow = false;
                 CameraAnimatorScript.Instance.StartTransitionToAdvancedMenu();
+                
+                // Vest
+                GameObject.FindGameObjectWithTag("VestTransition").GetComponent<VestTransition>().playTact();
                 break;
             // From Transition to Advanced Menu
             case MenuState.transitionToAdvancedMenu:

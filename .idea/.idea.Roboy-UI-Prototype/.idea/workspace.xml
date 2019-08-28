@@ -1,7 +1,30 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca4dc12f-f347-460a-b2e4-5f39ce9f1725" name="Default Changelist" comment="" />
+    <list default="true" id="ca4dc12f-f347-460a-b2e4-5f39ce9f1725" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Vest.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Vest/Vest Transition.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Vest/Vest Transition.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/VestTesting.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/VestTesting.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Vest.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Vest/VestTransition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Vest/VestTransition.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Roboy-UI-Prototype/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Roboy-UI-Prototype/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Roboy-UI-Prototype/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Roboy-UI-Prototype/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MinimapTesting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MinimapTesting.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StateManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StateManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/bHapticsManager/Examples/Prefabs/fireEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/bHapticsManager/Examples/Prefabs/fireEffect.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/bHapticsManager/Examples/Scenes/1. Simple Example with TactSouce.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/bHapticsManager/Examples/Scenes/1. Simple Example with TactSouce.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/bHapticsManager/Examples/Scenes/2. Shooting Example.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/bHapticsManager/Examples/Scenes/2. Shooting Example.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/bHapticsManager/Examples/Scenes/3. Long running Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/bHapticsManager/Examples/Scenes/3. Long running Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/bHapticsManager/Examples/Scenes/PlayerScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/bHapticsManager/Examples/Scenes/PlayerScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/bHapticsManager/Resources/TactFileAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/bHapticsManager/Resources/TactFileAsset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/bHapticsManager/Widget/Scenes/demo scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/bHapticsManager/Widget/Scenes/demo scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,9 +37,14 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Minimap/PC_Mesh.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Vest/VestTransition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StateManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Minimap/PC_MeshManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/bHapticsManager/Examples/Scenes/1. Simple Example with TactSouce.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/bHapticsManager/Scripts/VisualFeedback.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Minimap/PC_CircularBuffer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ROS/PointCloudSubscriber.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/bHapticsManager/Examples/Scripts/Example.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -25,6 +53,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Minimap/PC_Mesh.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Minimap/PC_CircularBuffer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ROS/PointCloudSubscriber.cs" />
+        <option value="$PROJECT_DIR$/Assets/bHapticsManager/Scripts/VisualFeedback.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Vest/VestTransition.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StateManager.cs" />
       </list>
     </option>
   </component>

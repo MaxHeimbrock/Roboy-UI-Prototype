@@ -10,7 +10,53 @@
         <e p="AdvancedMenu TextMesh" t="Include">
           <e p="OccludedShader.shader" t="Include" />
         </e>
-        <e p="CameraAnimatorScript.cs" t="Include" />
+        <e p="bHapticsManager" t="Include">
+          <e p="Examples" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Example.cs" t="Include" />
+              <e p="ExamplePrev.cs" t="Include" />
+              <e p="HapticApiTest.cs" t="Include" />
+              <e p="LongTest.cs" t="Include" />
+              <e p="Shooter.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Plugins" t="Include">
+            <e p="Android" t="Include">
+              <e p="AndroidManifest-bhaptics.xml" t="Include" />
+            </e>
+            <e p="HapticApi.cs" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="AndroidHapticPlayer.cs" t="Include" />
+            <e p="BhapticsDevice.cs" t="Include" />
+            <e p="BhapticsManager.cs" t="Include" />
+            <e p="BhapticsUtils.cs" t="Include" />
+            <e p="DeviceManager.cs" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="TactSenderEditor.cs" t="Include" />
+              <e p="TactSourceEditor.cs" t="Include" />
+            </e>
+            <e p="HapticPlayer2.cs" t="Include" />
+            <e p="TactFileAsset.cs" t="Include" />
+            <e p="TactReceiver.cs" t="Include" />
+            <e p="TactSender.cs" t="Include" />
+            <e p="TactSource.cs" t="Include" />
+            <e p="VisualFeedback.cs" t="Include" />
+          </e>
+          <e p="Widget" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="AndroidPermissionsManager.cs" t="Include" />
+              <e p="CompareDeviceString.cs" t="Include" />
+              <e p="DeviceControlButton.cs" t="Include" />
+              <e p="PairedDeviceUI.cs" t="Include" />
+              <e p="ScannedDeviceUI.cs" t="Include" />
+              <e p="SettingObjectPool.cs" t="Include" />
+              <e p="SettingUI_AnimationScript.cs" t="Include" />
+              <e p="UI_Initialize.cs" t="Include" />
+              <e p="UI_Manager.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="CurvedUI" t="Include">
           <e p="CurvedUI_changelog.txt" t="Include" />
           <e p="Demo Scenes" t="Include">
@@ -70,6 +116,18 @@
             <e p="OptionalDependencyAttribute.cs" t="Include" />
           </e>
         </e>
+        <e p="KATVR SDK" t="Include">
+          <e p="Editor" t="Include">
+            <e p="KATDeviceEditor.cs" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="KATDevice.cs" t="Include" />
+            <e p="KATDevice_Walk.cs" t="Include" />
+            <e p="KATVR.cs" t="Include" />
+            <e p="Singleton.cs" t="Include" />
+          </e>
+        </e>
+        <e p="LanguageFile.xml" t="Include" />
         <e p="LeapMotion" t="Include">
           <e p="Core" t="Include">
             <e p="Dependencies.txt" t="Include" />
@@ -553,7 +611,6 @@
             <e p="MinimapShader.shader" t="Include" />
           </e>
         </e>
-        <e p="RoboyPositioning.cs" t="Include" />
         <e p="RosSharp" t="Include">
           <e p="Scripts" t="Include">
             <e p="Extensions" t="Include">
@@ -692,6 +749,7 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="CameraAnimatorScript.cs" t="Include" />
           <e p="DummyHand.cs" t="Include" />
           <e p="FadingObject.cs" t="Include" />
           <e p="IRaycastSubscriber.cs" t="Include" />
@@ -712,8 +770,13 @@
             <e p="PointerViveController.cs" t="Include" />
             <e p="ViveControllerPointer.cs" t="Include" />
           </e>
+          <e p="RoboyPositioning.cs" t="Include" />
           <e p="ROS" t="Include">
+            <e p="MockOperatorLogPublisher.cs" t="Include" />
+            <e p="MockOperatorLogSubscriber.cs" t="Include" />
             <e p="PointCloudSubscriber.cs" t="Include" />
+            <e p="PoseSubscriber.cs" t="Include" />
+            <e p="TestPosePublisher.cs" t="Include" />
             <e p="TestPublisher.cs" t="Include" />
             <e p="TestSubscriber.cs" t="Include" />
           </e>
@@ -738,13 +801,21 @@
             </e>
             <e p="CustomSlider.cs" t="Include" />
             <e p="LogText.cs" t="Include" />
+            <e p="Pose_Mirroring" t="Include">
+              <e p="MockRoboyPose.cs" t="Include" />
+              <e p="RoboyPart.cs" t="Include" />
+              <e p="RoboyPoseManager.cs" t="Include" />
+            </e>
             <e p="RaycastManager.cs" t="Include" />
             <e p="ShowClosestPoint.cs" t="Include" />
             <e p="UI_Refactored" t="Include">
-              <e p="Button.cs" t="Include" />
               <e p="Menu.cs" t="Include" />
+              <e p="OUI_Button.cs" t="Include" />
               <e p="UI_Manager.cs" t="Include" />
             </e>
+          </e>
+          <e p="Vest" t="Include">
+            <e p="VestTransition.cs" t="Include" />
           </e>
           <e p="VideoCapture.cs" t="Include" />
           <e p="XMLParser.cs" t="Include" />
