@@ -7,40 +7,63 @@ public class SphereInstantiate : MonoBehaviour
     public GameObject spherePrefab;
     PointCloudSubscriber p;
 
+    private Mesh mesh;
+
+
     // Start is called before the first frame update
     void Start()
     {
 
         GameObject g = GameObject.Find("ROS Connection");
         p = g.GetComponent<PointCloudSubscriber>();
+
+        mesh = new Mesh();
+        GetComponent<MeshFilter>().mesh = mesh;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return)) {
-            runInstantiate();
+            //runInstantiate();
+            createMesh();
         }
     }
 
     public void doInstantiate(Vector3 position) {
         Instantiate(spherePrefab, position, Quaternion.identity);
+        Debug.Log("D2");
+    }
+
+    public void createMesh() {
+        Vector3[] points = new Vector3[p.allSpheres.Count];
+        int[] indecies = new int[p.allSpheres.Count];
+        Color[] colors = new Color[p.allSpheres.Count];
+        for (int i = 0; i < points.Length; ++i) {
+            points[i] = p.allSpheres[i];
+            indecies[i] = i;
+            colors[i] = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), 1.0f);
+        }
+
+        mesh.vertices = points;
+        mesh.colors = colors;
+        mesh.SetIndices(indecies, MeshTopology.Points, 0);
+
     }
 
     void runInstantiate() {
-        /*GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Sphere");
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Sphere");
 
         for (var i = 0; i < gameObjects.Length; i++) {
             Destroy(gameObjects[i]);
-        }*/
+        }
 
 
         //print(p.allSpheres.Length);
 
-        for(int i = 0; i < p.allSpheres.Length; i++) {
-            if(i % 20 == 0) {
-                Instantiate(spherePrefab, p.allSpheres[i], Quaternion.identity);
-            }
+        for(int i = 0; i < p.allSpheres.Count; i++) {
+            Instantiate(spherePrefab, p.allSpheres[i], Quaternion.identity);
         }
     }
 }

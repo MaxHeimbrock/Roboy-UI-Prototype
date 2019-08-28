@@ -24,7 +24,6 @@ public class PointCloudSubscriber : Subscriber<RosSharp.RosBridgeClient.Messages
     /// </summary>
     protected override void Start()
     {
-
         GameObject g = GameObject.Find("ROS Connection");
         s = g.GetComponent<SphereInstantiate>();
 
@@ -54,21 +53,20 @@ public class PointCloudSubscriber : Subscriber<RosSharp.RosBridgeClient.Messages
     protected override void ReceiveMessage(PointCloud2 message)
     {
         processPointCloud(message);
-        gameObjects.Clear();
     }
 
-    private List<GameObject> gameObjects = new List<GameObject>();
-    public Vector3[] allSpheres = new Vector3[5000];
+    public List<Vector3> allSpheres = new List<Vector3>();
 
     void processPointCloud(PointCloud2 pointCloud2) {
         PointCloud pointCloud = new PointCloud(pointCloud2);
 
         for(int i = 0; i < pointCloud.Points.Length; i++) {
             //Debug.Log("Coordinate: X=" + pointCloud.Points[i].x + ", Y=" + pointCloud.Points[i].y + ", Z=" + pointCloud.Points[i].z);
-            allSpheres[i] = new Vector3(-pointCloud.Points[i].y, pointCloud.Points[i].z, pointCloud.Points[i].x);
+            
 
-            if(i % 10 == 0) {
-                s.doInstantiate(allSpheres[i]);
+            if(i % 100 == 0) {
+                //s.doInstantiate(allSpheres[i]);
+                allSpheres.Add(new Vector3(-pointCloud.Points[i].y, pointCloud.Points[i].z, pointCloud.Points[i].x));
             }
         }
     }
