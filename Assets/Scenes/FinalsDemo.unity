@@ -406,11 +406,6 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 6554757330486866268, guid: 2df4a8e9e99d5c342bf55117cbf91f96,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5417470801616105037, guid: 2df4a8e9e99d5c342bf55117cbf91f96,
         type: 3}
       propertyPath: Roboy

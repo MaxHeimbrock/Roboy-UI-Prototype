@@ -27,36 +27,38 @@ public class MockOperatorLogPublisher : Publisher<RosSharp.RosBridgeClient.Messa
             yield return new WaitForSeconds(waitTime);
             base.Start();
 
-            //publishMessage("Warning: Omnimill selfdestruct");
+            // Test error message 
+            RosSharp.RosBridgeClient.Messages.Roboy.ErrorNotification errorMessage = new RosSharp.RosBridgeClient.Messages.Roboy.ErrorNotification();
+            errorMessage.code = 1;
+            errorMessage.@object = "";
+            errorMessage.msg = "There is an error";
+            errorMessage.extra = "a";
+            errorMessage.validity_duration = 1;
+
+            PublishMessage(errorMessage);
+                       
             yield return new WaitForSeconds(waitTime);
 
             break;
         }
     }
 
-    public void Update()
+    /*public void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
             Debug.Log("Send Mock Toastr Message");
             publishMessage("Warning: Omnimill selfdestruct in 10 seconds");
         }
-    }
+    }*/
 
     /// <summary>
     /// This method publishes a simple string messages to the topic of the object.
     /// </summary>
     /// <param name="message">is the message, which shall be published.</param>
-    private void publishMessage(string message)
+    private void PublishMessage(RosSharp.RosBridgeClient.Messages.Roboy.ErrorNotification message)
     {
-        RosSharp.RosBridgeClient.Messages.Roboy.ErrorNotification errorMessage = new RosSharp.RosBridgeClient.Messages.Roboy.ErrorNotification();
-        
-        errorMessage.code = 1;
-        errorMessage.msg = message;
-        errorMessage.extra = "a";
-        errorMessage.validity_duration = 1;
-
-        Publish(errorMessage);
+        Publish(message);
     }
 
 }

@@ -5799,7 +5799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9773cfdd4ef45443c823f9f4d4351d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: 
+  Topic: /roboy/oui/testPublish
   TimeStep: 0
 --- !u!114 &2690890407144421063
 MonoBehaviour:
@@ -5813,7 +5813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23aa71bb3374e49bf92fb395af86c244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: 
+  Topic: /roboy/oui/testPublish
 --- !u!114 &2690890407144421062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5826,7 +5826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd5d04f231f2828489fc7220ee72d0c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: 
+  Topic: /roboy_middleware_msgs/ErrorNotification
 --- !u!114 &2690890407144421065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5834,12 +5834,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6554757330486866242}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e09faed7b7dd49e469c1183be41607a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: 
+  Topic: /roboy_middleware_msgs/ErrorNotification
   TimeStep: 0
 --- !u!1 &6956514020580696380
 GameObject:
