@@ -139,6 +139,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: KAT_Body
       objectReference: {fileID: 0}
+    - target: {fileID: 7975745674283704984, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3297211210590374650, guid: 4c7ada5078fb92d42a9dbbb22ce08915,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -432,12 +437,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3942668063500607204, guid: 2df4a8e9e99d5c342bf55117cbf91f96,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 19f22aaeb53a918469e311020d113f26,
-        type: 3}
     - target: {fileID: 6456687723973449933, guid: 2df4a8e9e99d5c342bf55117cbf91f96,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -493,6 +492,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3942668063500607204, guid: 2df4a8e9e99d5c342bf55117cbf91f96,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 19f22aaeb53a918469e311020d113f26,
+        type: 3}
     - target: {fileID: 3072487094423429334, guid: 2df4a8e9e99d5c342bf55117cbf91f96,
         type: 3}
       propertyPath: m_Depth
