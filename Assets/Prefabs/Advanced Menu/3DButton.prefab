@@ -417,6 +417,7 @@ GameObject:
   - component: {fileID: 1279483405781329395}
   - component: {fileID: 1279483405781329394}
   - component: {fileID: 1279483405781329389}
+  - component: {fileID: 2313497725202652275}
   m_Layer: 0
   m_Name: PressurePlate
   m_TagString: Untagged
@@ -513,6 +514,29 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!145 &2313497725202652275
+SpringJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279483405781329392}
+  m_ConnectedBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: -0.03740573, y: -0.081937574, z: -0.35831657}
+  serializedVersion: 2
+  m_Spring: 10
+  m_Damper: 10
+  m_MinDistance: 0
+  m_MaxDistance: 0
+  m_Tolerance: 0.025
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1001 &3764724686784917060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -520,6 +544,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1279483405781329393}
     m_Modifications:
+    - target: {fileID: 2738010764499199074, guid: a694dcf55f2c6b54aa35ca3399f6d156,
+        type: 3}
+      propertyPath: m_Name
+      value: Title
+      objectReference: {fileID: 0}
     - target: {fileID: 2738010764499199075, guid: a694dcf55f2c6b54aa35ca3399f6d156,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -574,11 +603,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2738010764499199074, guid: a694dcf55f2c6b54aa35ca3399f6d156,
-        type: 3}
-      propertyPath: m_Name
-      value: Title
       objectReference: {fileID: 0}
     - target: {fileID: 2738010764499199076, guid: a694dcf55f2c6b54aa35ca3399f6d156,
         type: 3}
