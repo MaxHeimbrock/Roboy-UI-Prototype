@@ -573,6 +573,21 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5677930094599099998, guid: c38a644130925504597fe79abda4e560,
+        type: 3}
+      propertyPath: index
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5579775801799289689, guid: c38a644130925504597fe79abda4e560,
+        type: 3}
+      propertyPath: pointerTechnique
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5579775801799289691, guid: c38a644130925504597fe79abda4e560,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c38a644130925504597fe79abda4e560, type: 3}
 --- !u!1 &2688865199853147834 stripped

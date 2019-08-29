@@ -36,7 +36,7 @@ public class UI_Manager : MonoBehaviour
 
     private Vector2 pointerPos;
 
-    public enum PointerTechnique { PointerMouse, PointerEye, PointerViveController};
+    public enum PointerTechnique { PointerMouse, PointerEye, PointerViveController, PointerSenseGlove};
     public enum ClickerTechnique { ClickerMouse, ClickerDwellTime, ClickerWink, ClickerBlink, ClickerSound };
 
     #region Setup
@@ -107,7 +107,9 @@ public class UI_Manager : MonoBehaviour
             case PointerTechnique.PointerViveController:
                 pointer = this.gameObject.AddComponent<PointerViveController>();
                 return;
-
+            case PointerTechnique.PointerSenseGlove:
+                pointer = this.gameObject.AddComponent<PointerSenseGlove>();
+                break;
             default:
                 throw new System.Exception("No pointer technique specified.");
         }
