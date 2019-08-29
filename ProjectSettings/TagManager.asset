@@ -21,6 +21,10 @@ TagManager:
   - Button3D
   - SubMenu3D
   - Sphere
+  - Shooes
+  - PointCloud_Mesh
+  - VestTransition
+  - ROSManager
   layers:
   - Default
   - TransparentFX
