@@ -1,5 +1,677 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &297314534866781884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297314534866781886}
+  - component: {fileID: 297314534866781887}
+  m_Layer: 0
+  m_Name: Front Vibration (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &297314534866781886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314534866781884}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3249934282308899581}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &297314534866781887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314534866781884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fe103a069af7a4180d7395075bc70d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FeedbackType: 1
+  Position: 1
+  Points:
+  - X: 0.5
+    Y: 0.5
+    Intensity: 100
+  DotPoints: 1919191919193c503c19193c503c191919191919
+  TimeMillis: 250
+  Intensity: 1
+  Duration: 1
+  IsReflectTactosy: 0
+  VestRotationAngleX: 0
+  VestRotationOffsetY: 0
+  TactFileOffsetX: 0
+  TactFileOffsetY: 0
+  FeedbackFile:
+    Id: 
+    Key: 
+    Value: 
+    Type: 
+--- !u!1 &297314535040488100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297314535040488102}
+  - component: {fileID: 297314535040488103}
+  m_Layer: 0
+  m_Name: Back Vibration (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &297314535040488102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314535040488100}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3249934282308899581}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &297314535040488103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314535040488100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fe103a069af7a4180d7395075bc70d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FeedbackType: 1
+  Position: 2
+  Points:
+  - X: 0.5
+    Y: 0.5
+    Intensity: 100
+  DotPoints: 1919191919193c643c19193c643c191919191919
+  TimeMillis: 250
+  Intensity: 1
+  Duration: 1
+  IsReflectTactosy: 0
+  VestRotationAngleX: 0
+  VestRotationOffsetY: 0
+  TactFileOffsetX: 0
+  TactFileOffsetY: 0
+  FeedbackFile:
+    Id: 
+    Key: 
+    Value: 
+    Type: 
+--- !u!1 &297314535345502824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297314535345502826}
+  - component: {fileID: 297314535345502827}
+  m_Layer: 0
+  m_Name: Back Vibration (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &297314535345502826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314535345502824}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3249934282308899581}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &297314535345502827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314535345502824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fe103a069af7a4180d7395075bc70d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FeedbackType: 1
+  Position: 2
+  Points: []
+  DotPoints: 001919190019324b321919324b32190019191900
+  TimeMillis: 1000
+  Intensity: 1
+  Duration: 1
+  IsReflectTactosy: 0
+  VestRotationAngleX: 0
+  VestRotationOffsetY: 0
+  TactFileOffsetX: 0
+  TactFileOffsetY: 0
+  FeedbackFile:
+    Id: 
+    Key: 
+    Value: 
+    Type: 
+--- !u!1 &297314535466481690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297314535466481692}
+  - component: {fileID: 297314535466481693}
+  m_Layer: 0
+  m_Name: Back Vibration (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &297314535466481692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314535466481690}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3249934282308899581}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &297314535466481693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314535466481690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fe103a069af7a4180d7395075bc70d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FeedbackType: 1
+  Position: 2
+  Points: []
+  DotPoints: 0000000000001932190000193219000000000000
+  TimeMillis: 1000
+  Intensity: 1
+  Duration: 1
+  IsReflectTactosy: 0
+  VestRotationAngleX: 0
+  VestRotationOffsetY: 0
+  TactFileOffsetX: 0
+  TactFileOffsetY: 0
+  FeedbackFile:
+    Id: 
+    Key: 
+    Value: 
+    Type: 
+--- !u!1 &297314535519423289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297314535519423291}
+  - component: {fileID: 297314535519423288}
+  m_Layer: 0
+  m_Name: Front Vibration (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &297314535519423291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314535519423289}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3249934282308899581}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &297314535519423288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314535519423289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fe103a069af7a4180d7395075bc70d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FeedbackType: 1
+  Position: 1
+  Points: []
+  DotPoints: 001919190019324b321919324b32190019191900
+  TimeMillis: 1000
+  Intensity: 1
+  Duration: 1
+  IsReflectTactosy: 0
+  VestRotationAngleX: 0
+  VestRotationOffsetY: 0
+  TactFileOffsetX: 0
+  TactFileOffsetY: 0
+  FeedbackFile:
+    Id: 
+    Key: 
+    Value: 
+    Type: 
+--- !u!1 &297314535577879917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297314535577879919}
+  - component: {fileID: 297314535577879916}
+  m_Layer: 0
+  m_Name: Front Vibration (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &297314535577879919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314535577879917}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3249934282308899581}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &297314535577879916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314535577879917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fe103a069af7a4180d7395075bc70d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FeedbackType: 1
+  Position: 1
+  Points:
+  - X: 0.5
+    Y: 0.5
+    Intensity: 100
+  DotPoints: 1919191919193c643c19193c643c191919191919
+  TimeMillis: 250
+  Intensity: 1
+  Duration: 1
+  IsReflectTactosy: 0
+  VestRotationAngleX: 0
+  VestRotationOffsetY: 0
+  TactFileOffsetX: 0
+  TactFileOffsetY: 0
+  FeedbackFile:
+    Id: 
+    Key: 
+    Value: 
+    Type: 
+--- !u!1 &297314535675370720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297314535675370722}
+  - component: {fileID: 297314535675370723}
+  m_Layer: 0
+  m_Name: Back Vibration (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &297314535675370722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314535675370720}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3249934282308899581}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &297314535675370723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314535675370720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fe103a069af7a4180d7395075bc70d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FeedbackType: 1
+  Position: 2
+  Points:
+  - X: 0.5
+    Y: 0.5
+    Intensity: 100
+  DotPoints: 1919191919193c503c19193c503c191919191919
+  TimeMillis: 250
+  Intensity: 1
+  Duration: 1
+  IsReflectTactosy: 0
+  VestRotationAngleX: 0
+  VestRotationOffsetY: 0
+  TactFileOffsetX: 0
+  TactFileOffsetY: 0
+  FeedbackFile:
+    Id: 
+    Key: 
+    Value: 
+    Type: 
+--- !u!1 &297314535703909857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297314535703909859}
+  - component: {fileID: 297314535703909856}
+  m_Layer: 0
+  m_Name: Head
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &297314535703909859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314535703909857}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3249934282308899581}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &297314535703909856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314535703909857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fe103a069af7a4180d7395075bc70d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FeedbackType: 0
+  Position: 0
+  Points: []
+  DotPoints: 0000000000000000000000000000000000000000
+  TimeMillis: 1000
+  Intensity: 1
+  Duration: 1
+  IsReflectTactosy: 0
+  VestRotationAngleX: 0
+  VestRotationOffsetY: 0
+  TactFileOffsetX: 0
+  TactFileOffsetY: 0
+  FeedbackFile:
+    Id: c416f582caff3b0c6a43b8e186aabaf6
+    Key: HeadShot
+    Value: '{"intervalMillis":20,"size":20,"name":"HeadShot","durationMillis":1020,"feedback":{"0":[{"position":"Head","mode":"DOT_MODE","values":[100,100,100,100,100,100,100,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"20":[{"position":"Head","mode":"DOT_MODE","values":[100,100,100,100,100,100,100,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"40":[{"position":"Head","mode":"DOT_MODE","values":[100,100,100,100,100,100,100,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"60":[{"position":"Head","mode":"DOT_MODE","values":[100,100,100,100,100,100,100,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"80":[{"position":"Head","mode":"DOT_MODE","values":[100,100,100,100,100,100,100,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"100":[{"position":"Head","mode":"DOT_MODE","values":[100,100,100,100,100,100,100,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"120":[{"position":"Head","mode":"DOT_MODE","values":[100,100,100,100,100,100,100,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"140":[{"position":"Head","mode":"DOT_MODE","values":[100,100,100,100,100,100,100,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"160":[{"position":"Head","mode":"DOT_MODE","values":[92,92,92,92,92,92,92,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"180":[{"position":"Head","mode":"DOT_MODE","values":[85,85,85,85,85,85,85,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"200":[{"position":"Head","mode":"DOT_MODE","values":[77,77,77,77,77,77,77,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"220":[{"position":"Head","mode":"DOT_MODE","values":[70,70,70,70,70,70,70,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"240":[{"position":"Head","mode":"DOT_MODE","values":[62,62,62,62,62,62,62,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"260":[{"position":"Head","mode":"DOT_MODE","values":[55,55,55,55,55,55,55,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"280":[{"position":"Head","mode":"DOT_MODE","values":[47,47,47,47,47,47,47,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"300":[{"position":"Head","mode":"DOT_MODE","values":[40,40,40,40,40,40,40,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"320":[{"position":"Head","mode":"DOT_MODE","values":[32,32,32,32,32,32,32,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"340":[{"position":"Head","mode":"DOT_MODE","values":[25,25,25,25,25,25,25,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"360":[{"position":"Head","mode":"DOT_MODE","values":[17,17,17,17,17,17,17,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"380":[{"position":"Head","mode":"DOT_MODE","values":[10,10,10,10,10,10,10,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"400":[{"position":"Head","mode":"DOT_MODE","values":[2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"420":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"440":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"460":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"480":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"500":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"520":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"540":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"560":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"580":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"600":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"620":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"640":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"660":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"680":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"700":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"720":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"740":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"760":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"780":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"800":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"820":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"840":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"860":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"880":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"900":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"920":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"940":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"960":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}],"980":[{"position":"Head","mode":"DOT_MODE","values":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"texture":0}]},"project":{"id":112,"name":"HeadShot","column":0,"row":0,"mediaFileUrl":null,"thumbnailUrl":null,"mediaFileDuration":1,"tracks":[{"id":223,"enable":true,"projectId":112,"effects":[{"id":465,"trackId":223,"name":"dot","startTime":0,"offsetTime":141,"priority":0,"modes":{"Head":{"texture":0,"mode":"DOT_MODE","dotMode":{"dotConnected":false,"feedback":[{"startTime":0,"endTime":141,"playbackType":"NONE","pointList":[{"index":0,"intensity":"1.000"},{"index":1,"intensity":"1.000"},{"index":2,"intensity":"1.000"},{"index":3,"intensity":"1.000"},{"index":4,"intensity":"1.000"},{"index":5,"intensity":"1.000"},{"index":6,"intensity":"1.000"}]}]},"pathMode":{"feedback":[{"playbackType":"NONE","movingPattern":"CONST_SPEED","pointList":[]}]}}}},{"id":467,"trackId":223,"name":"dot","startTime":140,"offsetTime":268,"priority":0,"modes":{"Head":{"texture":0,"mode":"DOT_MODE","dotMode":{"dotConnected":false,"feedback":[{"startTime":0,"endTime":268,"playbackType":"FADE_OUT","pointList":[{"index":0,"intensity":"1.000"},{"index":1,"intensity":"1.000"},{"index":2,"intensity":"1.000"},{"index":3,"intensity":"1.000"},{"index":4,"intensity":"1.000"},{"index":5,"intensity":"1.000"},{"index":6,"intensity":"1.000"}]}]},"pathMode":{"feedback":[{"playbackType":"NONE","movingPattern":"CONST_SPEED","pointList":[]}]}}}}]},{"id":224,"enable":true,"projectId":112,"effects":[]}],"hapticEffectSize":0,"parentId":27,"creationTime":null,"updateTime":"2017-09-18T04:17:51.000Z","peaks":null,"layout":{"id":2,"name":"Tactal","layouts":{"Head":[{"index":0,"x":"0.000","y":"0.500","distance":0},{"index":1,"x":"0.167","y":"0.500","distance":0},{"index":2,"x":"0.333","y":"0.500","distance":0},{"index":3,"x":"0.500","y":"0.500","distance":0},{"index":4,"x":"0.667","y":"0.500","distance":0},{"index":5,"x":"0.833","y":"0.500","distance":0},{"index":6,"x":"1.000","y":"0.500","distance":0}]},"type":"Head","public":true}}}'
+    Type: Head
+--- !u!1 &297314535710357253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297314535710357255}
+  - component: {fileID: 297314535710357252}
+  m_Layer: 0
+  m_Name: Back Vibration (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &297314535710357255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314535710357253}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3249934282308899581}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &297314535710357252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314535710357253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fe103a069af7a4180d7395075bc70d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FeedbackType: 1
+  Position: 2
+  Points: []
+  DotPoints: 0000000000000019000000001900000000000000
+  TimeMillis: 1000
+  Intensity: 1
+  Duration: 1
+  IsReflectTactosy: 0
+  VestRotationAngleX: 0
+  VestRotationOffsetY: 0
+  TactFileOffsetX: 0
+  TactFileOffsetY: 0
+  FeedbackFile:
+    Id: 
+    Key: 
+    Value: 
+    Type: 
+--- !u!1 &297314535820306988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297314535820306990}
+  - component: {fileID: 297314535820306991}
+  m_Layer: 0
+  m_Name: Front Vibration (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &297314535820306990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314535820306988}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3249934282308899581}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &297314535820306991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314535820306988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fe103a069af7a4180d7395075bc70d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FeedbackType: 1
+  Position: 1
+  Points: []
+  DotPoints: 0000000000001932190000193219000000000000
+  TimeMillis: 1000
+  Intensity: 1
+  Duration: 1
+  IsReflectTactosy: 0
+  VestRotationAngleX: 0
+  VestRotationOffsetY: 0
+  TactFileOffsetX: 0
+  TactFileOffsetY: 0
+  FeedbackFile:
+    Id: 
+    Key: 
+    Value: 
+    Type: 
+--- !u!1 &297314536784456585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297314536784456587}
+  - component: {fileID: 297314536784456584}
+  m_Layer: 0
+  m_Name: Front Vibration (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &297314536784456587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314536784456585}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3249934282308899581}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &297314536784456584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297314536784456585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fe103a069af7a4180d7395075bc70d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FeedbackType: 1
+  Position: 1
+  Points: []
+  DotPoints: 0000000000000019000000001900000000000000
+  TimeMillis: 1000
+  Intensity: 1
+  Duration: 1
+  IsReflectTactosy: 0
+  VestRotationAngleX: 0
+  VestRotationOffsetY: 0
+  TactFileOffsetX: 0
+  TactFileOffsetY: 0
+  FeedbackFile:
+    Id: 
+    Key: 
+    Value: 
+    Type: 
 --- !u!1 &3249934282308899583
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,8 +700,17 @@ Transform:
   m_LocalPosition: {x: -5.433375, y: 5, z: 8.7245035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3249934283124047254}
-  - {fileID: 3249934283104125726}
+  - {fileID: 297314536784456587}
+  - {fileID: 297314535820306990}
+  - {fileID: 297314535519423291}
+  - {fileID: 297314534866781886}
+  - {fileID: 297314535577879919}
+  - {fileID: 297314535710357255}
+  - {fileID: 297314535466481692}
+  - {fileID: 297314535345502826}
+  - {fileID: 297314535675370722}
+  - {fileID: 297314535040488102}
+  - {fileID: 297314535703909859}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46,131 +727,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sources:
-  - {fileID: 3249934283104125725}
-  - {fileID: 3249934283124047255}
---- !u!1 &3249934283104125727
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3249934283104125726}
-  - component: {fileID: 3249934283104125725}
-  m_Layer: 0
-  m_Name: Back Vibration
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3249934283104125726
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3249934283104125727}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3249934282308899581}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3249934283104125725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3249934283104125727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2fe103a069af7a4180d7395075bc70d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FeedbackType: 1
-  Position: 2
-  Points:
-  - X: 0.5
-    Y: 0.5
-    Intensity: 100
-  DotPoints: 1919191919193c643c19193c643c191919191919
-  TimeMillis: 250
-  Intensity: 1
-  Duration: 1
-  IsReflectTactosy: 0
-  VestRotationAngleX: 0
-  VestRotationOffsetY: 0
-  TactFileOffsetX: 0
-  TactFileOffsetY: 0
-  FeedbackFile:
-    Id: 
-    Key: 
-    Value: 
-    Type: 
---- !u!1 &3249934283124047248
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3249934283124047254}
-  - component: {fileID: 3249934283124047255}
-  m_Layer: 0
-  m_Name: Front Vibration
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3249934283124047254
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3249934283124047248}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3249934282308899581}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3249934283124047255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3249934283124047248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2fe103a069af7a4180d7395075bc70d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FeedbackType: 1
-  Position: 1
-  Points:
-  - X: 0.5
-    Y: 0.5
-    Intensity: 100
-  DotPoints: 1919191919193c643c19193c643c191919191919
-  TimeMillis: 250
-  Intensity: 1
-  Duration: 1
-  IsReflectTactosy: 0
-  VestRotationAngleX: 0
-  VestRotationOffsetY: 0
-  TactFileOffsetX: 0
-  TactFileOffsetY: 0
-  FeedbackFile:
-    Id: 
-    Key: 
-    Value: 
-    Type: 
+  - {fileID: 297314535710357252}
+  - {fileID: 297314535466481693}
+  - {fileID: 297314535345502827}
+  - {fileID: 297314535675370723}
+  - {fileID: 297314535040488103}
+  - {fileID: 297314535703909856}
+  - {fileID: 297314535577879916}
+  - {fileID: 297314534866781887}
+  - {fileID: 297314535519423288}
+  - {fileID: 297314535820306991}
+  - {fileID: 297314536784456584}
