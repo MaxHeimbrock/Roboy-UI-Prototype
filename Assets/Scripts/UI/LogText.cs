@@ -52,7 +52,7 @@ public class LogText : Singleton<LogText>
         }
 
         if (Input.GetKeyDown(KeyCode.O))
-            OperatorToastr("Omnimill selfdestruct");
+            SendOperatorLogMessage("Omnimill selfdestruct", LogLevel.error);
     }
 
     public void UpdateOperatorUnreadCounter()
@@ -193,8 +193,14 @@ public class LogText : Singleton<LogText>
 
     public void SendOperatorLogMessage(string message, LogLevel logLevel)
     {
+        Debug.Log("Message arrived at log text manager");
+        Debug.Log("Message: " + message + " - loglevel: " + logLevel);
+
         if (logLevel == LogLevel.error)
+        {
+            Debug.Log("Toastr");
             OperatorToastr(message);
+        }
 
         else if (logLevel == LogLevel.info || logLevel == LogLevel.warning)
         {

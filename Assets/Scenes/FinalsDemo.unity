@@ -574,7 +574,6 @@ GameObject:
   - component: {fileID: 1786935717}
   - component: {fileID: 1786935716}
   - component: {fileID: 1786935715}
-  - component: {fileID: 1786935714}
   m_Layer: 0
   m_Name: FixedRotationHUD
   m_TagString: Untagged
@@ -582,30 +581,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1786935714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1786935713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a783f671592674b589cfc4953e28656b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shape: 2
-  quality: 3
-  interactable: 1
-  blocksRaycasts: 1
-  raycastMyLayerOnly: 1
-  forceUseBoxCollider: 0
-  angle: 100
-  preserveAspect: 1
-  vertAngle: 90
-  ringFill: 0.5
-  ringExternalDiamater: 1000
-  ringFlipVertical: 0
 --- !u!114 &1786935715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -801,7 +776,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26.8, y: 74.1}
+  m_AnchoredPosition: {x: 211.6, y: -33.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1935209222
@@ -831,7 +806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotTesselate: 0
-  savedPos: {x: 26.80007, y: 74.100044, z: -0.00007247925}
+  savedPos: {x: 211.60002, y: -33.300064, z: -0.00007247925}
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 100, y: 100}
   savedColor: {r: 1, g: 1, b: 1, a: 1}
@@ -17847,15 +17822,15 @@ GameObject:
   - component: {fileID: 2157734990482957997}
   - component: {fileID: 2157734990482957994}
   - component: {fileID: 2157734990482957999}
-  - component: {fileID: 8380947982700572440}
   - component: {fileID: 133829127499049755}
+  - component: {fileID: 2157734990482957998}
   m_Layer: 0
   m_Name: ROSManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2157734990482957996
 Transform:
   m_ObjectHideFlags: 0
@@ -17885,6 +17860,19 @@ MonoBehaviour:
   Timeout: 10
   Protocol: 0
   RosBridgeServerUrl: ws://192.168.137.44:9090
+--- !u!114 &2157734990482957998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2157734990482957995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2be06923534d7034fb2380a16d55493d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topic: /roboy/oui/OperatorLog
 --- !u!114 &2157734990482957999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25893,20 +25881,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8380947982700572440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2157734990482957995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e09faed7b7dd49e469c1183be41607a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Topic: /roboy/oui/OperatorLog
-  TimeStep: 0
 --- !u!114 &8402331278948831894
 MonoBehaviour:
   m_ObjectHideFlags: 0

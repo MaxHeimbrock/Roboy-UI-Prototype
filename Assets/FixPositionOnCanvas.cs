@@ -26,7 +26,7 @@ public class FixPositionOnCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Pointed " + menu.GetPointed());
+        //Debug.Log("Pointed " + menu.GetPointed());
         //Debug.Log("Fixed " + fixRotation);
 
         
@@ -34,7 +34,7 @@ public class FixPositionOnCanvas : MonoBehaviour
         {
             fixRotation = !fixRotation;
 
-            Debug.Log("Changed follow rotation to " + fixRotation);
+            //Debug.Log("Changed follow rotation to " + fixRotation);
             
             if (fixRotation == true)
                 FreezeRotation();
@@ -45,7 +45,7 @@ public class FixPositionOnCanvas : MonoBehaviour
 
         if (fixRotation)
         {
-            Debug.Log("Copy Transform");
+            //Debug.Log("Copy Transform");
             myTransform.position = instDummy.transform.position;
             myTransform.rotation = instDummy.transform.rotation;
         }
