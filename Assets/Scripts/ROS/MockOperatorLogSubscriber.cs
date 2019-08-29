@@ -11,6 +11,10 @@ public class MockOperatorLogSubscriber : Subscriber<RosSharp.RosBridgeClient.Mes
     /// </summary>
     private string messageData;
 
+    public bool newMessage = false;
+
+    public string lastMessage;
+
     /// <summary>
     /// Start method of TestSubscriber.
     /// Starts a coroutine to initialize the subscriber after 1 second to prevent race conditions.
@@ -42,7 +46,10 @@ public class MockOperatorLogSubscriber : Subscriber<RosSharp.RosBridgeClient.Mes
     /// <param name="message"> is the received message.</param>
     protected override void ReceiveMessage(ErrorNotification message)
     {
-        Debug.Log(message.msg);
-        //LogText.Instance.OperatorToastr(message.msg);
+        Debug.Log("Message reveived at subscriber. Send message to Log Text Manager");
+        //LogText.Instance.SendOperatorLogMessage(message.msg, LogText.LogLevel.error);
+        lastMessage = message.msg;
+        newMessage = true;
+        Debug.Log("after sending to log");
     }
 }
