@@ -5,9 +5,10 @@ using UnityEngine;
 public class PointerSenseGlove : Pointer
 {
     private SenseGlove_Teleport teleport;
+
     public override void GetPointerPosition()
     {
-        throw new System.NotImplementedException();
+        PushPointerPosition(teleport.pointerOriginZ.position, teleport.pointerOriginZ.rotation.eulerAngles);
     }
 
     public override void SubclassStart()
@@ -23,6 +24,6 @@ public class PointerSenseGlove : Pointer
     // Update is called once per frame
     void Update()
     {
-        PushPointerPosition(teleport.pointerOriginZ.position, teleport.pointerOriginZ.forward);
+        GetPointerPosition();
     }
 }
