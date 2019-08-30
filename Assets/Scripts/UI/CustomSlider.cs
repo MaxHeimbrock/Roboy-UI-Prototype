@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Leap.Unity.Interaction;
 using UnityEngine;
-using Leap.Unity;
 using UnityEditor.Events;
 
 public class CustomSlider : MonoBehaviour
