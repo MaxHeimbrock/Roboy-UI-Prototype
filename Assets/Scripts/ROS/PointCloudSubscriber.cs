@@ -28,7 +28,7 @@ public class PointCloudSubscriber : Subscriber<RosSharp.RosBridgeClient.Messages
     /// <summary>
     /// Enables or disables the processing of incoming messages.
     /// </summary>
-    public bool messageProcessingActive = true;
+    public bool messageProcessingActive = false;
 
     /// <summary>
     /// Start method of TestSubscriber.

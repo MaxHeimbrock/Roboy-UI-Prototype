@@ -10,7 +10,12 @@ public class PC_MeshManager : MonoBehaviour
     private List<PC_Mesh> allMeshes = new List<PC_Mesh>();
     private PointCloudSubscriber p;
 
-    
+    /// <summary>
+    /// Enables or disables the processing of incoming messages.
+    /// </summary>
+    public bool messageProcessingActive = false;
+
+
     /// <summary>
     /// Called before first frame.
     /// Sets up variables in order to communicate with PointCloudSubscriber
@@ -29,8 +34,10 @@ public class PC_MeshManager : MonoBehaviour
     /// </summary>
     private void FixedUpdateEx()
     {
-        removeMeshes();
-        processPointCloudData();
+        if(messageProcessingActive) { 
+            removeMeshes();
+            processPointCloudData();
+        }
     }
 
     /// <summary>
@@ -50,7 +57,7 @@ public class PC_MeshManager : MonoBehaviour
     /// <summary>
     /// Removes all displayed meshes (identified by tag)
     /// </summary>
-    void removeMeshes()
+    public void removeMeshes()
     {
         GameObject[] toRemove = GameObject.FindGameObjectsWithTag("PointCloud_Mesh");
         foreach (GameObject _toRemove in toRemove)

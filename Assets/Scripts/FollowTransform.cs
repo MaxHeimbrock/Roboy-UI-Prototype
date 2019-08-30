@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowTransform : MonoBehaviour
 {
     public bool followPosition = true;
-    public bool followRotation = false;
+    public bool followYRotation = false;
 
     public Transform followedTransform;
 
@@ -20,9 +20,9 @@ public class FollowTransform : MonoBehaviour
         {
             this.transform.position = followedTransform.position + offsetPosition;
         }
-        if (followRotation)
+        if (followYRotation)
         {
-            this.transform.rotation = Quaternion.Euler(followedTransform.rotation.eulerAngles + offsetRotation);
+            this.transform.rotation = Quaternion.Euler(0 + offsetRotation.x, followedTransform.rotation.eulerAngles.y + offsetRotation.y, 0 + offsetRotation.z);
         }
     }
 }
