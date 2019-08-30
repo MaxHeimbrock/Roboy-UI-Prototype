@@ -521,6 +521,26 @@ PrefabInstance:
       propertyPath: PoseManager
       value: 
       objectReference: {fileID: 2131748747}
+    - target: {fileID: 1952903579321112386, guid: aa6909c92707a4a39824bbe995215aee,
+        type: 3}
+      propertyPath: Roboy
+      value: 
+      objectReference: {fileID: 4405582851190777260}
+    - target: {fileID: 1952903579321112386, guid: aa6909c92707a4a39824bbe995215aee,
+        type: 3}
+      propertyPath: XML_FILE
+      value: 
+      objectReference: {fileID: 4900000, guid: fe92540c7995245899edb92363ec5366, type: 3}
+    - target: {fileID: 1952903579321112386, guid: aa6909c92707a4a39824bbe995215aee,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1952903579321112386, guid: aa6909c92707a4a39824bbe995215aee,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 2131748747}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa6909c92707a4a39824bbe995215aee, type: 3}
 --- !u!4 &4405582851190777260 stripped

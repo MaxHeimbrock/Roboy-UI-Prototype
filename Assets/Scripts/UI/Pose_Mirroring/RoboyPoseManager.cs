@@ -42,7 +42,7 @@ public class RoboyPoseManager: MonoBehaviour
             Debug.Log("Part with ID: " + msg.id + " received."); 
                 switch (msg.id)
                 {
-                   case 0:
+                    case 0:
                         RoboyParts.TryGetValue("upper_arm_right", out part);               
                         break;
                     case 1:
@@ -50,6 +50,21 @@ public class RoboyPoseManager: MonoBehaviour
                         break;
                     case 2:                
                         RoboyParts.TryGetValue("hand_right", out part);                
+                        break;
+                    case 3:
+                        RoboyParts.TryGetValue("elbow_right", out part);
+                        break;
+                    case 4:
+                        RoboyParts.TryGetValue("upper_arm_left", out part);
+                        break;
+                    case 5:
+                        RoboyParts.TryGetValue("forarm_left", out part);
+                        break;
+                    case 6:
+                        RoboyParts.TryGetValue("hand_left", out part);
+                        break;
+                    case 7:
+                        RoboyParts.TryGetValue("elbow_left", out part);
                         break;
                     //TODO: add mapping to all other Roboy parts
                     default:
