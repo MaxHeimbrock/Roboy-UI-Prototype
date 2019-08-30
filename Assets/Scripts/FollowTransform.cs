@@ -11,7 +11,7 @@ public class FollowTransform : MonoBehaviour
 
     public Vector3 offsetPosition;
 
-    //public Vector3 offsetRotation;
+    public Vector3 offsetRotation;
 
     // Update is called once per frame
     void Update()
@@ -22,7 +22,7 @@ public class FollowTransform : MonoBehaviour
         }
         if (followYRotation)
         {
-            this.transform.rotation = Quaternion.Euler(0, followedTransform.rotation.eulerAngles.y, 0);
+            this.transform.rotation = Quaternion.Euler(0 + offsetRotation.x, followedTransform.rotation.eulerAngles.y + offsetRotation.y, 0 + offsetRotation.z);
         }
     }
 }
