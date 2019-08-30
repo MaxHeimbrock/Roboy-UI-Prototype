@@ -51,8 +51,16 @@ public class LogText : Singleton<LogText>
             UpdateOperatorUnreadCounter();
         }
 
-        if (Input.GetKeyDown(KeyCode.O))
-            OperatorToastr("Omnimill selfdestruct");
+        //if (Input.GetKeyDown(KeyCode.O))
+        //    SendOperatorLogMessage("Omnimill selfdestruct", LogLevel.error);
+
+        // Pull from subscriber
+        if (SuperSubscriber.Instance.MessageQueueCount() != 0)
+        {
+            RosSharp.RosBridgeClient.Message messageObject = SuperSubscriber.Instance.DequeueMessage();
+
+            SendOperatorLogMessage(messageObject);
+        }
     }
 
     public void UpdateOperatorUnreadCounter()
@@ -191,13 +199,36 @@ public class LogText : Singleton<LogText>
         operatorLogTextMesh.SetText(operatorText);
     }
 
-    public void SendOperatorLogMessage(string message, LogLevel logLevel)
+    public void SendOperatorLogMessage(RosSharp.RosBridgeClient.Message logMessage)
     {
+        LogLevel logLevel = LogLevel.info;
+        string message = "";
+
+        if (logMessage is RosSharp.RosBridgeClient.Messages.Roboy.ErrorNotification)
+        {
+            logLevel = LogLevel.error;
+            message = ((RosSharp.RosBridgeClient.Messages.Roboy.ErrorNotification)logMessage).msg;
+        }
+        else if (logMessage is RosSharp.RosBridgeClient.Messages.Roboy.WarningNotification)
+        {
+            logLevel = LogLevel.warning;
+            message = ((RosSharp.RosBridgeClient.Messages.Roboy.WarningNotification)logMessage).msg;
+        }
+        else if (logMessage is RosSharp.RosBridgeClient.Messages.Roboy.InfoNotification)
+        {
+            logLevel = LogLevel.info;
+            message = ((RosSharp.RosBridgeClient.Messages.Roboy.InfoNotification)logMessage).msg;
+        }
+
         if (logLevel == LogLevel.error)
+        {
+            //Debug.Log("Toastr");
             OperatorToastr(message);
+        }
 
         else if (logLevel == LogLevel.info || logLevel == LogLevel.warning)
         {
+            //Debug.Log("Info/Warning");
             addToOperatorText(message, logLevel);
 
             // Update unread counter
@@ -207,6 +238,5 @@ public class LogText : Singleton<LogText>
             // Display new unread counter
             UpdateOperatorUnreadCounter();
         }
-
     }
 }
