@@ -79,7 +79,7 @@ public class CustomSlider : MonoBehaviour
             IntersectingObject = collision.gameObject;
             updateValue(collision);
         }
-        else if (IntersectingObject.Equals(collision.gameObject))
+        else if (IntersectingObject != null && IntersectingObject.Equals(collision.gameObject))
         {
             updateValue(collision);
         }
