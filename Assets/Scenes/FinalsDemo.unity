@@ -332,6 +332,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2234142462133008217, guid: 0a51d944fe6ea4743a71d872b54a9796,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2234142462222729055, guid: 0a51d944fe6ea4743a71d872b54a9796,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -385,11 +390,6 @@ PrefabInstance:
     - target: {fileID: 2234142462222729055, guid: 0a51d944fe6ea4743a71d872b54a9796,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2234142462133008217, guid: 0a51d944fe6ea4743a71d872b54a9796,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -808,7 +808,7 @@ GameObject:
   - component: {fileID: 2114295977}
   - component: {fileID: 2114295976}
   m_Layer: 0
-  m_Name: MirroredPlayerPosition
+  m_Name: MirrorForRoboy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
