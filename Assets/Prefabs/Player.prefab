@@ -8115,7 +8115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee3b3bac9da41494789c910974f8d223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dummy: {fileID: 410211400645721538, guid: b1dc56caa14d5eb4db8f93f85d0de7fa, type: 3}
+  dummyPrefab: {fileID: 0}
   dummyCanvas: {fileID: 0}
 --- !u!95 &7969557316166760265
 Animator:
@@ -8539,7 +8539,6 @@ GameObject:
   - component: {fileID: 8316000810526712559}
   - component: {fileID: 8316000810526712552}
   - component: {fileID: 8316000810526712557}
-  - component: {fileID: 1933897942683364186}
   - component: {fileID: 8017246015407697753}
   m_Layer: 0
   m_Name: ROSManager
@@ -8604,20 +8603,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Topic: /roboy/oui/testPublish
---- !u!114 &1933897942683364186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8316000810526712553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e09faed7b7dd49e469c1183be41607a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Topic: /roboy/oui/OperatorLog
-  TimeStep: 0
 --- !u!114 &8017246015407697753
 MonoBehaviour:
   m_ObjectHideFlags: 0

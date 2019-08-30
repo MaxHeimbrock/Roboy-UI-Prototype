@@ -6,13 +6,11 @@ public class FixPositionOnCanvas : MonoBehaviour
 {
     private Menu menu;
 
-    public GameObject myCanvas;
-
     private bool fixRotation = false;
 
     private Transform myTransform;
 
-    public GameObject dummy;
+    public GameObject dummyPrefab;
 
     public GameObject dummyCanvas;
 
@@ -47,35 +45,23 @@ public class FixPositionOnCanvas : MonoBehaviour
 
         if (fixRotation)
         {
-            Debug.Log("Copy Transform");
+            //Debug.Log("Copy Transform");
+            // Follow dummy objects position on frozen canvas
             myTransform.position = instDummy.transform.position;
+            // Follow dummy rotation in x and y axis
             myTransform.rotation = Quaternion.Euler(new Vector3(instDummy.transform.rotation.eulerAngles.x, instDummy.transform.rotation.eulerAngles.y, myTransform.rotation.eulerAngles.z));
         }
-        
-        // freeze rotation
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            FreezeRotation();            
-        }
-
-        // unfreeze rotation
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            UnfreezeRotation();
-        }        
     }
 
     private void FreezeRotation()
     {
         fixRotation = true;
-        //instDummy = Instantiate(dummy, myTransform.position, myTransform.rotation, dummyCanvas.transform);
-        myTransform.SetParent(dummyCanvas.transform);
+        instDummy = Instantiate(dummyPrefab, myTransform.position, myTransform.rotation, dummyCanvas.transform);
     }
 
     private void UnfreezeRotation()
     {
         fixRotation = false;
-        //Destroy(instDummy);
-        myTransform.SetParent(dummyCanvas.transform);
+        Destroy(instDummy);
     }
 }

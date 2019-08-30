@@ -53,7 +53,7 @@ public class LogText : Singleton<LogText>
 
         //if (Input.GetKeyDown(KeyCode.O))
         //    SendOperatorLogMessage("Omnimill selfdestruct", LogLevel.error);
-
+                
         // Pull from subscriber
         if (SuperSubscriber.Instance.MessageQueueCount() != 0)
         {
@@ -61,6 +61,7 @@ public class LogText : Singleton<LogText>
 
             SendOperatorLogMessage(messageObject);
         }
+        
     }
 
     public void UpdateOperatorUnreadCounter()

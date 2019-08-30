@@ -83,7 +83,7 @@ public class SuperSubscriber : Singleton<SuperSubscriber>
         /// <param name="message"> is the received message.</param>
         protected override void ReceiveMessage(ErrorNotification message)
         {
-            Debug.Log("Received Operator Log Error Message: " + message.msg);
+            // Debug.Log("Received Operator Log Error Message: " + message.msg);
             SuperSubscriber.Instance.EnqueueMessage(message);
         }
     }
@@ -122,7 +122,7 @@ public class SuperSubscriber : Singleton<SuperSubscriber>
 
         protected override void ReceiveMessage(WarningNotification message)
         {
-            Debug.Log("Received Operator Log Warning Message: " + message.msg);
+            // Debug.Log("Received Operator Log Warning Message: " + message.msg);
             SuperSubscriber.Instance.EnqueueMessage(message);
         }
     }
@@ -161,7 +161,7 @@ public class SuperSubscriber : Singleton<SuperSubscriber>
 
         protected override void ReceiveMessage(InfoNotification message)
         {
-            Debug.Log("Received Operator Log Info Message: " + message.msg);
+            // Debug.Log("Received Operator Log Info Message: " + message.msg);
 
             SuperSubscriber.Instance.EnqueueMessage(message);
         }

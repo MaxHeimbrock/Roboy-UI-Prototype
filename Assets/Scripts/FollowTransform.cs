@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class FollowTransform : MonoBehaviour
 {
-    public bool follow = true;
+    public bool followPosition = true;
+    public bool followRotation = false;
 
     public Transform followedTransform;
 
-    public Vector3 offset;
+    public Vector3 offsetPosition;
+
+    public Vector3 offsetRotation;
 
     // Update is called once per frame
     void Update()
     {
-        if (follow)
+        if (followPosition)
         {
-            this.transform.position = followedTransform.position + offset;
+            this.transform.position = followedTransform.position + offsetPosition;
+        }
+        if (followRotation)
+        {
+            this.transform.rotation = Quaternion.Euler(followedTransform.rotation.eulerAngles + offsetRotation);
         }
     }
 }

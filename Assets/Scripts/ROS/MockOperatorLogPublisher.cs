@@ -37,7 +37,7 @@ public class MockOperatorLogPublisher : Publisher<RosSharp.RosBridgeClient.Messa
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            //Debug.Log("Send Error Log");
+            // Debug.Log("Send Error Log");
             // Test error message 
             RosSharp.RosBridgeClient.Messages.Roboy.ErrorNotification errorMessage = new RosSharp.RosBridgeClient.Messages.Roboy.ErrorNotification();
             errorMessage.code = 1;
