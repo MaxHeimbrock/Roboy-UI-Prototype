@@ -3494,7 +3494,7 @@ PrefabInstance:
     - target: {fileID: 5641627843154476501, guid: c3e40a5ff56c5a649b68f751f1248d3b,
         type: 3}
       propertyPath: m_Name
-      value: newRightHandTracker
+      value: RightHandTracker
       objectReference: {fileID: 0}
     - target: {fileID: 5641627843154476491, guid: c3e40a5ff56c5a649b68f751f1248d3b,
         type: 3}
