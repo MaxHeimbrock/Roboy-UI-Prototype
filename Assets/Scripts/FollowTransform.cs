@@ -25,4 +25,9 @@ public class FollowTransform : MonoBehaviour
             this.transform.rotation = Quaternion.Euler(0 + offsetRotation.x, followedTransform.rotation.eulerAngles.y + offsetRotation.y, 0 + offsetRotation.z);
         }
     }
+
+    public void SetOffsetPosition(Vector3 offsetPosition)
+    {
+        this.offsetPosition = offsetPosition;
+    }
 }
