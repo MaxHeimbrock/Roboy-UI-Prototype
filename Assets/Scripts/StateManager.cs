@@ -74,6 +74,16 @@ public class StateManager: Singleton<StateManager>
         {
             StateManager.Instance.GoToNextState();
         }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            if (Camera.main.GetComponent<TrackedPoseDriver>().trackingType == TrackedPoseDriver.TrackingType.RotationOnly)
+                Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationAndPosition;
+            else if (Camera.main.GetComponent<TrackedPoseDriver>().trackingType == TrackedPoseDriver.TrackingType.RotationAndPosition)
+                Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationOnly;
+
+            Debug.Log("Changed tracking to " + Camera.main.GetComponent<TrackedPoseDriver>().trackingType);
+        }
     }
 
     public MenuState GetCurrentState()
