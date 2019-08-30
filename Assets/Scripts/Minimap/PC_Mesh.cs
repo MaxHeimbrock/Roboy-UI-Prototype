@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Leap;
 using UnityEngine;
 
 public class PC_Mesh : MonoBehaviour {
