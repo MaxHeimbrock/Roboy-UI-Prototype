@@ -22,7 +22,7 @@ public class VestTransition : MonoBehaviour
         foreach (var tactSource in Sources)
         {
             tactSource.Play();
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.025f);
         }
     }
 }
