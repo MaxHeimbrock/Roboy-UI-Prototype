@@ -163,6 +163,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4848154170147779678}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2004169955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3490698156714769251, guid: c38a644130925504597fe79abda4e560,
+    type: 3}
+  m_PrefabInstance: {fileID: 4848154170147779678}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &861709556180532338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -592,6 +598,11 @@ PrefabInstance:
       propertyPath: dummyCanvas
       value: 
       objectReference: {fileID: 1786935713}
+    - target: {fileID: 4848154168212604760, guid: c38a644130925504597fe79abda4e560,
+        type: 3}
+      propertyPath: myCanvas
+      value: 
+      objectReference: {fileID: 2004169955}
     - target: {fileID: 1555482373345435660, guid: c38a644130925504597fe79abda4e560,
         type: 3}
       propertyPath: AdvancedMenu

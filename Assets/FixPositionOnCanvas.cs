@@ -6,6 +6,8 @@ public class FixPositionOnCanvas : MonoBehaviour
 {
     private Menu menu;
 
+    public GameObject myCanvas;
+
     private bool fixRotation = false;
 
     private Transform myTransform;
@@ -46,8 +48,10 @@ public class FixPositionOnCanvas : MonoBehaviour
         if (fixRotation)
         {
             //Debug.Log("Copy Transform");
-            myTransform.position = instDummy.transform.position;
-            myTransform.rotation = instDummy.transform.rotation;
+            //myTransform.position = instDummy.transform.position;
+            //myTransform.rotation = instDummy.transform.rotation;
+
+            //myTransform.SetParent(dummyCanvas.transform);
         }
         
         // freeze rotation
@@ -66,12 +70,14 @@ public class FixPositionOnCanvas : MonoBehaviour
     private void FreezeRotation()
     {
         fixRotation = true;
-        instDummy = Instantiate(dummy, myTransform.position, myTransform.rotation, dummyCanvas.transform);
+        //instDummy = Instantiate(dummy, myTransform.position, myTransform.rotation, dummyCanvas.transform);
+        myTransform.SetParent(dummyCanvas.transform);
     }
 
     private void UnfreezeRotation()
     {
         fixRotation = false;
-        Destroy(instDummy);
+        //Destroy(instDummy);
+        myTransform.SetParent(dummyCanvas.transform);
     }
 }
