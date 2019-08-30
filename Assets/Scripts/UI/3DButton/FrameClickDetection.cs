@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class FrameClickDetection : MonoBehaviour
 {
+
+    #region properties
     public bool isToggle;
     public UnityEvent[] onPress;
     public UnityEvent[] onUnpress;
@@ -17,10 +19,11 @@ public class FrameClickDetection : MonoBehaviour
     private Color defaultColor;
     private Color lightBlue;
     private bool toggle;
+    #endregion
 
-    /**
-     * Initialize variables
-     */
+    /// <summary>
+    /// Initialize variables, dependent on consistent prefab hierarchy.
+    /// </summary>
     private void Start()
     {
         wait = false;
@@ -38,11 +41,12 @@ public class FrameClickDetection : MonoBehaviour
         lightBlue.r = 0.0f;
     }
 
-    /**
-     * Checks if the PressurePlate goes through the frame.
-     * If "wait" is set to true, then the button is already pressed.
-     * Otherwise the button gets activated.
-     */
+    /// <summary>
+    /// Checks if the PressurePlate goes through the frame.
+    /// If "wait" is set to true, then the button is already pressed.
+    /// Otherwise the button gets activated.
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (pressurePlateCollider.Equals(other))
@@ -55,11 +59,12 @@ public class FrameClickDetection : MonoBehaviour
         }
     }
 
-    /**
-     * When the PressurePlate exits the frame collider, its direction is checked.
-     * It is either pushed further in, the button remains pressed
-     * or it is on its way back to its default position, so the button gets released
-     */
+    /// <summary>
+    /// When the PressurePlate exits the frame collider, its direction is checked.
+    /// It is either pushed further in (-> the button remains pressed)
+    /// or it is on its way back to its default position (-> the button gets released).
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerExit(Collider other)
     {
         if (pressurePlateCollider.Equals(other))
@@ -77,9 +82,10 @@ public class FrameClickDetection : MonoBehaviour
         }
     }
 
-    /**
-     * Implement all functionality when the button is pressed here.
-     */
+    /// <summary>
+    /// Implement all functionality when the button is pressed here.
+    /// Default: it executes the actions defined in onPress chronologically.
+    /// </summary>
     void press()
     {
         if(onPress.Length > 0)
@@ -93,10 +99,11 @@ public class FrameClickDetection : MonoBehaviour
         }
     }
 
-    /**
-     * Implement all functionality when the button is unpressed here.
-     */
-     void unpress()
+    /// <summary>
+    /// Implement all functionality when the button is unpressed here.
+    /// Default: it executes the actions defined in onUnpress chronologically.
+    /// </summary>
+    void unpress()
     {
         if (onUnpress.Length > 0)
         {
@@ -109,10 +116,10 @@ public class FrameClickDetection : MonoBehaviour
         }
     }
 
-    /**
-     * Highlights the Button when pressed as feedback for the user.
-     * Default: The frame changes its color to light blue.
-     */
+    /// <summary>
+    /// Highlights the Button when pressed as feedback for the user.
+    /// Default: The frame changes its color to light blue.
+    /// </summary>
     void highlightOn()
     {
         foreach(MeshRenderer childMeshRenderer in transform.GetComponentsInChildren<MeshRenderer>())
@@ -121,9 +128,10 @@ public class FrameClickDetection : MonoBehaviour
         }
     }
 
-    /**
-     * Turn off highlight for the button when it is released.
-     */
+    /// <summary>
+    /// Turn off highlight for the button when it is released.
+    /// If this instance is a toggle button, then the button's frame can turn red as visual feedback for the user that the toggle is active.
+    /// </summary>
     void highlightOff()
     {
         if (isToggle)
