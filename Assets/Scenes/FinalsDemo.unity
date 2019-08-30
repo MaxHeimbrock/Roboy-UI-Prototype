@@ -17381,6 +17381,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2326393036556587866, guid: c38a644130925504597fe79abda4e560,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326393036556587866, guid: c38a644130925504597fe79abda4e560,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326393036556587866, guid: c38a644130925504597fe79abda4e560,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4055414885951967259, guid: c38a644130925504597fe79abda4e560,
+        type: 3}
+      propertyPath: pointerTechnique
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c38a644130925504597fe79abda4e560, type: 3}
 --- !u!1 &2688865199853147834 stripped
