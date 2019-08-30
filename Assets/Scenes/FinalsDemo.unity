@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &317649305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7532275908291260477, guid: c38a644130925504597fe79abda4e560,
+    type: 3}
+  m_PrefabInstance: {fileID: 1995495933869719296}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1048456376
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +276,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1786935713
 GameObject:
@@ -284,7 +290,6 @@ GameObject:
   - component: {fileID: 1786935717}
   - component: {fileID: 1786935716}
   - component: {fileID: 1786935715}
-  - component: {fileID: 1786935714}
   m_Layer: 0
   m_Name: FixedRotationHUD
   m_TagString: Untagged
@@ -292,30 +297,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1786935714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1786935713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a783f671592674b589cfc4953e28656b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shape: 2
-  quality: 3
-  interactable: 1
-  blocksRaycasts: 1
-  raycastMyLayerOnly: 1
-  forceUseBoxCollider: 0
-  angle: 100
-  preserveAspect: 1
-  vertAngle: 90
-  ringFill: 0.5
-  ringExternalDiamater: 1000
-  ringFlipVertical: 0
 --- !u!114 &1786935715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,6 +448,11 @@ PrefabInstance:
       propertyPath: dummyCanvas
       value: 
       objectReference: {fileID: 1786935713}
+    - target: {fileID: 1995495934159653894, guid: c38a644130925504597fe79abda4e560,
+        type: 3}
+      propertyPath: myCanvas
+      value: 
+      objectReference: {fileID: 317649305}
     - target: {fileID: 5579775801979841362, guid: c38a644130925504597fe79abda4e560,
         type: 3}
       propertyPath: AdvancedMenu
@@ -510,6 +496,11 @@ PrefabInstance:
     - target: {fileID: 1995495933484375324, guid: c38a644130925504597fe79abda4e560,
         type: 3}
       propertyPath: stopSlerpAngle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995495933484375324, guid: c38a644130925504597fe79abda4e560,
+        type: 3}
+      propertyPath: startSlerpAngle
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1995495934159653892, guid: c38a644130925504597fe79abda4e560,
@@ -710,17 +701,17 @@ PrefabInstance:
     - target: {fileID: 6976075057794421605, guid: 94468589a159ee8438a0e104281afca5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.9176059
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6976075057794421605, guid: 94468589a159ee8438a0e104281afca5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.467171
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6976075057794421605, guid: 94468589a159ee8438a0e104281afca5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.0952795
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6976075057794421605, guid: 94468589a159ee8438a0e104281afca5,
         type: 3}
