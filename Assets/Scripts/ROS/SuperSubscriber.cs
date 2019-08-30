@@ -7,32 +7,32 @@ using UnityEngine;
 public class SuperSubscriber : Singleton<SuperSubscriber>
 {
     // We can not differenciate the notifications on the subscriber site, so we split the topics
-    public string topicError;
-    public string topicWarning;
-    public string topicInfo;
+    public string topicError = "/roboy/oui/OperatorLog/Error";
+    public string topicWarning = "/roboy/oui/OperatorLog/Warning";
+    public string topicInfo = "/roboy/oui/OperatorLog/Info";
 
     // This messageQueue is filled with incoming messages and pulled by LogText in every frame
-    private Queue<RosSharp.RosBridgeClient.Message> messageQueue;
+    private Queue<RosSharp.RosBridgeClient.Message> operatorMessageQueue;
 
-    public void EnqueueMessage(RosSharp.RosBridgeClient.Message msg)
+    public void EnqueueOperatorMessage(RosSharp.RosBridgeClient.Message msg)
     {
-        messageQueue.Enqueue(msg);
+        operatorMessageQueue.Enqueue(msg);
     }
 
-    public RosSharp.RosBridgeClient.Message DequeueMessage()
+    public Message DequeueOperatorMessage()
     {
-        return messageQueue.Dequeue();
+        return operatorMessageQueue.Dequeue();
     }
 
     public int MessageQueueCount()
     {
-        return messageQueue.Count;
+        return operatorMessageQueue.Count;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        messageQueue = new Queue<Message>();
+        operatorMessageQueue = new Queue<Message>();
         Debug.Log("Super Subscriber started");
 
         ErrorSubscriber errorSubscriber = this.gameObject.AddComponent<ErrorSubscriber>();
@@ -84,7 +84,10 @@ public class SuperSubscriber : Singleton<SuperSubscriber>
         protected override void ReceiveMessage(ErrorNotification message)
         {
             // Debug.Log("Received Operator Log Error Message: " + message.msg);
-            SuperSubscriber.Instance.EnqueueMessage(message);
+
+            // Split operator and roboy log with code 0 for operator log, 1 for roboy log
+            if (message.code == 0)
+                SuperSubscriber.Instance.EnqueueOperatorMessage(message);
         }
     }
 
@@ -123,7 +126,10 @@ public class SuperSubscriber : Singleton<SuperSubscriber>
         protected override void ReceiveMessage(WarningNotification message)
         {
             // Debug.Log("Received Operator Log Warning Message: " + message.msg);
-            SuperSubscriber.Instance.EnqueueMessage(message);
+
+            // Split operator and roboy log with code 0 for operator log, 1 for roboy log
+            if (message.code == 0)
+                SuperSubscriber.Instance.EnqueueOperatorMessage(message);
         }
     }
 
@@ -163,7 +169,9 @@ public class SuperSubscriber : Singleton<SuperSubscriber>
         {
             // Debug.Log("Received Operator Log Info Message: " + message.msg);
 
-            SuperSubscriber.Instance.EnqueueMessage(message);
+            // Split operator and roboy log with code 0 for operator log, 1 for roboy log
+            if (message.code == 0)
+                SuperSubscriber.Instance.EnqueueOperatorMessage(message);
         }
     }
 }

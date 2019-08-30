@@ -8537,9 +8537,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8316000810526712558}
   - component: {fileID: 8316000810526712559}
-  - component: {fileID: 8316000810526712552}
-  - component: {fileID: 8316000810526712557}
-  - component: {fileID: 8017246015407697753}
+  - component: {fileID: 8299586823824311532}
+  - component: {fileID: 4198116509160643726}
   m_Layer: 0
   m_Name: ROSManager
   m_TagString: Untagged
@@ -8576,7 +8575,7 @@ MonoBehaviour:
   Timeout: 10
   Protocol: 0
   RosBridgeServerUrl: ws://192.168.137.44:9090
---- !u!114 &8316000810526712552
+--- !u!114 &8299586823824311532
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8585,12 +8584,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8316000810526712553}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9773cfdd4ef45443c823f9f4d4351d67, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e9b33365b26edd459df6b4d5b47961f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: /roboy/middleware/MotorStatus
-  TimeStep: 0
---- !u!114 &8316000810526712557
+  topicError: /roboy/oui/OperatorLog/Error
+  topicWarning: /roboy/oui/OperatorLog/Warning
+  topicInfo: /roboy/oui/OperatorLog/Info
+--- !u!114 &4198116509160643726
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8599,23 +8599,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8316000810526712553}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23aa71bb3374e49bf92fb395af86c244, type: 3}
+  m_Script: {fileID: 11500000, guid: 2be06923534d7034fb2380a16d55493d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Topic: /roboy/oui/testPublish
---- !u!114 &8017246015407697753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8316000810526712553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd5d04f231f2828489fc7220ee72d0c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Topic: /roboy/oui/OperatorLog
+  topicError: /roboy/oui/OperatorLog/Error
+  topicWarning: /roboy/oui/OperatorLog/Warning
+  topicInfo: /roboy/oui/OperatorLog/Info
 --- !u!1 &8676539657756737868
 GameObject:
   m_ObjectHideFlags: 0
