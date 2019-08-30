@@ -105,7 +105,6 @@ public class SubMenuScaling : MonoBehaviour
         }
         else
         {
-            Debug.Log("Update Call");
             if (oldWidth != width)
             {
                 //lossyScale should work fine. If it returns incorrect results, check whether children's rotaion cause skew.
