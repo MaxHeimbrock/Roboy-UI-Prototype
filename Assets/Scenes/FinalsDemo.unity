@@ -17401,6 +17401,21 @@ PrefabInstance:
       propertyPath: pointerTechnique
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7969557317378909790, guid: c38a644130925504597fe79abda4e560,
+        type: 3}
+      propertyPath: startSlerpAngle
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969557317378909790, guid: c38a644130925504597fe79abda4e560,
+        type: 3}
+      propertyPath: stopSlerpAngle
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969557316166760262, guid: c38a644130925504597fe79abda4e560,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c38a644130925504597fe79abda4e560, type: 3}
 --- !u!1 &2688865199853147834 stripped
