@@ -192,6 +192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415e9c9e24bde324fad0067e6e12629a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentMinimap: 0
+  YAH_Minimap: {fileID: 0}
+  Pointcloud_Minimap: {fileID: 0}
 --- !u!1 &1504563390671877784
 GameObject:
   m_ObjectHideFlags: 0
@@ -8581,8 +8584,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8316000810526712558}
   - component: {fileID: 8316000810526712559}
-  - component: {fileID: 8316000810526712552}
-  - component: {fileID: 8316000810526712557}
   - component: {fileID: 8017246015407697753}
   m_Layer: 0
   m_Name: ROSManager
@@ -8620,33 +8621,6 @@ MonoBehaviour:
   Timeout: 10
   Protocol: 0
   RosBridgeServerUrl: ws://192.168.137.44:9090
---- !u!114 &8316000810526712552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8316000810526712553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9773cfdd4ef45443c823f9f4d4351d67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Topic: /roboy/middleware/MotorStatus
-  TimeStep: 0
---- !u!114 &8316000810526712557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8316000810526712553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23aa71bb3374e49bf92fb395af86c244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Topic: /roboy/oui/testPublish
 --- !u!114 &8017246015407697753
 MonoBehaviour:
   m_ObjectHideFlags: 0

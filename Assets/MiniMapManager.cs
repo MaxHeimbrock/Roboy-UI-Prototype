@@ -10,11 +10,14 @@ public class MiniMapManager : MonoBehaviour
 
     public GameObject YAH_Minimap;
     public GameObject Pointcloud_Minimap;
+    public PC_MeshManager MeshManager;
+
+    private GameObject ROSManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ROSManager = GameObject.FindWithTag("ROSManager");
     }
 
     // Update is called once per frame
@@ -41,6 +44,9 @@ public class MiniMapManager : MonoBehaviour
         Debug.Log("Switch Minimap to YAH");
         currentMinimap = MiniMapTechnique.YAH;
         Pointcloud_Minimap.SetActive(false);
+        ROSManager.GetComponent<PointCloudSubscriber>().messageProcessingActive = false;
+        MeshManager.messageProcessingActive = false;
+        MeshManager.removeMeshes();
         YAH_Minimap.SetActive(true);
     }
 
@@ -49,6 +55,8 @@ public class MiniMapManager : MonoBehaviour
         Debug.Log("Switch Minimap to PC");
         currentMinimap = MiniMapTechnique.PointCloud;
         YAH_Minimap.SetActive(false);
+        ROSManager.GetComponent<PointCloudSubscriber>().messageProcessingActive = true;
+        MeshManager.messageProcessingActive = true;
         Pointcloud_Minimap.SetActive(true);
     }
 }

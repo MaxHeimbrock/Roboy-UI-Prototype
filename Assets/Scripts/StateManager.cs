@@ -9,7 +9,7 @@ public class StateManager: Singleton<StateManager>
 
     public GameObject HUD;
     public GameObject AdvancedMenu;
-    //public GameObject Roboy;
+    public GameObject Roboy;
     public GameObject MirroredPlayerPositionWithRoboy;
 
     [Header("Just a helper if pointing with mouse")]
@@ -30,7 +30,7 @@ public class StateManager: Singleton<StateManager>
             // From HUD to Transition
             case MenuState.HUD:
                 HUD.SetActive(false);
-                //Roboy.SetActive(true);
+                Roboy.SetActive(true);
                 Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationOnly;
                 MirroredPlayerPositionWithRoboy.GetComponent<FollowTransform>().followPosition = false;
                 MirroredPlayerPositionWithRoboy.GetComponent<FollowTransform>().followYRotation = false;
@@ -54,7 +54,7 @@ public class StateManager: Singleton<StateManager>
                 break;
             // From Transition to HUD
             case MenuState.transitionToHUD:
-                //Roboy.SetActive(false);
+                Roboy.SetActive(false);
                 Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationAndPosition;
                 MirroredPlayerPositionWithRoboy.GetComponent<FollowTransform>().followPosition = true;
                 MirroredPlayerPositionWithRoboy.GetComponent<FollowTransform>().followYRotation = true;
