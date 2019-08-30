@@ -8,14 +8,6 @@ TagManager:
   - ViveController
   - Roboy
   - RoboyPart
-  - AG
-  - Bass
-  - BCV
-  - Drums
-  - EG
-  - LV
-  - Piano
-  - StringsRodes
   - HandModel
   - Slider3D
   - Button3D
@@ -25,6 +17,7 @@ TagManager:
   - PointCloud_Mesh
   - VestTransition
   - ROSManager
+  - HandMatchingCollider
   layers:
   - Default
   - TransparentFX

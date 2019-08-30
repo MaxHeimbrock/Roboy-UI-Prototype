@@ -22,6 +22,7 @@ public class SubMenuAnimationHandler : MonoBehaviour
         }
     }
 
+    public bool MButtonTransition;
     public bool IsNested = false;
     private int currentState;
     private bool newRequest;
@@ -106,6 +107,18 @@ public class SubMenuAnimationHandler : MonoBehaviour
                 animator.SetBool("FadeOut", true);
             } 
         }
+
+        if(MButtonTransition && Input.GetKeyDown(KeyCode.M))
+        {
+            if (fadeIn)
+            {
+                FadeOut();
+            }
+            else
+            {
+                FadeIn();
+            }
+        }
     }
 
     List<GameObject> findObjectsWithTagInAllChildren(string tag, Transform parent)
@@ -182,8 +195,15 @@ public class SubMenuAnimationHandler : MonoBehaviour
         List<GameObject> allButtons = interactionPrefabs.Find(x => x.TagName.Equals("Button3D")).FoundObjects;
         foreach (GameObject obj in allButtons)
         {
-            obj.transform.GetChild(1).GetComponent<Collider>().enabled = true;
-            obj.transform.GetChild(1).GetComponent<FrameClickDetection>().enabled = true;
+            Transform pressurePlate = obj.transform.GetChild(0);
+            pressurePlate.GetComponent<Collider>().enabled = true;
+
+            Transform frame = obj.transform.GetChild(1);
+            frame.GetComponent<Collider>().enabled = true;
+            frame.GetComponent<FrameClickDetection>().enabled = true;
+
+            Transform activeArea = obj.transform.GetChild(2);
+            activeArea.GetComponent<Collider>().enabled = true;
         }
     }
 
@@ -194,8 +214,6 @@ public class SubMenuAnimationHandler : MonoBehaviour
         {
              obj.transform.GetChild(0).GetComponent<Collider>().enabled = false;
              obj.transform.GetChild(0).GetComponent<CustomSlider>().enabled = false;
-             // Debug.Log("Turned off CustomSlider at: " + obj.transform.GetChild(0).name);
-
             
             foreach(GameObject hand in GameObject.FindGameObjectsWithTag("HandModel"))
             {
@@ -218,7 +236,6 @@ public class SubMenuAnimationHandler : MonoBehaviour
             customslider.ReturnToDefaultPos();
             full.GetComponent<Collider>().enabled = true;
             customslider.enabled = true;
-            Debug.Log("Turned off CustomSlider at: " + obj.transform.GetChild(0).name);
 
             foreach (GameObject hand in GameObject.FindGameObjectsWithTag("HandModel"))
             {
