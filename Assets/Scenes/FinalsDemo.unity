@@ -411,6 +411,18 @@ MonoBehaviour:
   topicError: /roboy/oui/OperatorLog/Error
   topicWarning: /roboy/oui/OperatorLog/Warning
   topicInfo: /roboy/oui/OperatorLog/Info
+--- !u!114 &1884875138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884875131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40181ffb9cc474183a58856308637321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2029964050
 GameObject:
   m_ObjectHideFlags: 0
@@ -17144,6 +17156,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8316000810526712553, guid: c38a644130925504597fe79abda4e560,
+        type: 3}
+      propertyPath: m_TagString
+      value: ROSManager
+      objectReference: {fileID: 0}
     - target: {fileID: 4055414885821616144, guid: c38a644130925504597fe79abda4e560,
         type: 3}
       propertyPath: AdvancedMenu
@@ -17158,6 +17175,11 @@ PrefabInstance:
         type: 3}
       propertyPath: Topic
       value: /roboy/oui/OperatorLog/Error
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017246015407697753, guid: c38a644130925504597fe79abda4e560,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7969557316166760260, guid: c38a644130925504597fe79abda4e560,
         type: 3}
@@ -17414,6 +17436,16 @@ PrefabInstance:
     - target: {fileID: 7969557316166760262, guid: c38a644130925504597fe79abda4e560,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316000810526712552, guid: c38a644130925504597fe79abda4e560,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316000810526712557, guid: c38a644130925504597fe79abda4e560,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -29,11 +29,12 @@ public class StateManager: Singleton<StateManager>
             // From HUD to Transition
             case MenuState.HUD:
                 HUD.SetActive(false);
+                //Send trigger to VRPuppet           
+                VRPuppetStateTransmissionServiceRequest.Instance.callService();               
                 //Roboy.SetActive(true);
                 Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationOnly;
                 Roboy.GetComponent<FollowTransform>().followPosition = false;
                 CameraAnimatorScript.Instance.StartTransitionToAdvancedMenu();
-                
                 // Vest
                 GameObject.FindGameObjectWithTag("VestTransition").GetComponent<VestTransition>().playTact();
                 break;
