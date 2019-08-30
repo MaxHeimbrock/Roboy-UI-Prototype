@@ -11,6 +11,8 @@ public class StateManager: Singleton<StateManager>
     public GameObject AdvancedMenu;
     public GameObject Roboy;
     public GameObject MirroredPlayerPositionWithRoboy;
+    //public GameObject SnapshotCamera;
+    public GameObject HUD_Game_Objects;
 
     [Header("Just a helper if pointing with mouse")]
     [Tooltip("When the mouse is not moved after transition, the transition button is still in clicked state. Reference for resetting the state to not clicked.")]
@@ -29,6 +31,7 @@ public class StateManager: Singleton<StateManager>
         {
             // From HUD to Transition
             case MenuState.HUD:
+                //SnapshotCamera.SetActive(false);
                 HUD.SetActive(false);
                 Roboy.SetActive(true);
                 Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationOnly;
@@ -41,6 +44,7 @@ public class StateManager: Singleton<StateManager>
                 break;
             // From Transition to Advanced Menu
             case MenuState.transitionToAdvancedMenu:
+                HUD_Game_Objects.SetActive(false);
                 // Set Button not pointed here for safety
                 CameraAnimatorScript.Instance.SetButtonNotPointed();
                 // Set TransitionButton to not clicked to fix bug with mouse not moved. This will not be needed with eye tracking.
@@ -49,11 +53,13 @@ public class StateManager: Singleton<StateManager>
                 break;
             // From Advanced Menu to Transition
             case MenuState.advancedMenu:
+                //SnapshotCamera.SetActive(true);
                 AdvancedMenu.SetActive(false);
                 CameraAnimatorScript.Instance.StartTransitionToHUD();
                 break;
             // From Transition to HUD
             case MenuState.transitionToHUD:
+                HUD_Game_Objects.SetActive(true);
                 Roboy.SetActive(false);
                 Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationAndPosition;
                 MirroredPlayerPositionWithRoboy.GetComponent<FollowTransform>().followPosition = true;
