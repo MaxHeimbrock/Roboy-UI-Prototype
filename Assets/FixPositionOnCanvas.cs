@@ -47,7 +47,7 @@ public class FixPositionOnCanvas : MonoBehaviour
         {
             Debug.Log("Copy Transform");
             myTransform.position = instDummy.transform.position;
-            myTransform.rotation = instDummy.transform.rotation;
+            myTransform.rotation = Quaternion.Euler(new Vector3(instDummy.transform.rotation.eulerAngles.x, instDummy.transform.rotation.eulerAngles.y, myTransform.rotation.eulerAngles.z));
         }
         
         // freeze rotation
