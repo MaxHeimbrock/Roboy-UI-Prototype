@@ -9,7 +9,7 @@ public class RoboyPoseManager: MonoBehaviour
     public Transform Roboy;
     // Key: Name of part, Value: Roboy Part. Key encoded as String for readability. 
     public Dictionary<string, RoboyPart> RoboyParts = new Dictionary<string, RoboyPart>();
-    private bool mockMode = false;
+    private bool mockMode = true;
     public RosSharp.RosBridgeClient.Messages.Roboy.Pose msg;
     public bool poseUpdated = false;
 
@@ -25,13 +25,16 @@ public class RoboyPoseManager: MonoBehaviour
         }
         if (mockMode) 
         { 
-            StartCoroutine(ExecuteAfterTime(2));
+
         }
     }
 
     void Update()
     {
-        UpdatePose();
+        if (!mockMode)
+        {
+            UpdatePose();
+        }
     }
 
     public void UpdatePose()
@@ -77,24 +80,6 @@ public class RoboyPoseManager: MonoBehaviour
                 part.transform.localPosition = new Vector3(msg.position.x, msg.position.y, msg.position.z);
                 part.transform.localRotation = new Quaternion(msg.orientation.x, msg.orientation.y, msg.orientation.z, msg.orientation.w);
                 poseUpdated = false;
-            }
-        }
-    }
-
-    // Mock method for simulating Roboy Pose Mirroring using right hand only
-    IEnumerator ExecuteAfterTime(float time)
-    {
-        yield return new WaitForSeconds(time);
-
-        // Code to execute after the delay
-        MockRoboyPose pose = new MockRoboyPose();
-        foreach (KeyValuePair<string, RoboyPart> roboyPart in RoboyParts)
-        {
-            string index = roboyPart.Key;
-            if (index == "hand_right")
-            {
-                roboyPart.Value.transform.localPosition = pose.GetPoseForPart(index).Position;          
-                roboyPart.Value.transform.localRotation = pose.GetPoseForPart(index).Rotation;
             }
         }
     }
