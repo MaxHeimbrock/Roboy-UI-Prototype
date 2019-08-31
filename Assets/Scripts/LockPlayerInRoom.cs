@@ -20,7 +20,7 @@ public class LockPlayerInRoom : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         // Wand oben || Wand unten
         if (this.transform.position.z >= 4.6 || this.transform.position.z <= -2.5f)

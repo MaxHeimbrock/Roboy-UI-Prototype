@@ -32,9 +32,9 @@ public class SuperPublisher : Singleton<SuperPublisher>
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            errorPublisher.publishMessage("mockToastr", 0);
+            infoPublisher.publishMessage("Please put some eggs on the plates", 0);
         }
     }
 
