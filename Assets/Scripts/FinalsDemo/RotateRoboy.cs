@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class RotateRoboy : MonoBehaviour
 {
-    CustomSlider slider;
+    public CustomSlider slider;
 
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
         GameObject[] sliders = GameObject.FindGameObjectsWithTag("Slider3D");
         for (int i = 0; i < sliders.Length; i++)
@@ -18,11 +18,12 @@ public class RotateRoboy : MonoBehaviour
                 break;
             }
         }
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
     {
-        this.transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, slider.GetValue() * 360, this.transform.localEulerAngles.z);
+        Debug.Log("Rotate Roboy: " + slider.GetValue());
+        this.transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, slider.GetValue() * 540, this.transform.localEulerAngles.z);
     }
 }

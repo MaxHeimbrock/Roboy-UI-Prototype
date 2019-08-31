@@ -18,6 +18,7 @@ TagManager:
   - VestTransition
   - ROSManager
   - HandMatchingCollider
+  - LightRoom
   layers:
   - Default
   - TransparentFX
