@@ -179,8 +179,16 @@ public class SubMenuAnimationHandler : MonoBehaviour
         List<GameObject> allButtons = interactionPrefabs.Find(x => x.TagName.Equals("Button3D")).FoundObjects;
         foreach (GameObject obj in allButtons)
         {
-            obj.transform.GetChild(1).GetComponent<Collider>().enabled = false;
-            obj.transform.GetChild(1).GetComponent<FrameClickDetection>().enabled = false;
+            Transform frame = obj.transform.GetChild(1);
+            frame.GetComponent<Collider>().enabled = false;
+            frame.GetComponent<FrameClickDetection>().enabled = false;
+
+            Transform activeArea = obj.transform.GetChild(2);
+            activeArea.GetComponent<Collider>().enabled = false;
+
+            Transform pressurePlate = obj.transform.GetChild(0);
+            pressurePlate.gameObject.SetActive(false);
+            //pressurePlate.GetComponent<Collider>().enabled = false;
         }
     }
     private void safemodeOffButton3D()
@@ -188,15 +196,21 @@ public class SubMenuAnimationHandler : MonoBehaviour
         List<GameObject> allButtons = interactionPrefabs.Find(x => x.TagName.Equals("Button3D")).FoundObjects;
         foreach (GameObject obj in allButtons)
         {
-            Transform pressurePlate = obj.transform.GetChild(0);
-            pressurePlate.GetComponent<Collider>().enabled = true;
-
             Transform frame = obj.transform.GetChild(1);
             frame.GetComponent<Collider>().enabled = true;
             frame.GetComponent<FrameClickDetection>().enabled = true;
 
-            Transform activeArea = obj.transform.GetChild(2);
-            activeArea.GetComponent<Collider>().enabled = true;
+            /*Transform activeArea = obj.transform.GetChild(2);
+            activeArea.GetComponent<Collider>().enabled = true;*/
+
+            Transform pressurePlate = obj.transform.GetChild(0);
+            pressurePlate.gameObject.SetActive(true);
+            /*Rigidbody rigidbody = pressurePlate.GetComponent<Rigidbody>();
+            rigidbody.velocity = Vector3.zero;
+            rigidbody.angularVelocity = Vector3.zero;
+            rigidbody.centerOfMass = new Vector3(0, 0, 0.01f);*/
+            pressurePlate.transform.localPosition = new Vector3(0, 0.75f, -0.325f);
+            pressurePlate.GetComponent<Collider>().enabled = true;
         }
     }
 

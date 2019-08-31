@@ -26,16 +26,20 @@ public class MiniMapManager : MonoBehaviour
         // Switch MiniMap
         if (Input.GetKeyDown(KeyCode.M))
         {
-            
-            switch (currentMinimap)
-            {
-                case MiniMapTechnique.YAH:
-                    SwitchToPointCloud();
-                    break;
-                case MiniMapTechnique.PointCloud:
-                    SwitchToYAH();
-                    break;
-            }
+            SwitchMinimap();
+        }
+    }
+
+    public void SwitchMinimap()
+    {
+        switch (currentMinimap)
+        {
+            case MiniMapTechnique.YAH:
+                SwitchToPointCloud();
+                break;
+            case MiniMapTechnique.PointCloud:
+                SwitchToYAH();
+                break;
         }
     }
 
@@ -59,4 +63,5 @@ public class MiniMapManager : MonoBehaviour
         MeshManager.messageProcessingActive = true;
         Pointcloud_Minimap.SetActive(true);
     }
+
 }

@@ -5,6 +5,7 @@ using UnityEditor.Events;
 
 public class CustomSlider : MonoBehaviour
 {
+    public float defaultValue;
 
     private Vector3 defaultPosFull;
     private Vector3 defaultPosFill;
@@ -12,7 +13,7 @@ public class CustomSlider : MonoBehaviour
     private Animator titleAnimator;
     private Animator valueAnimator;
     private TextMesh valueText;
-    public GameObject IntersectingObject;
+    private GameObject IntersectingObject;
     private float value;
 
     //For debugging
@@ -20,6 +21,11 @@ public class CustomSlider : MonoBehaviour
     public Vector3 v2 = new Vector3(0, 0, 0);
     public Vector3 v3 = new Vector3(0, 0, 0);
     public Vector3 v4 = new Vector3(0, 0, 0);*/
+
+    private void Reset()
+    {
+        value = 100f;
+    }
 
     /// <summary>
     /// Initialize variables, dependent on consistent prefab hierarchy.
@@ -33,6 +39,8 @@ public class CustomSlider : MonoBehaviour
 
         defaultPosFull = transform.localPosition;
         defaultPosFill = transform.GetChild(0).localPosition;
+
+        setDefaultValue();
     }
 
     /// <summary>
@@ -163,6 +171,14 @@ public class CustomSlider : MonoBehaviour
     public float GetValue()
     {
         return value;
+    }
+
+    /// <summary>
+    /// Updates the slider to the default position.
+    /// </summary>
+    public void setDefaultValue()
+    {
+        //ToDo
     }
 
     /// <summary>
