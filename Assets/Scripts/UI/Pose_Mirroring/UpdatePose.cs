@@ -30,7 +30,8 @@ public class UpdatePose : MonoBehaviour
         Vector3 pos = new Vector3(x, y, z);
         Quaternion q = Quaternion.Euler(new Vector3(alpha, beta, gamma));
 
-        transform.localPosition = pos;
-        transform.localRotation = q;
+        // TESTING: Direct transform without ROS
+        //transform.localPosition = pos;
+        //transform.localRotation = q;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using RosSharp.RosBridgeClient;
 using System.Xml;
 
-public class TestPosePublisher : Publisher<RosSharp.RosBridgeClient.Messages.Roboy.Pose>
+public class MockPosePublisher : Publisher<RosSharp.RosBridgeClient.Messages.Roboy.Pose>
 {
     public RoboyPoseManager manager;
     public TextAsset XML_FILE;
@@ -41,7 +41,7 @@ public class TestPosePublisher : Publisher<RosSharp.RosBridgeClient.Messages.Rob
             message.position = po;
             // Update position after a couple of seconds
             yield return new WaitForSeconds(waitTime);
-            PublishMessage(message); 
+            PublishMessage(message);
             /*
 
             for (int i = 0; i < 8; i++)
