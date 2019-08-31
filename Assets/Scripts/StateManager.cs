@@ -53,7 +53,7 @@ public class StateManager: Singleton<StateManager>
                 GameObject.FindGameObjectWithTag("VestTransition").GetComponent<VestTransition>().playTact();
 
                 //Update Pose
-                MockPosePublisher.
+                UpdatePose update = new UpdatePose();
 
                 break;
 

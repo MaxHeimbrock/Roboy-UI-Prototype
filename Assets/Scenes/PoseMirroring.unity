@@ -592,6 +592,151 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Position: {x: 0, y: 0, z: 0}
   Rotation: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &2039454726 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7385456693316100718, guid: dda2bee503f3649f889d5b2f345408c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2045903750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2039454727 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2951845607195294573, guid: dda2bee503f3649f889d5b2f345408c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2045903750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2039454728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039454726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f065fcde7a7f14646a22406f10a48439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  XML_FILE: {fileID: 4900000, guid: fe92540c7995245899edb92363ec5366, type: 3}
+  Roboy: {fileID: 2039454727}
+--- !u!114 &2039454729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039454726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96034cfd2c648455dac1a756f03e2a3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Topic: /roboy_middleware_msgs/Pose
+--- !u!114 &2039454730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039454726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff98778ae051cfd40a6e4effdf851ebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Timeout: 10
+  Protocol: 0
+  RosBridgeServerUrl: ws://192.168.0.1:9090
+--- !u!1001 &2045903750
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7385456693316100718, guid: dda2bee503f3649f889d5b2f345408c0,
+        type: 3}
+      propertyPath: m_Name
+      value: Roboy2.0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385456693316100718, guid: dda2bee503f3649f889d5b2f345408c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951845607195294573, guid: dda2bee503f3649f889d5b2f345408c0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.12897407
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951845607195294573, guid: dda2bee503f3649f889d5b2f345408c0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9825258
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951845607195294573, guid: dda2bee503f3649f889d5b2f345408c0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.5024166
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951845607195294573, guid: dda2bee503f3649f889d5b2f345408c0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951845607195294573, guid: dda2bee503f3649f889d5b2f345408c0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951845607195294573, guid: dda2bee503f3649f889d5b2f345408c0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951845607195294573, guid: dda2bee503f3649f889d5b2f345408c0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951845607195294573, guid: dda2bee503f3649f889d5b2f345408c0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951845607195294573, guid: dda2bee503f3649f889d5b2f345408c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951845607195294573, guid: dda2bee503f3649f889d5b2f345408c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951845607195294573, guid: dda2bee503f3649f889d5b2f345408c0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7222510314418121388, guid: dda2bee503f3649f889d5b2f345408c0, type: 3}
+    - {fileID: 836760094058769893, guid: dda2bee503f3649f889d5b2f345408c0, type: 3}
+    - {fileID: 8067884898997485586, guid: dda2bee503f3649f889d5b2f345408c0, type: 3}
+    - {fileID: 4145588000324927488, guid: dda2bee503f3649f889d5b2f345408c0, type: 3}
+    - {fileID: 7287799339308795118, guid: dda2bee503f3649f889d5b2f345408c0, type: 3}
+    - {fileID: 5405314881568638600, guid: dda2bee503f3649f889d5b2f345408c0, type: 3}
+    - {fileID: 7503928949025885956, guid: dda2bee503f3649f889d5b2f345408c0, type: 3}
+    - {fileID: 7472204490071142495, guid: dda2bee503f3649f889d5b2f345408c0, type: 3}
+    - {fileID: 924039415090053903, guid: dda2bee503f3649f889d5b2f345408c0, type: 3}
+    - {fileID: 2607764565230665648, guid: dda2bee503f3649f889d5b2f345408c0, type: 3}
+    - {fileID: 226359418776971521, guid: dda2bee503f3649f889d5b2f345408c0, type: 3}
+    - {fileID: 485319737353784025, guid: dda2bee503f3649f889d5b2f345408c0, type: 3}
+    - {fileID: 338421429371645578, guid: dda2bee503f3649f889d5b2f345408c0, type: 3}
+    - {fileID: 4892540927016570280, guid: dda2bee503f3649f889d5b2f345408c0, type: 3}
+    - {fileID: 6014150014412285750, guid: dda2bee503f3649f889d5b2f345408c0, type: 3}
+    - {fileID: 677812786631295262, guid: dda2bee503f3649f889d5b2f345408c0, type: 3}
+    - {fileID: 4362936109676569686, guid: dda2bee503f3649f889d5b2f345408c0, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: dda2bee503f3649f889d5b2f345408c0, type: 3}
 --- !u!114 &2131748747 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 775620348262301886, guid: 8b782a7c08d8645728d7aaaa07c967d3,

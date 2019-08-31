@@ -69,6 +69,9 @@ public class RoboyPoseManager: MonoBehaviour
                     case 7:
                         RoboyParts.TryGetValue("elbow_left", out part);
                         break;
+                    case 8:
+                        RoboyParts.TryGetValue("head", out part);
+                        break;
                     //TODO: add mapping to all other Roboy parts
                     default:
                         Debug.Log("Part not recognized");
