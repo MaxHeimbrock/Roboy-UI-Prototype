@@ -57,6 +57,8 @@ public class LogText : Singleton<LogText>
         // Pull from subscriber
         if (SuperSubscriber.Instance.MessageQueueCount() != 0)
         {
+            AudioManager.Instance.PlayMessageSound();
+
             RosSharp.RosBridgeClient.Message messageObject = SuperSubscriber.Instance.DequeueOperatorMessage();
 
             SendOperatorLogMessage(messageObject);
