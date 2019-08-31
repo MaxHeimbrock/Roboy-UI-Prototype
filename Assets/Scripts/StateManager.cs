@@ -40,12 +40,15 @@ public class StateManager: Singleton<StateManager>
                 // this is for all the positioning of the transition translation
                 Vector3 previousPos = Camera.main.transform.localPosition;
                 Quaternion previousRotation = Camera.main.transform.rotation;
+
+                //Send trigger to VRPuppet           
+                VRPuppetStateTransmissionServiceRequest.Instance.callService();               
+                //Roboy.SetActive(true);
                 Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationOnly;
                 Camera.main.GetComponent<TransitionHelper_SetPosition>().SetOffset(previousPos);
                 Camera.main.GetComponent<TransitionHelper_SetPosition>().SetOffsetRotation(previousRotation);
 
                 CameraAnimatorScript.Instance.StartTransitionToAdvancedMenu();
-                
                 // Vest
                 GameObject.FindGameObjectWithTag("VestTransition").GetComponent<VestTransition>().playTact();
                 break;

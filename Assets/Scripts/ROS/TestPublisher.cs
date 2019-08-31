@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Microsoft.SqlServer.Server;
 using UnityEngine;
 
 using RosSharp.RosBridgeClient;
+using RosSharp.RosBridgeClient.Services.RosApi;
+using RosSharp.RosBridgeClient.Services.Standard;
 
 public class TestPublisher : Publisher<RosSharp.RosBridgeClient.Messages.Standard.String>
 {

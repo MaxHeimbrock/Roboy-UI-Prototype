@@ -26,7 +26,7 @@ public class MockOperatorLogPublisher : Publisher<RosSharp.RosBridgeClient.Messa
         {
             yield return new WaitForSeconds(waitTime);
             base.Start();
-            Debug.Log("Mock Publisher started");
+            //Debug.Log("Mock Publisher started");
             yield return new WaitForSeconds(waitTime);
 
             break;
