@@ -211,65 +211,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &664457243
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 664457246}
-  - component: {fileID: 664457245}
-  - component: {fileID: 664457244}
-  m_Layer: 0
-  m_Name: ROS Manager
-  m_TagString: ROSManager
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &664457244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 664457243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fe71f4794c7e06448be92ed37b867f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &664457245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 664457243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff98778ae051cfd40a6e4effdf851ebd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Timeout: 10
-  Protocol: 0
-  RosBridgeServerUrl: ws://192.168.137.44:9090
---- !u!4 &664457246
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 664457243}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.750161, y: 2.3723009, z: -1.1031566}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1858337809
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,3 +294,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &6947026035158288473
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6947026034514122818, guid: 90240ee05a88afb459cfc7feaa4bc2ef,
+        type: 3}
+      propertyPath: m_Name
+      value: VRPuppet ROS Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947026034514122823, guid: 90240ee05a88afb459cfc7feaa4bc2ef,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.750161
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947026034514122823, guid: 90240ee05a88afb459cfc7feaa4bc2ef,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.3723009
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947026034514122823, guid: 90240ee05a88afb459cfc7feaa4bc2ef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.1031566
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947026034514122823, guid: 90240ee05a88afb459cfc7feaa4bc2ef,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947026034514122823, guid: 90240ee05a88afb459cfc7feaa4bc2ef,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947026034514122823, guid: 90240ee05a88afb459cfc7feaa4bc2ef,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947026034514122823, guid: 90240ee05a88afb459cfc7feaa4bc2ef,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947026034514122823, guid: 90240ee05a88afb459cfc7feaa4bc2ef,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947026034514122823, guid: 90240ee05a88afb459cfc7feaa4bc2ef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947026034514122823, guid: 90240ee05a88afb459cfc7feaa4bc2ef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947026034514122823, guid: 90240ee05a88afb459cfc7feaa4bc2ef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 90240ee05a88afb459cfc7feaa4bc2ef, type: 3}
