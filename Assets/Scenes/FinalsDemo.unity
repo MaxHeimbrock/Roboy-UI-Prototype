@@ -1533,7 +1533,7 @@ PrefabInstance:
     - target: {fileID: 8781395460126824949, guid: 7e9df5e7050280744bdb2b565f38ab00,
         type: 3}
       propertyPath: m_Name
-      value: Egg (1)
+      value: EggWithMaterialCustom
       objectReference: {fileID: 0}
     - target: {fileID: 8781395460126824948, guid: 7e9df5e7050280744bdb2b565f38ab00,
         type: 3}
@@ -1775,7 +1775,7 @@ PrefabInstance:
     - target: {fileID: 8781395460126824949, guid: 7e9df5e7050280744bdb2b565f38ab00,
         type: 3}
       propertyPath: m_Name
-      value: Egg
+      value: EggWithMaterialEgg
       objectReference: {fileID: 0}
     - target: {fileID: 8781395460126824948, guid: 7e9df5e7050280744bdb2b565f38ab00,
         type: 3}
@@ -1852,6 +1852,36 @@ PrefabInstance:
       propertyPath: physicsBody
       value: 
       objectReference: {fileID: 602948078}
+    - target: {fileID: 8781395459668454611, guid: 7e9df5e7050280744bdb2b565f38ab00,
+        type: 3}
+      propertyPath: material
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8781395459668454611, guid: 7e9df5e7050280744bdb2b565f38ab00,
+        type: 3}
+      propertyPath: maxForce
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8781395459668454611, guid: 7e9df5e7050280744bdb2b565f38ab00,
+        type: 3}
+      propertyPath: maxForceDist
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8781395459668454611, guid: 7e9df5e7050280744bdb2b565f38ab00,
+        type: 3}
+      propertyPath: yieldDistance
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8781395459668454611, guid: 7e9df5e7050280744bdb2b565f38ab00,
+        type: 3}
+      propertyPath: hapticMagnitude
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8781395459668454611, guid: 7e9df5e7050280744bdb2b565f38ab00,
+        type: 3}
+      propertyPath: hapticDuration
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e9df5e7050280744bdb2b565f38ab00, type: 3}
 --- !u!4 &2020718736 stripped

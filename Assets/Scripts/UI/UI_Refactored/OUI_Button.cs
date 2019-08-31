@@ -70,7 +70,7 @@ public class OUI_Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
             //LogText.Instance.SendOperatorLogMessage("Clicked at " + this.name + " inside Button class", LogText.LogLevel.info);
 
-            //SuperPublisher.Instance.PublishMessage("Clicked at " + this.name + " inside Button class with new publisher", 0, LogText.LogLevel.info);
+            SuperPublisher.Instance.PublishMessage("Clicked at " + this.name + " inside Button class with new publisher", 0, LogText.LogLevel.info);
         }
 
         clicked = true;

@@ -36,6 +36,10 @@ public class SuperPublisher : Singleton<SuperPublisher>
         {
             infoPublisher.publishMessage("Please put some eggs on the plates", 0);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            errorPublisher.publishMessage("Roboy battery is low", 0);
+        }
     }
 
     public void PublishMessage(string message, int code, LogText.LogLevel logLevel)
