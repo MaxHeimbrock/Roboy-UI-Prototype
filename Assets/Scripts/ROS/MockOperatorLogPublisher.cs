@@ -26,7 +26,18 @@ public class MockOperatorLogPublisher : Publisher<RosSharp.RosBridgeClient.Messa
         {
             yield return new WaitForSeconds(waitTime);
             base.Start();
+            Debug.Log("Mock Publisher started");
+            yield return new WaitForSeconds(waitTime);
 
+            break;
+        }
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            // Debug.Log("Send Error Log");
             // Test error message 
             RosSharp.RosBridgeClient.Messages.Roboy.ErrorNotification errorMessage = new RosSharp.RosBridgeClient.Messages.Roboy.ErrorNotification();
             errorMessage.code = 1;
@@ -36,21 +47,8 @@ public class MockOperatorLogPublisher : Publisher<RosSharp.RosBridgeClient.Messa
             errorMessage.validity_duration = 1;
 
             PublishMessage(errorMessage);
-                       
-            yield return new WaitForSeconds(waitTime);
-
-            break;
         }
     }
-
-    /*public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Debug.Log("Send Mock Toastr Message");
-            publishMessage("Warning: Omnimill selfdestruct in 10 seconds");
-        }
-    }*/
 
     /// <summary>
     /// This method publishes a simple string messages to the topic of the object.

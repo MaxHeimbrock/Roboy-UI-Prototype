@@ -10,7 +10,12 @@ public class PC_MeshManager : MonoBehaviour
     private List<PC_Mesh> allMeshes = new List<PC_Mesh>();
     private PointCloudSubscriber p;
 
-    
+    /// <summary>
+    /// Enables or disables the processing of incoming messages.
+    /// </summary>
+    public bool messageProcessingActive = false;
+
+
     /// <summary>
     /// Called before first frame.
     /// Sets up variables in order to communicate with PointCloudSubscriber
@@ -18,39 +23,41 @@ public class PC_MeshManager : MonoBehaviour
     void Start()
     {
         // Find ROS Connection in order to access point data
-        GameObject g = GameObject.Find("ROS Connection");
+        GameObject g = GameObject.FindGameObjectWithTag("ROSManager");
         p = g.GetComponent<PointCloudSubscriber>();
         
+        InvokeRepeating("FixedUpdateEx", 0.5f, 0.5f);
     }
 
     /// <summary>
     /// Updates the displayed point cloud at a fixed interval
     /// </summary>
-    private void FixedUpdate()
+    private void FixedUpdateEx()
     {
-        removeMeshes();
-        processPointCloudData();
+        if(messageProcessingActive) { 
+            removeMeshes();
+            processPointCloudData();
+        }
     }
 
     /// <summary>
     /// Splits the pointcloud points into chunks of 40000 for performance reasons and because a mesh can only display 65535 points.
     /// Gives them to a specific mesh object for further processing.
     /// </summary>
-    void processPointCloudData() {
-        //int numberOfMeshes = (p.allSpheres.Count / 40000) + 1; // ToDo: Rounding
-        List<List<Vector3>> chunkedSpheres = splitList<Vector3>(p.allPoints.ToList(), 40000);
+    async void processPointCloudData() {
+        List<List<Vector3>> chunkedSpheres = splitList<Vector3>(p.allPoints.ToList(), 20000);
 
         for (int i = 0; i < chunkedSpheres.Count; i++) {
-            GameObject newMeshObject = Instantiate(meshPrefab);
+            GameObject newMeshObject = Instantiate(meshPrefab, new Vector3(0, 100, 0), Quaternion.identity);
             PC_Mesh newMesh = newMeshObject.GetComponent<PC_Mesh>();
-            newMesh.renderMesh(chunkedSpheres[i]);
+            await newMesh.renderMesh(chunkedSpheres[i]);
         }
     }
 
     /// <summary>
     /// Removes all displayed meshes (identified by tag)
     /// </summary>
-    void removeMeshes()
+    public void removeMeshes()
     {
         GameObject[] toRemove = GameObject.FindGameObjectsWithTag("PointCloud_Mesh");
         foreach (GameObject _toRemove in toRemove)

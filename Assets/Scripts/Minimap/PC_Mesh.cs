@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Leap;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PC_Mesh : MonoBehaviour {
@@ -10,7 +10,7 @@ public class PC_Mesh : MonoBehaviour {
     /// Renders the given set of points on a mesh
     /// </summary>
     /// <param name="pointcloudPoints">given points, not more than 65535</param>
-    public void renderMesh(List<Vector3> pointcloudPoints) {
+    public async Task renderMesh(List<Vector3> pointcloudPoints) {
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
 
