@@ -5,7 +5,7 @@ using UnityEditor.Events;
 
 public class CustomSlider : MonoBehaviour
 {
-    public float defaultValue;
+    //public float defaultValue;
 
     private Vector3 defaultPosFull;
     private Vector3 defaultPosFill;
@@ -14,7 +14,7 @@ public class CustomSlider : MonoBehaviour
     private Animator valueAnimator;
     private TextMesh valueText;
     private GameObject IntersectingObject;
-    private float value;
+    public float value = 50f;
 
     //For debugging
     /*public Vector3 v1 = new Vector3(0,0,0);
@@ -24,7 +24,7 @@ public class CustomSlider : MonoBehaviour
 
     private void Reset()
     {
-        value = 100f;
+        value = 50f;
     }
 
     /// <summary>
@@ -35,7 +35,7 @@ public class CustomSlider : MonoBehaviour
         titleAnimator = this.transform.parent.GetChild(1).GetComponent<Animator>();
         valueAnimator = this.transform.GetChild(1).GetComponent<Animator>();
         valueText = this.transform.GetChild(1).GetComponent<TextMesh>();
-        value = 1f;
+        value = 50f;
 
         defaultPosFull = transform.localPosition;
         defaultPosFill = transform.GetChild(0).localPosition;

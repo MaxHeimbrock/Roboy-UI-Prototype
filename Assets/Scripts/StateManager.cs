@@ -75,6 +75,8 @@ public class StateManager: Singleton<StateManager>
             // FROM ADVANCED MENU TO TRANSITION //////////////////////////////////////////////////////////////////////
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
             case MenuState.advancedMenu:
+                Roboy.GetComponent<RotateRoboy>().ResetRoboy();
+
                 //SnapshotCamera.SetActive(true);
                 Roboy.GetComponent<RotateRoboy>().enabled = false;
                 foreach (SubMenuAnimationHandler h in AdvancedMenu.GetComponentsInChildren<SubMenuAnimationHandler>())
