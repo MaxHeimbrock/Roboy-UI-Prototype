@@ -43,7 +43,7 @@ public class StateManager: Singleton<StateManager>
                 Quaternion previousRotation = Camera.main.transform.rotation;
 
                 //Send trigger to VRPuppet           
-                //VRPuppetStateTransmissionServiceRequest.Instance.callService();               
+                VRPuppetStateTransmissionServiceRequest.Instance.callService();               
                 //Roboy.SetActive(true);
                 Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationOnly;
                 Camera.main.GetComponent<TransitionHelper_SetPosition>().SetOffset(previousPos);
