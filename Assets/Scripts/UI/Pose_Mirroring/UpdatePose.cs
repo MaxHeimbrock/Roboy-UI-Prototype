@@ -10,14 +10,11 @@ public class UpdatePose : MonoBehaviour
 
     public void Start()
     {       
-        StartCoroutine(GetInitParameters(1));
+        
     }
 
-    IEnumerator GetInitParameters(float waitTime)
+    public void GetInitParameters()
     {
-     
-        yield return new WaitForSeconds(waitTime);
-
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(XML_FILE.text);
         foreach (Transform t in Roboy)

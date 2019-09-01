@@ -22,6 +22,5 @@ public class MockPosePublisher : Publisher<RosSharp.RosBridgeClient.Messages.Rob
     public void PublishMessage(RosSharp.RosBridgeClient.Messages.Roboy.Pose message)
     {
         Publish(message);       
-        //gameObject.GetComponent<PoseSubscriber>().receive(message);
     }
 }

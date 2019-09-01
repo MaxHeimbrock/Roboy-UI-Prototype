@@ -23784,6 +23784,7 @@ MonoBehaviour:
   Roboy: {fileID: 2688865199853147834}
   MirroredPlayerPositionWithRoboy: {fileID: 2114295975}
   HUD_Game_Objects: {fileID: 1806242246}
+  rosManager: {fileID: 7555125202997501417}
   TransitionButton: {fileID: 437283608524112688}
   currentMenuState: 0
 --- !u!1 &2591494620817977110
@@ -24082,19 +24083,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3969077498426217602}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2688865199853147836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2688865199853147834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f77183742e5da8948bb947998206e54e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1961409837}
 --- !u!95 &2732728037983192809
 Animator:
   serializedVersion: 3
@@ -24176,11 +24164,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roboy2.0_without_parser
       objectReference: {fileID: 0}
-    - target: {fileID: 1316241121497104952, guid: fc57d6d040f511d41b2ebbeb92a297ee,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6687102282549943099, guid: fc57d6d040f511d41b2ebbeb92a297ee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24236,6 +24219,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 2688865199853147836, guid: fc57d6d040f511d41b2ebbeb92a297ee,
+        type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 1961409837}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc57d6d040f511d41b2ebbeb92a297ee, type: 3}
 --- !u!33 &4137629178386794660
@@ -27070,6 +27058,10 @@ GameObject:
   - component: {fileID: 1884875133}
   - component: {fileID: 1884875134}
   - component: {fileID: 7555125202997501418}
+  - component: {fileID: 7555125202997501421}
+  - component: {fileID: 7555125202997501420}
+  - component: {fileID: 7555125202997501419}
+  - component: {fileID: 7555125202997501424}
   m_Layer: 0
   m_Name: ROSManager
   m_TagString: ROSManager
@@ -27092,6 +27084,47 @@ MonoBehaviour:
   topicError: /roboy/oui/OperatorLog/Error
   topicWarning: /roboy/oui/OperatorLog/Warning
   topicInfo: /roboy/oui/OperatorLog/Info
+--- !u!114 &7555125202997501419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555125202997501417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41880d1d286e84d5fa42ed6d87c60ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Topic: /roboy_middleware_msgs/Pose
+  TimeStep: 0
+--- !u!114 &7555125202997501420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555125202997501417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96034cfd2c648455dac1a756f03e2a3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Topic: /roboy_middleware_msgs/Pose
+--- !u!114 &7555125202997501421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555125202997501417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f065fcde7a7f14646a22406f10a48439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  XML_FILE: {fileID: 4900000, guid: fe92540c7995245899edb92363ec5366, type: 3}
+  Roboy: {fileID: 2688865199853147835}
 --- !u!4 &7555125202997501422
 Transform:
   m_ObjectHideFlags: 0
@@ -27121,6 +27154,19 @@ MonoBehaviour:
   Timeout: 10
   Protocol: 0
   RosBridgeServerUrl: ws://192.168.137.44:9090
+--- !u!114 &7555125202997501424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555125202997501417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc215b1ba6dda4252bc6e3b69c87281b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Roboy: {fileID: 2688865199853147834}
 --- !u!4 &7633263371691985963
 Transform:
   m_ObjectHideFlags: 0

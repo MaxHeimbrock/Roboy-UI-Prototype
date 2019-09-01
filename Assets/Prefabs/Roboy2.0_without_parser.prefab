@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 6595785860683207222}
   m_Layer: 0
   m_Name: torso
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 495357097731161496}
   m_Layer: 0
   m_Name: upper_arm_left
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -469,9 +469,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6687102282549943099}
+  - component: {fileID: 2688865199853147836}
   m_Layer: 0
   m_Name: Roboy2.0_without_parser
-  m_TagString: Untagged
+  m_TagString: Roboy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -507,6 +508,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 90, z: -90}
+--- !u!114 &2688865199853147836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316241121497104952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77183742e5da8948bb947998206e54e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
 --- !u!1 &1704330009149861972
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +592,7 @@ GameObject:
   - component: {fileID: 597333308533754599}
   m_Layer: 0
   m_Name: pelvis
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -688,7 +702,7 @@ GameObject:
   - component: {fileID: 402133724856065061}
   m_Layer: 0
   m_Name: foot_left
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -721,7 +735,7 @@ GameObject:
   - component: {fileID: 3683287753424233557}
   m_Layer: 0
   m_Name: head
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -968,7 +982,7 @@ GameObject:
   - component: {fileID: 4714275713164757469}
   m_Layer: 0
   m_Name: forearm_right
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1031,7 +1045,7 @@ GameObject:
   - component: {fileID: 5825374130643636901}
   m_Layer: 0
   m_Name: shin_left
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1539,7 +1553,7 @@ GameObject:
   - component: {fileID: 657756747932268853}
   m_Layer: 0
   m_Name: hand_right
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1756,7 +1770,7 @@ GameObject:
   - component: {fileID: 6264512476509566018}
   m_Layer: 0
   m_Name: hand_left
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1789,7 +1803,7 @@ GameObject:
   - component: {fileID: 1270695299835691190}
   m_Layer: 0
   m_Name: foot_right
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1822,7 +1836,7 @@ GameObject:
   - component: {fileID: 823363450148933149}
   m_Layer: 0
   m_Name: thigh_right
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2099,7 +2113,7 @@ GameObject:
   - component: {fileID: 8199130166816472272}
   m_Layer: 0
   m_Name: forearm_left
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2376,7 +2390,7 @@ GameObject:
   - component: {fileID: 493818625697974507}
   m_Layer: 0
   m_Name: elbow_left
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2409,7 +2423,7 @@ GameObject:
   - component: {fileID: 8459481094544386907}
   m_Layer: 0
   m_Name: thigh_left
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2549,7 +2563,7 @@ GameObject:
   - component: {fileID: 9179802953656290517}
   m_Layer: 0
   m_Name: elbow_right
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2582,7 +2596,7 @@ GameObject:
   - component: {fileID: 4289304793425522913}
   m_Layer: 0
   m_Name: shin_right
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2645,7 +2659,7 @@ GameObject:
   - component: {fileID: 3399069505348392124}
   m_Layer: 0
   m_Name: upper_arm_right
-  m_TagString: Untagged
+  m_TagString: RoboyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

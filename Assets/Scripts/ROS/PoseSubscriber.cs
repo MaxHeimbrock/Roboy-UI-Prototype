@@ -6,8 +6,6 @@ using RosSharp.RosBridgeClient;
 
 public class PoseSubscriber : Subscriber<RosSharp.RosBridgeClient.Messages.Roboy.Pose>
 {
-    public RoboyPoseManager PoseManager;
-    public GameObject Roboy;
     private Queue<RosSharp.RosBridgeClient.Messages.Roboy.Pose> posesQueue;
 
     public void EnqueuePoseMessage(RosSharp.RosBridgeClient.Messages.Roboy.Pose msg)
@@ -43,7 +41,6 @@ public class PoseSubscriber : Subscriber<RosSharp.RosBridgeClient.Messages.Roboy
 
     protected override void ReceiveMessage(RosSharp.RosBridgeClient.Messages.Roboy.Pose message)
     {
-        //PoseManager.UpdatePose(message);
         EnqueuePoseMessage(message);
     }
 
