@@ -51,6 +51,10 @@ public class StateManager: Singleton<StateManager>
                 CameraAnimatorScript.Instance.StartTransitionToAdvancedMenu();
                 // Vest
                 GameObject.FindGameObjectWithTag("VestTransition").GetComponent<VestTransition>().playTact();
+
+                //Update Pose
+                UpdatePose update = new UpdatePose();
+
                 break;
 
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
