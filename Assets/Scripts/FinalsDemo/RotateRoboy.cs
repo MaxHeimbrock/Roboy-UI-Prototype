@@ -24,12 +24,6 @@ public class RotateRoboy : MonoBehaviour
     void Update()
     {
         Debug.Log("Rotate Roboy: " + slider.GetValue());
-        if (slider.gameObject.activeSelf)
-            this.transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, slider.GetValue()*3.6f, this.transform.localEulerAngles.z);
-    }
-
-    public void ResetRoboy()
-    {
-        this.transform.localEulerAngles = new Vector3(-90, -90, -90);
+        this.transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, slider.GetValue() * 540, this.transform.localEulerAngles.z);
     }
 }
