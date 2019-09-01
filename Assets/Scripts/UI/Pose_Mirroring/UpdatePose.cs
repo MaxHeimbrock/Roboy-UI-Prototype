@@ -10,7 +10,7 @@ public class UpdatePose : MonoBehaviour
 
     public void Start()
     {       
-        StartCoroutine(GetInitParameters(2));
+        StartCoroutine(GetInitParameters(1));
     }
 
     IEnumerator GetInitParameters(float waitTime)

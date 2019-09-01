@@ -525,6 +525,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: fe92540c7995245899edb92363ec5366, type: 3}
   Roboy: {fileID: 2951845607609612523}
+--- !u!114 &1514103733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514103730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc215b1ba6dda4252bc6e3b69c87281b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Roboy: {fileID: 7385456694787121640}
 --- !u!114 &1621012268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,18 +638,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Position: {x: 0, y: 0, z: 0}
   Rotation: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2131748747 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 775620348262301886, guid: 8b782a7c08d8645728d7aaaa07c967d3,
-    type: 3}
-  m_PrefabInstance: {fileID: 775620346835543861}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc215b1ba6dda4252bc6e3b69c87281b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!33 &28003762290594171
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1002,85 +1003,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1001 &775620346835543861
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 775620348262301884, guid: 8b782a7c08d8645728d7aaaa07c967d3,
-        type: 3}
-      propertyPath: m_Name
-      value: PoseManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 775620348262301884, guid: 8b782a7c08d8645728d7aaaa07c967d3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 775620348262301886, guid: 8b782a7c08d8645728d7aaaa07c967d3,
-        type: 3}
-      propertyPath: Roboy
-      value: 
-      objectReference: {fileID: 7385456694787121640}
-    - target: {fileID: 775620348262301887, guid: 8b782a7c08d8645728d7aaaa07c967d3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 775620348262301887, guid: 8b782a7c08d8645728d7aaaa07c967d3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 775620348262301887, guid: 8b782a7c08d8645728d7aaaa07c967d3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 775620348262301887, guid: 8b782a7c08d8645728d7aaaa07c967d3,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 775620348262301887, guid: 8b782a7c08d8645728d7aaaa07c967d3,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 775620348262301887, guid: 8b782a7c08d8645728d7aaaa07c967d3,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 775620348262301887, guid: 8b782a7c08d8645728d7aaaa07c967d3,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 775620348262301887, guid: 8b782a7c08d8645728d7aaaa07c967d3,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 775620348262301887, guid: 8b782a7c08d8645728d7aaaa07c967d3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 775620348262301887, guid: 8b782a7c08d8645728d7aaaa07c967d3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 775620348262301887, guid: 8b782a7c08d8645728d7aaaa07c967d3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8b782a7c08d8645728d7aaaa07c967d3, type: 3}
 --- !u!1 &786221788537475768
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,11 +1969,21 @@ PrefabInstance:
         type: 3}
       propertyPath: PoseManager
       value: 
-      objectReference: {fileID: 2131748747}
+      objectReference: {fileID: 0}
     - target: {fileID: 1952903579321112385, guid: aa6909c92707a4a39824bbe995215aee,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1952903579321112385, guid: aa6909c92707a4a39824bbe995215aee,
+        type: 3}
+      propertyPath: Roboy
+      value: 
+      objectReference: {fileID: 7385456694787121640}
+    - target: {fileID: 1952903579321112385, guid: aa6909c92707a4a39824bbe995215aee,
+        type: 3}
+      propertyPath: Topic
+      value: /roboy_middleware_msgs/Pose
       objectReference: {fileID: 0}
     - target: {fileID: 1952903579321112386, guid: aa6909c92707a4a39824bbe995215aee,
         type: 3}
@@ -2072,7 +2004,12 @@ PrefabInstance:
         type: 3}
       propertyPath: manager
       value: 
-      objectReference: {fileID: 2131748747}
+      objectReference: {fileID: 0}
+    - target: {fileID: 1952903579321112415, guid: aa6909c92707a4a39824bbe995215aee,
+        type: 3}
+      propertyPath: RosBridgeServerUrl
+      value: ws://192.168.137.44:9090
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa6909c92707a4a39824bbe995215aee, type: 3}
 --- !u!33 &2040875149945717482
@@ -2855,7 +2792,7 @@ Transform:
   - {fileID: 8279181061845556808}
   - {fileID: 6562228840157853548}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 90, z: -90}
 --- !u!1 &2996596431428214704
 GameObject:

@@ -6,15 +6,24 @@ using System.Collections;
 //public class RoboyPoseManager : Singleton<RoboyPoseManager>
 public class RoboyPoseManager: MonoBehaviour
 {
-    public GameObject Roboy; 
-
+    public GameObject Roboy;
+    RosSharp.RosBridgeClient.Messages.Roboy.Pose message;
 
     void Start()
     {
         Debug.Log("Start Pose Manager");       
     }
 
-    public void UpdatePose(RosSharp.RosBridgeClient.Messages.Roboy.Pose message)
+    public void Update()
+    {
+        if(gameObject.GetComponent<PoseSubscriber>().MessageQueueCount() != 0)
+        {   
+            message = gameObject.GetComponent<PoseSubscriber>().DequeuPoseMessage();
+            UpdatePose();
+        }
+    }
+
+    public void UpdatePose()
     {   
         if (message != null) {
             Debug.Log("Part with ID: " + message.id + " received."); 
@@ -33,7 +42,7 @@ public class RoboyPoseManager: MonoBehaviour
                         updateNode(Roboy.gameObject.transform.Find("elbow_right"),message);
                         break;
                     case 4:
-                        updateNode(Roboy.gameObject.transform.Find("upper_arm_left"),message);                   
+                        updateNode(Roboy.gameObject.transform.Find("upper_arm_left"),message);
                         break;
                     case 5:
                         updateNode(Roboy.gameObject.transform.Find("forearm_left"),message);
@@ -56,10 +65,14 @@ public class RoboyPoseManager: MonoBehaviour
         }
 
     public void updateNode(Transform child, RosSharp.RosBridgeClient.Messages.Roboy.Pose msg)
-    {
+    {   
+        if(child == null)
+        {
+            Debug.Log("null");
+        }
+        Debug.Log(child.name);
         child.transform.localPosition = new Vector3(msg.position.x, msg.position.y, msg.position.z);
         child.transform.localRotation = new Quaternion(msg.orientation.x, msg.orientation.y, msg.orientation.z, msg.orientation.w);
-
     }
 }
 
