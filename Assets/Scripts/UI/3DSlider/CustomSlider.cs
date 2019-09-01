@@ -8,7 +8,6 @@ public class CustomSlider : MonoBehaviour
     public float defaultValue;
 
     private Vector3 defaultPosFull;
-    private Vector3 defaultPosFill;
     
     private Animator titleAnimator;
     private Animator valueAnimator;
@@ -17,14 +16,14 @@ public class CustomSlider : MonoBehaviour
     private float value;
 
     //For debugging
-    /*public Vector3 v1 = new Vector3(0,0,0);
+    public Vector3 v1 = new Vector3(0,0,0);
     public Vector3 v2 = new Vector3(0, 0, 0);
     public Vector3 v3 = new Vector3(0, 0, 0);
-    public Vector3 v4 = new Vector3(0, 0, 0);*/
+    public Vector3 v4 = new Vector3(0, 0, 0);
 
     private void Reset()
     {
-        value = 100f;
+        defaultValue = 100f;
     }
 
     /// <summary>
@@ -35,10 +34,8 @@ public class CustomSlider : MonoBehaviour
         titleAnimator = this.transform.parent.GetChild(1).GetComponent<Animator>();
         valueAnimator = this.transform.GetChild(1).GetComponent<Animator>();
         valueText = this.transform.GetChild(1).GetComponent<TextMesh>();
-        value = 1f;
 
         defaultPosFull = transform.localPosition;
-        defaultPosFill = transform.GetChild(0).localPosition;
 
         setDefaultValue();
     }
@@ -55,7 +52,7 @@ public class CustomSlider : MonoBehaviour
             titleAnimator.SetBool("Collision", true);
             valueAnimator.SetBool("VisibleIntersect", true);
             IntersectingObject = collision.gameObject;
-            updateValue(collision);
+            updateValue(collision.transform.position);
         }
     }
 
@@ -74,11 +71,11 @@ public class CustomSlider : MonoBehaviour
             titleAnimator.SetBool("Collision", true);
             valueAnimator.SetBool("VisibleIntersect", true);
             IntersectingObject = collision.gameObject;
-            updateValue(collision);
+            updateValue(collision.transform.position);
         }
         else if (IntersectingObject != null && IntersectingObject.Equals(collision.gameObject))
         {
-            updateValue(collision);
+            updateValue(collision.transform.position);
         }
     }
 
@@ -101,12 +98,11 @@ public class CustomSlider : MonoBehaviour
     /// The value for the slider gets updated according to the position of the collision.
     /// The slider fill object and the value text are updated.
     /// </summary>
-    /// <param name="collision">The collision of the slider and the object controlling it.</param>
-    private void updateValue(Collider collider)
+    /// <param name="worldPoint">Intersection point of slider and controlling object.</param>
+    private void updateValue(Vector3 worldPoint)
     {
         Vector3 localRightBorderPoint = transform.localPosition;
         localRightBorderPoint.y += -1f * transform.localScale.y;
-        Vector3 worldPoint = collider.transform.position;
         Transform fillTransform = transform.GetChild(0);
         if(!fillTransform.gameObject.activeSelf)
         {
@@ -178,7 +174,13 @@ public class CustomSlider : MonoBehaviour
     /// </summary>
     public void setDefaultValue()
     {
-        //ToDo
+        Vector3 localLeftBorderPoint = transform.localPosition;
+        localLeftBorderPoint.y += 1f * transform.localScale.y;
+        Vector3 localRightBorderPoint = transform.localPosition;
+        localRightBorderPoint.y += -1f * transform.localScale.y;
+        Debug.Log("Called SetDefaultValue, updating slider now " + defaultValue);
+        v1 = transform.TransformPoint(localLeftBorderPoint - new Vector3(0, (defaultValue / 100f) * (localLeftBorderPoint.y - localRightBorderPoint.y), 0));
+        updateValue(v1);
     }
 
     /// <summary>
@@ -204,7 +206,7 @@ public class CustomSlider : MonoBehaviour
     // Only for debugging
     /*private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(v1, 0.01f);
+        Gizmos.DrawSphere(v1, 10f);
         Gizmos.color = new Color(255,0,0);
         Gizmos.DrawSphere(v2, 0.012f);
         Gizmos.color = new Color(0, 255, 0);

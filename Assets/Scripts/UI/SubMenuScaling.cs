@@ -36,6 +36,7 @@ public class SubMenuScaling : MonoBehaviour
     private void Start()
     {
         runInEditMode = true;
+        findChildren();
     }
 
     private void Reset()
@@ -114,7 +115,8 @@ public class SubMenuScaling : MonoBehaviour
             {
                 //lossyScale should work fine. If it returns incorrect results, check whether children's rotaion cause skew.
                 //Then try: oldLength = topSide.localScale.y * horizontalSides.localScale.x * adjustableSides.localScale.x * ...;
-                float oldLength = topSide.lossyScale.y;
+                //float oldLength = topSide.lossyScale.y;
+                float oldLength = topSide.localScale.y * horizontalSides.localScale.x;
                 float newLength = topSide.localScale.y * width;
                 float changeValue = (newLength - oldLength) / 2;
 
@@ -135,7 +137,8 @@ public class SubMenuScaling : MonoBehaviour
             {
                 //lossyScale should work fine. If it returns incorrect results, check whether children's rotaion cause skew.
                 //Then try: oldLength = leftSide.localScale.y * verticalSides.localScale.y * adjustableSides.localScale.y * ...;
-                float oldLength = leftSide.lossyScale.y;
+                //float oldLength = leftSide.lossyScale.y;
+                float oldLength = leftSide.localScale.y * verticalSides.localScale.y;
                 float newLength = leftSide.localScale.y * height;
                 float changeValue = (newLength - oldLength) / 2;
 

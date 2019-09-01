@@ -23136,6 +23136,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Finals Demo Advanced Menu2
       objectReference: {fileID: 0}
+    - target: {fileID: 6247588985573946740, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
+        type: 3}
+      propertyPath: defaultValue
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6263858658076932687, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23211,6 +23216,21 @@ PrefabInstance:
       propertyPath: onPress.Array.data[0].m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 2591494620817977104}
+    - target: {fileID: 8915292602138488205, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6247588986412543885, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7306026901412562337, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83, type: 3}
 --- !u!95 &2732728037983192809
