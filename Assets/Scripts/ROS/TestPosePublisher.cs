@@ -6,10 +6,6 @@ using System.Xml;
 
 public class TestPosePublisher : Publisher<RosSharp.RosBridgeClient.Messages.Roboy.Pose>
 {
-    public RoboyPoseManager manager;
-    public TextAsset XML_FILE;
-    private Dictionary<string, RoboyPart> RoboyParts = new Dictionary<string, RoboyPart>();
-
     protected override void Start()
     {
         StartCoroutine(StartPublisher(1.0f));
@@ -41,21 +37,8 @@ public class TestPosePublisher : Publisher<RosSharp.RosBridgeClient.Messages.Rob
             message.position = po;
             // Update position after a couple of seconds
             yield return new WaitForSeconds(waitTime);
-            PublishMessage(message); 
-            /*
-
-            for (int i = 0; i < 8; i++)
-            {
-                RosSharp.RosBridgeClient.Messages.Roboy.Pose message = new RosSharp.RosBridgeClient.Messages.Roboy.Pose();
-                message.id = 
-                    RosSharp.RosBridgeClient.Messages.Geometry.Quaternion or = new RosSharp.RosBridgeClient.Messages.Geometry.Quaternion();
-                    message.
-                Publish(message);
-            }
-            
-            
-          
-            break;*/
+            PublishMessage(message);
+            break;
         }
     }
 

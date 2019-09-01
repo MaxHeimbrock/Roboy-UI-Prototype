@@ -5,6 +5,7 @@ using RosSharp.RosBridgeClient;
 public class PoseSubscriber : Subscriber<RosSharp.RosBridgeClient.Messages.Roboy.Pose>
 {
     public RoboyPoseManager PoseManager;
+    public GameObject Roboy;
 
     protected override void Start()
     {
@@ -23,10 +24,11 @@ public class PoseSubscriber : Subscriber<RosSharp.RosBridgeClient.Messages.Roboy
 
     protected override void ReceiveMessage(RosSharp.RosBridgeClient.Messages.Roboy.Pose message)
     {
-        Debug.Log("ID: " + message.id);
-        Debug.Log("Orientation x: " + message.orientation.x);
-        Debug.Log("Position x: " + message.position.x);
-        PoseManager.msg = message;
-        PoseManager.poseUpdated = true;         
+        PoseManager.UpdatePose(message);
+    }
+
+    public void receive(RosSharp.RosBridgeClient.Messages.Roboy.Pose message)
+    {
+        ReceiveMessage(message);
     }
 }

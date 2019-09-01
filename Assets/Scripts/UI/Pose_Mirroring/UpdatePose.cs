@@ -1,29 +1,29 @@
 ﻿using UnityEngine;
 using System.Xml;
 using System.Collections.Generic;
+using System.Collections;
 
 public class UpdatePose : MonoBehaviour
 {
     public TextAsset XML_FILE;
     public Transform Roboy;
 
-    private void Start()
-    {
-         if (Input.GetKeyDown(KeyCode.Return))
-         {
-             getInitParameters();
-         }
-        //getInitParameters();
+    public void Start()
+    {       
+        StartCoroutine(GetInitParameters(2));
     }
 
-    public void getInitParameters()
+    IEnumerator GetInitParameters(float waitTime)
     {
+     
+        yield return new WaitForSeconds(waitTime);
+
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(XML_FILE.text);
         foreach (Transform t in Roboy)
         {
             if (t != null & t.CompareTag("RoboyPart"))
-            {
+            {               
                 XmlNode node = xmlDoc.SelectSingleNode("/sdf/model/link[@name='" + t.name + "']/pose");
 
                 string[] poseString = node.InnerText.Split(null);
@@ -39,7 +39,7 @@ public class UpdatePose : MonoBehaviour
                 Vector3 pos = new Vector3(x, y, z);
                 Quaternion q = Quaternion.Euler(new Vector3(alpha, beta, gamma));
 
-                // Conversion between ROS and Unity 
+                // Conversion between ROS Quaternions/Point and Unity Quaternion/Point
                 RosSharp.RosBridgeClient.Messages.Geometry.Quaternion or = new RosSharp.RosBridgeClient.Messages.Geometry.Quaternion();
                 or.x = q.x;
                 or.y = q.y;
@@ -50,6 +50,7 @@ public class UpdatePose : MonoBehaviour
                 po.y = pos.y;
                 po.z = pos.z;
 
+                //Create Message
                 RosSharp.RosBridgeClient.Messages.Roboy.Pose message = new RosSharp.RosBridgeClient.Messages.Roboy.Pose();
                 message.orientation = or;
                 message.position = po;
@@ -81,17 +82,13 @@ public class UpdatePose : MonoBehaviour
                         break;
                     case "head":
                         message.id = 8;
-                        break;
-                    //TODO: add mapping to all other Roboy parts and fix error handling
+                        break;                    
                     default:
-                        Debug.Log("Part not recognized");
                         continue;
-                }             
-
+                }
                 gameObject.GetComponent<MockPosePublisher>().PublishMessage(message);
-                Debug.Log(t.name);
-                Debug.Log(message.id);
             }
         }      
     }
+
 }

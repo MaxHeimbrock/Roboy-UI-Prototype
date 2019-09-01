@@ -6,84 +6,60 @@ using System.Collections;
 //public class RoboyPoseManager : Singleton<RoboyPoseManager>
 public class RoboyPoseManager: MonoBehaviour
 {
-    public Transform Roboy;
-    // Key: Name of part, Value: Roboy Part. Key encoded as String for readability. 
-    public Dictionary<string, RoboyPart> RoboyParts = new Dictionary<string, RoboyPart>();
-    private bool mockMode = true;
-    public RosSharp.RosBridgeClient.Messages.Roboy.Pose msg;
-    public bool poseUpdated = false;
+    public GameObject Roboy; 
+
 
     void Start()
     {
-        Debug.Log("Start Manager");
-        foreach (Transform t in Roboy)
-        {
-            if (t != null & t.CompareTag("RoboyPart"))
-            {
-                RoboyParts.Add(t.name, t.GetComponent<RoboyPart>());
-            }
-        }
-        if (mockMode) 
-        { 
-
-        }
+        Debug.Log("Start Pose Manager");       
     }
 
-    void Update()
-    {
-        if (!mockMode)
-        {
-            UpdatePose();
-        }
-    }
-
-    public void UpdatePose()
-    {
-        if (poseUpdated) { 
-            RoboyPart part = null;
-            if (msg != null) {
-            Debug.Log("Part with ID: " + msg.id + " received."); 
-                switch (msg.id)
+    public void UpdatePose(RosSharp.RosBridgeClient.Messages.Roboy.Pose message)
+    {   
+        if (message != null) {
+            Debug.Log("Part with ID: " + message.id + " received."); 
+                switch (message.id)
                 {
                     case 0:
-                        RoboyParts.TryGetValue("upper_arm_right", out part);               
-                        break;
+                        updateNode(Roboy.gameObject.transform.Find("upper_arm_right"),message);
+                    break;
                     case 1:
-                        RoboyParts.TryGetValue("forarm_right", out part);
-                        break;
-                    case 2:                
-                        RoboyParts.TryGetValue("hand_right", out part);                
-                        break;
+                        updateNode(Roboy.gameObject.transform.Find("forearm_right"),message);
+                    break;
+                    case 2:               
+                        updateNode(Roboy.gameObject.transform.Find("hand_right"),message);
+                    break;
                     case 3:
-                        RoboyParts.TryGetValue("elbow_right", out part);
+                        updateNode(Roboy.gameObject.transform.Find("elbow_right"),message);
                         break;
                     case 4:
-                        RoboyParts.TryGetValue("upper_arm_left", out part);
+                        updateNode(Roboy.gameObject.transform.Find("upper_arm_left"),message);                   
                         break;
                     case 5:
-                        RoboyParts.TryGetValue("forarm_left", out part);
+                        updateNode(Roboy.gameObject.transform.Find("forearm_left"),message);
                         break;
                     case 6:
-                        RoboyParts.TryGetValue("hand_left", out part);
+                        updateNode(Roboy.gameObject.transform.Find("hand_left"),message);
                         break;
-                    case 7:
-                        RoboyParts.TryGetValue("elbow_left", out part);
+                    case 7:                   
+                        updateNode(Roboy.gameObject.transform.Find("elbow_left"),message);
                         break;
                     case 8:
-                        RoboyParts.TryGetValue("head", out part);
+                        updateNode(Roboy.gameObject.transform.Find("head"),message);
                         break;
                     //TODO: add mapping to all other Roboy parts
                     default:
                         Debug.Log("Part not recognized");
                         break;
-                }
-            }
-            // Only update position if a valid part has been recognized.
-            if (part != null) {        
-                part.transform.localPosition = new Vector3(msg.position.x, msg.position.y, msg.position.z);
-                part.transform.localRotation = new Quaternion(msg.orientation.x, msg.orientation.y, msg.orientation.z, msg.orientation.w);
-                poseUpdated = false;
+                }         
             }
         }
+
+    public void updateNode(Transform child, RosSharp.RosBridgeClient.Messages.Roboy.Pose msg)
+    {
+        child.transform.localPosition = new Vector3(msg.position.x, msg.position.y, msg.position.z);
+        child.transform.localRotation = new Quaternion(msg.orientation.x, msg.orientation.y, msg.orientation.z, msg.orientation.w);
+
     }
 }
+

@@ -21,8 +21,7 @@ public class GetPose : MonoBehaviour
                 XmlNode node = xmlDoc.SelectSingleNode("/sdf/model/link[@name='" + t.name + "']/pose");
                 string pose = ""+ t.transform.localPosition.x + " " + t.transform.localPosition.y + " " + t.transform.localPosition.z + " " + t.transform.localRotation.eulerAngles.x + " " + t.transform.localRotation.eulerAngles.y + " "+t.transform.localRotation.eulerAngles.z;
                 node.InnerText = pose;               
-                xmlDoc.Save("mock_pose.xml");
-               
+                xmlDoc.Save("mock_pose.xml");               
             }
         }
     }
