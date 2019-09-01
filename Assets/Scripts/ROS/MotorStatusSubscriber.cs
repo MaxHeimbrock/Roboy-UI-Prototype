@@ -19,7 +19,7 @@ public class MotorStatusSubscriber : Subscriber<RosSharp.RosBridgeClient.Message
         motorStatusQueue.Enqueue(msg);
     }
 
-    public Message DequeueMotorMessage()
+    public RosSharp.RosBridgeClient.Messages.Roboy.MotorStatus DequeueMotorMessage()
     {
         return motorStatusQueue.Dequeue();
     }
@@ -41,9 +41,6 @@ public class MotorStatusSubscriber : Subscriber<RosSharp.RosBridgeClient.Message
 
     protected override void ReceiveMessage(RosSharp.RosBridgeClient.Messages.Roboy.MotorStatus message)
     {
-        EnqueueMotorMessage(message);
-        Debug.Log("ID: " + message.id);
-        Debug.Log("Power: " + message.power_sense);
-        Debug.Log("PWM: " + message.pwm_ref);
+        EnqueueMotorMessage(message);      
     }
 }

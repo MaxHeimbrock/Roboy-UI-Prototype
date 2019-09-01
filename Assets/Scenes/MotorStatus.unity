@@ -313,9 +313,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 125506351}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8b53a113cca6424db5451f97045ce4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5dcec6a43cd5446a2be94ceaee4efbd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Roboy: {fileID: 1325440237}
+  Motor1: {fileID: 1409304971}
+  Motor2: {fileID: 1879029686}
 --- !u!1001 &531246822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -915,18 +918,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 760105588}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1325440238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325440237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac0ea2db372794a0c98c12bbaed91f65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1389048747
 GameObject:
   m_ObjectHideFlags: 0
