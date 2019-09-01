@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.roboyprototype.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\Leenert\\Documents\\Studium - Entwicklung\\Roboy\\Roboy-UI-Prototype\\actions.json",
+      "action_manifest_path": "C:\\Users\\Leenert\\Documents\\Studium - Entwicklung\\Roboy\\neu\\Roboy-UI-Prototype\\actions.json",
       "strings": {
         "en_us": {
           "name": "Roboy Prototype [Testing]"
