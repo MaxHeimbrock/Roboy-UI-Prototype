@@ -19,6 +19,7 @@ TagManager:
   - ROSManager
   - HandMatchingCollider
   - LightRoom
+  - Motor
   layers:
   - Default
   - TransparentFX
