@@ -22,12 +22,24 @@ public class LockPlayerInRoom : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        // Wand oben || Wand unten
-        if (this.transform.position.z >= 4.6 || this.transform.position.z <= -2.5f)
+        // Wand oben && links || wand oben && rechts || Wand unten
+        //  4.6
+        //  ----
+        //  |  |_
+        //  |    |
+        //  ------
+        //  -2.5
+        if ((this.transform.position.z >= 4.6 && this.transform.position.x < 0.4f) || (this.transform.position.z >= 1.79f && this.transform.position.x > 0.4f) || this.transform.position.z <= -2.5f)
             lockZ = true;
 
-        // Wand links || Wand rechts unten || Wand rechts oben
-        if (this.transform.position.x <= -4.85f || (this.transform.position.x >= 1.39f && this.transform.position.z > 1.79f) || (this.transform.position.x <= -0.4f &&  this.transform.position.z < 1.79f))
+        //  
+        //      ----
+        // 4.85 |  |_  -0.4
+        //      |    |  1.39
+        //      ------
+        //  
+        // Wand links || Wand rechts && unten || Wand rechts && oben
+        if (this.transform.position.x <= -4.85f || (this.transform.position.x >= 1.39f && this.transform.position.z < 1.79f) || (this.transform.position.x >= -0.4f &&  this.transform.position.z > 1.79f))
             lockX = true;
 
         if (lockX == true && lockZ == false)

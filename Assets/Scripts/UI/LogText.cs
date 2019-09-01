@@ -9,7 +9,7 @@ public class LogText : Singleton<LogText>
     public enum LogLevel {info, warning, error};
 
     // Roboy Log variables
-    private string roboyText = "Start Log";
+    private string roboyText = "";
     private int roboyUnreadCount = 0;
 
     [Header("Roboy GameObject References")]
@@ -18,7 +18,7 @@ public class LogText : Singleton<LogText>
     public GameObject roboyToastrPrefab;
 
     // Operator Log variables
-    private string operatorText = "Start Log";
+    private string operatorText = "";
     private int operatorUnreadCount = 0;
 
     [Header("Operator GameObject References")]

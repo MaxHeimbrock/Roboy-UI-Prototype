@@ -33,6 +33,11 @@ public class SubMenuScaling : MonoBehaviour
     private Transform nameTag;
     #endregion
 
+    private void Start()
+    {
+        runInEditMode = true;
+    }
+
     private void Reset()
     {
         Vector3 zeroVector = new Vector3(0, 0, 0);
