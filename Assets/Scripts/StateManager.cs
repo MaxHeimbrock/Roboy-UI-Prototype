@@ -11,6 +11,7 @@ public class StateManager: Singleton<StateManager>
     public GameObject MirroredPlayerPositionWithRoboy;
     //public GameObject SnapshotCamera;
     public GameObject HUD_Game_Objects;
+    public GameObject rosManager;
 
     [Header("Just a helper if pointing with mouse")]
     [Tooltip("When the mouse is not moved after transition, the transition button is still in clicked state. Reference for resetting the state to not clicked.")]
@@ -42,7 +43,7 @@ public class StateManager: Singleton<StateManager>
                 Quaternion previousRotation = Camera.main.transform.rotation;
 
                 //Send trigger to VRPuppet           
-                VRPuppetStateTransmissionServiceRequest.Instance.callService();               
+                //VRPuppetStateTransmissionServiceRequest.Instance.callService();               
                 //Roboy.SetActive(true);
                 Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationOnly;
                 Camera.main.GetComponent<TransitionHelper_SetPosition>().SetOffset(previousPos);
@@ -51,6 +52,9 @@ public class StateManager: Singleton<StateManager>
                 CameraAnimatorScript.Instance.StartTransitionToAdvancedMenu();
                 // Vest
                 GameObject.FindGameObjectWithTag("VestTransition").GetComponent<VestTransition>().playTact();
+
+                //Update Pose
+                rosManager.GetComponent<UpdatePose>().GetInitParameters();
                 break;
 
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -75,8 +79,6 @@ public class StateManager: Singleton<StateManager>
             // FROM ADVANCED MENU TO TRANSITION //////////////////////////////////////////////////////////////////////
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
             case MenuState.advancedMenu:
-                Roboy.GetComponent<RotateRoboy>().ResetRoboy();
-
                 //SnapshotCamera.SetActive(true);
                 Roboy.GetComponent<RotateRoboy>().enabled = false;
                 foreach (SubMenuAnimationHandler h in AdvancedMenu.GetComponentsInChildren<SubMenuAnimationHandler>())

@@ -37,14 +37,9 @@ public class XMLParser : MonoBehaviour
     Quaternion gazeboRotationToUnity(Quaternion gazeboRot)
     {
         Quaternion rotX = Quaternion.AngleAxis(180f, Vector3.right);
-        Quaternion rotZ = Quaternion.AngleAxis(180f, Vector3.forward);
-        //Quaternion rotX = Quaternion.AngleAxis(90f, Vector3.right);
-        //Quaternion rotZ = Quaternion.AngleAxis(180f, Vector3.forward);
-
+        Quaternion rotZ = Quaternion.AngleAxis(180f, Vector3.forward);     
         Quaternion tempRot = new Quaternion(-gazeboRot.x, -gazeboRot.z, -gazeboRot.y, gazeboRot.w);
-
         Quaternion finalRot = gazeboRot * rotZ * rotX;
-
         return finalRot;
     }
 

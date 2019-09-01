@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RosSharp.RosBridgeClient;
+using System.Xml;
 
 public class TestPosePublisher : Publisher<RosSharp.RosBridgeClient.Messages.Roboy.Pose>
 {
-
     protected override void Start()
     {
         StartCoroutine(StartPublisher(1.0f));

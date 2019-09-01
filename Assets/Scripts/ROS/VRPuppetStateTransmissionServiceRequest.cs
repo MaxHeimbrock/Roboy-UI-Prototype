@@ -14,6 +14,14 @@ public class VRPuppetStateTransmissionServiceRequest : Singleton<VRPuppetStateTr
         rosConnector.RosSocket.CallService<VRPuppetStateTransmissionRequest, VRPuppetStateTransmissionResponse>("/vr_puppets/state_transmission", ServiceCallHandler, new VRPuppetStateTransmissionRequest(true));
     }
 
+    public void CallHandService(bool trigger)
+    {
+        RosConnector rosConnector = GetComponent<RosConnector>();
+        VRPuppetStateTransmissionRequest vrPuppetStateTransmissionRequest = new VRPuppetStateTransmissionRequest(trigger);
+        // we need to use '/vr_puppets/state_transmission' for the demo
+        rosConnector.RosSocket.CallService<VRPuppetStateTransmissionRequest, VRPuppetStateTransmissionResponse>("/vr_puppets/obstacle_reached", ServiceCallHandler, new VRPuppetStateTransmissionRequest(trigger));
+    }
+
     /// <summary>
     /// Handles the response of the service call
     /// </summary>
