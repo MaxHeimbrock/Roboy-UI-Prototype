@@ -55,6 +55,7 @@ public class StateManager: Singleton<StateManager>
 
                 //Update Pose
                 rosManager.GetComponent<UpdatePose>().GetInitParameters();
+                rosManager.GetComponent<MockMotorStatusPublisher>().PublishMotorMessage();
                 break;
 
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
