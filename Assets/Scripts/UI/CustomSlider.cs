@@ -8,23 +8,25 @@ public class CustomSlider : MonoBehaviour
     public float defaultValue;
 
     private Vector3 defaultPosFull;
-    private Vector3 defaultPosFill;
-    
+
     private Animator titleAnimator;
     private Animator valueAnimator;
     private TextMesh valueText;
     private GameObject IntersectingObject;
     private float value;
 
+    private int[] fingers;
+    private SenseGlove_Object senseGloveObject;
+
     //For debugging
-    /*public Vector3 v1 = new Vector3(0,0,0);
+    public Vector3 v1 = new Vector3(0, 0, 0);
     public Vector3 v2 = new Vector3(0, 0, 0);
     public Vector3 v3 = new Vector3(0, 0, 0);
-    public Vector3 v4 = new Vector3(0, 0, 0);*/
+    public Vector3 v4 = new Vector3(0, 0, 0);
 
     private void Reset()
     {
-        value = 100f;
+        defaultValue = 100f;
     }
 
     /// <summary>
@@ -35,12 +37,18 @@ public class CustomSlider : MonoBehaviour
         titleAnimator = this.transform.parent.GetChild(1).GetComponent<Animator>();
         valueAnimator = this.transform.GetChild(1).GetComponent<Animator>();
         valueText = this.transform.GetChild(1).GetComponent<TextMesh>();
-        value = 1f;
+
+        fingers = new[] { 0, 0, 0, 0, 0 };
+        senseGloveObject = GameObject.FindGameObjectWithTag("SenseGloveRight").GetComponent<SenseGlove_Object>();
 
         defaultPosFull = transform.localPosition;
-        defaultPosFill = transform.GetChild(0).localPosition;
 
         setDefaultValue();
+    }
+
+    private void Update()
+    {
+        senseGloveObject.SendBuzzCmd(fingers, 500);
     }
 
     /// <summary>
@@ -55,7 +63,30 @@ public class CustomSlider : MonoBehaviour
             titleAnimator.SetBool("Collision", true);
             valueAnimator.SetBool("VisibleIntersect", true);
             IntersectingObject = collision.gameObject;
-            updateValue(collision);
+            updateValue(collision.transform.position);
+        }
+        if (collision.gameObject.CompareTag("HandMatchingCollider"))
+        {
+            if (collision.name.Equals("thumbMatchCollider"))
+            {
+                fingers[0] = 50;
+            }
+            if (collision.name.Equals("indexMatchCollider"))
+            {
+                fingers[1] = 50;
+            }
+            if (collision.name.Equals("middleMatchCollider"))
+            {
+                fingers[2] = 50;
+            }
+            if (collision.name.Equals("ringMatchCollider"))
+            {
+                fingers[3] = 50;
+            }
+            if (collision.name.Equals("pinkyMatchCollider"))
+            {
+                fingers[4] = 50;
+            }
         }
     }
 
@@ -74,11 +105,11 @@ public class CustomSlider : MonoBehaviour
             titleAnimator.SetBool("Collision", true);
             valueAnimator.SetBool("VisibleIntersect", true);
             IntersectingObject = collision.gameObject;
-            updateValue(collision);
+            updateValue(collision.transform.position);
         }
         else if (IntersectingObject != null && IntersectingObject.Equals(collision.gameObject))
         {
-            updateValue(collision);
+            updateValue(collision.transform.position);
         }
     }
 
@@ -95,20 +126,42 @@ public class CustomSlider : MonoBehaviour
             titleAnimator.SetBool("Collision", false);
             valueAnimator.SetBool("VisibleIntersect", false);
         }
+        if (collision.gameObject.CompareTag("HandMatchingCollider"))
+        {
+            if (collision.name.Equals("thumbMatchCollider"))
+            {
+                fingers[0] = 0;
+            }
+            if (collision.name.Equals("indexMatchCollider"))
+            {
+                fingers[1] = 0;
+            }
+            if (collision.name.Equals("middleMatchCollider"))
+            {
+                fingers[2] = 0;
+            }
+            if (collision.name.Equals("ringMatchCollider"))
+            {
+                fingers[3] = 0;
+            }
+            if (collision.name.Equals("pinkyMatchCollider"))
+            {
+                fingers[4] = 0;
+            }
+        }
     }
 
     /// <summary>
     /// The value for the slider gets updated according to the position of the collision.
     /// The slider fill object and the value text are updated.
     /// </summary>
-    /// <param name="collision">The collision of the slider and the object controlling it.</param>
-    private void updateValue(Collider collider)
+    /// <param name="worldPoint">Intersection point of slider and controlling object.</param>
+    private void updateValue(Vector3 worldPoint)
     {
         Vector3 localRightBorderPoint = transform.localPosition;
         localRightBorderPoint.y += -1f * transform.localScale.y;
-        Vector3 worldPoint = collider.transform.position;
         Transform fillTransform = transform.GetChild(0);
-        if(!fillTransform.gameObject.activeSelf)
+        if (!fillTransform.gameObject.activeSelf)
         {
             fillTransform.gameObject.SetActive(true);
         }
@@ -129,8 +182,8 @@ public class CustomSlider : MonoBehaviour
         }*/
         Vector3 localLeftBorderPoint = transform.localPosition;
         localLeftBorderPoint.y += 1f * transform.localScale.y;
-		
-		//Trim to slider size
+
+        //Trim to slider size
         if (closestPoint.y > localLeftBorderPoint.y)
         {
             closestPoint.y = localLeftBorderPoint.y;
@@ -144,11 +197,11 @@ public class CustomSlider : MonoBehaviour
         float totalLength = localLeftBorderPoint.y - localRightBorderPoint.y;
         value = (localLeftBorderPoint.y - closestPoint.y) / totalLength;
         valueText.text = Mathf.Round(value * 100f).ToString() + "%";
-        
+
         //Apply new value: scale & position
-        if(value < 1f)
+        if (value < 1f)
         {
-            if(value > 0f)
+            if (value > 0f)
             {
                 fillTransform.localScale = new Vector3(fillTransform.localScale.x, value, fillTransform.localScale.z);
             }
@@ -161,7 +214,7 @@ public class CustomSlider : MonoBehaviour
         {
             fillTransform.localScale = new Vector3(fillTransform.localScale.x, value + 0.0002f, fillTransform.localScale.z);
         }
-        fillTransform.localPosition = new Vector3(fillTransform.localPosition.x, (transform.localPosition.y + (totalLength - (totalLength * value))/2f)+0.0001f, fillTransform.localPosition.z);
+        fillTransform.localPosition = new Vector3(fillTransform.localPosition.x, (transform.localPosition.y + (totalLength - (totalLength * value)) / 2f) + 0.0001f, fillTransform.localPosition.z);
     }
 
     /// <summary>
@@ -178,7 +231,13 @@ public class CustomSlider : MonoBehaviour
     /// </summary>
     public void setDefaultValue()
     {
-        //ToDo
+        Vector3 localLeftBorderPoint = transform.localPosition;
+        localLeftBorderPoint.y += 1f * transform.localScale.y;
+        Vector3 localRightBorderPoint = transform.localPosition;
+        localRightBorderPoint.y += -1f * transform.localScale.y;
+        Debug.Log("Called SetDefaultValue, updating slider now " + defaultValue);
+        v1 = transform.TransformPoint(localLeftBorderPoint - new Vector3(0, (defaultValue / 100f) * (localLeftBorderPoint.y - localRightBorderPoint.y), 0));
+        updateValue(v1);
     }
 
     /// <summary>
@@ -204,7 +263,7 @@ public class CustomSlider : MonoBehaviour
     // Only for debugging
     /*private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(v1, 0.01f);
+        Gizmos.DrawSphere(v1, 10f);
         Gizmos.color = new Color(255,0,0);
         Gizmos.DrawSphere(v2, 0.012f);
         Gizmos.color = new Color(0, 255, 0);

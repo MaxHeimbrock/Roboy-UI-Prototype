@@ -23,7 +23,11 @@ public class RotateRoboy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Rotate Roboy: " + slider.GetValue());
-        this.transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, slider.GetValue() * 540, this.transform.localEulerAngles.z);
+        this.transform.localEulerAngles = new Vector3(this.transform.localEulerAngles.x, slider.GetValue() * 360, this.transform.localEulerAngles.z);
+    }
+
+    private void OnEnable()
+    {
+        slider.setDefaultValue();
     }
 }

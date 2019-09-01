@@ -67,10 +67,7 @@ public class StateManager: Singleton<StateManager>
                 CameraAnimatorScript.Instance.SetButtonNotPointed();
                 // Set TransitionButton to not clicked to fix bug with mouse not moved. This will not be needed with eye tracking.
                 TransitionButton.OnPointerExit(null);
-                foreach(SubMenuAnimationHandler h in AdvancedMenu.GetComponentsInChildren<SubMenuAnimationHandler>())
-                {
-                    h.FadeIn();
-                }
+                AdvancedMenu.SetActive(true);
                 Roboy.GetComponent<RotateRoboy>().enabled = true;
                 Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationAndPosition;
                 break;
@@ -81,10 +78,7 @@ public class StateManager: Singleton<StateManager>
             case MenuState.advancedMenu:
                 //SnapshotCamera.SetActive(true);
                 Roboy.GetComponent<RotateRoboy>().enabled = false;
-                foreach (SubMenuAnimationHandler h in AdvancedMenu.GetComponentsInChildren<SubMenuAnimationHandler>())
-                {
-                    h.FadeOut();
-                }
+                AdvancedMenu.SetActive(false);
                 CameraAnimatorScript.Instance.StartTransitionToHUD();
 
                 // this is for all the positioning of the transition translation
