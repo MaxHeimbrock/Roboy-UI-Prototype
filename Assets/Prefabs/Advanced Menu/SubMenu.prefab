@@ -882,6 +882,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 1
   height: 1
+  horizontalAlignmentText: center
+  verticalAlignmentText: top
 --- !u!1 &1813618146775459850
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,7 +926,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813618146775459850}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ba31538329c9fe54ab946ec7f4c046f2, type: 2}
   m_CullingMode: 0
@@ -1396,7 +1398,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6695917935634925872}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c0b3387b6e020943af405c162fa4583, type: 3}
   m_Name: 
