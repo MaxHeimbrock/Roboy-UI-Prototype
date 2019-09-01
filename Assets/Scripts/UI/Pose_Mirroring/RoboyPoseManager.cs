@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections;
 
 // The Pose Manager class updates the pose of Roboy according to the current pose of the user.
-//public class RoboyPoseManager : Singleton<RoboyPoseManager>
 public class RoboyPoseManager: MonoBehaviour
 {
     public GameObject Roboy;
