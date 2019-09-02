@@ -19,6 +19,6 @@ MonoBehaviour:
   steamVRInputPath: SteamVR_Input
   inputUpdateMode: 2
   poseUpdateMode: 8
-  activateFirstActionSetOnStart: 1
+  activateFirstActionSetOnStart: 0
   editorAppKey: application.generated.unity.roboyprototype.exe
-  autoEnableVR: 1
+  autoEnableVR: 0

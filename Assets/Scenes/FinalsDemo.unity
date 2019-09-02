@@ -7010,6 +7010,7 @@ GameObject:
   - component: {fileID: 437283609775624664}
   - component: {fileID: 437283609775624669}
   - component: {fileID: 437283609775624670}
+  - component: {fileID: 437283609775624671}
   m_Layer: 8
   m_Name: Main Camera MAIN
   m_TagString: MainCamera
@@ -7039,6 +7040,23 @@ Skybox:
   m_GameObject: {fileID: 437283609775624668}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: d814d80f645916646a2a96810e278616, type: 2}
+--- !u!114 &437283609775624671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437283609775624668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 790712517, guid: cb052b9f86e311144bddaf18449eecf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HmdOnlyProject: 1
+  Tracking: 1
+  TrackedExternalObject: {fileID: 0}
+  CalibrationKey: 291
+  antialiasing: 8
 --- !u!1 &437283609812602784
 GameObject:
   m_ObjectHideFlags: 0
@@ -24894,7 +24912,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2591494620817977104
 MonoBehaviour:
   m_ObjectHideFlags: 0
