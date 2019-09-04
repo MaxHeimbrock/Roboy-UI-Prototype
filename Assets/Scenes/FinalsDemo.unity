@@ -3367,6 +3367,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3238418657129477853, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
         type: 3}
+      propertyPath: onPress.Array.data[0].m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3238418657129477853, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
+        type: 3}
+      propertyPath: onPress.Array.data[1].m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3238418657129477853, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
+        type: 3}
       propertyPath: pressurePlateTransform
       value: 
       objectReference: {fileID: 1680722069}
@@ -3394,6 +3404,56 @@ PrefabInstance:
         type: 3}
       propertyPath: isToggle
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3238418657129477853, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
+        type: 3}
+      propertyPath: onPress.Array.data[0].m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3238418657129477853, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
+        type: 3}
+      propertyPath: onPress.Array.data[0].m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3238418657129477853, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
+        type: 3}
+      propertyPath: onPress.Array.data[0].m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 3299558176777211610}
+    - target: {fileID: 3238418657129477853, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
+        type: 3}
+      propertyPath: onPress.Array.data[0].m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SwitchToPointCloud
+      objectReference: {fileID: 0}
+    - target: {fileID: 3238418657129477853, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
+        type: 3}
+      propertyPath: onPress.Array.data[0].m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3238418657129477853, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
+        type: 3}
+      propertyPath: onPress.Array.data[1].m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3238418657129477853, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
+        type: 3}
+      propertyPath: onPress.Array.data[1].m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3238418657129477853, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
+        type: 3}
+      propertyPath: onPress.Array.data[1].m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 3299558176777211610}
+    - target: {fileID: 3238418657129477853, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
+        type: 3}
+      propertyPath: onPress.Array.data[1].m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SwitchToYAH
+      objectReference: {fileID: 0}
+    - target: {fileID: 3238418657129477853, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
+        type: 3}
+      propertyPath: onPress.Array.data[1].m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3777398540632586676, guid: bbd4fb98ac1c5dc4d9cd076b908d1c83,
         type: 3}
