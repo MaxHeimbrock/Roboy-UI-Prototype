@@ -71,7 +71,7 @@ public class FrameClickDetection : MonoBehaviour
         if (pressurePlateCollider.Equals(other))
         {
             Debug.Log("Frame Exit");
-            if (transform.InverseTransformPoint(pressurePlateTransform.position).z < transform.position.z)
+            if (transform.InverseTransformPoint(pressurePlateTransform.position).z < transform.localPosition.z)
             {
                 wait = false;
                 unpress();
