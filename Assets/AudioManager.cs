@@ -6,17 +6,12 @@ public class AudioManager : Singleton<AudioManager>
 {
     public AudioSource messageSound;
     public AudioSource buttonClickSound;
-
-    // Start is called before the first frame update
-    void Start()
+    public CustomSlider slider;
+    
+    private void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        messageSound.volume = slider.GetValue();
+        buttonClickSound.volume = slider.GetValue();
     }
 
     public void PlayMessageSound()

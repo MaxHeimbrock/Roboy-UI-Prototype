@@ -14,7 +14,7 @@ public class FrameClickDetection : MonoBehaviour
     private int onUnpressIndex;
     private bool wait;
     private Collider pressurePlateCollider;
-    private Transform pressurePlateTransform;
+    public Transform pressurePlateTransform;
     private MeshRenderer meshRenderer;
     private Color defaultColor;
     private Color lightBlue;
@@ -30,7 +30,7 @@ public class FrameClickDetection : MonoBehaviour
         toggle = false;
         onPressIndex = 0;
         onUnpressIndex = 0;
-        pressurePlateTransform = transform.parent.GetChild(0);
+        //pressurePlateTransform = transform.parent.GetChild(0);
         pressurePlateCollider = pressurePlateTransform.GetComponent<Collider>();
         defaultColor = transform.GetChild(0).GetComponent<MeshRenderer>().material.GetColor("_Color");
 
@@ -51,6 +51,7 @@ public class FrameClickDetection : MonoBehaviour
     {
         if (pressurePlateCollider.Equals(other))
         {
+            Debug.Log("Frame TriggerEnter: " + other.name);
             if (!wait)
             { 
                 press();
@@ -69,7 +70,8 @@ public class FrameClickDetection : MonoBehaviour
     {
         if (pressurePlateCollider.Equals(other))
         {
-            if (pressurePlateTransform.position.z < transform.position.z)
+            Debug.Log("Frame Exit");
+            if (transform.InverseTransformPoint(pressurePlateTransform.position).z < transform.position.z)
             {
                 wait = false;
                 unpress();
