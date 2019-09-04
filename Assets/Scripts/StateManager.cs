@@ -83,6 +83,10 @@ public class StateManager: Singleton<StateManager>
             case MenuState.advancedMenu:
                 //SnapshotCamera.SetActive(true);
                 Roboy.GetComponent<RotateRoboy>().enabled = false;
+                foreach (GameObject obj in GameObject.FindGameObjectsWithTag("SubMenu3D"))
+                {
+                    obj.transform.GetChild(2).GetComponent<SubMenuAnimationHandler>().FadeOut();
+                }
                 //AdvancedMenu.SetActive(false);
                 CameraAnimatorScript.Instance.StartTransitionToHUD();
 
@@ -138,5 +142,12 @@ public class StateManager: Singleton<StateManager>
     public MenuState GetCurrentState()
     {
         return currentMenuState;
+    }
+
+    public void ShutDownApplication()
+    {
+        Debug.Log("ShutDown: Bye Bye");
+        UnityEditor.EditorApplication.isPlaying = false;
+        //Application.Quit();
     }
 }
