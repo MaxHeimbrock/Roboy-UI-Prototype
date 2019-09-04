@@ -180,14 +180,15 @@ public class SubMenuAnimationHandler : MonoBehaviour
         foreach (GameObject obj in allButtons)
         {
             Transform frame = obj.transform.GetChild(1);
+            frame.GetComponent<FrameClickDetection>().highlightOff();
             frame.GetComponent<Collider>().enabled = false;
             frame.GetComponent<FrameClickDetection>().enabled = false;
 
             Transform activeArea = obj.transform.GetChild(2);
             activeArea.GetComponent<Collider>().enabled = false;
 
-            Transform pressurePlate = obj.transform.GetChild(0);
-            pressurePlate.gameObject.SetActive(false);
+            /*Transform pressurePlate = obj.transform.GetChild(0);
+            pressurePlate.gameObject.SetActive(false);*/
             //pressurePlate.GetComponent<Collider>().enabled = false;
         }
     }
@@ -203,14 +204,14 @@ public class SubMenuAnimationHandler : MonoBehaviour
             /*Transform activeArea = obj.transform.GetChild(2);
             activeArea.GetComponent<Collider>().enabled = true;*/
 
-            Transform pressurePlate = obj.transform.GetChild(0);
-            pressurePlate.gameObject.SetActive(true);
+            /*Transform pressurePlate = obj.transform.GetChild(0);
+            pressurePlate.gameObject.SetActive(true);*/
             /*Rigidbody rigidbody = pressurePlate.GetComponent<Rigidbody>();
             rigidbody.velocity = Vector3.zero;
             rigidbody.angularVelocity = Vector3.zero;
             rigidbody.centerOfMass = new Vector3(0, 0, 0.01f);*/
-            pressurePlate.transform.localPosition = new Vector3(0, 0.75f, -0.325f);
-            pressurePlate.GetComponent<Collider>().enabled = true;
+            /*pressurePlate.transform.localPosition = new Vector3(0, 0.75f, -0.325f);
+            pressurePlate.GetComponent<Collider>().enabled = true;*/
         }
     }
 
@@ -219,8 +220,8 @@ public class SubMenuAnimationHandler : MonoBehaviour
         List<GameObject> allSliders = interactionPrefabs.Find(x => x.TagName.Equals("Slider3D")).FoundObjects;
         foreach (GameObject obj in allSliders)
         {
-             obj.transform.GetChild(0).GetComponent<Collider>().enabled = false;
-             obj.transform.GetChild(0).GetComponent<CustomSlider>().enabled = false;
+            obj.transform.GetChild(0).GetComponent<Collider>().enabled = false;
+            obj.transform.GetChild(0).GetComponent<CustomSlider>().enabled = false;
         }
     }
     private void safemodeOffSlider3D()

@@ -16,7 +16,7 @@ public class FrameClickDetection : MonoBehaviour
     private Collider pressurePlateCollider;
     public Transform pressurePlateTransform;
     private MeshRenderer meshRenderer;
-    private Color defaultColor;
+    public Color defaultColor;
     private Color lightBlue;
     private bool toggle;
     #endregion
@@ -134,7 +134,7 @@ public class FrameClickDetection : MonoBehaviour
     /// Turn off highlight for the button when it is released.
     /// If this instance is a toggle button, then the button's frame can turn red as visual feedback for the user that the toggle is active.
     /// </summary>
-    void highlightOff()
+    public void highlightOff()
     {
         if (isToggle)
         {
