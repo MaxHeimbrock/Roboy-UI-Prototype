@@ -25655,7 +25655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9ca9c791b860644a1b4b49f8473f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointerTechnique: 3
+  pointerTechnique: 0
 --- !u!1 &2591494620914773790
 GameObject:
   m_ObjectHideFlags: 0
@@ -26491,6 +26491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: fe92540c7995245899edb92363ec5366, type: 3}
+  XML_FILE2: {fileID: 4900000, guid: 578f73c7802670645b162f59e661d904, type: 3}
   Roboy: {fileID: 2688865199853147835}
 --- !u!4 &7555125202997501422
 Transform:

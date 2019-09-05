@@ -137,6 +137,11 @@ public class StateManager: Singleton<StateManager>
 
             Debug.Log("Changed tracking to " + Camera.main.GetComponent<TrackedPoseDriver>().trackingType);
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            rosManager.GetComponent<UpdatePose>().GetInitParameters();
+        }
     }
 
     public MenuState GetCurrentState()

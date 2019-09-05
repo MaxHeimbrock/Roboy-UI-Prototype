@@ -6,7 +6,10 @@ using System.Collections;
 public class UpdatePose : MonoBehaviour
 {
     public TextAsset XML_FILE;
+    public TextAsset XML_FILE2;
     public Transform Roboy;
+
+    bool whichPose = true;
 
     public void Start()
     {       
@@ -16,7 +19,21 @@ public class UpdatePose : MonoBehaviour
     public void GetInitParameters()
     {
         XmlDocument xmlDoc = new XmlDocument();
-        xmlDoc.LoadXml(XML_FILE.text);
+
+        // Switch between 2 poses
+        if (whichPose)
+        {
+            xmlDoc.LoadXml(XML_FILE.text);
+            Debug.Log("XML_FILE");
+        }
+        else
+        {
+            xmlDoc.LoadXml(XML_FILE2.text);
+            Debug.Log("XML_FILE2");
+        }
+
+        whichPose = !whichPose;
+
         foreach (Transform t in Roboy)
         {
             if (t != null & t.CompareTag("RoboyPart"))
