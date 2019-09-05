@@ -411,6 +411,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightHandTracker
       objectReference: {fileID: 0}
+    - target: {fileID: 5641627843154476501, guid: c3e40a5ff56c5a649b68f751f1248d3b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5641627843154476491, guid: c3e40a5ff56c5a649b68f751f1248d3b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -469,7 +474,7 @@ PrefabInstance:
     - target: {fileID: 5641627843154476500, guid: c3e40a5ff56c5a649b68f751f1248d3b,
         type: 3}
       propertyPath: index
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5640926235380573061, guid: c3e40a5ff56c5a649b68f751f1248d3b,
         type: 3}
@@ -499,6 +504,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VRPuppet ROS Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947026034514122818, guid: 90240ee05a88afb459cfc7feaa4bc2ef,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6947026034514122823, guid: 90240ee05a88afb459cfc7feaa4bc2ef,
         type: 3}
@@ -1055,7 +1065,7 @@ MonoBehaviour:
   followPosition: 1
   followYRotation: 0
   followedTransform: {fileID: 8442246940988697025}
-  offsetPosition: {x: 20, y: 0, z: 0}
+  offsetPosition: {x: 20, y: 4, z: 0}
   offsetRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &984189275 stripped
 GameObject:
@@ -5592,7 +5602,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437283608848905343}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.61899996}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
   m_Children:
   - {fileID: 437283610332886196}
@@ -25563,7 +25573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2591494620817977104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26510,7 +26520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Timeout: 10
   Protocol: 0
-  RosBridgeServerUrl: ws://192.168.137.44:9090
+  RosBridgeServerUrl: ws://192.168.137.123:9090
 --- !u!114 &7555125202997501424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26745,7 +26755,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8442246940988697027}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be76e5f14cfee674cb30b491fb72b09b, type: 3}
   m_Name: 
@@ -26786,7 +26796,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8442246940988697027}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.48, y: -2.18, z: -0.756}
+  m_LocalPosition: {x: -0.48, y: -2, z: -0.756}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8442246942040676697}
@@ -27021,7 +27031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slerpSpeed: 10
-  startSlerpAnglePointed: 15
+  startSlerpAnglePointed: 25
   startSlerpAngleNotPointed: 4
   stopSlerpAnglePointed: 4
   stopSlerpAngleNotPointed: 1
