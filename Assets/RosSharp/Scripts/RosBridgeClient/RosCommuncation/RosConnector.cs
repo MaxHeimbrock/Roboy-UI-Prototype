@@ -39,10 +39,10 @@ namespace RosSharp.RosBridgeClient
 
         private void ConnectAndWait()
         {
-            RosSocket = ConnectToRos(Protocol, RosBridgeServerUrl, OnConnected, OnClosed);
+           /* RosSocket = ConnectToRos(Protocol, RosBridgeServerUrl, OnConnected, OnClosed);
 
             if (!isConnected.WaitOne(Timeout * 1000))
-                Debug.LogWarning("Failed to connect to RosBridge at: " + RosBridgeServerUrl);
+                Debug.LogWarning("Failed to connect to RosBridge at: " + RosBridgeServerUrl);*/
         }
         
         public static RosSocket ConnectToRos(Protocols protocolType, string serverUrl, EventHandler onConnected = null, EventHandler onClosed = null)
