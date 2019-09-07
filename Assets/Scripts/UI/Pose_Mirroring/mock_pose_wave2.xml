@@ -1,7 +1,7 @@
 <sdf version="1.6">
   <model name="roboy_2_0">
     <link name="head">
-      <pose frame="">0.017 -0.116 0.309 20.86575 180 -5.008954E-06</pose>
+      <pose frame="">0.017 -0.1158389 0.2980697 5.008956E-06 180 -5.008956E-06</pose>
       <inertial>
         <pose frame="">0.0 0.0 0.0 0 0 0</pose>
         <mass>1.3897183402329996</mass>
@@ -24,7 +24,7 @@
       </visual>
     </link>
     <link name="elbow_left">
-      <pose frame="">0.5788532 0.001688465 -0.1430835 8.689964E-06 116.031 -5.42682E-06</pose>
+      <pose frame="">0.2795112 0.001688293 -0.3218357 5.008956E-06 180 -5.008956E-06</pose>
       <inertial>
         <pose frame="">0.0 0.0 0.0 0 0 0</pose>
         <mass>1.3897183402329996</mass>
@@ -47,7 +47,7 @@
       </visual>
     </link>
     <link name="elbow_right">
-      <pose frame="">-0.261964 0.03022763 0.0 295.6528 100.9215 152.2363</pose>
+      <pose frame="">-0.5553877 -0.006959908 0.0569998 -3.415095E-06 26.99999 260.1</pose>
       <inertial>
         <pose frame="">0.0 0.0 0.0 0 0 0</pose>
         <mass>1.3570267507678524</mass>
@@ -70,7 +70,7 @@
       </visual>
     </link>
     <link name="upper_arm_left">
-      <pose frame="">0.4340142 0.004035946 -0.04558754 8.689964E-06 116.031 -5.42682E-06</pose>
+      <pose frame="">0.3035531 0.004035779 -0.1489028 5.008956E-06 180 -5.008956E-06</pose>
       <inertial>
         <pose frame="">0.0 0.0 0.0 0 0 0</pose>
         <mass>6.242842543347849</mass>
@@ -93,7 +93,7 @@
       </visual>
     </link>
     <link name="upper_arm_right">
-      <pose frame="">-0.292 -1.51182E-05 -0.1556587 5.008956E-06 180 -5.008956E-06</pose>
+      <pose frame="">-0.4556587 -1.525786E-05 0.01200002 0 270 270</pose>
       <inertial>
         <pose frame="">0.0 0.0 0.0 0 0 0</pose>
         <mass>8.85076848070971</mass>
@@ -116,7 +116,7 @@
       </visual>
     </link>
     <link name="hand_left">
-      <pose frame="">0.8585863 0.01328513 -0.2852705 0 116.0311 0</pose>
+      <pose frame="">0.2745112 0.0132852 -0.6355917 0 180 0</pose>
       <inertial>
         <pose frame="">0.0 0.0 0.0 0 0 0</pose>
         <mass>0.6869507386556238</mass>
@@ -139,7 +139,7 @@
       </visual>
     </link>
     <link name="hand_right">
-      <pose frame="">-0.1226123 0.3131832 -0.3009528 295.6528 100.9215 152.2363</pose>
+      <pose frame="">-0.4060495 -0.01714322 0.3350259 -3.415095E-06 26.99999 260.1</pose>
       <inertial>
         <pose frame="">0.0 0.0 0.0 0 0 0</pose>
         <mass>0.6968567537690153</mass>
@@ -369,7 +369,7 @@
       </visual>
     </link>
     <link name="forearm_left">
-      <pose frame="">0.7098178 0.001688465 -0.207047 0 116.031 0</pose>
+      <pose frame="">0.2795112 0.001688293 -0.4675857 0 180 0</pose>
       <inertial>
         <pose frame="">0.0 0.0 0.0 0 0 0</pose>
         <mass>4.762990259222631</mass>
@@ -392,7 +392,7 @@
       </visual>
     </link>
     <link name="forearm_right">
-      <pose frame="">-0.1967149 0.1685981 -0.2986627 295.6528 100.9215 152.2363</pose>
+      <pose frame="">-0.4857002 -0.0069599 0.1937693 -1.707547E-06 27 260.1</pose>
       <inertial>
         <pose frame="">0.0 0.0 0.0 0 0 0</pose>
         <mass>4.8484829245932675</mass>

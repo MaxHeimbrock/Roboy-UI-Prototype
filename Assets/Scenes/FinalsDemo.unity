@@ -1266,16 +1266,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1599090774}
     m_Modifications:
-    - target: {fileID: 2738010764499199074, guid: a694dcf55f2c6b54aa35ca3399f6d156,
-        type: 3}
-      propertyPath: m_Name
-      value: Information
-      objectReference: {fileID: 0}
-    - target: {fileID: 2738010764499199074, guid: a694dcf55f2c6b54aa35ca3399f6d156,
-        type: 3}
-      propertyPath: m_TagString
-      value: MotorInformation
-      objectReference: {fileID: 0}
     - target: {fileID: 2738010764499199075, guid: a694dcf55f2c6b54aa35ca3399f6d156,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1345,6 +1335,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.9985854
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738010764499199074, guid: a694dcf55f2c6b54aa35ca3399f6d156,
+        type: 3}
+      propertyPath: m_Name
+      value: Information
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738010764499199074, guid: a694dcf55f2c6b54aa35ca3399f6d156,
+        type: 3}
+      propertyPath: m_TagString
+      value: MotorInformation
       objectReference: {fileID: 0}
     - target: {fileID: 2738010764499199076, guid: a694dcf55f2c6b54aa35ca3399f6d156,
         type: 3}
@@ -2769,21 +2769,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 166094478}
     m_Modifications:
-    - target: {fileID: 2738010764499199074, guid: a694dcf55f2c6b54aa35ca3399f6d156,
-        type: 3}
-      propertyPath: m_Name
-      value: Information
-      objectReference: {fileID: 0}
-    - target: {fileID: 2738010764499199074, guid: a694dcf55f2c6b54aa35ca3399f6d156,
-        type: 3}
-      propertyPath: m_TagString
-      value: MotorInformation
-      objectReference: {fileID: 0}
-    - target: {fileID: 2738010764499199074, guid: a694dcf55f2c6b54aa35ca3399f6d156,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2738010764499199075, guid: a694dcf55f2c6b54aa35ca3399f6d156,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2853,6 +2838,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.9985854
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738010764499199074, guid: a694dcf55f2c6b54aa35ca3399f6d156,
+        type: 3}
+      propertyPath: m_Name
+      value: Information
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738010764499199074, guid: a694dcf55f2c6b54aa35ca3399f6d156,
+        type: 3}
+      propertyPath: m_TagString
+      value: MotorInformation
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738010764499199074, guid: a694dcf55f2c6b54aa35ca3399f6d156,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2738010764499199076, guid: a694dcf55f2c6b54aa35ca3399f6d156,
         type: 3}
@@ -26251,6 +26251,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room
       objectReference: {fileID: 0}
+    - target: {fileID: 6976075057794421606, guid: 94468589a159ee8438a0e104281afca5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6976075057794421605, guid: 94468589a159ee8438a0e104281afca5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26490,8 +26495,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f065fcde7a7f14646a22406f10a48439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  XML_FILE: {fileID: 4900000, guid: fe92540c7995245899edb92363ec5366, type: 3}
-  XML_FILE2: {fileID: 4900000, guid: 578f73c7802670645b162f59e661d904, type: 3}
+  XML_FILE: {fileID: 4900000, guid: 053c20c2e859aee4480ea6822078ebd3, type: 3}
+  XML_FILE2: {fileID: 4900000, guid: 3bb8b3a59e9d5fd4c86fc67e9077b0b5, type: 3}
   Roboy: {fileID: 2688865199853147835}
 --- !u!4 &7555125202997501422
 Transform:
