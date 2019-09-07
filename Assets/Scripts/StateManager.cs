@@ -54,7 +54,7 @@ public class StateManager: Singleton<StateManager>
                 GameObject.FindGameObjectWithTag("VestTransition").GetComponent<VestTransition>().playTact();
 
                 //Update Pose
-                rosManager.GetComponent<UpdatePose>().GetInitParameters();
+                rosManager.GetComponent<UpdatePose>().GetInitParameters(0);
                 rosManager.GetComponent<MockMotorStatusPublisher>().PublishMotorMessage();
                 break;
 
@@ -136,11 +136,6 @@ public class StateManager: Singleton<StateManager>
                 Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationOnly;
 
             Debug.Log("Changed tracking to " + Camera.main.GetComponent<TrackedPoseDriver>().trackingType);
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            rosManager.GetComponent<UpdatePose>().GetInitParameters();
         }
     }
 

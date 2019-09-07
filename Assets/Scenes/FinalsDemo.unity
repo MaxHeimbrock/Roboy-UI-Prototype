@@ -5322,9 +5322,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: '14:02:44 - Clicked at Button inside class
+  m_text: '14:02:44 - Started telepresence connection
 
-    <color="htmlcolor">colored text</color>'
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5369,7 +5369,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 4
-  m_firstOverflowCharacterIndex: 42
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -5393,12 +5393,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 437283608828691030}
-    characterCount: 73
+    characterCount: 43
     spriteCount: 0
-    spaceCount: 8
-    wordCount: 13
+    spaceCount: 5
+    wordCount: 7
     linkCount: 0
-    lineCount: 4
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -25655,7 +25655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9ca9c791b860644a1b4b49f8473f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointerTechnique: 0
+  pointerTechnique: 3
 --- !u!1 &2591494620914773790
 GameObject:
   m_ObjectHideFlags: 0
@@ -26495,8 +26495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f065fcde7a7f14646a22406f10a48439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  XML_FILE: {fileID: 4900000, guid: 053c20c2e859aee4480ea6822078ebd3, type: 3}
-  XML_FILE2: {fileID: 4900000, guid: 3bb8b3a59e9d5fd4c86fc67e9077b0b5, type: 3}
+  XML_FILE: {fileID: 4900000, guid: fe92540c7995245899edb92363ec5366, type: 3}
+  XML_FILE_WAVE1: {fileID: 4900000, guid: 053c20c2e859aee4480ea6822078ebd3, type: 3}
+  XML_FILE_WAVE2: {fileID: 4900000, guid: 3bb8b3a59e9d5fd4c86fc67e9077b0b5, type: 3}
   Roboy: {fileID: 2688865199853147835}
 --- !u!4 &7555125202997501422
 Transform:
@@ -27038,9 +27039,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slerpSpeed: 10
   startSlerpAnglePointed: 25
-  startSlerpAngleNotPointed: 4
+  startSlerpAngleNotPointed: 2
   stopSlerpAnglePointed: 4
-  stopSlerpAngleNotPointed: 1
+  stopSlerpAngleNotPointed: 0.5
   bottomMenu: {fileID: 437283608396717052}
 --- !u!4 &8467583646399181943
 Transform:

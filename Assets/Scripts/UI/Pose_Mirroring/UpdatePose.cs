@@ -6,7 +6,8 @@ using System.Collections;
 public class UpdatePose : MonoBehaviour
 {
     public TextAsset XML_FILE;
-    public TextAsset XML_FILE2;
+    public TextAsset XML_FILE_WAVE1;
+    public TextAsset XML_FILE_WAVE2;
     public Transform Roboy;
 
     bool whichPose = true;
@@ -16,23 +17,36 @@ public class UpdatePose : MonoBehaviour
         
     }
 
-    public void GetInitParameters()
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+            GetInitParameters(1);
+        if (Input.GetKeyDown(KeyCode.O))
+            GetInitParameters(2);
+    }
+
+    public void GetInitParameters(int poseCode)
     {
         XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.LoadXml(XML_FILE_WAVE1.text);
 
-        // Switch between 2 poses
-        if (whichPose)
+        switch (poseCode)
         {
-            xmlDoc.LoadXml(XML_FILE.text);
-            Debug.Log("XML_FILE");
+            case 0:
+                xmlDoc.LoadXml(XML_FILE.text);
+                //Debug.Log("XML_FILE");
+                break;
+            case 1:
+                xmlDoc.LoadXml(XML_FILE_WAVE1.text);
+                //Debug.Log("XML_FILE2");
+                break;
+            case 2:
+                xmlDoc.LoadXml(XML_FILE_WAVE2.text);
+                //Debug.Log("XML_FILE2");
+                break;
+            default:
+                break;
         }
-        else
-        {
-            xmlDoc.LoadXml(XML_FILE2.text);
-            Debug.Log("XML_FILE2");
-        }
-
-        whichPose = !whichPose;
 
         foreach (Transform t in Roboy)
         {
@@ -102,7 +116,7 @@ public class UpdatePose : MonoBehaviour
                 }
                 gameObject.GetComponent<MockPosePublisher>().PublishMessage(message);
             }
-        }      
+        }
     }
 
 }
