@@ -7,12 +7,17 @@ public class SubMenuScalingCustomInspector : Editor
     private SerializedProperty width;
     private SerializedProperty height;
 
+    /// <summary>
+    /// Set connection to properties which need to be updated
+    /// </summary>
     private void OnEnable()
     {
         width = serializedObject.FindProperty("width");
         height = serializedObject.FindProperty("height");
     }
-
+    /// <summary>
+    /// Create CustomInspector design for SubMenuScaling scripts
+    /// </summary>
     public override void OnInspectorGUI()
     {
         SubMenuScaling myTarget = (SubMenuScaling)target;
@@ -27,7 +32,6 @@ public class SubMenuScalingCustomInspector : Editor
         EditorGUILayout.LabelField("NameTag Position", "Horizontal: " + myTarget.horizontalAlignmentText + " - vertical: " + myTarget.verticalAlignmentText);
         EditorGUI.indentLevel++;
         EditorGUILayout.LabelField("Horizontal", "");
-        EditorGUI.indentLevel++;
         if (GUILayout.Button("Left"))
         {
             myTarget.setHorizontalLeft();
@@ -40,9 +44,7 @@ public class SubMenuScalingCustomInspector : Editor
         {
             myTarget.setHorizontalRight();
         }
-        EditorGUI.indentLevel--;
         EditorGUILayout.LabelField("Vertical", "");
-        EditorGUI.indentLevel++;
         if (GUILayout.Button("Top"))
         {
             myTarget.setVerticalTop();
@@ -55,7 +57,6 @@ public class SubMenuScalingCustomInspector : Editor
         {
             myTarget.setVerticalBottom();
         }
-        EditorGUI.indentLevel--;
         EditorGUI.indentLevel--;
 
         serializedObject.ApplyModifiedProperties();
