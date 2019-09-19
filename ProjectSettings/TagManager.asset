@@ -22,6 +22,8 @@ TagManager:
   - Motor
   - MotorInformation
   - MotorWindow
+  - SenseGloveRight
+  - TransitionHighlightOff
   layers:
   - Default
   - TransparentFX

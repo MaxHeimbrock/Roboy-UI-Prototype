@@ -15,14 +15,13 @@ public class CustomSlider : MonoBehaviour
     private GameObject IntersectingObject;
     private float value;
 
-    private int[] fingers;
-    private SenseGlove_Object senseGloveObject;
+    public int[] fingers;
 
     //For debugging
-    public Vector3 v1 = new Vector3(0, 0, 0);
+    /*public Vector3 v1 = new Vector3(0, 0, 0);
     public Vector3 v2 = new Vector3(0, 0, 0);
     public Vector3 v3 = new Vector3(0, 0, 0);
-    public Vector3 v4 = new Vector3(0, 0, 0);
+    public Vector3 v4 = new Vector3(0, 0, 0);*/
 
     private void Reset()
     {
@@ -39,7 +38,6 @@ public class CustomSlider : MonoBehaviour
         valueText = this.transform.GetChild(1).GetComponent<TextMesh>();
 
         fingers = new[] { 0, 0, 0, 0, 0 };
-        senseGloveObject = GameObject.FindGameObjectWithTag("SenseGloveRight").GetComponent<SenseGlove_Object>();
 
         defaultPosFull = transform.localPosition;
 
@@ -48,7 +46,13 @@ public class CustomSlider : MonoBehaviour
 
     private void Update()
     {
-        senseGloveObject.SendBuzzCmd(fingers, 500);
+        for(int i = 0; i < fingers.Length; i++)
+        {
+            if(fingers[i] > 0)
+            {
+                BuzzManager.Instance.ActivateFinger(i, fingers[i]);
+            }
+        }
     }
 
     /// <summary>
@@ -236,8 +240,7 @@ public class CustomSlider : MonoBehaviour
         Vector3 localRightBorderPoint = transform.localPosition;
         localRightBorderPoint.y += -1f * transform.localScale.y;
         Debug.Log("Called SetDefaultValue, updating slider now " + defaultValue);
-        v1 = transform.TransformPoint(localLeftBorderPoint - new Vector3(0, (defaultValue / 100f) * (localLeftBorderPoint.y - localRightBorderPoint.y), 0));
-        updateValue(v1);
+        updateValue(transform.TransformPoint(localLeftBorderPoint - new Vector3(0, (defaultValue / 100f) * (localLeftBorderPoint.y - localRightBorderPoint.y), 0)));
     }
 
     /// <summary>

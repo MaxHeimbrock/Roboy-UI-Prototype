@@ -1,4 +1,4 @@
-﻿using RosSharp.RosBridgeClient;
+﻿ using RosSharp.RosBridgeClient;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,11 +34,15 @@ public class SuperPublisher : Singleton<SuperPublisher>
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            infoPublisher.publishMessage("Please put some eggs on the plates", 0);
+            infoPublisher.publishMessage("Look!! Potatoes", 0);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             errorPublisher.publishMessage("Roboy battery is low", 0);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            errorPublisher.publishMessage("Oops, I broke. Best Regards\nRoboy", 0);
         }
     }
 

@@ -295,6 +295,7 @@ MonoBehaviour:
   isToggle: 0
   onPress: []
   onUnpress: []
+  pressurePlateTransform: {fileID: 0}
 --- !u!1 &1279483405178290827
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +420,7 @@ GameObject:
   - component: {fileID: 1279483405781329394}
   - component: {fileID: 1279483405781329389}
   - component: {fileID: 2313497725202652275}
+  - component: {fileID: 5086676034467626896}
   m_Layer: 0
   m_Name: PressurePlate
   m_TagString: Untagged
@@ -538,6 +540,18 @@ SpringJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &5086676034467626896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279483405781329392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f00aebd24893f4087cfea4edbcf356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4939614792462324697
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,6 +620,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1279483405781329393}
     m_Modifications:
+    - target: {fileID: 2738010764499199074, guid: a694dcf55f2c6b54aa35ca3399f6d156,
+        type: 3}
+      propertyPath: m_Name
+      value: Title
+      objectReference: {fileID: 0}
     - target: {fileID: 2738010764499199075, guid: a694dcf55f2c6b54aa35ca3399f6d156,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -660,11 +679,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2738010764499199074, guid: a694dcf55f2c6b54aa35ca3399f6d156,
-        type: 3}
-      propertyPath: m_Name
-      value: Title
       objectReference: {fileID: 0}
     - target: {fileID: 2738010764499199076, guid: a694dcf55f2c6b54aa35ca3399f6d156,
         type: 3}

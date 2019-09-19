@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColliderManager : MonoBehaviour
 {
-    private Collider[] colliders;
+    /*private Collider[] colliders;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,5 +29,5 @@ public class ColliderManager : MonoBehaviour
             colliders[0].enabled = true;
             colliders[1].enabled = false;
         }
-    }
+    }*/
 }

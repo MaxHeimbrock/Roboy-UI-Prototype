@@ -54,7 +54,7 @@ public class StateManager: Singleton<StateManager>
                 GameObject.FindGameObjectWithTag("VestTransition").GetComponent<VestTransition>().playTact();
 
                 //Update Pose
-                rosManager.GetComponent<UpdatePose>().GetInitParameters();
+                rosManager.GetComponent<UpdatePose>().GetInitParameters(0);
                 rosManager.GetComponent<MockMotorStatusPublisher>().PublishMotorMessage();
                 break;
 
@@ -68,7 +68,11 @@ public class StateManager: Singleton<StateManager>
                 CameraAnimatorScript.Instance.SetButtonNotPointed();
                 // Set TransitionButton to not clicked to fix bug with mouse not moved. This will not be needed with eye tracking.
                 TransitionButton.OnPointerExit(null);
-                AdvancedMenu.SetActive(true);
+                //AdvancedMenu.SetActive(true);
+                foreach(GameObject obj in GameObject.FindGameObjectsWithTag("SubMenu3D"))
+                {
+                    obj.transform.GetChild(2).GetComponent<SubMenuAnimationHandler>().FadeIn();
+                }
                 Roboy.GetComponent<RotateRoboy>().enabled = true;
                 Camera.main.GetComponent<TrackedPoseDriver>().trackingType = TrackedPoseDriver.TrackingType.RotationAndPosition;
                 break;
@@ -79,7 +83,11 @@ public class StateManager: Singleton<StateManager>
             case MenuState.advancedMenu:
                 //SnapshotCamera.SetActive(true);
                 Roboy.GetComponent<RotateRoboy>().enabled = false;
-                AdvancedMenu.SetActive(false);
+                foreach (GameObject obj in GameObject.FindGameObjectsWithTag("SubMenu3D"))
+                {
+                    obj.transform.GetChild(2).GetComponent<SubMenuAnimationHandler>().FadeOut();
+                }
+                //AdvancedMenu.SetActive(false);
                 CameraAnimatorScript.Instance.StartTransitionToHUD();
 
                 // this is for all the positioning of the transition translation
@@ -134,5 +142,12 @@ public class StateManager: Singleton<StateManager>
     public MenuState GetCurrentState()
     {
         return currentMenuState;
+    }
+
+    public void ShutDownApplication()
+    {
+        Debug.Log("ShutDown: Bye Bye");
+        UnityEditor.EditorApplication.isPlaying = false;
+        //Application.Quit();
     }
 }
