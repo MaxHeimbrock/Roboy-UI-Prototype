@@ -46,7 +46,7 @@ public class FrameClickDetection : MonoBehaviour
     /// If "wait" is set to true, then the button is already pressed.
     /// Otherwise the button gets activated.
     /// </summary>
-    /// <param name="other"></param>
+    /// <param name="other">The other collider this object starts intersecting with</param>
     private void OnTriggerEnter(Collider other)
     {
         if (pressurePlateCollider.Equals(other))
@@ -65,7 +65,7 @@ public class FrameClickDetection : MonoBehaviour
     /// It is either pushed further in (-> the button remains pressed)
     /// or it is on its way back to its default position (-> the button gets released).
     /// </summary>
-    /// <param name="other"></param>
+    /// <param name="other">The other collider this objects stops intersecting with</param>
     private void OnTriggerExit(Collider other)
     {
         if (pressurePlateCollider.Equals(other))

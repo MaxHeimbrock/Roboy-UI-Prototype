@@ -1,4 +1,8 @@
-﻿Shader "Custom/Fade" {
+﻿/*
+	Use this slider to dissolve objects.
+	Set the _Visibility manually to decide the object's transparency degree.
+*/
+Shader "Custom/Fade" {
 	Properties
 	{
 		_Color("Color", Color) = (1,1,1,1)
