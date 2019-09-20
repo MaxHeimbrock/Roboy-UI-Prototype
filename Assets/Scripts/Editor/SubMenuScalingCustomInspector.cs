@@ -15,6 +15,7 @@ public class SubMenuScalingCustomInspector : Editor
         width = serializedObject.FindProperty("width");
         height = serializedObject.FindProperty("height");
     }
+
     /// <summary>
     /// Create CustomInspector design for SubMenuScaling scripts
     /// </summary>
