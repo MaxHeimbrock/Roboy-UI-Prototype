@@ -6,9 +6,14 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class for dwell time buttons inside a menu. Can trigger events or activate (sub)menus
+/// </summary>
 public class OUI_Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private bool pointed;
+
+    // the clicked flag blockes endless clicking, if dwell timer is full
     private bool clicked = false;
 
     private Menu menu;
@@ -53,12 +58,19 @@ public class OUI_Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         clicked = false;
     }
 
-    // This is just a helper to reset clicked when middle button starts transition but mouse never gets moved.
+    /// <summary>
+    /// This is just a helper to reset clicked when middle button starts transition but mouse never gets moved. 
+    /// </summary>
     public void SetClickedFalse()
     {
         clicked = false;
     }
 
+    /// <summary>
+    /// If dwell timer triggers click, this function is called.
+    /// The clicked attribute blocks endless clicks from dwell timer.
+    /// The function can trigger buttonClickedEvent events prepared over the inspector and activates a submenu, if one is specified
+    /// </summary>
     private void Click()
     {
         if (clicked == false)
@@ -70,7 +82,7 @@ public class OUI_Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
             //LogText.Instance.SendOperatorLogMessage("Clicked at " + this.name + " inside Button class", LogText.LogLevel.info);
 
-            SuperPublisher.Instance.PublishMessage("Clicked at " + this.name + " inside Button class with new publisher", 0, LogText.LogLevel.info);
+            LogPublisher.Instance.PublishMessage("Clicked at " + this.name + " inside Button class with new publisher", LogText.LogLevel.info);
         }
 
         clicked = true;
@@ -84,7 +96,9 @@ public class OUI_Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         startTime = Time.time;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Here the dwell timer and the dwell time image are managed
+    /// </summary>
     void Update()
     {
         // If submenu is active, keep the button filled

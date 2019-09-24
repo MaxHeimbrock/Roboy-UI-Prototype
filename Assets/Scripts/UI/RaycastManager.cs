@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class taken from web to draw a ray for debugging.
+/// Just a helper without much funtionality in the scene.
+/// Subscription is deprecated and not used anymore.
+/// </summary>
 public class RaycastManager : MonoBehaviour
 {
     public LayerMask UI_Mask;
@@ -57,7 +62,6 @@ public class RaycastManager : MonoBehaviour
 
         RaycastHit hitObject;
         bool rayHit = Physics.Raycast(raycast, out hitObject, length, UI_Mask);
-        //Debug.Log(rayHit);
 
         float beamLength = GetBeamLength(rayHit, hitObject);
 
@@ -66,15 +70,9 @@ public class RaycastManager : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        
-    }
-
     public void Subscribe(IRaycastSubscriber subscriber)
     {
         subscribers.Add(subscriber);
-        //Debug.Log(subscriber.ToString() + " has subscribed to RaycastManager");
     }
 
     private void SendPushNotification(RaycastHit hit, bool isHit)
@@ -123,13 +121,11 @@ public class RaycastManager : MonoBehaviour
              * */
 
             print("I'm looking at " + hit.transform.name);
-            //hit.transform.gameObject.GetComponent<UI_Element>().Highlight();
             SendPushNotification(hit, true);
         }
         else
         {
             SendPushNotification(new RaycastHit(), false);
-            //print("I'm looking at nothing!");
         }
 
         //adjust beam length if something is blocking it

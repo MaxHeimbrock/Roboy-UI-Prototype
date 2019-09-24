@@ -4,7 +4,8 @@ using UnityEngine;
 
 
 /// <summary>
-/// This only works, if the simple camera controller is disabled
+/// A hard coded border for the room, so that the player (camera) can not leave the room.
+/// This only works, if the simple camera controller is disabled.
 /// </summary>
 public class LockPlayerInRoom : MonoBehaviour
 {
@@ -13,13 +14,9 @@ public class LockPlayerInRoom : MonoBehaviour
     bool lockZ = false;
     bool lockX = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    /// <summary>
+    /// The players position can not leave certain boundries in x and z direction.
+    /// </summary>
     void LateUpdate()
     {
         // Wand oben && links || wand oben && rechts || Wand unten
