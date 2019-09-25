@@ -14,30 +14,54 @@ public class PC_CircularBuffer<T>
     int _size;
     private bool _cloning = false;
 
-    public PC_CircularBuffer(int size) {
+    public PC_CircularBuffer(int size)
+    {
         _queue = new Queue<T>(size);
         _size = size;
     }
 
-    public void Add(T obj) {
+    /// <summary>
+    /// Adds an object to the end of the Queue.
+    /// </summary>
+    /// <param name="obj">The object to add to the Queue. The value can be null.</param>
+    public void Add(T obj)
+    {
         if (_cloning)
         {
             return;
         }
-        if (_queue.Count == _size) {
+
+        if (_queue.Count == _size)
+        {
             _queue.Dequeue();
             _queue.Enqueue(obj);
-        } else
+        }
+        else
             _queue.Enqueue(obj);
     }
-    public T Read() {
+
+    /// <summary>
+    /// Removes and returns the object at the beginning of the Queue.
+    /// </summary>
+    /// <returns>The object that is removed from the beginning of the Queue.</returns>
+    public T Read()
+    {
         return _queue.Dequeue();
     }
 
-    public T Peek() {
+    /// <summary>
+    /// Returns the object at the beginning of the Queue without removing it.
+    /// </summary>
+    /// <returns>The object at the beginning of the Queue.</returns>
+    public T Peek()
+    {
         return _queue.Peek();
     }
 
+    /// <summary>
+    /// Copies the Queue elements to a new list
+    /// </summary>
+    /// <returns>The list containing all elements of the Queue.</returns>
     public List<T> ToList()
     {
         _cloning = true;
@@ -46,6 +70,10 @@ public class PC_CircularBuffer<T>
         return tmpQueue.ToList();
     }
 
+    /// <summary>
+    /// Gets the number of elements contained in the Queue.
+    /// </summary>
+    /// <returns>The number of elements contained in the Queue.</returns>
     public int Count()
     {
         return _queue.Count;

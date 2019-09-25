@@ -72,7 +72,7 @@ public class PC_MeshManager : MonoBehaviour
     /// <param name="locations">initial list</param>
     /// <param name="nSize">size of chunks</param>
     /// <typeparam name="T">chunked list (list of lists)</typeparam>
-    /// <returns></returns>
+    /// <returns>The list containing lists of chunks of nSize.</returns>
     List<List<T>> splitList<T>(List<T> locations, int nSize = 30) {
         var list = new List<List<T>>();
 

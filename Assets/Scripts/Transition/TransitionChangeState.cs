@@ -6,13 +6,11 @@ public class TransitionChangeState : Singleton<TransitionChangeState>
 {
     Animator animator;
 
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("End"))
@@ -21,12 +19,18 @@ public class TransitionChangeState : Singleton<TransitionChangeState>
         }
     }
 
+    /// <summary>
+    /// Triggers animation from advanced menu to operator menu.
+    /// </summary>
     public void StartTransitionToHUD()
     {
         animator.SetBool("ToHUD", true);
         animator.SetTrigger("StartTransitionAnimation");
     }
 
+    /// <summary>
+    /// Triggers animation from operator menu to advanced menu.
+    /// </summary>
     public void StartTransitionToAdvancedMenu()
     {
         if (animator == null)
