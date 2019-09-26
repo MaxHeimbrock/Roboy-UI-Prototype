@@ -524,6 +524,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XML_FILE: {fileID: 4900000, guid: fe92540c7995245899edb92363ec5366, type: 3}
+  XML_FILE_WAVE1: {fileID: 4900000, guid: 053c20c2e859aee4480ea6822078ebd3, type: 3}
+  XML_FILE_WAVE2: {fileID: 4900000, guid: 3bb8b3a59e9d5fd4c86fc67e9077b0b5, type: 3}
   Roboy: {fileID: 2951845607609612523}
 --- !u!114 &1514103733
 MonoBehaviour:
@@ -1985,6 +1987,11 @@ PrefabInstance:
       propertyPath: Topic
       value: /roboy_middleware_msgs/Pose
       objectReference: {fileID: 0}
+    - target: {fileID: 1952903579321112415, guid: aa6909c92707a4a39824bbe995215aee,
+        type: 3}
+      propertyPath: RosBridgeServerUrl
+      value: ws://192.168.137.44:9090
+      objectReference: {fileID: 0}
     - target: {fileID: 1952903579321112386, guid: aa6909c92707a4a39824bbe995215aee,
         type: 3}
       propertyPath: Roboy
@@ -2004,11 +2011,6 @@ PrefabInstance:
         type: 3}
       propertyPath: manager
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1952903579321112415, guid: aa6909c92707a4a39824bbe995215aee,
-        type: 3}
-      propertyPath: RosBridgeServerUrl
-      value: ws://192.168.137.44:9090
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa6909c92707a4a39824bbe995215aee, type: 3}

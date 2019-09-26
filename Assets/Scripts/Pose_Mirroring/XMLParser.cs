@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Xml;
-
+/// <summary>
+/// This classes parses the SDF XML file containing the position and orientation of Roboy's parts. These are needed in order to reconstruct poses.
+/// </summary>
 public class XMLParser : MonoBehaviour
 {
     public TextAsset XML_FILE;
@@ -9,7 +11,9 @@ public class XMLParser : MonoBehaviour
     {
         getInitParameters();
     }
-
+    /// <summary>
+    /// Gets the init parameters from the file and updates the attached game object.
+    /// </summary>
     private void getInitParameters()
     {
         XmlDocument xmlDoc = new XmlDocument();
@@ -33,7 +37,11 @@ public class XMLParser : MonoBehaviour
         transform.localPosition = gazeboPositionToUnity(pos);
         transform.localRotation = gazeboRotationToUnity(q);
     }
-
+    /// <summary>
+    /// Convert Gazebos rotation to Unity.
+    /// </summary>
+    /// <returns>The rotation to unity.</returns>
+    /// <param name="gazeboRot">Gazebo rotation</param>
     Quaternion gazeboRotationToUnity(Quaternion gazeboRot)
     {
         Quaternion rotX = Quaternion.AngleAxis(180f, Vector3.right);
@@ -43,6 +51,11 @@ public class XMLParser : MonoBehaviour
         return finalRot;
     }
 
+    /// <summary>
+    /// Convert Gazebo rotation to Unity.
+    /// </summary>
+    /// <returns>The position to unity.</returns>
+    /// <param name="gazeboPos">Gazebo position</param>
     Vector3 gazeboPositionToUnity(Vector3 gazeboPos)
     {
         return new Vector3(gazeboPos.x, gazeboPos.z, gazeboPos.y);

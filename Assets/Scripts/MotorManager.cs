@@ -8,7 +8,7 @@ using System;
 public class MotorManager : MonoBehaviour
 {
     [SerializeField]
-    [Tooltip("Set the Roboy model to be update.")]
+    [Tooltip("Set the Roboy model to be updated.")]
     private GameObject Roboy;
     //Workaround for demo. Fix to find&match the corresponding motor from roboy 
     [SerializeField]

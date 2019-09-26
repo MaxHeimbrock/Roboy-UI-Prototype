@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using RosSharp.RosBridgeClient;
 using System.Xml;
-
+/// <summary>
+/// Test pose publisher.
+/// </summary>
 public class TestPosePublisher : Publisher<RosSharp.RosBridgeClient.Messages.Roboy.Pose>
 {
     protected override void Start()
     {
         StartCoroutine(StartPublisher(1.0f));
     }
-
+    /// <summary>
+    /// Publishes some mock data for testing purposes and updates the hand of roboy.
+    /// </summary>
+    /// <returns>The publisher.</returns>
+    /// <param name="waitTime">Wait time.</param>
     private IEnumerator StartPublisher(float waitTime)
     {
         while (true)
@@ -41,7 +47,10 @@ public class TestPosePublisher : Publisher<RosSharp.RosBridgeClient.Messages.Rob
             break;
         }
     }
-
+    /// <summary>
+    /// Publishs the test pose message.
+    /// </summary>
+    /// <param name="message">Message.</param>
     private void PublishMessage(RosSharp.RosBridgeClient.Messages.Roboy.Pose message)
     {
         Publish(message);

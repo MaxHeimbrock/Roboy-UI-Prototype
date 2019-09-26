@@ -3,10 +3,17 @@ using System.Collections;
 using System.Xml;
 using System;
 
+/// <summary>
+/// Gets the current pose of the Unity Model.
+/// </summary>
 public class GetPose : MonoBehaviour
 {
-    public Transform Roboy;
-    public TextAsset XML_FILE;
+    [SerializeField]
+    [Tooltip("Set the Roboy model to be updated.")]
+    private Transform Roboy;
+    [SerializeField]
+    [Tooltip("Set the XML file where the pose should be saved.")]
+    private TextAsset XML_FILE;
 
     void Start()
     {
