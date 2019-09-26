@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RosSharp.RosBridgeClient;
-
+/// <summary>
+/// Mock motor status publisher.
+/// </summary>
 public class MockMotorStatusPublisher : Publisher<RosSharp.RosBridgeClient.Messages.Roboy.MotorStatus>
 {
 
@@ -20,6 +22,9 @@ public class MockMotorStatusPublisher : Publisher<RosSharp.RosBridgeClient.Messa
             break;
         }
     }
+    /// <summary>
+    /// Publish a mock motor message.
+    /// </summary>
     public void PublishMotorMessage()
     {
         // TEST MESSAGE FOR MOTOR STATUS      

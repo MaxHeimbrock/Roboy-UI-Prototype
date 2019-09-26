@@ -2,12 +2,22 @@
 using System.Collections;
 using System;
 
+/// <summary>
+/// This class updates the motor game objects based on the values received from ROS updates.
+/// </summary>
 public class MotorManager : MonoBehaviour
 {
-    public GameObject Roboy;  
+    [SerializeField]
+    [Tooltip("Set the Roboy model to be update.")]
+    private GameObject Roboy;
     //Workaround for demo. Fix to find&match the corresponding motor from roboy 
-    public GameObject Motor1;
-    public GameObject Motor2;
+    [SerializeField]
+    [Tooltip("Set the motor to be updated.")]
+    private GameObject Motor1;
+    [SerializeField]
+    [Tooltip("Set the motor to be updated.")]
+    private GameObject Motor2;
+
     RosSharp.RosBridgeClient.Messages.Roboy.MotorStatus message;
 
     void Start()
@@ -24,7 +34,9 @@ public class MotorManager : MonoBehaviour
             showMotorStatus();
         }
     }
-
+    /// <summary>
+    /// Shows the motor status on the assigned Roboy model.
+    /// </summary>
     private void showMotorStatus()
     {
         if(message != null)
