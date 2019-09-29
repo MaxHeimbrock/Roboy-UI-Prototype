@@ -27,7 +27,7 @@ public class FadingObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timer < 3)
+        if (timer < 3)
         {
             timer += Time.deltaTime;
         }

@@ -8,6 +8,10 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     private static object m_Lock = new object();
     private static T m_Instance;
 
+    /// <summary>
+    /// Returns a singleton object.
+    /// If instance is not existing, it creates one.
+    /// </summary>
     public static T Instance
     {
         get
@@ -15,7 +19,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             if (m_ShuttingDown)
             {
                 Debug.LogWarning("[Singleton] Instance '" + typeof(T) +
-                    "' already destroyed. Returning null.");
+                                 "' already destroyed. Returning null.");
                 return null;
             }
 
@@ -24,7 +28,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                 if (m_Instance == null)
                 {
                     // Search for existing instance.
-                    m_Instance = (T)FindObjectOfType(typeof(T));
+                    m_Instance = (T) FindObjectOfType(typeof(T));
 
                     // Create new instance if one doesn't already exist.
                     if (m_Instance == null)
@@ -44,13 +48,17 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Called, when the application is closing in order to destroy singleton.
+    /// </summary>
     private void OnApplicationQuit()
     {
         m_ShuttingDown = true;
     }
 
-
+    /// <summary>
+    /// Called, when the singleton is destroyed.
+    /// </summary>
     private void OnDestroy()
     {
         m_ShuttingDown = true;

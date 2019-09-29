@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// This script lets you reverse normals. The normals will only be reversed in playmode so it will still look inverted when viewing in edit mode.
+/// Usage: Attach the script to the mesh you want normals to be reversed
+/// </summary>
 [RequireComponent(typeof(MeshFilter))]
 public class ReverseNormals : MonoBehaviour
 {
