@@ -2,13 +2,23 @@
 using System.Xml;
 using System.Collections.Generic;
 using System.Collections;
-
+/// <summary>
+/// Update pose after getting an update from ROS.
+/// </summary>
 public class UpdatePose : MonoBehaviour
 {
-    public TextAsset XML_FILE;
-    public TextAsset XML_FILE_WAVE1;
-    public TextAsset XML_FILE_WAVE2;
-    public Transform Roboy;
+    [SerializeField]
+    [Tooltip("Set the XML file contaning the updated pose.")]
+    private TextAsset XML_FILE;
+    [SerializeField]
+    [Tooltip("Only for Final Demo: Set the XML file contaning waive pose.")]
+    private TextAsset XML_FILE_WAVE1;
+    [SerializeField]
+    [Tooltip("Only for Final Demo: Set the XML file contaning second waive pose.")]
+    private TextAsset XML_FILE_WAVE2;
+    [SerializeField]
+    [Tooltip("Set the Roboy model to be updated.")]
+    private Transform Roboy;
 
     bool whichPose = true;
 
@@ -16,7 +26,7 @@ public class UpdatePose : MonoBehaviour
     {       
         
     }
-
+    // Added only for final demo.
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -25,6 +35,10 @@ public class UpdatePose : MonoBehaviour
             GetInitParameters(2);
     }
 
+    /// <summary>
+    /// Gets the init parameters from the XML File.
+    /// </summary>
+    /// <param name="poseCode">Pose code.</param>
     public void GetInitParameters(int poseCode)
     {
         XmlDocument xmlDoc = new XmlDocument();
@@ -34,15 +48,12 @@ public class UpdatePose : MonoBehaviour
         {
             case 0:
                 xmlDoc.LoadXml(XML_FILE.text);
-                //Debug.Log("XML_FILE");
                 break;
             case 1:
                 xmlDoc.LoadXml(XML_FILE_WAVE1.text);
-                //Debug.Log("XML_FILE2");
                 break;
             case 2:
                 xmlDoc.LoadXml(XML_FILE_WAVE2.text);
-                //Debug.Log("XML_FILE2");
                 break;
             default:
                 break;
@@ -84,6 +95,7 @@ public class UpdatePose : MonoBehaviour
                 message.position = po;
                 switch (t.name)
                 {
+                    // Mapping of IDs to parts is fixed here but is "random". This mapping is used for encoding later in the Pose Manager.
                     case "upper_arm_right":
                         message.id = 0;
                         break;

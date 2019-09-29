@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-
-// The Roboy part script is responsible for controlling the individual anatomical Roboy parts.
+/// <summary>
+/// The Roboy part script is responsible for controlling the individual anatomical Roboy parts.
+/// </summary>
 public class RoboyPart : MonoBehaviour
 {
     public Vector3 Position;

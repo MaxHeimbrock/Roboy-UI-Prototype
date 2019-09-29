@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
-
-// The Pose Manager class updates the pose of Roboy according to the current pose of the user.
+/// <summary>
+///  The Pose Manager class updates the pose of Roboy according to the current pose of the user.
+/// </summary>
 public class RoboyPoseManager: MonoBehaviour
 {
-    public GameObject Roboy;
+    [SerializeField]
+    [Tooltip("Set the Roboy model to be updated.")]
+    private GameObject Roboy;
     RosSharp.RosBridgeClient.Messages.Roboy.Pose message;
 
     void Start()
@@ -22,12 +25,16 @@ public class RoboyPoseManager: MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates the pose according to the updates received via ROS.
+    /// </summary>
     public void UpdatePose()
     {   
         if (message != null) {
             Debug.Log("Part with ID: " + message.id + " received."); 
                 switch (message.id)
                 {
+                    // Mapping is fixes but is "random". Look at UpdatePose Script.
                     case 0:
                         updateNode(Roboy.gameObject.transform.Find("upper_arm_right"),message);
                     break;
@@ -62,7 +69,11 @@ public class RoboyPoseManager: MonoBehaviour
                 }         
             }
         }
-
+    /// <summary>
+    /// Updates the specific nodes in the Roboy 3D model.
+    /// </summary>
+    /// <param name="child">Child.</param>
+    /// <param name="msg">Message.</param>
     public void updateNode(Transform child, RosSharp.RosBridgeClient.Messages.Roboy.Pose msg)
     {   
         if(child == null)

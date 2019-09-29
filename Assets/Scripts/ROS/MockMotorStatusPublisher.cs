@@ -2,15 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RosSharp.RosBridgeClient;
-
+/// <summary>
+/// Mock motor status publisher.
+/// </summary>
 public class MockMotorStatusPublisher : Publisher<RosSharp.RosBridgeClient.Messages.Roboy.MotorStatus>
 {
-
+    /// <summary>
+    ///  Start method of MockMotorStatusPublisher.
+    /// Starts a coroutine to initialize the publisher after 1 second to prevent race conditions.
+    /// </summary>
     protected override void Start()
     {
         StartCoroutine(StartPublisher(1.0f));
     }
-
+    /// <summary>
+    /// Starts the publisher.
+    /// </summary>
+    /// <returns>The publisher.</returns>
+    /// <param name="waitTime">Wait time.</param>
     private IEnumerator StartPublisher(float waitTime)
     {
         while (true)
@@ -20,6 +29,9 @@ public class MockMotorStatusPublisher : Publisher<RosSharp.RosBridgeClient.Messa
             break;
         }
     }
+    /// <summary>
+    /// Publish a mock motor message.
+    /// </summary>
     public void PublishMotorMessage()
     {
         // TEST MESSAGE FOR MOTOR STATUS      
@@ -47,7 +59,10 @@ public class MockMotorStatusPublisher : Publisher<RosSharp.RosBridgeClient.Messa
         PublishMessage(message);
         PublishMessage(message_0);
     }
-
+    /// <summary>
+    /// Publishs the mock motor status message.
+    /// </summary>
+    /// <param name="message">message</param>
     private void PublishMessage(RosSharp.RosBridgeClient.Messages.Roboy.MotorStatus message)
     {
         Publish(message);
