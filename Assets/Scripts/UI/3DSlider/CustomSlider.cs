@@ -8,7 +8,7 @@ public class CustomSlider : MonoBehaviour
     #region properties 
 
     public float defaultValue;
-    public int[] fingers;
+    private int[] fingers;
 
     private Vector3 defaultPosFull;
     private Animator titleAnimator;

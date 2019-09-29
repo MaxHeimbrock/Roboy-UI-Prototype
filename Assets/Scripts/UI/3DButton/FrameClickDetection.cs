@@ -14,9 +14,9 @@ public class FrameClickDetection : MonoBehaviour
     private int onUnpressIndex;
     private bool wait;
     private Collider pressurePlateCollider;
-    public Transform pressurePlateTransform;
+    private Transform pressurePlateTransform;
     private MeshRenderer meshRenderer;
-    public Color defaultColor;
+    private Color defaultColor;
     private Color lightBlue;
     private bool toggle;
     #endregion
