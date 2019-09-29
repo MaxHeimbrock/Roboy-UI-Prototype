@@ -7,12 +7,21 @@ using UnityEngine;
 /// </summary>
 public class MiniMapManager : MonoBehaviour
 {
-    public enum MiniMapTechnique {YAH, PointCloud};
+    public enum MiniMapTechnique
+    {
+        YAH,
+        PointCloud
+    };
 
     public MiniMapTechnique currentMinimap = MiniMapTechnique.YAH;
 
+    [SerializeField] [Tooltip("The object of the YAH minimap.")]
     public GameObject YAH_Minimap;
+
+    [SerializeField] [Tooltip("The object of the pointcloud minimap")]
     public GameObject Pointcloud_Minimap;
+
+    [SerializeField] [Tooltip("The mesh manager for displaying points of the point cloud.")]
     public PC_MeshManager MeshManager;
 
     private GameObject ROSManager;
@@ -75,5 +84,4 @@ public class MiniMapManager : MonoBehaviour
         MeshManager.messageProcessingActive = true;
         Pointcloud_Minimap.SetActive(true);
     }
-
 }
