@@ -7,7 +7,7 @@ public class TransitionButtonAnimation : Singleton<TransitionButtonAnimation>
     Animator animator;
 
     /// <summary>
-    /// Sets the reference to the animator.
+    /// Sets the reference to the animator.show
     /// </summary>
     void Start()
     {
