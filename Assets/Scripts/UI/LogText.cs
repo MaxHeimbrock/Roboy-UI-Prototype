@@ -4,19 +4,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// This class pulls messages from a ROS Subscriber and displays them on the log menu. Messages come in three levels: info, warning, error.
+/// </summary>
 public class LogText : Singleton<LogText>
 {
     public enum LogLevel {info, warning, error};
-
-    // Roboy Log variables
-    private string roboyText = "";
-    private int roboyUnreadCount = 0;
-
-    [Header("Roboy GameObject References")]
-    public TextMeshProUGUI roboyUnreadCountTextMesh;
-    public TextMeshProUGUI roboyLogTextMesh;
-    public GameObject roboyToastrPrefab;
-
+    
     // Operator Log variables
     private string operatorText = "";
     private int operatorUnreadCount = 0;
@@ -28,44 +22,39 @@ public class LogText : Singleton<LogText>
 
     [Header("Misc")]
     public Canvas canvas;
+    [Tooltip("How long the toastr is displayed")]
     public float toastrTimer = 2;
 
     DateTime time;
 
-    // Check if logs have been read
+
+    /// <summary>
+    /// Check if logs have been read and pulls from subscriber
+    /// </summary>
     public void Update()
     {
-        /*
-         * Not yet implemented
-         * 
-        if (roboyLogTextMesh.IsActive() == true)
-        {
-            unreadRoboyLog = 0;
-            UpdateRoboyUnreadCounter();
-        }
-        */
-
+        // check if logs have been read
         if (operatorLogTextMesh.IsActive() == true)
         {
             operatorUnreadCount = 0;
             UpdateOperatorUnreadCounter();
         }
 
-        //if (Input.GetKeyDown(KeyCode.O))
-        //    SendOperatorLogMessage("Omnimill selfdestruct", LogLevel.error);
-                
         // Pull from subscriber
-        if (SuperSubscriber.Instance.MessageQueueCount() != 0)
+        if (LogSubscriber.Instance.MessageQueueCount() != 0)
         {
             AudioManager.Instance.PlayMessageSound();
 
-            RosSharp.RosBridgeClient.Message messageObject = SuperSubscriber.Instance.DequeueOperatorMessage();
+            RosSharp.RosBridgeClient.Message messageObject = LogSubscriber.Instance.DequeueOperatorMessage();
 
-            SendOperatorLogMessage(messageObject);
+            AddOperatorLogMessage(messageObject);
         }
         
     }
 
+    /// <summary>
+    /// Synchronizes unread messages count with the displayed number on screen.
+    /// </summary>
     public void UpdateOperatorUnreadCounter()
     {       
         if (operatorUnreadCount == 0)
@@ -78,32 +67,31 @@ public class LogText : Singleton<LogText>
             operatorUnreadCountTextMesh.SetText("9+");
     }
 
-    public void UpdateRoboyUnreadCounter()
-    {
-
-        if (roboyUnreadCount == 0)
-            roboyUnreadCountTextMesh.SetText("");
-
-        else if (roboyUnreadCount >= 1 && roboyUnreadCount <= 9)
-            roboyUnreadCountTextMesh.SetText("" + roboyUnreadCount);
-
-        else
-            roboyUnreadCountTextMesh.SetText("9+");
-    }
-
+    /// <summary>
+    /// Toastr incoming. Start animation and add to log.
+    /// </summary>
+    /// <param name="message">incoming toastr message</param>
     public void OperatorToastr(String message)
     {
         addToOperatorText(message, LogLevel.error);
 
+        // don't show toastr, if log menu is open anyway
         if (operatorLogTextMesh.IsActive() == true)
             return;
+
+        // instantiate toastr prefab
         GameObject toastr = Instantiate(operatorToastrPrefab, canvas.transform);
         toastr.GetComponentInChildren<TextMeshProUGUI>().SetText(message);
 
+        // start animation of toastr
         StartCoroutine(OperatorToastrAnimationCoroutine(toastr));
     }
 
-    // This coroutine uses a timer for the toaster till it gets put in pocket, the unread counter gets updated and it ultimately gets destroyed
+    /// <summary>
+    /// This coroutine uses a timer for the toaster till it gets put in pocket, the unread counter gets updated and it ultimately gets destroyed
+    /// </summary>
+    /// <param name="toastr">toastr GameObject reference</param>
+    /// <returns></returns>
     IEnumerator OperatorToastrAnimationCoroutine(GameObject toastr)
     {
         yield return new WaitForSeconds(toastrTimer);
@@ -121,42 +109,16 @@ public class LogText : Singleton<LogText>
 
         Destroy(toastr);
     }
+    
 
-    public void RoboyToastr(String message)
-    {
-        GameObject toastr = Instantiate(roboyToastrPrefab, canvas.transform);
-        toastr.GetComponentInChildren<TextMeshProUGUI>().SetText(message);
-    }
-
-    public void addToRoboyText(string message)
-    {
-        time = DateTime.Now;
-
-        roboyText = " - " + message + "\n" + roboyText;
-
-        roboyText = time.Second + roboyText;
-        if (time.Second < 10)
-            roboyText = "0" + roboyText;
-
-        roboyText = time.Minute + ":" + roboyText;
-        if (time.Minute < 10)
-            roboyText = "0" + roboyText;
-
-        roboyText = time.Hour + ":" + roboyText;
-        if (time.Hour < 10)
-            roboyText = "0" + roboyText;
-
-        roboyLogTextMesh.SetText(roboyText);
-
-        // Update unread counter
-        if (roboyLogTextMesh.IsActive() == false)
-            roboyUnreadCount++;
-
-        UpdateRoboyUnreadCounter();
-    }
-
+    /// <summary>
+    /// Add new message to displayed string using HTML-like format and rich text in text mesh pro
+    /// </summary>
+    /// <param name="message">string of message</param>
+    /// <param name="logLevel">log level of message</param>
     public void addToOperatorText(string message, LogLevel logLevel)
     {
+        // HTML Color start
         switch (logLevel)
         {
             case LogLevel.warning:
@@ -174,6 +136,7 @@ public class LogText : Singleton<LogText>
 
         operatorText = " - " + message + "\n" + operatorText;
 
+        // Build string for time
         operatorText = time.Second + operatorText;
         if (time.Second < 10)
             operatorText = "0" + operatorText;
@@ -186,6 +149,7 @@ public class LogText : Singleton<LogText>
         if (time.Hour < 10)
             operatorText = "0" + operatorText;
 
+        // HTML Color stop
         switch (logLevel)
         {
             case LogLevel.warning:
@@ -202,7 +166,11 @@ public class LogText : Singleton<LogText>
         operatorLogTextMesh.SetText(operatorText);
     }
 
-    public void SendOperatorLogMessage(RosSharp.RosBridgeClient.Message logMessage)
+    /// <summary>
+    /// New message was pulled and has to be processed
+    /// </summary>
+    /// <param name="logMessage">message object in RosSharp</param>
+    public void AddOperatorLogMessage(RosSharp.RosBridgeClient.Message logMessage)
     {
         LogLevel logLevel = LogLevel.info;
         string message = "";

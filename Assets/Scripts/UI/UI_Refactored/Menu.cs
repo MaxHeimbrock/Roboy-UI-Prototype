@@ -5,24 +5,31 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Menu class for organizing input, assemble submenu structures and activate/deactivate them, handle pointing.
+/// Can be in an active or passive state. The a visual transition from passive to active is done with an animator.
+/// </summary>
 public class Menu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Menu parentMenu;
 
+    [Header("All OUI-Buttons on this menu level")]
     public OUI_Button[] menuButtons;
 
     private bool pointed = false;
+    private bool active = false;
+    private Animator animator;
 
     private float startTimer;
     private float timer;
     private float currentTime = 0.0f;
+
+    [Header("Timings of active state")]
+    [Tooltip("How long menu stays active without pointing on it")]
     public float activeTime = 3.0f;
+    [Tooltip("How long menu needs pointing to activate")]
     public float activationTime = 2f;
-
-    private bool active = false;
-
-    private Animator animator;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +44,9 @@ public class Menu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         Deactivate();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Handles pointing, passes highligh on to parent menu and handles the timer for activation
+    /// </summary>
     void Update()
     {
         // This is set with the event trigger system of unity
@@ -72,6 +81,9 @@ public class Menu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
     }
 
+    /// <summary>
+    /// Highlight() is being called, if the menu or a submenu of this menu is pointed at. It means this menu stays active or will get activated by pointing (highlighting) long enough.
+    /// </summary>
     public void Highlight()
     {
         // Debug.Log("Highlight");

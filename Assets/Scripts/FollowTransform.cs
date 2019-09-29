@@ -2,18 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Helper class to let GameObject follow the transform of another one, without being a child in the scene graph.
+/// Supports transition with offset and y-rotation with offset.
+/// </summary>
 public class FollowTransform : MonoBehaviour
 {
     public bool followPosition = true;
     public bool followYRotation = false;
 
+    [Tooltip("Parent GameObject to be followed")]
     public Transform followedTransform;
 
     public Vector3 offsetPosition;
 
     public Vector3 offsetRotation;
 
-    // Update is called once per frame
+    /// <summary>
+    /// Updates the position and y-rotation according to followed GameObject and given offsets
+    /// </summary>
     void Update()
     {
         if (followPosition)

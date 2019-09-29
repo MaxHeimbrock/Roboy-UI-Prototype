@@ -2,6 +2,9 @@
 
 namespace UnityTemplateProjects
 {
+    /// <summary>
+    /// This class can move the camera with WASD and mouse for debugging.
+    /// </summary>
     public class SimpleCameraController : MonoBehaviour
     {
         class CameraState
