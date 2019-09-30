@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A pointer used with the SenseGlove, where a ray is coming from the gloves position and orientation.
+/// </summary>
 public class PointerSenseGlove : Pointer
 {
     private SenseGlove_Teleport teleport;

@@ -109,18 +109,29 @@ public class Menu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     #region Helper
     
+    /// <summary>
+    /// Activates the menu, triggers active animation
+    /// </summary>
     public void Activate()
     {
         animator.SetBool("Active", true);
         active = true;
     }
 
+
+    /// <summary>
+    /// Deactivates the menu, triggers deactive animation
+    /// </summary>
     public void Deactivate()
     {
         animator.SetBool("Active", false);
         active = false;
     }
 
+    /// <summary>
+    /// Is called if pointers raycast enters this UI element
+    /// </summary>
+    /// <param name="eventData">not used</param>
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (pointed == false)
@@ -129,7 +140,11 @@ public class Menu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             //Debug.Log("Enter");
         }
     }
-
+    
+    /// <summary>
+    /// Is called if pointers raycast exits this UI element
+    /// </summary>
+    /// <param name="eventData">not used</param>
     public void OnPointerExit(PointerEventData eventData)
     {
         if (pointed == true)

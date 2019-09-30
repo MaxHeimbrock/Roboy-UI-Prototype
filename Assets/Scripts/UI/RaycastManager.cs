@@ -51,6 +51,11 @@ public class RaycastManager : MonoBehaviour
         SetPointerTransform(length, thickness);
     }
 
+    /// <summary>
+    /// Draws a line for a raycast and checks for a raycast hit
+    /// </summary>
+    /// <param name="position">pointers position</param>
+    /// <param name="rotation">pointers rotation</param>
     public void GetRaycastHit(Vector3 position, Vector3 rotation)
     {
         // Set the Parent transform and rotation to the pointing device 
@@ -68,11 +73,6 @@ public class RaycastManager : MonoBehaviour
         // This draws the line of the raycast
         SetPointerTransform(beamLength, thickness);
 
-    }
-
-    public void Subscribe(IRaycastSubscriber subscriber)
-    {
-        subscribers.Add(subscriber);
     }
 
     private void SendPushNotification(RaycastHit hit, bool isHit)

@@ -36,7 +36,11 @@ public class OUI_Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField]
     private ButtonClicked buttonClickedTriggered = new ButtonClicked();
     public ButtonClicked buttonClickedEvent { get { return buttonClickedTriggered; } set { buttonClickedTriggered = value; } }
-
+    
+    /// <summary>
+    /// Is called if pointers raycast enters this UI element
+    /// </summary>
+    /// <param name="eventData">not used</param>
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (pointed == false)
@@ -47,6 +51,10 @@ public class OUI_Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         }
     }
 
+    /// <summary>
+    /// Is called if pointers raycast exits this UI element
+    /// </summary>
+    /// <param name="eventData">not used</param>
     public void OnPointerExit(PointerEventData eventData)
     {
         if (pointed == true)

@@ -20,7 +20,7 @@ public class UI_Manager : MonoBehaviour
 
     private Vector2 pointerPos;
 
-    public enum PointerTechnique { PointerMouse, PointerEye, PointerViveController, PointerSenseGlove};
+    public enum PointerTechnique { PointerMouse, PointerViveController, PointerSenseGlove};
 
     #region Setup
 
@@ -62,11 +62,7 @@ public class UI_Manager : MonoBehaviour
             case PointerTechnique.PointerMouse:
                 pointer = this.gameObject.AddComponent<PointerMouse>();
                 return;
-
-            case PointerTechnique.PointerEye:
-                pointer = this.gameObject.AddComponent<PointerEye>();
-                return;
-
+                
             case PointerTechnique.PointerViveController:
                 pointer = this.gameObject.AddComponent<PointerViveController>();
                 return;
